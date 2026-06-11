@@ -1,0 +1,57 @@
+import { Cocktail } from '@/data/cocktails';
+
+interface CocktailCardProps {
+  cocktail: Cocktail;
+  onClick: () => void;
+}
+
+export default function CocktailCard({ cocktail, onClick }: CocktailCardProps) {
+  const imgSrc = `/photos/${cocktail.slug}.jpg`;
+  const fallbackLetter = cocktail.name.charAt(0).toUpperCase();
+
+  return (
+    <div
+      className="glass-card photo-card animate-fade-in-up"
+      onClick={onClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onClick();
+        }
+      }}
+    >
+      <div className="photo-wrapper" style={{ height: '220px' }}>
+        {/* Use regular img for static export compatibility */}
+        <img
+          src={imgSrc}
+          alt={cocktail.name}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            target.style.display = 'none';
+            const placeholder = target.parentElement?.querySelector('.photo-placeholder') as HTMLElement;
+            if (placeholder) placeholder.style.display = 'flex';
+          }}
+        />
+        <div className="photo-placeholder absolute inset-0 flex items-center justify-center text-5xl font-bold text-[#5a5a7a]">
+          {fallbackLetter}
+        </div>
+      </div>
+      <div style={{ padding: '1.2rem' }}>
+        <h3 style={{ marginBottom: '0.3rem' }}>{cocktail.name}</h3>
+        <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.9rem', marginBottom: '0.4rem' }}>
+          {cocktail.origin.split('.').slice(0, 2).join('.')}
+          {cocktail.origin.split('.').length > 2 ? '...' : ''}
+        </p>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginTop: '0.6rem' }}>
+          {cocktail.tags.map((tag) => (
+            <span key={tag} className="tag">{tag}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,9 @@
+2026-06-10 19:50:37
+[TIMESTAMP] Starting lesson update...
+2026-06-10 19:51:50
+[2026-06-10 19:51:38] Updated gin-101: What is gin? — Added authoritative EU (Reg 2019/787), US TTB definitions; added origins/jenever history; added 4 authoritative sources
+[2026-06-10 20:47:50] Updated rum-101: What is rum? — Added authoritative TTB 27 CFR § 5.147 US standard of identity (sugarcane source, ABV limits, bottling minimum), EU Reg 2019/787 Annex I Category 13 definition and flavouring/sweetening rules, plus TTB age-labeling guidance; added 4 sources including official eCFR and EU EUR-Lex citations
+[2026-06-10 20:54:57 CEST] Updated whiskey-grains: Grain bills & mash bills — Added verified facts about mashing process, diastatic power (°Lintner), enzymatic activity (amylase), base vs specialty malts; added 4 sources (Wikipedia Mash bill, Wikipedia Mash ingredients, TTB 27 CFR §5.22, Scotch Whisky Regulations 2009)
+[2026-06-11T02:59:08Z] Updated acid-101: The role of acid — Added verified facts on acid sources, concentrations, and wine chemistry; expanded sources with TTB/EU-aligned references (deploy: success)
+[2026-06-11 09:06:50] Updated citrus-varieties: Citrus varieties & flavor impact — Rewrote for accuracy, depth, and sourced facts (deploy: success)
+[2026-06-11 15:10:10] Updated rich-syrup: Rich syrup & concentration — Added verified °Brix values (1:1 ≈ 50, 2:1 ≈ 67), expanded water-activity/preservation explanation, clarified agave nectar concentration (75–80° Brix), and added sourced references (deploy: success)
