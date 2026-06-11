@@ -4,7 +4,7 @@ scripts/inject_and_deploy.py
 Orchestrator: injects lesson, adds sources, checks coverage, commits + pushes.
 Reads lesson data from /tmp/lesson_inject.json (written by the cron content-gen job).
 """
-import json, os, subprocess, sys, psycopg2
+import json, os, subprocess, sys, urllib.error, urllib.parse, urllib.request, psycopg2
 
 PASS_FILE = os.path.expanduser('~/Desktop/NeonDbPass')
 HOST = 'ep-young-cell-apbcicg9-pooler.c-7.us-east-1.aws.neon.tech'
@@ -93,16 +93,31 @@ def main():
         url = src.get('url', '')
         if not url:
             continue
-        ok, out = run(
-            f'curl -s -X POST {SCHOOL_URL}/api/sources '
-            f'-H "Content-Type: application/json" '
-            f'-d \'{{"lesson_id":"{lesson_id}","citation":"{citation}","url":"{url}","sort_order":{i+1}}}\''
+        payload = json.dumps({
+            "lesson_id": lesson_id,
+            "citation": citation,
+            "url": url,
+            "sort_order": i + 1
+        }).encode('utf-8')
+        req = urllib.request.Request(
+            f"{SCHOOL_URL}/api/sources",
+            data=payload,
+            headers={'Content-Type': 'application/json'},
+            method='POST'
         )
-        if ok:
-            source_count += 1
-            print(f"  Added source {i+1}: {citation}")
-        else:
-            print(f"  Failed to add source {i+1}: {out[:200]}")
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                result = json.loads(resp.read().decode())
+                if result.get('success') or result.get('id'):
+                    source_count += 1
+                    print(f"  Added source {i+1}: {citation}")
+                else:
+                    print(f"  Failed to add source {i+1}: {result}")
+        except urllib.error.HTTPError as e:
+            body = e.read().decode()[:200]
+            print(f"  Failed to add source {i+1}: HTTP {e.code}: {body}")
+        except Exception as e:
+            print(f"  Failed to add source {i+1}: {e}")
     print(f"  Sources added: {source_count}/{len(sources)}")
 
     # Step D: coverage check
