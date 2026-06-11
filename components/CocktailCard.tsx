@@ -47,7 +47,7 @@ export default function CocktailCard({ cocktail, onClick }: CocktailCardProps) {
           {cocktail.origin && cocktail.origin.split('.').length > 2 ? '...' : ''}
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginTop: '0.6rem' }}>
-          {cocktail.tags.map((tag) => (
+          {(cocktail.tags || []).map((tag) => (
             <span key={tag} className="tag">{tag}</span>
           ))}
         </div>

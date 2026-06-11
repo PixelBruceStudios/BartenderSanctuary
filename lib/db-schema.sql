@@ -56,6 +56,7 @@ CREATE TABLE cocktails (
   garnish     TEXT NOT NULL DEFAULT '',
   difficulty  TEXT NOT NULL DEFAULT 'Beginner',
   origin      TEXT NOT NULL DEFAULT '',
+  tags        JSONB NOT NULL DEFAULT '[]',
   created_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
   updated_at  TIMESTAMPTZ NOT NULL DEFAULT now()
 );
