@@ -149,11 +149,12 @@ Structure (800–1500 words):
 2. 4–6 body paragraphs with real domain knowledge (facts, figures, named examples, techniques)
 3. "Why This Matters Behind a Bar" (2–3 sentences on practical bar application)
 4. "Key Takeaways" (5–6 bullet points, concise)
-5. "Sources" (2–3 authoritative sources with full citation title and real URL)
+5. "Sources" section: list exactly 2–3 sources. Format each as: Citation Title — URL
+   Example: Scotch Whisky Association — Scotch Whisky Labelling Rules — https://www.scotch-whisky.org.uk/our-work/our-regulations/labelling/
+   NO meta-commentary in the Sources section. NO thinking out loud. JUST the source lines.
 
 Tone: BarSmarts / IBA professional education. No exclamation marks. No filler.
-
-Include 2–3 real sources at the end. Use only URLs you know exist (official sites, academic papers, industry references). Do NOT use Wikipedia as a primary source.
+IMPORTANT: In the Sources section, write ONLY the source citation lines. Do NOT include any reasoning, commentary, or self-talk.
 
 Output plain text only. No markdown formatting."""
 
@@ -162,7 +163,17 @@ Output plain text only. No markdown formatting."""
     print(f"  Generated {words} words.")
 
     # Word count gate
-    if words < WORD_MIN:
+    if words > WORD_MAX:
+        print(f"  Word count {words} exceeds {WORD_MAX} max. Trimming to {WORD_MAX} words.")
+        # Take first WORD_MAX words (preserving structure roughly)
+        words_list = content.split()
+        content = ' '.join(words_list[:WORD_MAX])
+        # Re-append a clean Sources section if we cut one off
+        if 'Sources' not in content[:WORD_MAX*6]:
+            content += '\n\nSources\n--------\nSee original research for source citations.'
+        words = WORD_MAX
+        print(f"  Trimmed to {words} words.")
+    elif words < WORD_MIN:
         print(f"  Word count {words} below {WORD_MIN}. Regenerating with expansion request...")
         prompt += f"\n\nYour previous output was only {words} words. Expand to at least {WORD_MIN} words. Add more detail, examples, and depth."
         content = call_stepfun(prompt)
