@@ -1,0 +1,340 @@
+{
+  "categories": [
+    {
+      "slug": "foundations",
+      "title": "Foundations",
+      "techniques": [
+        {
+          "slug": "history-of-the-bar",
+          "title": "History of the Bar",
+          "lessons": [
+            {"slug": "ancient-fermentation", "title": "Ancient Fermentation & Distillation", "description": "Where alcoholic beverages began.", "duration": "12 min", "difficulty": "Beginner"},
+            {"slug": "taverns-saloons-speakeasies", "title": "Taverns, Saloons, Speakeasies", "description": "The social spaces that shaped drinking culture.", "duration": "14 min", "difficulty": "Beginner"},
+            {"slug": "prohibition-legacy", "title": "Prohibition & Its Legacy", "description": "How 13 years shaped American drinking.", "duration": "15 min", "difficulty": "Intermediate"},
+            {"slug": "golden-age", "title": "Golden Age of Cocktails (1860–1920)", "description": "Jerry Thomas to the pre-Prohibition heyday.", "duration": "18 min", "difficulty": "Intermediate"},
+            {"slug": "tiki-era", "title": "Tiki Era (1930s–1960s)", "description": "Polynesian fantasy, rum, and Don the Beachcomber.", "duration": "15 min", "difficulty": "Beginner"},
+            {"slug": "disco-era-decline", "title": "Disco Era Decline", "description": "When cocktails lost their way.", "duration": "10 min", "difficulty": "Beginner"},
+            {"slug": "craft-renaissance", "title": "Craft Cocktail Renaissance (2000s–Now)", "description": "Dale DeGroff, Sasha Petraske, and the modern bar.", "duration": "16 min", "difficulty": "Intermediate"}
+          ]
+        },
+        {
+          "slug": "bar-setup-terminology",
+          "title": "Bar Setup & Terminology",
+          "lessons": [
+            {"slug": "anatomy-of-bar", "title": "Anatomy of a Bar", "description": "Well, back bar, speed rail, mise en place.", "duration": "10 min", "difficulty": "Beginner"},
+            {"slug": "essential-glassware", "title": "Essential Glassware Guide", "description": "Coupe, rocks, highball, collins, and more.", "duration": "10 min", "difficulty": "Beginner"},
+            {"slug": "essential-tools", "title": "Essential Tools Guide", "description": "Shakers, strainers, muddlers, and barspoons.", "duration": "12 min", "difficulty": "Beginner"},
+            {"slug": "measurements", "title": "Bar Measurements", "description": "Oz, ml, dash, splash, barspoon.", "duration": "10 min", "difficulty": "Beginner"},
+            {"slug": "industry-slang", "title": "Industry Slang & Vocabulary", "description": "The language bars actually use.", "duration": "10 min", "difficulty": "Beginner"},
+            {"slug": "hygiene-food-safety", "title": "Bar Hygiene & Food Safety", "description": "Cross-contamination, glass washing, storage.", "duration": "12 min", "difficulty": "Beginner"}
+          ]
+        },
+        {
+          "slug": "palate-training",
+          "title": "Palate Training",
+          "lessons": [
+            {"slug": "five-tastes", "title": "The 5 Taste Profiles", "description": "Sweet, sour, bitter, salty, umami.", "duration": "10 min", "difficulty": "Beginner"},
+            {"slug": "alcohol-flavour-perception", "title": "How Alcohol Affects Flavour Perception", "description": "ABV, burn, and sensory adaptation.", "duration": "12 min", "difficulty": "Beginner"},
+            {"slug": "training-your-nose", "title": "Training Your Nose", "description": "Aroma families and olfactory memory.", "duration": "12 min", "difficulty": "Beginner"},
+            {"slug": "tasting-methodology", "title": "Tasting Methodology", "description": "Structured tasting for bartenders.", "duration": "12 min", "difficulty": "Intermediate"},
+            {"slug": "building-flavour-memory", "title": "Building Flavour Memory", "description": "How to remember and recall flavours.", "duration": "10 min", "difficulty": "Beginner"}
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "spirits",
+      "title": "Spirits",
+      "techniques": [
+        {"slug": "whiskey", "title": "Whiskey", "lessons": [
+          {"slug": "how-whiskey-is-made", "title": "How Whiskey Is Made", "description": "Grain to glass.", "duration": "12 min", "difficulty": "Beginner"},
+          {"slug": "scotch-regions-styles", "title": "Scotch — Regions & Styles", "description": "Lowland, Highland, Islay, Speyside, Campbeltown.", "duration": "14 min", "difficulty": "Intermediate"},
+          {"slug": "irish-whiskey", "title": "Irish Whiskey", "description": "Triple distillation, pot still, and single malt.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "bourbon-rules-production", "title": "Bourbon — Rules & Production", "description": "New charred oak, corn-heavy mash bill.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "rye-whiskey", "title": "Rye Whiskey", "description": "Spicy, bold, and essential in classic cocktails.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "japanese-whisky", "title": "Japanese Whisky", "description": "Precision, balance, and the Yamazaki legacy.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "world-whisky", "title": "World Whisky", "description": "Indian, Taiwanese, Australian, and beyond.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "reading-whiskey-label", "title": "Reading a Whiskey Label", "description": "Age statements, NAS, single malt vs. blended.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "whiskey-food-pairing", "title": "Whiskey & Food Pairing", "description": "Cheese, chocolate, and smoked meats.", "duration": "12 min", "difficulty": "Intermediate"}
+        ]},
+        {"slug": "gin", "title": "Gin", "lessons": [
+          {"slug": "how-gin-is-made", "title": "How Gin Is Made", "description": "Botanical infusion and distillation methods.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "london-dry-vs-other-styles", "title": "London Dry vs. Other Styles", "description": "Styles, rules, and flavour differences.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "new-western-gin", "title": "New Western / Contemporary Gin", "description": "Modern gins that downplay juniper.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "sloe-gin-liqueur-gins", "title": "Sloe Gin & Liqueur Gins", "description": "Fruit-infused and sweetened styles.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "key-botanicals", "title": "Key Botanicals & Their Flavours", "description": "Juniper, coriander, citrus, spice, floral.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "tonic-water-gin-pairings", "title": "Tonic Water & Gin Pairings", "description": "How tonic changes the G&T.", "duration": "10 min", "difficulty": "Beginner"}
+        ]},
+        {"slug": "rum", "title": "Rum", "lessons": [
+          {"slug": "how-rum-is-made", "title": "How Rum Is Made", "description": "Molasses, fermentation, distillation, aging.", "duration": "12 min", "difficulty": "Beginner"},
+          {"slug": "white-aged-dark-spiced-rum", "title": "White, Aged, Dark, Spiced Rum", "description": "Colour, age, and flavour profiles.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "rhum-agricole-vs-molasses-rum", "title": "Rhum Agricole vs. Molasses Rum", "description": "Sugar cane juice vs. molasses base.", "duration": "10 min", "difficulty": "Intermediate"},
+          {"slug": "caribbean-regions", "title": "Caribbean Regions", "description": "Jamaica, Barbados, Cuba, Martinique.", "duration": "14 min", "difficulty": "Intermediate"},
+          {"slug": "overproof-rum", "title": "Overproof Rum", "description": "High-ABV rum for tiki and flaming drinks.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "cachaca-brazilian-spirits", "title": "Cachaça & Brazilian Spirits", "description": "Brazil's native sugar cane spirit.", "duration": "10 min", "difficulty": "Beginner"}
+        ]},
+        {"slug": "tequila-mezcal", "title": "Tequila & Mezcal", "lessons": [
+          {"slug": "agave-the-plant", "title": "Agave — The Plant", "description": "The blue agave and its relatives.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "how-tequila-is-made", "title": "How Tequila Is Made", "description": "Harvest, cook, ferment, distill.", "duration": "12 min", "difficulty": "Beginner"},
+          {"slug": "blanco-reposado-anejo-extra-anejo", "title": "Blanco, Reposado, Añejo, Extra Añejo", "description": "Aging categories and flavour development.", "duration": "12 min", "difficulty": "Beginner"},
+          {"slug": "how-mezcal-differs", "title": "How Mezcal Differs", "description": "Roasted agave, wild yeast, terroir.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "other-agave-spirits", "title": "Other Agave Spirits", "description": "Sotol, Raicilla, Bacanora.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "reading-tequila-label", "title": "Reading a Tequila Label", "description": "NOM numbers, 100% agave, mixto.", "duration": "10 min", "difficulty": "Beginner"}
+        ]},
+        {"slug": "vodka", "title": "Vodka", "lessons": [
+          {"slug": "how-vodka-is-made", "title": "How Vodka Is Made", "description": "Fermentation, distillation, filtration.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "base-ingredients-flavour-impact", "title": "Base Ingredients & Flavour Impact", "description": "Grain, potato, grape, sugar beet.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "filtration-methods", "title": "Filtration Methods", "description": "Charcoal, quartz, silver, diamond.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "flavoured-vodkas", "title": "Flavoured Vodkas", "description": "Infusion vs. flavouring, when to use them.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "eastern-european-traditions", "title": "Eastern European Traditions", "description": "Poland, Russia, Sweden, and the myth of neutrality.", "duration": "12 min", "difficulty": "Intermediate"}
+        ]},
+        {"slug": "brandy-cognac", "title": "Brandy & Cognac", "lessons": [
+          {"slug": "how-brandy-is-made", "title": "How Brandy Is Made", "description": "Wine to spirit through distillation.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "cognac-regions-grades", "title": "Cognac — Regions, Grades", "description": "VS, VSOP, XO, and the six crus.", "duration": "14 min", "difficulty": "Intermediate"},
+          {"slug": "armagnac", "title": "Armagnac", "description": "France's oldest brandy, column still, rustic character.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "calvados", "title": "Calvados", "description": "Apple brandy from Normandy.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "american-brandy-pisco", "title": "American Brandy & Pisco", "description": "California brandy and Peru's grape spirit.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "grappa-marc", "title": "Grappa & Marc", "description": "Pomace brandy of Italy and France.", "duration": "10 min", "difficulty": "Beginner"}
+        ]},
+        {"slug": "liqueurs-amari", "title": "Liqueurs & Amari", "lessons": [
+          {"slug": "how-liqueurs-are-made", "title": "How Liqueurs Are Made", "description": "Maceration, infusion, sweetening, and bottling.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "citrus-liqueurs", "title": "Citrus Liqueurs", "description": "Cointreau, Grand Marnier, Curaçao.", "duration": "12 min", "difficulty": "Beginner"},
+          {"slug": "herbal-liqueurs", "title": "Herbal Liqueurs", "description": "Chartreuse, Bénédictine, Galliano.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "amaro-family", "title": "Amaro Family", "description": "Campari, Aperol, Fernet, Cynar.", "duration": "14 min", "difficulty": "Intermediate"},
+          {"slug": "cream-liqueurs", "title": "Cream Liqueurs", "description": "Baileys, Amarula, crème de cacao.", "duration": "8 min", "difficulty": "Beginner"},
+          {"slug": "nut-seed-liqueurs", "title": "Nut & Seed Liqueurs", "description": "Amaretto, Frangelico, Disaronno.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "building-liqueur-vocabulary", "title": "Building a Liqueur Vocabulary", "description": "How to taste and categorise liqueurs.", "duration": "12 min", "difficulty": "Intermediate"}
+        ]},
+        {"slug": "beer-wine-basics", "title": "Beer & Wine Basics", "lessons": [
+          {"slug": "beer-styles-for-bartenders", "title": "Beer Styles for Bartenders", "description": "Lager, ale, stout, sour, and more.", "duration": "12 min", "difficulty": "Beginner"},
+          {"slug": "wine-styles-for-bartenders", "title": "Wine Styles for Bartenders", "description": "Red, white, rosé, orange, natural.", "duration": "12 min", "difficulty": "Beginner"},
+          {"slug": "champagne-sparkling-wine", "title": "Champagne & Sparkling Wine", "description": "Méthode traditionnelle, prosecco, cava.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "fortified-wines", "title": "Fortified Wines", "description": "Vermouth, Port, Sherry, Madeira.", "duration": "14 min", "difficulty": "Intermediate"},
+          {"slug": "service-storage", "title": "Service & Storage", "description": "Temperature, glassware, and cellar basics.", "duration": "10 min", "difficulty": "Beginner"}
+        ]}
+      ]
+    },
+    {
+      "slug": "cocktail-theory",
+      "title": "Cocktail Theory",
+      "techniques": [
+        {"slug": "classic-families", "title": "Classic Cocktail Families", "lessons": [
+          {"slug": "sours", "title": "Sours", "description": "Structure and variations.", "duration": "12 min", "difficulty": "Beginner"},
+          {"slug": "highballs", "title": "Highballs", "description": "Long, fizzy, refreshing.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "stirred-spirit-forward", "title": "Stirred Spirit-Forward Drinks", "description": "Martinis, Manhattans, Negronis.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "flips-nogs", "title": "Flips & Nogs", "description": "Egg-rich, creamy, historical.", "duration": "10 min", "difficulty": "Intermediate"},
+          {"slug": "punches-batched-cocktails", "title": "Punches & Batched Cocktails", "description": "Party-scale mixing and dilution control.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "toddies-hot-cocktails", "title": "Toddies & Hot Cocktails", "description": "Hot water, honey, and cold-weather classics.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "fizzes-collinses", "title": "Fizzes & Collinses", "description": "Carbonated, citrus-forward, tall drinks.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "tiki-drinks", "title": "Tiki Drinks", "description": "Rum, orgeat, demerara, and tropical complexity.", "duration": "14 min", "difficulty": "Intermediate"}
+        ]},
+        {"slug": "cocktail-formula", "title": "The Cocktail Formula", "lessons": [
+          {"slug": "base-modifier-accent", "title": "Base, Modifier, Accent", "description": "The structural model for every great cocktail.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "balance-sweet-sour-bitter-strong", "title": "Balance — Sweet/Sour/Bitter/Strong", "description": "The four pillars of cocktail balance.", "duration": "12 min", "difficulty": "Beginner"},
+          {"slug": "dilution-and-its-role", "title": "Dilution & Its Role", "description": "Why water makes cocktails better.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "temperature-and-its-role", "title": "Temperature & Its Role", "description": "Chill, dilution, and aroma release.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "texture-mouthfeel", "title": "Texture & Mouthfeel", "description": "Body, viscosity, and emulsion.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "riff-method", "title": "The \"Riff\" Method", "description": "How to create variations on classic templates.", "duration": "12 min", "difficulty": "Intermediate"}
+        ]},
+        {"slug": "original-cocktail-creation", "title": "Original Cocktail Creation", "lessons": [
+          {"slug": "ideation-concept", "title": "Ideation & Concept", "description": "Finding the story behind the drink.", "duration": "10 min", "difficulty": "Intermediate"},
+          {"slug": "flavour-mapping", "title": "Flavour Mapping", "description": "Visualising compatible ingredients.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "naming-storytelling", "title": "Naming & Storytelling", "description": "The name is part of the drink.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "recipe-documentation", "title": "Recipe Documentation", "description": "Writing specs that other bartenders can execute.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "scaling-batching", "title": "Scaling & Batching", "description": "From single serve to party pitcher.", "duration": "12 min", "difficulty": "Intermediate"}
+        ]}
+      ]
+    },
+    {
+      "slug": "techniques",
+      "title": "Techniques",
+      "techniques": [
+        {"slug": "core-techniques", "title": "Core Techniques", "lessons": [
+          {"slug": "shaking", "title": "Shaking", "description": "Hard shake, dry shake, reverse shake.", "duration": "12 min", "difficulty": "Beginner"},
+          {"slug": "stirring", "title": "Stirring", "description": "Speed, dilution control, and texture.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "building-in-glass", "title": "Building in Glass", "description": "Highballs, Collins, and layered pours.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "straining", "title": "Straining", "description": "Hawthorne, Julep, fine strain.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "muddling", "title": "Muddling", "description": "Release, don't shred.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "layering-floating", "title": "Layering & Floating", "description": "Density, gravity, and visual impact.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "flaming-fire-techniques", "title": "Flaming & Fire Techniques", "description": "Safety, flavour, and theatre.", "duration": "12 min", "difficulty": "Advanced"}
+        ]},
+        {"slug": "ice", "title": "Ice", "lessons": [
+          {"slug": "ice-chemistry", "title": "Ice Chemistry", "description": "Why ice shape and clarity matter.", "duration": "10 min", "difficulty": "Intermediate"},
+          {"slug": "ice-types", "title": "Ice Types", "description": "Cube, cracked, crushed, block, sphere.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "directional-dilution", "title": "Directional vs. Non-Directional Dilution", "description": "How you shake changes the drink.", "duration": "12 min", "difficulty": "Advanced"},
+          {"slug": "cutting-carving-block-ice", "title": "Cutting & Carving Block Ice", "description": "Tools, safety, and large-format ice.", "duration": "14 min", "difficulty": "Intermediate"},
+          {"slug": "home-ice-production", "title": "Home Ice Production", "description": "Clear ice at home without an ice machine.", "duration": "12 min", "difficulty": "Beginner"}
+        ]},
+        {"slug": "garnish", "title": "Garnish", "lessons": [
+          {"slug": "citrus-twists-peels-wheels", "title": "Citrus Twists, Peels, Wheels", "description": "Zest, oil, and visual appeal.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "expressed-oils", "title": "Expressed Oils", "description": "The aromatic finish that changes everything.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "herbs-edible-flowers", "title": "Herbs & Edible Flowers", "description": "Freshness, aroma, and colour.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "dehydrated-garnishes", "title": "Dehydrated Garnishes", "description": "Concentrated flavour and long storage.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "skewers-picks", "title": "Skewers & Picks", "description": "Functional garnish architecture.", "duration": "8 min", "difficulty": "Beginner"},
+          {"slug": "salt-sugar-rims", "title": "Salt & Sugar Rims", "description": "Seasoned rims beyond the basics.", "duration": "10 min", "difficulty": "Beginner"}
+        ]},
+        {"slug": "glassware", "title": "Glassware", "lessons": [
+          {"slug": "why-glass-shape-matters", "title": "Why Glass Shape Matters", "description": "Aroma concentration and temperature retention.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "chilling-heating-glasses", "title": "Chilling & Heating Glasses", "description": "Preparation before the pour.", "duration": "8 min", "difficulty": "Beginner"},
+          {"slug": "glass-types-and-their-drinks", "title": "Glass Types & Their Drinks", "description": "Coupe, rocks, highball, collins, flute.", "duration": "12 min", "difficulty": "Beginner"},
+          {"slug": "crystal-vs-standard-glass", "title": "Crystal vs. Standard Glass", "description": "Lead crystal, cut glass, and everyday glassware.", "duration": "10 min", "difficulty": "Beginner"}
+        ]}
+      ]
+    },
+    {
+      "slug": "cocktail-chemistry",
+      "title": "Cocktail Chemistry",
+      "techniques": [
+        {"slug": "clarification", "title": "Clarification", "lessons": [
+          {"slug": "milk-wash", "title": "Milk Wash", "description": "Science and method.", "duration": "14 min", "difficulty": "Advanced"},
+          {"slug": "agar-clarification", "title": "Agar Clarification", "description": "Gel clarification for crystal-clear drinks.", "duration": "14 min", "difficulty": "Advanced"},
+          {"slug": "gelatin-clarification", "title": "Gelatin Clarification", "description": "Traditional gelatin methods.", "duration": "12 min", "difficulty": "Advanced"},
+          {"slug": "centrifuge-clarification", "title": "Centrifuge Clarification", "description": "High-speed clarification for precision bars.", "duration": "12 min", "difficulty": "Advanced"}
+        ]},
+        {"slug": "infusions-extractions", "title": "Infusions & Extractions", "lessons": [
+          {"slug": "fat-washing", "title": "Fat Washing", "description": "Butter, bacon, coconut, sesame.", "duration": "14 min", "difficulty": "Advanced"},
+          {"slug": "cold-infusion", "title": "Cold Infusion", "description": "Slow, clean extraction.", "duration": "10 min", "difficulty": "Intermediate"},
+          {"slug": "hot-infusion", "title": "Hot Infusion", "description": "Heat-accelerated extraction.", "duration": "10 min", "difficulty": "Intermediate"},
+          {"slug": "sous-vide-infusion", "title": "Sous Vide Infusion", "description": "Precision temperature infusion.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "oleo-saccharum", "title": "Oleo Saccharum", "description": "Citrus oil and sugar emulsion.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "tinctures", "title": "Tinctures", "description": "High-proof spirit extractions.", "duration": "10 min", "difficulty": "Intermediate"}
+        ]},
+        {"slug": "acids-sourness", "title": "Acids & Sourness", "lessons": [
+          {"slug": "citric-malic-tartaric-lactic-acid", "title": "Citric, Malic, Tartaric, Lactic Acid", "description": "Acid types and flavour profiles.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "acid-adjusting-juice", "title": "Acid Adjusting Juice", "description": "Consistent sourness year-round.", "duration": "12 min", "difficulty": "Advanced"},
+          {"slug": "acid-phosphate", "title": "Acid Phosphate", "description": "Phosphoric acid in cocktails.", "duration": "10 min", "difficulty": "Intermediate"},
+          {"slug": "verjuice-shrubs", "title": "Verjuice & Shrubs", "description": "Acid from unripe grapes and vinegar.", "duration": "12 min", "difficulty": "Intermediate"}
+        ]},
+        {"slug": "carbonation", "title": "Carbonation", "lessons": [
+          {"slug": "how-carbonation-works", "title": "How Carbonation Works", "description": "CO2 solubility and pressure.", "duration": "10 min", "difficulty": "Intermediate"},
+          {"slug": "force-carbonation", "title": "Force Carbonation", "description": "ISI siphon and CO2 tank methods.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "carbonated-cocktails", "title": "Carbonated Cocktails", "description": " sparkling cocktails and soda systems.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "keeping-fizz-in-batched-drinks", "title": "Keeping Fizz in Batched Drinks", "description": "Storage, pressure, and anti-fizz agents.", "duration": "10 min", "difficulty": "Intermediate"}
+        ]},
+        {"slug": "texture-foam", "title": "Texture & Foam", "lessons": [
+          {"slug": "egg-white-chemistry", "title": "Egg White — Chemistry", "description": "Protein denaturation and foam stability.", "duration": "12 min", "difficulty": "Advanced"},
+          {"slug": "aquafaba", "title": "Aquafaba", "description": "Vegan foaming with chickpea water.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "lecithin-foams", "title": "Lecithin Foams", "description": "Soy-based airy textures.", "duration": "10 min", "difficulty": "Intermediate"},
+          {"slug": "xanthan-gum-texture-agents", "title": "Xanthan Gum & Texture Agents", "description": "Thickening, stabilising, and mouthfeel.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "espuma", "title": "Espuma", "description": "Whipping siphon foams.", "duration": "10 min", "difficulty": "Intermediate"}
+        ]},
+        {"slug": "fermentation-homemade-ingredients", "title": "Fermentation & Homemade Ingredients", "lessons": [
+          {"slug": "simple-flavoured-syrups", "title": "Simple & Flavoured Syrups", "description": "Sugar, water, and infusion.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "shrubs-drinking-vinegars", "title": "Shrubs & Drinking Vinegars", "description": "Acidified fruit syrups.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "tepache-fermented-sodas", "title": "Tepache & Fermented Sodas", "description": "Pineapple fermentation and natural fizz.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "kombucha-mixology", "title": "Kombucha Mixology", "description": "Using fermented tea in cocktails.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "homemade-bitters", "title": "Homemade Bitters", "description": "Botanical tinctures for the home bar.", "duration": "14 min", "difficulty": "Advanced"}
+        ]},
+        {"slug": "molecular-advanced", "title": "Molecular & Advanced", "lessons": [
+          {"slug": "spherification", "title": "Spherification", "description": "Basic and reverse.", "duration": "14 min", "difficulty": "Advanced"},
+          {"slug": "gels-fluid-gels", "title": "Gels & Fluid Gels", "description": "Texture manipulation with agar and gellan.", "duration": "12 min", "difficulty": "Advanced"},
+          {"slug": "smoking-smoke-infusion", "title": "Smoking & Smoke Infusion", "description": "Gun, cloche, and smoke infuser.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "vacuum-infusion", "title": "Vacuum Infusion", "description": "Vacuum sealer for rapid flavour extraction.", "duration": "10 min", "difficulty": "Intermediate"},
+          {"slug": "rotary-evaporation", "title": "Rotary Evaporation", "description": "Low-temperature distillation for aroma.", "duration": "12 min", "difficulty": "Advanced"}
+        ]}
+      ]
+    },
+    {
+      "slug": "menus-bar-programs",
+      "title": "Menus & Bar Programs",
+      "techniques": [
+        {"slug": "menu-design", "title": "Menu Design", "lessons": [
+          {"slug": "menu-structure-flow", "title": "Menu Structure & Flow", "description": "Organising a cocktail menu.", "duration": "10 min", "difficulty": "Intermediate"},
+          {"slug": "writing-drink-descriptions", "title": "Writing Drink Descriptions", "description": "Storytelling and sensory language.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "pricing-strategy", "title": "Pricing Strategy", "description": "Cost, value, and market positioning.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "seasonal-menus", "title": "Seasonal Menus", "description": "Spring, summer, autumn, winter rotations.", "duration": "10 min", "difficulty": "Intermediate"},
+          {"slug": "signature-cocktail-development", "title": "Signature Cocktail Development", "description": "From concept to menu star.", "duration": "14 min", "difficulty": "Advanced"}
+        ]},
+        {"slug": "batching-scaling", "title": "Batching & Scaling", "lessons": [
+          {"slug": "batching-for-service", "title": "Batching for Service", "description": "Consistency and speed.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "pre-dilution-calculations", "title": "Pre-Dilution Calculations", "description": "Accounting for ice dilution in batches.", "duration": "12 min", "difficulty": "Advanced"},
+          {"slug": "shelf-life-storage", "title": "Shelf Life & Storage", "description": "How long batches last and how to store them.", "duration": "10 min", "difficulty": "Intermediate"},
+          {"slug": "large-format-punch-bowls", "title": "Large Format & Punch Bowls", "description": "Party-scale cocktails.", "duration": "10 min", "difficulty": "Beginner"}
+        ]},
+        {"slug": "bar-economics", "title": "Bar Economics", "lessons": [
+          {"slug": "pour-cost-beverage-cost", "title": "Pour Cost & Beverage Cost %", "description": "The math behind profitable drinks.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "inventory-management", "title": "Inventory Management", "description": "Stock control, par levels, and ordering.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "waste-reduction", "title": "Waste Reduction", "description": "Zero-waste bar practices.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "upselling-techniques", "title": "Upselling Techniques", "description": "Ethical and effective upselling.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "shift-handover-mise-en-place", "title": "Shift Handover & Mise en Place", "description": "Passing the station smoothly.", "duration": "10 min", "difficulty": "Beginner"}
+        ]}
+      ]
+    },
+    {
+      "slug": "service-hospitality",
+      "title": "Service & Hospitality",
+      "techniques": [
+        {"slug": "guest-experience", "title": "Guest Experience", "lessons": [
+          {"slug": "reading-the-guest", "title": "Reading the Guest", "description": "Body language, mood, and order signals.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "recommendation-flow", "title": "Recommendation Flow", "description": "Asking the right questions.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "handling-difficult-guests", "title": "Handling Difficult Guests", "description": "De-escalation and service recovery.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "responsible-service-of-alcohol", "title": "Responsible Service of Alcohol", "description": "ID checking, refusal service, and duty of care.", "duration": "12 min", "difficulty": "Beginner"},
+          {"slug": "accessibility-non-alcoholic-service", "title": "Accessibility & Non-Alcoholic Service", "description": "Inclusive service for all guests.", "duration": "10 min", "difficulty": "Beginner"}
+        ]},
+        {"slug": "speed-efficiency", "title": "Speed & Efficiency", "lessons": [
+          {"slug": "station-setup", "title": "Station Setup", "description": "Pre-shift mise en place.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "multi-drink-workflow", "title": "Multi-Drink Workflow", "description": "Ticket order and execution.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "high-volume-service", "title": "High Volume Service", "description": "Rush survival and speed without sacrifice.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "flair-showmanship-basics", "title": "Flair & Showmanship Basics", "description": "Performance without danger.", "duration": "12 min", "difficulty": "Advanced"}
+        ]},
+        {"slug": "non-alcoholic-low-abv", "title": "Non-Alcoholic & Low-ABV", "lessons": [
+          {"slug": "no-low-movement-overview", "title": "No/Low Movement Overview", "description": "Market trends and guest expectations.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "building-na-cocktails-with-complexity", "title": "Building N/A Cocktails with Complexity", "description": "Body, acid, aroma, and texture without alcohol.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "seedlip-lyres-alternatives", "title": "Seedlip, Lyre's & Alternatives", "description": "Evaluating non-alcoholic spirits.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "mocktail-menu-design", "title": "Mocktail Menu Design", "description": "Creating compelling zero-ABV options.", "duration": "10 min", "difficulty": "Intermediate"},
+          {"slug": "low-abv-techniques", "title": "Low-ABV Techniques", "description": "Vermouth-forward, beer cocktails, spritzes.", "duration": "12 min", "difficulty": "Intermediate"}
+        ]}
+      ]
+    },
+    {
+      "slug": "wine-beverage-program",
+      "title": "Wine & Beverage Program",
+      "techniques": [
+        {"slug": "wine-service", "title": "Wine Service", "lessons": [
+          {"slug": "opening-decanting", "title": "Opening & Decanting", "description": "Corks, cages, and sediment.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "temperature-storage", "title": "Temperature & Storage", "description": "Cellar, fridge, and serving temps.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "sommelier-basics-for-bartenders", "title": "Sommelier Basics for Bartenders", "description": "Reading a wine list and recommending.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "wine-cocktail-pairing", "title": "Wine & Cocktail Pairing", "description": "When to serve wine vs. cocktails.", "duration": "10 min", "difficulty": "Intermediate"}
+        ]},
+        {"slug": "coffee-tea-bar", "title": "Coffee & Tea Bar", "lessons": [
+          {"slug": "espresso-basics", "title": "Espresso Basics", "description": "Grind, pressure, extraction.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "coffee-cocktails", "title": "Coffee Cocktails", "description": "Espresso Martini family and beyond.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "tea-infusions-in-cocktails", "title": "Tea Infusions in Cocktails", "description": "Chai, earl grey, matcha, and more.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "matcha-ceremonial-drinks", "title": "Matcha & Ceremonial Drinks", "description": "Japanese green tea in modern bars.", "duration": "10 min", "difficulty": "Beginner"}
+        ]},
+        {"slug": "juice-fresh-ingredients", "title": "Juice & Fresh Ingredients", "lessons": [
+          {"slug": "juicing-methods-yield", "title": "Juicing Methods & Yield", "description": "Centrifugal vs. cold-press.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "freshness-windows", "title": "Freshness Windows", "description": "How long fresh juice actually lasts.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "seasonal-ingredient-sourcing", "title": "Seasonal Ingredient Sourcing", "description": "Farmers markets, foraged ingredients, and specs.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "herb-spice-work", "title": "Herb & Spice Work", "description": "Growing, storing, and using fresh herbs and spices.", "duration": "12 min", "difficulty": "Intermediate"}
+        ]}
+      ]
+    },
+    {
+      "slug": "career-industry",
+      "title": "Career & Industry",
+      "techniques": [
+        {"slug": "working-in-bars", "title": "Working in Bars", "lessons": [
+          {"slug": "types-of-bars", "title": "Types of Bars", "description": "Hotel, cocktail, nightclub, restaurant.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "bar-hierarchy-roles", "title": "Bar Hierarchy & Roles", "description": "From barback to beverage director.", "duration": "12 min", "difficulty": "Beginner"},
+          {"slug": "cv-portfolio-for-bartenders", "title": "CV & Portfolio for Bartenders", "description": "Writing a CV and building a cocktail portfolio.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "bartending-competitions", "title": "Bartending Competitions", "description": "IBA, Diageo Reserve, Bacardi Legacy.", "duration": "12 min", "difficulty": "Intermediate"}
+        ]},
+        {"slug": "bar-ownership", "title": "Bar Ownership", "lessons": [
+          {"slug": "concept-development", "title": "Concept Development", "description": "Finding your niche and audience.", "duration": "12 min", "difficulty": "Advanced"},
+          {"slug": "licensing-permits", "title": "Licensing & Permits", "description": "Legal requirements for opening a bar.", "duration": "14 min", "difficulty": "Advanced"},
+          {"slug": "build-out-equipment", "title": "Build-Out & Equipment", "description": "Back bar, glassware, POS, and furniture.", "duration": "12 min", "difficulty": "Advanced"},
+          {"slug": "staffing-training", "title": "Staffing & Training", "description": "Hiring, onboarding, and ongoing education.", "duration": "12 min", "difficulty": "Advanced"},
+          {"slug": "pl-basics-for-bar-owners", "title": "P&L Basics for Bar Owners", "description": "Profit, loss, and financial health.", "duration": "12 min", "difficulty": "Advanced"}
+        ]},
+        {"slug": "industry-trends", "title": "Industry & Trends", "lessons": [
+          {"slug": "sustainability-in-bars", "title": "Sustainability in Bars", "description": "Reducing waste, energy, and footprint.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "zero-waste-bartending", "title": "Zero-Waste Bartending", "description": "Using every part of every ingredient.", "duration": "12 min", "difficulty": "Intermediate"},
+          {"slug": "global-cocktail-trends", "title": "Global Cocktail Trends", "description": "What's happening in London, Tokyo, Mexico City.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "social-media-for-bartenders", "title": "Social Media for Bartenders", "description": "Building a personal brand.", "duration": "10 min", "difficulty": "Beginner"},
+          {"slug": "brand-ambassador-consulting", "title": "Brand Ambassador & Consulting", "description": "From bar to brand careers.", "duration": "12 min", "difficulty": "Intermediate"}
+        ]}
+      ]
+    }
+  ]
+}
