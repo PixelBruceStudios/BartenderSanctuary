@@ -51,8 +51,10 @@ function CategoryTabs({
         gap: '0.5rem',
         flexWrap: 'wrap',
         marginBottom: '2rem',
-        borderBottom: '1px solid var(--color-border)',
-        paddingBottom: '0.5rem'
+        padding: '0.4rem',
+        background: 'var(--color-surface)',
+        borderRadius: '12px',
+        border: '1px solid var(--color-border)'
       }}
     >
       {categories.map((cat) => (
@@ -60,19 +62,25 @@ function CategoryTabs({
           key={cat.slug}
           onClick={() => onChange(cat)}
           style={{
-            background: 'none',
+            background: active.slug === cat.slug
+              ? 'linear-gradient(135deg, var(--color-accent), var(--color-accent-hover))'
+              : 'transparent',
             border: 'none',
-            color: active.slug === cat.slug ? '#fff' : 'var(--color-text-muted)',
-            fontSize: '1rem',
-            padding: '0.6rem 1.2rem',
+            color: active.slug === cat.slug ? '#fff' : 'var(--color-text-secondary)',
+            fontSize: '0.95rem',
+            padding: '0.65rem 1.2rem',
             cursor: 'pointer',
-            borderRadius: '6px 6px 0 0',
-            fontWeight: active.slug === cat.slug ? 600 : 400,
-            transition: 'all 0.2s ease'
+            borderRadius: '8px',
+            fontWeight: active.slug === cat.slug ? 600 : 500,
+            transition: 'all 0.2s ease',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.4rem',
+            boxShadow: active.slug === cat.slug ? '0 2px 8px rgba(0,0,0,0.15)' : 'none'
           }}
         >
-          <span style={{ marginRight: '0.4rem' }}>{cat.icon}</span>
-          {cat.title}
+          <span style={{ fontSize: '1.1rem' }}>{cat.icon}</span>
+          <span>{cat.title}</span>
         </button>
       ))}
     </div>
