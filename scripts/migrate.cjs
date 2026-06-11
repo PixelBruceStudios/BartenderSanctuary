@@ -78,11 +78,13 @@ async function migrate(dryRun = false, clear = false) {
     slug: c.slug,
     name: c.name,
     description: c.story || c.description || '',
+    image_url: c.image_url || '',
     ingredients: JSON.stringify(c.ingredients || []),
     instructions: JSON.stringify(c.instructions || []),
     glass_type: c.glass || c.glass_type || '',
     garnish: c.garnish || '',
     difficulty: c.difficulty || 'Beginner',
+    origin: c.origin || '',
   }));
 
   const rows = categories.map((cat) => ({
@@ -148,17 +150,19 @@ async function migrate(dryRun = false, clear = false) {
 
   for (const row of cocktailRows) {
     await client.query(
-      `INSERT INTO cocktails (slug, name, description, ingredients, instructions, glass_type, garnish, difficulty)
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8)
+      `INSERT INTO cocktails (slug, name, description, image_url, ingredients, instructions, glass_type, garnish, difficulty, origin)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)
        ON CONFLICT (slug) DO UPDATE SET
          name=EXCLUDED.name,
          description=EXCLUDED.description,
+         image_url=EXCLUDED.image_url,
          ingredients=EXCLUDED.ingredients,
          instructions=EXCLUDED.instructions,
          glass_type=EXCLUDED.glass_type,
          garnish=EXCLUDED.garnish,
-         difficulty=EXCLUDED.difficulty`,
-      [row.slug, row.name, row.description, row.ingredients, row.instructions, row.glass_type, row.garnish, row.difficulty]
+         difficulty=EXCLUDED.difficulty,
+         origin=EXCLUDED.origin`,
+      [row.slug, row.name, row.description, row.image_url, row.ingredients, row.instructions, row.glass_type, row.garnish, row.difficulty, row.origin]
     );
   }
 

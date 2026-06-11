@@ -55,6 +55,7 @@ CREATE TABLE cocktails (
   glass_type  TEXT NOT NULL DEFAULT '',
   garnish     TEXT NOT NULL DEFAULT '',
   difficulty  TEXT NOT NULL DEFAULT 'Beginner',
+  origin      TEXT NOT NULL DEFAULT '',
   created_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
   updated_at  TIMESTAMPTZ NOT NULL DEFAULT now()
 );
