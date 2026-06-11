@@ -88,36 +88,29 @@ def main():
     if not sources:
         print("  WARNING: no sources in inject file")
     source_count = 0
+    password = open(PASS_FILE).read().strip()
+    conn2 = psycopg2.connect(host=HOST, database=DB, user=USER, password=password, sslmode='require')
+    cur2 = conn2.cursor()
     for i, src in enumerate(sources):
         citation = src.get('citation', src.get('url', ''))
         url = src.get('url', '')
         if not url:
             continue
-        payload = json.dumps({
-            "lesson_id": lesson_id,
-            "citation": citation,
-            "url": url,
-            "sort_order": i + 1
-        }).encode('utf-8')
-        req = urllib.request.Request(
-            f"{SCHOOL_URL}/api/sources",
-            data=payload,
-            headers={'Content-Type': 'application/json'},
-            method='POST'
-        )
         try:
-            with urllib.request.urlopen(req, timeout=30) as resp:
-                result = json.loads(resp.read().decode())
-                if result.get('success') or result.get('id'):
-                    source_count += 1
-                    print(f"  Added source {i+1}: {citation}")
-                else:
-                    print(f"  Failed to add source {i+1}: {result}")
-        except urllib.error.HTTPError as e:
-            body = e.read().decode()[:200]
-            print(f"  Failed to add source {i+1}: HTTP {e.code}: {body}")
+            cur2.execute(
+                "INSERT INTO sources (lesson_id, citation, url, sort_order) VALUES (%s, %s, %s, %s) ON CONFLICT DO NOTHING",
+                (lesson_id, citation, url, i + 1)
+            )
+            if cur2.rowcount:
+                source_count += 1
+                print(f"  Added source {i+1}: {citation}")
+            else:
+                print(f"  Source {i+1} already existed or skipped")
         except Exception as e:
             print(f"  Failed to add source {i+1}: {e}")
+    conn2.commit()
+    cur2.close()
+    conn2.close()
     print(f"  Sources added: {source_count}/{len(sources)}")
 
     # Step D: coverage check
