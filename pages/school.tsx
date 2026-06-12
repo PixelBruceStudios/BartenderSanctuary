@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
-import Head from 'next/head';
-import Link from 'next/link';
-import { useTranslation } from '@/lib/contexts';
-import SEO from '@/components/SEO';
+import { useEffect, useState } from "react";
+import Head from "next/head";
+import Link from "next/link";
+import { useTranslation } from "@/lib/contexts";
+import SEO from "@/components/SEO";
 
 type Lesson = {
   id: string;
@@ -38,7 +38,7 @@ type Category = {
 function CategoryTabs({
   categories,
   active,
-  onChange
+  onChange,
 }: {
   categories: Category[];
   active: Category;
@@ -47,14 +47,14 @@ function CategoryTabs({
   return (
     <div
       style={{
-        display: 'flex',
-        gap: '0.5rem',
-        flexWrap: 'wrap',
-        marginBottom: '2rem',
-        padding: '0.4rem',
-        background: 'var(--color-surface)',
-        borderRadius: '12px',
-        border: '1px solid var(--color-border)'
+        display: "flex",
+        gap: "0.5rem",
+        flexWrap: "wrap",
+        marginBottom: "2rem",
+        padding: "0.4rem",
+        background: "var(--color-surface)",
+        borderRadius: "12px",
+        border: "1px solid var(--color-border)",
       }}
     >
       {categories.map((cat) => (
@@ -62,24 +62,28 @@ function CategoryTabs({
           key={cat.slug}
           onClick={() => onChange(cat)}
           style={{
-            background: active.slug === cat.slug
-              ? 'linear-gradient(135deg, var(--color-accent), var(--color-accent-hover))'
-              : 'transparent',
-            border: 'none',
-            color: active.slug === cat.slug ? '#fff' : 'var(--color-text-secondary)',
-            fontSize: '0.95rem',
-            padding: '0.65rem 1.2rem',
-            cursor: 'pointer',
-            borderRadius: '8px',
+            background:
+              active.slug === cat.slug
+                ? "linear-gradient(135deg, var(--color-accent), var(--color-accent-hover))"
+                : "transparent",
+            border: "none",
+            color: active.slug === cat.slug ? "#fff" : "var(--color-text-secondary)",
+            fontSize: "0.95rem",
+            padding: "0.65rem 1.2rem",
+            cursor: "pointer",
+            borderRadius: "8px",
             fontWeight: active.slug === cat.slug ? 600 : 500,
-            transition: 'all 0.2s ease',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.4rem',
-            boxShadow: active.slug === cat.slug ? '0 2px 8px rgba(0,0,0,0.15)' : 'none'
+            transition: "all 0.2s ease",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.4rem",
+            boxShadow:
+              active.slug === cat.slug
+                ? "0 2px 8px rgba(0,0,0,0.15)"
+                : "none",
           }}
         >
-          <span style={{ fontSize: '1.1rem' }}>{cat.icon}</span>
+          <span style={{ fontSize: "1.1rem" }}>{cat.icon}</span>
           <span>{cat.title}</span>
         </button>
       ))}
@@ -90,7 +94,7 @@ function CategoryTabs({
 function TechniqueGrid({
   techniques,
   activeTechnique,
-  onSelect
+  onSelect,
 }: {
   techniques: Technique[];
   activeTechnique: Technique | null;
@@ -100,10 +104,10 @@ function TechniqueGrid({
   return (
     <div
       style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
-        gap: '1rem',
-        marginBottom: '2rem'
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
+        gap: "1rem",
+        marginBottom: "2rem",
       }}
     >
       {techniques.map((tech) => (
@@ -111,30 +115,39 @@ function TechniqueGrid({
           key={tech.slug}
           onClick={() => onSelect(tech)}
           style={{
-            padding: '1.25rem',
-            borderRadius: '10px',
-            background: activeTechnique?.slug === tech.slug
-              ? 'var(--color-surface-hover)'
-              : 'var(--color-surface)',
-            border: activeTechnique?.slug === tech.slug
-              ? '1px solid var(--color-accent)'
-              : '1px solid var(--color-border)',
-            cursor: 'pointer',
-            transition: 'all 0.2s ease'
+            padding: "1.25rem",
+            borderRadius: "10px",
+            background:
+              activeTechnique?.slug === tech.slug
+                ? "var(--color-surface-hover)"
+                : "var(--color-surface)",
+            border:
+              activeTechnique?.slug === tech.slug
+                ? "1px solid var(--color-accent)"
+                : "1px solid var(--color-border)",
+            cursor: "pointer",
+            transition: "all 0.2s ease",
           }}
         >
-          <h3 style={{ marginBottom: '0.3rem' }}>{tech.title}</h3>
-          <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.9rem', lineHeight: 1.6 }}>
+          <h3 style={{ marginBottom: "0.3rem" }}>{tech.title}</h3>
+          <p
+            style={{
+              color: "var(--color-text-secondary)",
+              fontSize: "0.9rem",
+              lineHeight: 1.6,
+            }}
+          >
             {tech.description}
           </p>
           <div
             style={{
-              marginTop: '0.8rem',
-              fontSize: '0.8rem',
-              color: 'var(--color-text-muted)'
+              marginTop: "0.8rem",
+              fontSize: "0.8rem",
+              color: "var(--color-text-muted)",
             }}
           >
-            {tech.lessons.length} {tech.lessons.length === 1 ? t('lessonCount') : t('lessonsCount')}
+            {tech.lessons.length}{" "}
+            {tech.lessons.length === 1 ? t("lessonCount") : t("lessonsCount")}
           </div>
         </div>
       ))}
@@ -148,7 +161,7 @@ function LessonList({
   completedSet,
   onToggle,
   categorySlug,
-  techniqueSlug
+  techniqueSlug,
 }: {
   technique: Technique;
   lessons: Lesson[];
@@ -159,55 +172,72 @@ function LessonList({
 }) {
   const { t } = useTranslation();
   return (
-    <div className="glass-card" style={{ padding: '1.5rem' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1rem' }}>
+    <div className="glass-card" style={{ padding: "1.5rem" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "baseline",
+          flexWrap: "wrap",
+          gap: "0.5rem",
+          marginBottom: "1rem",
+        }}
+      >
         <div>
-          <h2 style={{ marginBottom: '0.3rem' }}>{technique.title}</h2>
-          <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.95rem' }}>{technique.description}</p>
+          <h2 style={{ marginBottom: "0.3rem" }}>{technique.title}</h2>
+          <p
+            style={{
+              color: "var(--color-text-secondary)",
+              fontSize: "0.95rem",
+            }}
+          >
+            {technique.description}
+          </p>
         </div>
         <span
           style={{
-            fontSize: '0.75rem',
+            fontSize: "0.75rem",
             fontWeight: 600,
-            textTransform: 'uppercase',
-            letterSpacing: '0.08em',
-            color: 'var(--color-accent)',
-            background: 'rgba(99, 102, 241, 0.1)',
-            padding: '0.25rem 0.6rem',
-            borderRadius: '6px'
+            textTransform: "uppercase",
+            letterSpacing: "0.08em",
+            color: "var(--color-accent)",
+            background: "rgba(99, 102, 241, 0.1)",
+            padding: "0.25rem 0.6rem",
+            borderRadius: "6px",
           }}
         >
-          {technique.lessons.length} {technique.lessons.length === 1 ? t('lessonCount') : t('lessonsCount')}
+          {technique.lessons.length}{" "}
+          {technique.lessons.length === 1 ? t("lessonCount") : t("lessonsCount")}
         </span>
       </div>
 
-      <div style={{ display: 'grid', gap: '0.6rem' }}>
+      <div style={{ display: "grid", gap: "0.6rem" }}>
         {lessons.map((lesson, idx) => {
           const done = completedSet.has(lesson.id);
           return (
             <div
               key={lesson.id}
               style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.8rem',
-                padding: '0.8rem 1rem',
-                borderRadius: '8px',
-                background: 'var(--color-surface)',
-                border: '1px solid var(--color-border)',
-                opacity: done ? 0.7 : 1
+                display: "flex",
+                alignItems: "center",
+                gap: "0.8rem",
+                padding: "0.8rem 1rem",
+                borderRadius: "8px",
+                background: "var(--color-surface)",
+                border: "1px solid var(--color-border)",
+                opacity: done ? 0.7 : 1,
               }}
             >
               <Link
                 href={`/school/lesson/${categorySlug}/${techniqueSlug}/${lesson.id}`}
                 style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.8rem',
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.8rem",
                   flex: 1,
                   minWidth: 0,
-                  color: 'inherit',
-                  textDecoration: 'none'
+                  color: "inherit",
+                  textDecoration: "none",
                 }}
               >
                 <button
@@ -217,32 +247,44 @@ function LessonList({
                     onToggle(lesson.id);
                   }}
                   style={{
-                    width: '22px',
-                    height: '22px',
-                    borderRadius: '6px',
-                    border: done ? 'none' : '1px solid var(--color-border)',
-                    background: done ? 'var(--color-accent)' : 'transparent',
-                    color: '#fff',
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '0.75rem',
-                    flexShrink: 0
+                    width: "22px",
+                    height: "22px",
+                    borderRadius: "6px",
+                    border: done ? "none" : "1px solid var(--color-border)",
+                    background: done ? "var(--color-accent)" : "transparent",
+                    color: "#fff",
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "0.75rem",
+                    flexShrink: 0,
                   }}
-                  aria-label={done ? t('markIncomplete') : t('markComplete')}
+                  aria-label={done ? t("markIncomplete") : t("markComplete")}
                 >
-                  {done ? '✓' : ''}
+                  {done ? "✓" : ""}
                 </button>
 
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontWeight: 500, fontSize: '0.95rem' }}>
-                    <span style={{ color: 'var(--color-text-muted)', marginRight: '0.4rem', fontSize: '0.85rem' }}>
+                  <div style={{ fontWeight: 500, fontSize: "0.95rem" }}>
+                    <span
+                      style={{
+                        color: "var(--color-text-muted)",
+                        marginRight: "0.4rem",
+                        fontSize: "0.85rem",
+                      }}
+                    >
                       {idx + 1}.
                     </span>
                     {lesson.title}
                   </div>
-                  <div style={{ color: 'var(--color-text-secondary)', fontSize: '0.85rem', marginTop: '0.15rem' }}>
+                  <div
+                    style={{
+                      color: "var(--color-text-secondary)",
+                      fontSize: "0.85rem",
+                      marginTop: "0.15rem",
+                    }}
+                  >
                     {lesson.description}
                   </div>
                 </div>
@@ -250,10 +292,10 @@ function LessonList({
 
               <div
                 style={{
-                  fontSize: '0.75rem',
-                  color: 'var(--color-text-muted)',
-                  whiteSpace: 'nowrap',
-                  flexShrink: 0
+                  fontSize: "0.75rem",
+                  color: "var(--color-text-muted)",
+                  whiteSpace: "nowrap",
+                  flexShrink: 0,
                 }}
               >
                 {lesson.duration}
@@ -274,13 +316,17 @@ export default function SchoolPage() {
   const [activeCategory, setActiveCategory] = useState<Category | null>(null);
   const [activeTechnique, setActiveTechnique] = useState<Technique | null>(null);
   const [completedLessons, setCompletedLessons] = useState<Set<string>>(new Set());
+  const [session, setSession] = useState<{
+    user?: { id: string; email: string; name?: string | null; emailVerified: boolean };
+  } | null>(null);
+  const [sessionLoading, setSessionLoading] = useState(true);
 
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
-    fetch('/api/school/full')
+    fetch("/api/school/full")
       .then((r) => {
-        if (!r.ok) throw new Error('Failed to load school data');
+        if (!r.ok) throw new Error("Failed to load school data");
         return r.json();
       })
       .then((data: Category[]) => {
@@ -294,7 +340,27 @@ export default function SchoolPage() {
         setError(err.message);
         setLoading(false);
       });
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    const fetchSession = async () => {
+      try {
+        const res = await fetch("/api/auth/session", {
+          method: "GET",
+          credentials: "include",
+        });
+        const data = await res.json();
+        setSession(data);
+      } catch (err) {
+        console.error("[session] failed", err);
+      } finally {
+        setSessionLoading(false);
+      }
+    };
+    fetchSession();
   }, []);
 
   const toggleLesson = (id: string) => {
@@ -306,38 +372,119 @@ export default function SchoolPage() {
     });
   };
 
-  if (loading) {
+  if (loading || sessionLoading) {
     return (
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '2rem 1.5rem' }}>
-        <p style={{ color: 'var(--color-text-muted)' }}>Loading school…</p>
+      <div
+        style={{
+          maxWidth: "1100px",
+          margin: "0 auto",
+          padding: "2rem 1.5rem",
+        }}
+      >
+        <p style={{ color: "var(--color-text-muted)" }}>Loading school…</p>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '2rem 1.5rem' }}>
-        <p style={{ color: '#fca5a5' }}>Error: {error}</p>
+      <div
+        style={{
+          maxWidth: "1100px",
+          margin: "0 auto",
+          padding: "2rem 1.5rem",
+        }}
+      >
+        <p style={{ color: "#fca5a5" }}>Error: {error}</p>
       </div>
     );
   }
 
   const active = activeCategory || categories[0];
+  const user = session?.user;
+  const isVerified = Boolean(user?.emailVerified);
 
   return (
     <>
       <SEO
-        title={`Bartender School — ${t('heroTitlePrefix')} ${t('heroTitleAccent')}`}
-        description={t('schoolDescription')}
+        title={`Bartender School — ${t("heroTitlePrefix")} ${t("heroTitleAccent")}`}
+        description={t("schoolDescription")}
         path="/school"
       />
 
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '2rem 1.5rem' }}>
-        <header style={{ marginBottom: '2rem' }}>
-          <h1 style={{ marginBottom: '0.5rem' }}>{t('schoolTitle')}</h1>
-          <p style={{ color: 'var(--color-text-secondary)', lineHeight: 1.7 }}>
-            {t('schoolDescription')}
-          </p>
+      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "2rem 1.5rem" }}>
+        <header
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginBottom: "2rem",
+            gap: "1rem",
+            flexWrap: "wrap",
+          }}
+        >
+          <div>
+            <h1 style={{ marginBottom: "0.5rem" }}>{t("schoolTitle")}</h1>
+            <p
+              style={{
+                color: "var(--color-text-secondary)",
+                lineHeight: 1.7,
+              }}
+            >
+              {t("schoolDescription")}
+            </p>
+          </div>
+          <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
+            {!user ? (
+              <Link
+                href="/auth/signin"
+                style={{
+                  padding: "0.65rem 1.1rem",
+                  borderRadius: "12px",
+                  border: "1px solid rgba(255,255,255,0.15)",
+                  background: "rgba(255,255,255,0.05)",
+                  color: "#fff",
+                  fontSize: "0.9rem",
+                  textDecoration: "none",
+                }}
+              >
+                Sign in
+              </Link>
+            ) : (
+              <span
+                style={{
+                  fontSize: "0.8rem",
+                  padding: "0.35rem 0.7rem",
+                  borderRadius: "999px",
+                  border: "1px solid rgba(255,255,255,0.15)",
+                  background: isVerified
+                    ? "rgba(34, 197, 94, 0.15)"
+                    : "rgba(250, 204, 21, 0.12)",
+                  color: isVerified ? "#4ade80" : "#facc15",
+                }}
+              >
+                {isVerified ? "Verified" : "Unverified"}
+              </span>
+            )}
+            {user && (
+              <Link
+                href="/profile"
+                style={{
+                  padding: "0.65rem 1.1rem",
+                  borderRadius: "12px",
+                  border: "none",
+                  background:
+                    "linear-gradient(135deg, #f59e0b, #ef4444)",
+                  color: "#fff",
+                  fontSize: "0.9rem",
+                  fontWeight: 600,
+                  textDecoration: "none",
+                }}
+              >
+                Profile
+              </Link>
+            )}
+          </div>
         </header>
 
         <CategoryTabs
@@ -349,19 +496,19 @@ export default function SchoolPage() {
           }}
         />
 
-        <div style={{ display: 'grid', gap: '1.5rem' }}>
+        <div style={{ display: "grid", gap: "1.5rem" }}>
           {!activeTechnique && (
             <div>
               <div
                 style={{
-                  fontSize: '0.8rem',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.08em',
-                  color: 'var(--color-text-muted)',
-                  marginBottom: '0.8rem'
+                  fontSize: "0.8rem",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.08em",
+                  color: "var(--color-text-muted)",
+                  marginBottom: "0.8rem",
                 }}
               >
-                {t('schoolTechniquesIn')} {active.icon} {active.title}
+                {t("schoolTechniquesIn")} {active.icon} {active.title}
               </div>
               <TechniqueGrid
                 techniques={active.techniques}
@@ -376,16 +523,16 @@ export default function SchoolPage() {
               <button
                 onClick={() => setActiveTechnique(null)}
                 style={{
-                  background: 'none',
-                  border: 'none',
-                  color: 'var(--color-accent)',
-                  cursor: 'pointer',
-                  fontSize: '0.9rem',
-                  marginBottom: '1rem',
-                  padding: 0
+                  background: "none",
+                  border: "none",
+                  color: "var(--color-accent)",
+                  cursor: "pointer",
+                  fontSize: "0.9rem",
+                  marginBottom: "1rem",
+                  padding: 0,
                 }}
               >
-                {t('backToCategory')} {active.title}
+                {t("backToCategory")} {active.title}
               </button>
               <LessonList
                 technique={activeTechnique}

@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import crypto from "node:crypto";
+import { resend } from "../../../lib/email";
 import { pool } from "../../../lib/db";
 
 function bad(res: NextApiResponse, status: number, message: string) {
@@ -54,18 +55,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     console.log(`[verify] link for ${trimmed}: ${verifyUrl}`);
 
     if (process.env.EMAIL_SERVER) {
-      const transporter = nodemailer.createTransport({
-        host: process.env.EMAIL_SERVER_HOST,
-        port: Number(process.env.EMAIL_SERVER_PORT || 465),
-        secure: true,
-        auth: {
-          user: process.env.EMAIL_SERVER_USER,
-          pass: process.env.EMAIL_SERVER_PASSWORD,
-        },
-      });
-
-      await transporter.sendMail({
-        from: process.env.EMAIL_FROM,
+      await resend.emails.send({
+        from: process.env.EMAIL_FROM || "onboarding@resend.dev",
         to: trimmed,
         subject: "Verify your Bartender Sanctuary account",
         text: `Verify your email: ${verifyUrl}`,
