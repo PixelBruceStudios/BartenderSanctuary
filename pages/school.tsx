@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useTranslation } from "@/lib/contexts";
 import SEO from "@/components/SEO";
-import LearningPath from "@/components/LearningPath";
+import SpaceUniverse from "@/components/SpaceUniverse";
 
 type Lesson = {
   id: string;
@@ -498,10 +498,12 @@ export default function SchoolPage() {
         />
 
         <div style={{ display: "grid", gap: "1.5rem" }}>
-          <LearningPath
+          <SpaceUniverse
             category={active}
             completedLessons={completedLessons}
             onSelectLesson={(categorySlug, techniqueSlug, lessonId) => {
+              const next = active.techniques.find((t: Technique) => t.slug === techniqueSlug) || null;
+              setActiveTechnique(next ? { ...next } : null);
               window.location.href = `/school/lesson/${categorySlug}/${techniqueSlug}/${lessonId}`;
             }}
             activeTechniqueSlug={activeTechnique?.slug || null}
