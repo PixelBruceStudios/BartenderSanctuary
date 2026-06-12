@@ -9,6 +9,7 @@ import RecipeDisplay from '@/components/RecipeDisplay';
 import RecipeModal from '@/components/RecipeModal';
 import Hero from '@/components/Hero';
 import GamesPromo from '@/components/GamesPromo';
+import FeaturedSection from '@/components/FeaturedSection';
 import type { Cocktail } from '@/data/cocktails';
 import SEO from '@/components/SEO';
 
@@ -200,98 +201,7 @@ export default function Home() {
           </a>
         </div>
 
-        <section
-          style={{
-            border: '1px solid var(--color-border)',
-            borderRadius: '16px',
-            padding: '2rem',
-            marginBottom: '2rem',
-            background: 'var(--color-bg-elevated)'
-          }}
-        >
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-              gap: '1.5rem'
-            }}
-          >
-            <div>
-              <span
-                style={{
-                  fontSize: '0.75rem',
-                  fontWeight: 600,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.08em',
-                  color: 'var(--color-accent)'
-                }}
-              >
-                {t('featuredLearn')}
-              </span>
-              <h3
-                style={{
-                  fontSize: '1.25rem',
-                  fontWeight: 600,
-                  marginTop: '0.4rem',
-                  marginBottom: '0.6rem',
-                  fontFamily: "'Playfair Display', Georgia, serif"
-                }}
-              >
-                {t('featuredLearnTitle')}
-              </h3>
-              <p
-                style={{
-                  fontSize: '0.95rem',
-                  color: 'var(--color-text-secondary)',
-                  lineHeight: 1.6,
-                  marginBottom: '1rem'
-                }}
-              >
-                {t('featuredLearnDesc')}
-              </p>
-              <a href="/school" className="btn-primary" style={{ display: 'inline-flex' }}>
-                {t('featuredLearnLink')}
-              </a>
-            </div>
-            <div>
-              <span
-                style={{
-                  fontSize: '0.75rem',
-                  fontWeight: 600,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.08em',
-                  color: 'var(--color-accent)'
-                }}
-              >
-                {t('featuredPlay')}
-              </span>
-              <h3
-                style={{
-                  fontSize: '1.25rem',
-                  fontWeight: 600,
-                  marginTop: '0.4rem',
-                  marginBottom: '0.6rem',
-                  fontFamily: "'Playfair Display', Georgia, serif"
-                }}
-              >
-                {t('featuredPlayTitle')}
-              </h3>
-              <p
-                style={{
-                  fontSize: '0.95rem',
-                  color: 'var(--color-text-secondary)',
-                  lineHeight: 1.6,
-                  marginBottom: '1rem'
-                }}
-              >
-                {t('featuredPlayDesc')}
-              </p>
-              <a href="/games" className="btn-primary" style={{ display: 'inline-flex' }}>
-                {t('featuredPlayLink')}
-              </a>
-            </div>
-          </div>
-        </section>
+        <FeaturedSection />
 
         {activeTab === 'browse' && (
           <div className="animate-fade-in">
