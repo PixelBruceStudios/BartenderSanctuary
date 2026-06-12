@@ -11,11 +11,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     if (method === 'POST') {
-      const { slug, name, description, image_url, ingredients, instructions, glass_type, garnish, difficulty } = req.body;
+      const { slug, name, description, image_url, ingredients, instructions, glass_type, garnish, difficulty, origin, tags } = req.body;
       const rows = await query<any[]>(
-        `INSERT INTO cocktails (slug, name, description, image_url, ingredients, instructions, glass_type, garnish, difficulty)
-         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *`,
-        [slug, name, description || '', image_url || '', JSON.stringify(ingredients || []), JSON.stringify(instructions || []), glass_type || '', garnish || '', difficulty || 'Beginner']
+        `INSERT INTO cocktails (slug, name, description, image_url, ingredients, instructions, glass_type, garnish, difficulty, origin, tags)
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *`,
+        [slug, name, description || '', image_url || '', JSON.stringify(ingredients || []), JSON.stringify(instructions || []), glass_type || '', garnish || '', difficulty || 'Beginner', origin || '', JSON.stringify(tags || [])]
       );
       return res.status(201).json(rows[0]);
     }
