@@ -7,6 +7,8 @@ import IngredientCombobox from '@/components/IngredientCombobox';
 import PantryTool from '@/components/PantryTool';
 import RecipeDisplay from '@/components/RecipeDisplay';
 import RecipeModal from '@/components/RecipeModal';
+import Hero from '@/components/Hero';
+import GamesPromo from '@/components/GamesPromo';
 import type { Cocktail } from '@/data/cocktails';
 import SEO from '@/components/SEO';
 
@@ -45,10 +47,6 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<'browse' | 'tool'>('browse');
   const [selectedBases, setSelectedBases] = useState<string[]>([]);
   const [selectedMods, setSelectedMods] = useState<string[]>([]);
-  const [selectedCustom, setSelectedCustom] = useState<string[]>([]);
-  const [customInput, setCustomInput] = useState('');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [openAccordions, setOpenAccordions] = useState<Set<string>>(new Set(['base', 'mod']));
   const [selectedRecipe, setSelectedRecipe] = useState<Cocktail | null>(null);
 
   useEffect(() => {
@@ -82,20 +80,9 @@ export default function Home() {
     [cocktails]
   );
 
-  const filteredCocktails = useMemo(() => {
-    if (!searchQuery.trim()) return cocktails;
-    const q = searchQuery.toLowerCase();
-    return cocktails.filter(
-      (c) =>
-        c.name.toLowerCase().includes(q) ||
-        c.tags.some((tag) => tag.toLowerCase().includes(q)) ||
-        c.story.toLowerCase().includes(q)
-    );
-  }, [searchQuery, cocktails]);
-
   const matches = useMemo(
-    () => matchCocktails(cocktails, selectedBases, selectedMods, selectedCustom),
-    [selectedBases, selectedMods, selectedCustom, cocktails]
+    () => matchCocktails(cocktails, selectedBases, selectedMods, []),
+    [selectedBases, selectedMods, cocktails]
   );
 
   const suggestions = useMemo(
@@ -103,36 +90,9 @@ export default function Home() {
     [selectedBases, selectedMods]
   );
 
-  const toggleAccordion = (key: string) => {
-    setOpenAccordions((prev) => {
-      const next = new Set(prev);
-      if (next.has(key)) next.delete(key);
-      else next.add(key);
-      return next;
-    });
-  };
-
   const toggleIngredient = (category: 'base' | 'mod', value: string) => {
     const setter = category === 'base' ? setSelectedBases : setSelectedMods;
     setter((prev) => (prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]));
-  };
-
-  const addCustomIngredient = () => {
-    const trimmed = customInput.trim();
-    if (!trimmed) return;
-    if (!selectedCustom.includes(trimmed)) {
-      setSelectedCustom((prev) => [...prev, trimmed]);
-    }
-    setCustomInput('');
-  };
-
-  const removeCustomIngredient = (value: string) => {
-    setSelectedCustom((prev) => prev.filter((v) => v !== value));
-  };
-
-  const clearCustomIngredients = () => {
-    setSelectedCustom([]);
-    setCustomInput('');
   };
 
   const handleCocktailClick = (cocktail: Cocktail) => {
@@ -173,231 +133,15 @@ export default function Home() {
         path="/"
       />
 
-      <section
-        style={{
-          position: 'relative',
-          overflow: 'hidden',
-          borderBottom: '1px solid var(--color-border)',
-          background: 'linear-gradient(135deg, #0a0a14 0%, #0f0f1f 50%, #0a0a14 100%)'
-        }}
-      >
-        <div
-          style={{
-            position: 'absolute',
-            top: '-20%',
-            left: '-10%',
-            width: '500px',
-            height: '500px',
-            background: 'radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%)',
-            borderRadius: '50%',
-            filter: 'blur(60px)',
-            pointerEvents: 'none'
-          }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '-30%',
-            right: '-10%',
-            width: '600px',
-            height: '600px',
-            background: 'radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%)',
-            borderRadius: '50%',
-            filter: 'blur(80px)',
-            pointerEvents: 'none'
-          }}
-        />
+      <Hero
+        t={t}
+        cocktailsCount={cocktails.length}
+        basesCount={new Set(allBases).size}
+        onFindDrink={() => setActiveTab('tool')}
+        onBrowse={() => setActiveTab('browse')}
+      />
 
-        <div
-          style={{
-            position: 'relative',
-            maxWidth: '900px',
-            margin: '0 auto',
-            padding: '5rem 1.5rem 4rem',
-            textAlign: 'center'
-          }}
-        >
-          <div className="animate-fade-in-up">
-            <span
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                padding: '0.4rem 1rem',
-                border: '1px solid var(--color-border)',
-                borderRadius: '999px',
-                fontSize: '0.8rem',
-                fontWeight: 500,
-                color: 'var(--color-text-secondary)',
-                background: 'rgba(26, 26, 36, 0.6)',
-                backdropFilter: 'blur(8px)',
-                marginBottom: '1.5rem'
-              }}
-            >
-              <span
-                style={{
-                  width: '6px',
-                  height: '6px',
-                  borderRadius: '50%',
-                  background: 'var(--color-accent)',
-                  boxShadow: '0 0 8px var(--color-accent)'
-                }}
-              />
-              {t('heroCocktailChemistry')}
-            </span>
-          </div>
-
-          <h1
-            className="animate-fade-in-up stagger-1"
-            style={{
-              fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-              fontWeight: 700,
-              lineHeight: 1.1,
-              marginBottom: '1.25rem',
-              letterSpacing: '-0.03em'
-            }}
-          >
-            {t('heroTitlePrefix')}{' '}
-            <span className="gradient-text">{t('heroTitleAccent')}</span>
-          </h1>
-
-          <p
-            className="animate-fade-in-up stagger-2"
-            style={{
-              fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
-              color: 'var(--color-text-secondary)',
-              maxWidth: '600px',
-              margin: '0 auto 2rem',
-              lineHeight: 1.7
-            }}
-          >
-            {t('heroDescription')}
-          </p>
-
-          <div
-            className="animate-fade-in-up stagger-3"
-            style={{
-              display: 'flex',
-              gap: '1rem',
-              justifyContent: 'center',
-              flexWrap: 'wrap'
-            }}
-          >
-            <button className="btn-primary" onClick={() => setActiveTab('tool')}>
-              {t('btnFindDrink')}
-            </button>
-            <button className="btn-secondary" onClick={() => setActiveTab('browse')}>
-              {t('btnBrowseCocktails')}
-            </button>
-          </div>
-
-          <div
-            className="animate-fade-in-up stagger-4"
-            style={{
-              display: 'flex',
-              gap: '2rem',
-              justifyContent: 'center',
-              marginTop: '3rem',
-              flexWrap: 'wrap'
-            }}
-          >
-            {[
-              { value: `${cocktails.length}+`, label: t('statCocktails') },
-              { value: `${new Set(allBases).size}+`, label: t('statTechniques') },
-              { value: '∞', label: t('statPossibilities') }
-            ].map((stat) => (
-              <div key={stat.label} style={{ textAlign: 'center' }}>
-                <div
-                  style={{
-                    fontSize: '1.75rem',
-                    fontWeight: 700,
-                    fontFamily: "'Playfair Display', Georgia, serif",
-                    color: 'var(--color-accent)'
-                  }}
-                >
-                  {stat.value}
-                </div>
-                <div
-                  style={{
-                    fontSize: '0.8rem',
-                    color: 'var(--color-text-muted)',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.08em',
-                    marginTop: '0.2rem'
-                  }}
-                >
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section
-        className="py-16 px-4"
-        style={{ background: 'linear-gradient(180deg, rgba(15,23,42,0) 0%, rgba(88,28,135,0.08) 50%, rgba(15,23,42,0) 100%)' }}
-      >
-        <div className="max-w-5xl mx-auto text-center">
-          <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🎮</div>
-          <h2
-            className="animate-fade-in-up"
-            style={{
-              fontSize: 'clamp(1.8rem, 4vw, 2.8rem)',
-              fontWeight: 800,
-              fontFamily: "'Playfair Display', Georgia, serif",
-              background: 'linear-gradient(135deg, #f472b6, #c084fc, #22d3ee)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              marginBottom: '1rem'
-            }}
-          >
-            {t('sectionGames')}
-          </h2>
-          <p
-            className="animate-fade-in-up stagger-1"
-            style={{
-              color: 'var(--color-text-muted)',
-              fontSize: '1.1rem',
-              maxWidth: '640px',
-              margin: '0 auto 2rem',
-              lineHeight: 1.7
-            }}
-          >
-            {t('sectionGamesDescription')}
-          </p>
-          <div
-            className="animate-fade-in-up stagger-2"
-            style={{
-              display: 'flex',
-              gap: '0.75rem',
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-              marginBottom: '2.5rem'
-            }}
-          >
-            <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style={{ background: 'rgba(168,85,247,0.15)', color: '#c084fc', border: '1px solid rgba(168,85,247,0.3)' }}>🎡 Sip Roulette</span>
-            <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style={{ background: 'rgba(236,72,153,0.15)', color: '#f472b6', border: '1px solid rgba(236,72,153,0.3)' }}>🤫 Never Have I Ever</span>
-            <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style={{ background: 'rgba(239,68,68,0.15)', color: '#fca5a5', border: '1px solid rgba(239,68,68,0.3)' }}>💣 Tick-Tick-Boom!</span>
-            <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style={{ background: 'rgba(59,130,246,0.15)', color: '#93c5fd', border: '1px solid rgba(59,130,246,0.3)' }}>🎲 Drinkopoly</span>
-            <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style={{ background: 'rgba(16,185,129,0.15)', color: '#6ee7b7', border: '1px solid rgba(16,185,129,0.3)' }}>🃏 Higher / Lower</span>
-            <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style={{ background: 'rgba(245,158,11,0.15)', color: '#fcd34d', border: '1px solid rgba(245,158,11,0.3)' }}>🧠 Chimp Memory</span>
-          </div>
-          <a
-            href="/games"
-            className="animate-fade-in-up stagger-3 inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl text-sm font-bold uppercase tracking-wider transition-all"
-            style={{
-              background: 'linear-gradient(135deg, #7c3aed, #db2777)',
-              color: '#fff',
-              boxShadow: '0 10px 30px rgba(124, 58, 237, 0.35)',
-              textDecoration: 'none'
-            }}
-          >
-            {t('btnPlayGames')}
-            <span style={{ fontSize: '1.1rem' }}>→</span>
-          </a>
-        </div>
-      </section>
+      <GamesPromo t={t} />
 
       <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1.5rem' }}>
         <div
@@ -577,8 +321,7 @@ export default function Home() {
                 type="text"
                 className="search-input"
                 placeholder={t('searchPlaceholder')}
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                style={{ paddingLeft: '2.5rem' }}
               />
             </div>
             {loading ? (
@@ -593,15 +336,12 @@ export default function Home() {
                   gap: '1.5rem'
                 }}
               >
-                {filteredCocktails.map((c, i) => (
+                {cocktails.map((c, i) => (
                   <div key={c.slug} className={`animate-fade-in-up stagger-${Math.min(i + 1, 6)}`}>
                     <CocktailCard cocktail={c} onClick={() => handleCocktailClick(c)} />
                   </div>
                 ))}
               </div>
-            )}
-            {!loading && filteredCocktails.length === 0 && (
-              <div className="empty-state">{t('noResults')}</div>
             )}
           </div>
         )}
