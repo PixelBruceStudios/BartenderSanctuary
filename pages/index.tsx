@@ -61,7 +61,8 @@ export default function Home() {
       })
       .then((data: Cocktail[]) => {
         if (cancelled) return;
-        setCocktails(data);
+        const clean = data.filter((c): c is Cocktail => Boolean(c?.slug && c?.name));
+        setCocktails(clean);
         setLoading(false);
       })
       .catch((err) => {
@@ -73,11 +74,11 @@ export default function Home() {
   }, []);
 
   const allBases = useMemo(
-    () => [...new Set(cocktails.flatMap((c) => c.base))].sort(),
+    () => [...new Set(cocktails.flatMap((c) => c.base ?? []))].sort(),
     [cocktails]
   );
   const allMods = useMemo(
-    () => [...new Set(cocktails.flatMap((c) => c.modifiers))].sort(),
+    () => [...new Set(cocktails.flatMap((c) => c.modifiers ?? []))].sort(),
     [cocktails]
   );
 
@@ -91,9 +92,9 @@ export default function Home() {
     if (!q) return cocktails;
     return cocktails.filter(
       (c) =>
-        c.name.toLowerCase().includes(q) ||
-        c.tags.some((tag) => tag.toLowerCase().includes(q)) ||
-        c.story.toLowerCase().includes(q)
+        (c.name ?? '').toLowerCase().includes(q) ||
+        (c.tags ?? []).some((tag) => (tag ?? '').toLowerCase().includes(q)) ||
+        (c.story ?? '').toLowerCase().includes(q)
     );
   }, [searchQuery, cocktails]);
 
