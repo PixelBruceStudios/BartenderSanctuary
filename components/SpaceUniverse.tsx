@@ -57,6 +57,7 @@ export default function SpaceUniverse({
   const containerRef = useRef<HTMLDivElement>(null);
   const [hoveredPlanet, setHoveredPlanet] = useState<string | null>(null);
   const [selectedPlanet, setSelectedPlanet] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const sceneRef = useRef<{
     scene: THREE.Scene;
     camera: THREE.PerspectiveCamera;
@@ -94,6 +95,14 @@ export default function SpaceUniverse({
     const idx = category.techniques.length % palette.length;
     return palette[idx];
   }, [category.techniques.length]);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -409,6 +418,10 @@ export default function SpaceUniverse({
     };
   }, [category, completedLessons, onSelectLesson]);
 
+  const selectedTechnique = category.techniques.find((t) => t.slug === selectedPlanet) || null;
+
+  const universeHeight = isMobile ? Math.min(520, window.innerHeight * 0.55) : Math.max(600, Math.min(800, window.innerHeight * 0.7));
+
   return (
     <div style={{ position: "relative", width: "100%" }}>
       {/* Header */}
@@ -416,7 +429,7 @@ export default function SpaceUniverse({
         style={{
           position: "relative",
           zIndex: 2,
-          padding: "1.5rem 2rem",
+          padding: isMobile ? "1rem" : "1.5rem 2rem",
           borderBottom: "1px solid rgba(255,255,255,0.06)",
           display: "flex",
           justifyContent: "space-between",
@@ -428,14 +441,14 @@ export default function SpaceUniverse({
         }}
       >
         <div>
-          <div style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.5)", marginBottom: "0.3rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+          <div style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.5)", marginBottom: "0.25rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>
             Learning Universe
           </div>
-          <div style={{ fontSize: "1.6rem", fontWeight: 700, display: "flex", alignItems: "center", gap: "0.6rem", color: "#fff" }}>
+          <div style={{ fontSize: isMobile ? "1.25rem" : "1.6rem", fontWeight: 700, display: "flex", alignItems: "center", gap: "0.6rem", color: "#fff" }}>
             <span>{category.icon}</span>
             <span>{category.title}</span>
           </div>
-          <div style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.9rem", marginTop: "0.3rem" }}>
+          <div style={{ color: "rgba(255,255,255,0.6)", fontSize: isMobile ? "0.8rem" : "0.9rem", marginTop: "0.25rem" }}>
             {category.description}
           </div>
         </div>
@@ -451,8 +464,8 @@ export default function SpaceUniverse({
           </div>
           <div
             style={{
-              width: "48px",
-              height: "48px",
+              width: isMobile ? "40px" : "48px",
+              height: isMobile ? "40px" : "48px",
               borderRadius: "50%",
               border: "3px solid rgba(255,255,255,0.08)",
               position: "relative",
@@ -461,21 +474,21 @@ export default function SpaceUniverse({
               justifyContent: "center",
             }}
           >
-            <svg width="48" height="48" style={{ position: "absolute", transform: "rotate(-90deg)" }}>
-              <circle cx="24" cy="24" r="20" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="3" />
+            <svg width={isMobile ? "40" : "48"} height={isMobile ? "40" : "48"} style={{ position: "absolute", transform: "rotate(-90deg)" }}>
+              <circle cx="20" cy="20" r="16" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="3" />
               <circle
-                cx="24"
-                cy="24"
-                r="20"
+                cx="20"
+                cy="20"
+                r="16"
                 fill="none"
                 stroke="#a5b4fc"
                 strokeWidth="3"
-                strokeDasharray={`${progress * 1.256} 125.6`}
+                strokeDasharray={`${progress * 1.005} 100.5`}
                 strokeLinecap="round"
                 style={{ transition: "stroke-dasharray 0.6s ease" }}
               />
             </svg>
-            <span style={{ fontSize: "0.7rem", fontWeight: 700, color: "#e2e8f0" }}>
+            <span style={{ fontSize: "0.65rem", fontWeight: 700, color: "#e2e8f0" }}>
               {Math.round(progress)}%
             </span>
           </div>
@@ -504,7 +517,7 @@ export default function SpaceUniverse({
         ref={containerRef}
         style={{
           width: "100%",
-          height: Math.max(600, Math.min(800, window.innerHeight * 0.7)),
+          height: universeHeight,
           position: "relative",
           background: "#020208",
           borderRadius: "0 0 16px 16px",
@@ -513,22 +526,21 @@ export default function SpaceUniverse({
       />
 
       {/* Technique panel */}
-      {selectedPlanet && (() => {
-        const technique = category.techniques.find((t) => t.slug === selectedPlanet);
-        if (!technique) return null;
+      {selectedTechnique && !activeTechniqueSlug && (() => {
+        const technique = selectedTechnique;
         return (
           <div
             style={{
               position: "absolute",
               left: "50%",
-              bottom: "2rem",
+              bottom: isMobile ? "1rem" : "2rem",
               transform: "translateX(-50%)",
-              width: "min(920px, calc(100% - 2rem))",
+              width: "min(920px, calc(100% - 1.5rem))",
               background: "rgba(7,7,15,0.92)",
               backdropFilter: "blur(14px)",
               border: "1px solid rgba(255,255,255,0.12)",
               borderRadius: "18px",
-              padding: "1.25rem 1.5rem",
+              padding: isMobile ? "1rem" : "1.25rem 1.5rem",
               zIndex: 50,
               color: "#fff",
             }}
@@ -538,8 +550,8 @@ export default function SpaceUniverse({
                 <div style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
                   Technique
                 </div>
-                <div style={{ fontSize: "1.1rem", fontWeight: 700, marginTop: "0.2rem" }}>{technique.title}</div>
-                <div style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.6)", marginTop: "0.2rem", maxWidth: "560px" }}>
+                <div style={{ fontSize: isMobile ? "1rem" : "1.1rem", fontWeight: 700, marginTop: "0.2rem" }}>{technique.title}</div>
+                <div style={{ fontSize: isMobile ? "0.8rem" : "0.85rem", color: "rgba(255,255,255,0.6)", marginTop: "0.2rem", maxWidth: "560px" }}>
                   {technique.description}
                 </div>
               </div>
@@ -561,7 +573,7 @@ export default function SpaceUniverse({
               style={{
                 marginTop: "1rem",
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+                gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(180px, 1fr))",
                 gap: "0.75rem",
               }}
             >
@@ -602,7 +614,7 @@ export default function SpaceUniverse({
         <div
           style={{
             position: "fixed",
-            bottom: "2rem",
+            bottom: isMobile ? "1rem" : "2rem",
             left: "50%",
             transform: "translateX(-50%)",
             background: "rgba(7,7,15,0.9)",
