@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useTranslation } from "@/lib/contexts";
 import SEO from "@/components/SEO";
+import LearningPath from "@/components/LearningPath";
 
 type Lesson = {
   id: string;
@@ -497,53 +498,15 @@ export default function SchoolPage() {
         />
 
         <div style={{ display: "grid", gap: "1.5rem" }}>
-          {!activeTechnique && (
-            <div>
-              <div
-                style={{
-                  fontSize: "0.8rem",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.08em",
-                  color: "var(--color-text-muted)",
-                  marginBottom: "0.8rem",
-                }}
-              >
-                {t("schoolTechniquesIn")} {active.icon} {active.title}
-              </div>
-              <TechniqueGrid
-                techniques={active.techniques}
-                activeTechnique={activeTechnique}
-                onSelect={(tech) => setActiveTechnique(tech)}
-              />
-            </div>
-          )}
-
-          {activeTechnique && (
-            <div>
-              <button
-                onClick={() => setActiveTechnique(null)}
-                style={{
-                  background: "none",
-                  border: "none",
-                  color: "var(--color-accent)",
-                  cursor: "pointer",
-                  fontSize: "0.9rem",
-                  marginBottom: "1rem",
-                  padding: 0,
-                }}
-              >
-                {t("backToCategory")} {active.title}
-              </button>
-              <LessonList
-                technique={activeTechnique}
-                lessons={activeTechnique.lessons}
-                completedSet={completedLessons}
-                onToggle={toggleLesson}
-                categorySlug={active.slug}
-                techniqueSlug={activeTechnique.slug}
-              />
-            </div>
-          )}
+          <LearningPath
+            category={active}
+            completedLessons={completedLessons}
+            onSelectLesson={(categorySlug, techniqueSlug, lessonId) => {
+              window.location.href = `/school/lesson/${categorySlug}/${techniqueSlug}/${lessonId}`;
+            }}
+            activeTechniqueSlug={activeTechnique?.slug || null}
+            onBack={() => setActiveTechnique(null)}
+          />
         </div>
       </div>
     </>
