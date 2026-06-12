@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { useTranslation } from "@/lib/contexts";
@@ -24,6 +24,23 @@ interface LessonProps {
   techniqueSlug: string;
   lessonId: string;
 }
+
+type Category = {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  icon: string;
+  sort_order: number;
+  techniques: {
+    id: string;
+    slug: string;
+    title: string;
+    description: string;
+    sort_order: number;
+    lessons: Lesson[];
+  }[];
+};
 
 function StarField() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -91,6 +108,8 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [readProgress, setReadProgress] = useState(0);
+  const [completed, setCompleted] = useState(false);
+  const [schoolData, setSchoolData] = useState<Category[]>([]);
   const { t } = useTranslation();
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -99,6 +118,7 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
     setLoading(true);
     setError(null);
     setReadProgress(0);
+    setCompleted(false);
     fetch(`/api/lessons/${lessonId}`)
       .then((r) => {
         if (!r.ok) throw new Error("Lesson not found");
@@ -114,10 +134,45 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
         setError(err.message);
         setLoading(false);
       });
-    return () => { cancelled = true; };
+    return () => { cancelled = true };
   }, [lessonId]);
 
-  // Reading progress bar
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/school/full")
+      .then((r) => r.json())
+      .then((data: Category[]) => {
+        if (cancelled) return;
+        setSchoolData(data);
+      })
+      .catch(() => {});
+    return () => { cancelled = true };
+  }, []);
+
+  const flatLessons = useMemo(() => {
+    const out: { categorySlug: string; techniqueSlug: string; lesson: Lesson }[] = [];
+    schoolData.forEach((cat: Category) => {
+      cat.techniques.forEach((tech: Category["techniques"][number]) => {
+        tech.lessons.forEach((l: Lesson) => {
+          out.push({ categorySlug: cat.slug, techniqueSlug: tech.slug, lesson: l });
+        });
+      });
+    });
+    return out;
+  }, [schoolData]);
+
+  const currentIndex = flatLessons.findIndex(
+    (item) =>
+      item.categorySlug === categorySlug &&
+      item.techniqueSlug === techniqueSlug &&
+      item.lesson.id === lessonId
+  );
+
+  const prevLesson = currentIndex > 0 ? flatLessons[currentIndex - 1] : null;
+  const nextLesson = currentIndex < flatLessons.length - 1 ? flatLessons[currentIndex + 1] : null;
+  const lessonProgress =
+    flatLessons.length > 0 ? Math.round(((currentIndex + 1) / flatLessons.length) * 100) : 0;
+
   useEffect(() => {
     const handleScroll = () => {
       if (!contentRef.current) return;
@@ -125,8 +180,8 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
       const windowHeight = window.innerHeight;
       const total = rect.height;
       const visible = Math.min(windowHeight, rect.bottom) - Math.max(0, rect.top);
-      const progress = Math.min(100, Math.max(0, (visible / total) * 100));
-      setReadProgress(progress);
+      const progressVal = Math.min(100, Math.max(0, (visible / total) * 100));
+      setReadProgress(progressVal);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
@@ -314,11 +369,13 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
             fontSize: "0.8rem",
             color: "rgba(255,255,255,0.5)",
             flexWrap: "wrap",
+            alignItems: "center",
           }}
         >
           <span>{lesson.techniqueTitle}</span>
           {lesson.categoryTitle && <span style={{ color: "rgba(255,255,255,0.3)" }}>·</span>}
           {lesson.categoryTitle && <span>{lesson.categoryTitle}</span>}
+          <span style={{ marginLeft: "auto" }}>{lessonProgress}% complete</span>
         </div>
       </div>
 
@@ -392,7 +449,6 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
           </div>
         )}
 
-        {/* Back */}
         <div style={{ marginTop: "2rem", paddingTop: "1.5rem", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
           <Link
             href="/school"
@@ -408,6 +464,78 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
           >
             ← Back to school
           </Link>
+        </div>
+      </div>
+
+      {/* Completion + nav */}
+      <div
+        style={{
+          position: "relative",
+          zIndex: 2,
+          padding: "1.25rem 2rem",
+          borderTop: "1px solid rgba(255,255,255,0.06)",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          gap: "1rem",
+          flexWrap: "wrap",
+        }}
+      >
+        <button
+          type="button"
+          onClick={() => setCompleted((prev) => !prev)}
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            padding: "0.6rem 1rem",
+            borderRadius: "12px",
+            border: completed ? "1px solid rgba(74,222,128,0.4)" : "1px solid rgba(255,255,255,0.12)",
+            background: completed ? "rgba(74,222,128,0.1)" : "rgba(255,255,255,0.04)",
+            color: completed ? "#4ade80" : "#fff",
+            cursor: "pointer",
+            fontSize: "0.9rem",
+            fontWeight: 600,
+          }}
+        >
+          <span aria-hidden>{completed ? "✓" : "○"}</span>
+          {completed ? "Completed" : "Mark complete"}
+        </button>
+
+        <div style={{ display: "flex", gap: "0.75rem" }}>
+          {prevLesson && (
+            <Link
+              href={`/school/lesson/${prevLesson.categorySlug}/${prevLesson.techniqueSlug}/${prevLesson.lesson.id}`}
+              style={{
+                padding: "0.6rem 1rem",
+                borderRadius: "12px",
+                border: "1px solid rgba(255,255,255,0.12)",
+                background: "rgba(255,255,255,0.04)",
+                color: "#fff",
+                textDecoration: "none",
+                fontSize: "0.9rem",
+              }}
+            >
+              ← Previous
+            </Link>
+          )}
+          {nextLesson && (
+            <Link
+              href={`/school/lesson/${nextLesson.categorySlug}/${nextLesson.techniqueSlug}/${nextLesson.lesson.id}`}
+              style={{
+                padding: "0.6rem 1rem",
+                borderRadius: "12px",
+                border: "none",
+                background: "linear-gradient(135deg, #6366f1, #a855f7)",
+                color: "#fff",
+                textDecoration: "none",
+                fontSize: "0.9rem",
+                fontWeight: 600,
+              }}
+            >
+              Next lesson →
+            </Link>
+          )}
         </div>
       </div>
     </div>

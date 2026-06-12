@@ -83,14 +83,13 @@ export default function SpaceUniverse({
   const completedCount = allLessons.filter((l) => completedLessons.has(l.id)).length;
   const progress = totalLessons > 0 ? (completedCount / totalLessons) * 100 : 0;
 
-  // Planet colors based on category
   const categoryColors = useMemo(() => {
     const palette = [
-      ["#6366f1", "#8b5cf6"], // indigo -> violet
-      ["#3b82f6", "#06b6d4"], // blue -> cyan
-      ["#f59e0b", "#ef4444"], // amber -> red
-      ["#10b981", "#3b82f6"], // emerald -> blue
-      ["#ec4899", "#f59e0b"], // pink -> amber
+      ["#6366f1", "#8b5cf6"],
+      ["#3b82f6", "#06b6d4"],
+      ["#f59e0b", "#ef4444"],
+      ["#10b981", "#3b82f6"],
+      ["#ec4899", "#f59e0b"],
     ];
     const idx = category.techniques.length % palette.length;
     return palette[idx];
@@ -103,7 +102,6 @@ export default function SpaceUniverse({
     const width = container.clientWidth;
     const height = Math.max(600, Math.min(800, window.innerHeight * 0.7));
 
-    // Scene setup
     const scene = new THREE.Scene();
     scene.fog = new THREE.FogExp2(0x020208, 0.0008);
 
@@ -117,7 +115,6 @@ export default function SpaceUniverse({
     renderer.toneMappingExposure = 1.2;
     container.appendChild(renderer.domElement);
 
-    // Controls
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
@@ -127,7 +124,6 @@ export default function SpaceUniverse({
     controls.autoRotate = true;
     controls.autoRotateSpeed = 0.3;
 
-    // Lights
     const ambient = new THREE.AmbientLight(0x404060, 0.6);
     scene.add(ambient);
 
@@ -139,7 +135,6 @@ export default function SpaceUniverse({
     rimLight.position.set(50, 20, -50);
     scene.add(rimLight);
 
-    // Central sun
     const sunGeo = new THREE.SphereGeometry(4, 64, 64);
     const sunMat = new THREE.MeshStandardMaterial({
       color: 0xffaa44,
@@ -150,7 +145,6 @@ export default function SpaceUniverse({
     const sun = new THREE.Mesh(sunGeo, sunMat);
     scene.add(sun);
 
-    // Sun glow
     const glowGeo = new THREE.SphereGeometry(6, 32, 32);
     const glowMat = new THREE.MeshBasicMaterial({
       color: 0xffaa44,
@@ -160,7 +154,6 @@ export default function SpaceUniverse({
     const glow = new THREE.Mesh(glowGeo, glowMat);
     scene.add(glow);
 
-    // Starfield
     const starsGeo = new THREE.BufferGeometry();
     const starCount = 1200;
     const positions = new Float32Array(starCount * 3);
@@ -194,7 +187,6 @@ export default function SpaceUniverse({
     const stars = new THREE.Points(starsGeo, starsMat);
     scene.add(stars);
 
-    // Planet creation
     const planets = new Map<string, THREE.Group>();
     const orbits: THREE.Line[] = [];
     const planetGroup = new THREE.Group();
@@ -208,7 +200,6 @@ export default function SpaceUniverse({
       const x = Math.cos(angle) * orbitRadius;
       const z = Math.sin(angle) * orbitRadius;
 
-      // Orbit ring
       const orbitGeo = new THREE.RingGeometry(orbitRadius - 0.15, orbitRadius + 0.15, 128);
       const orbitMat = new THREE.MeshBasicMaterial({
         color: 0x444466,
@@ -222,11 +213,9 @@ export default function SpaceUniverse({
       scene.add(orbit);
       orbits.push(orbit as unknown as THREE.Line);
 
-      // Planet group
       const planetRoot = new THREE.Group();
       planetRoot.position.set(x, yOffset, z);
 
-      // Planet sphere
       const radius = 2.5 + technique.lessons.length * 0.35;
       const planetGeo = new THREE.SphereGeometry(radius, 48, 48);
       const colorA = new THREE.Color(categoryColors[0]);
@@ -240,7 +229,6 @@ export default function SpaceUniverse({
       const planetMesh = new THREE.Mesh(planetGeo, planetMat);
       planetRoot.add(planetMesh);
 
-      // Atmosphere glow
       const atmoGeo = new THREE.SphereGeometry(radius * 1.15, 48, 48);
       const atmoMat = new THREE.MeshBasicMaterial({
         color: planetColor,
@@ -250,7 +238,6 @@ export default function SpaceUniverse({
       const atmo = new THREE.Mesh(atmoGeo, atmoMat);
       planetRoot.add(atmo);
 
-      // Lesson moons
       technique.lessons.forEach((lesson, lIdx) => {
         const moonGeo = new THREE.SphereGeometry(0.35, 24, 24);
         const moonMat = new THREE.MeshStandardMaterial({
@@ -271,7 +258,6 @@ export default function SpaceUniverse({
         planetRoot.add(moon);
       });
 
-      // Label sprite (simple canvas texture)
       const canvas = document.createElement("canvas");
       canvas.width = 512;
       canvas.height = 128;
@@ -301,7 +287,6 @@ export default function SpaceUniverse({
       planets.set(technique.slug, planetRoot);
     });
 
-    // Raycaster for interaction
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
     const planetMeshes: THREE.Mesh[] = [];
@@ -323,11 +308,11 @@ export default function SpaceUniverse({
         const hit = intersects[0].object;
         const parent = hit.parent;
         if (parent && parent.userData.techniqueSlug) {
-          const technique = category.techniques.find((t) => t.slug === parent.userData.techniqueSlug);
-          if (technique && technique.lessons.length > 0) {
-            const firstLesson = technique.lessons[0];
-            onSelectLesson(category.slug, technique.slug, firstLesson.id);
-          }
+          const next =
+            selectedPlanet === parent.userData.techniqueSlug
+              ? null
+              : parent.userData.techniqueSlug;
+          setSelectedPlanet(next);
         }
       }
     };
@@ -356,27 +341,22 @@ export default function SpaceUniverse({
     renderer.domElement.addEventListener("click", handleClick);
     renderer.domElement.addEventListener("mousemove", handleHover);
 
-    // Animation
     const clock = new THREE.Clock();
     const animate = () => {
       const t = clock.getElapsedTime();
 
-      // Rotate sun
       sun.rotation.y += 0.002;
       glow.scale.setScalar(1 + Math.sin(t * 0.8) * 0.1);
 
-      // Orbit planets
-      planets.forEach((planetRoot, slug) => {
+      planets.forEach((planetRoot) => {
         const ud = planetRoot.userData;
         const angle = ud.angle + t * 0.05;
         planetRoot.position.x = Math.cos(angle) * ud.orbitRadius;
         planetRoot.position.z = Math.sin(angle) * ud.orbitRadius;
         planetRoot.position.y = ud.baseY + Math.sin(t * 0.4 + ud.angle) * 1.2;
 
-        // Self rotation
         planetRoot.rotation.y += 0.005;
 
-        // Float moons
         planetRoot.children.forEach((child) => {
           if (child.userData && child.userData.lessonId) {
             const baseY = child.userData.baseY || 0;
@@ -385,7 +365,6 @@ export default function SpaceUniverse({
         });
       });
 
-      // Rotate stars slowly
       stars.rotation.y += 0.0001;
       stars.rotation.x += 0.00005;
 
@@ -397,7 +376,6 @@ export default function SpaceUniverse({
     };
     animate();
 
-    // Resize
     const handleResize = () => {
       if (!containerRef.current) return;
       const w = containerRef.current.clientWidth;
@@ -501,21 +479,23 @@ export default function SpaceUniverse({
               {Math.round(progress)}%
             </span>
           </div>
-          <button
-            onClick={onBack}
-            style={{
-              background: "rgba(255,255,255,0.05)",
-              border: "1px solid rgba(255,255,255,0.1)",
-              color: "#fff",
-              padding: "0.5rem 0.9rem",
-              borderRadius: "8px",
-              cursor: "pointer",
-              fontSize: "0.85rem",
-              transition: "all 0.2s",
-            }}
-          >
-            ← Back
-          </button>
+          {activeTechniqueSlug && (
+            <button
+              onClick={onBack}
+              style={{
+                background: "rgba(255,255,255,0.05)",
+                border: "1px solid rgba(255,255,255,0.1)",
+                color: "#fff",
+                padding: "0.5rem 0.9rem",
+                borderRadius: "8px",
+                cursor: "pointer",
+                fontSize: "0.85rem",
+                transition: "all 0.2s",
+              }}
+            >
+              ← Back
+            </button>
+          )}
         </div>
       </div>
 
@@ -532,8 +512,93 @@ export default function SpaceUniverse({
         }}
       />
 
+      {/* Technique panel */}
+      {selectedPlanet && (() => {
+        const technique = category.techniques.find((t) => t.slug === selectedPlanet);
+        if (!technique) return null;
+        return (
+          <div
+            style={{
+              position: "absolute",
+              left: "50%",
+              bottom: "2rem",
+              transform: "translateX(-50%)",
+              width: "min(920px, calc(100% - 2rem))",
+              background: "rgba(7,7,15,0.92)",
+              backdropFilter: "blur(14px)",
+              border: "1px solid rgba(255,255,255,0.12)",
+              borderRadius: "18px",
+              padding: "1.25rem 1.5rem",
+              zIndex: 50,
+              color: "#fff",
+            }}
+          >
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
+              <div>
+                <div style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                  Technique
+                </div>
+                <div style={{ fontSize: "1.1rem", fontWeight: 700, marginTop: "0.2rem" }}>{technique.title}</div>
+                <div style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.6)", marginTop: "0.2rem", maxWidth: "560px" }}>
+                  {technique.description}
+                </div>
+              </div>
+              <div
+                style={{
+                  padding: "0.4rem 0.8rem",
+                  borderRadius: "999px",
+                  border: "1px solid rgba(255,255,255,0.12)",
+                  background: "rgba(255,255,255,0.04)",
+                  fontSize: "0.8rem",
+                  color: "rgba(255,255,255,0.75)",
+                }}
+              >
+                {technique.lessons.length} lessons
+              </div>
+            </div>
+
+            <div
+              style={{
+                marginTop: "1rem",
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+                gap: "0.75rem",
+              }}
+            >
+              {technique.lessons.map((lesson, idx) => {
+                const done = completedLessons.has(lesson.id);
+                return (
+                  <button
+                    key={lesson.id}
+                    onClick={() => onSelectLesson(category.slug, technique.slug, lesson.id)}
+                    style={{
+                      textAlign: "left",
+                      padding: "0.9rem 1rem",
+                      borderRadius: "12px",
+                      border: "1px solid rgba(255,255,255,0.1)",
+                      background: done ? "rgba(74,222,128,0.08)" : "rgba(255,255,255,0.03)",
+                      color: "#fff",
+                      cursor: "pointer",
+                      transition: "transform 0.15s ease, border-color 0.15s ease",
+                    }}
+                  >
+                    <div style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.5)", marginBottom: "0.2rem" }}>
+                      {idx + 1}. {done ? "✓ Completed" : "Not started"}
+                    </div>
+                    <div style={{ fontWeight: 600, fontSize: "0.95rem" }}>{lesson.title}</div>
+                    <div style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.55)", marginTop: "0.2rem" }}>
+                      {lesson.duration} · {lesson.difficulty}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })()}
+
       {/* Legend / hover tooltip */}
-      {hoveredPlanet && (
+      {hoveredPlanet && !selectedPlanet && (
         <div
           style={{
             position: "fixed",
@@ -564,7 +629,7 @@ export default function SpaceUniverse({
           color: "rgba(255,255,255,0.4)",
         }}
       >
-        Drag to rotate • Scroll to zoom • Click a planet to start
+        Drag to rotate • Scroll to zoom • Click a planet to explore lessons
       </div>
     </div>
   );

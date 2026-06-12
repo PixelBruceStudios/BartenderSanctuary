@@ -311,6 +311,7 @@ function LessonList({
 
 export default function SchoolPage() {
   const { t } = useTranslation();
+  const [view, setView] = useState<"universe" | "list">("universe");
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -497,18 +498,146 @@ export default function SchoolPage() {
           }}
         />
 
-        <div style={{ display: "grid", gap: "1.5rem" }}>
-          <SpaceUniverse
-            category={active}
-            completedLessons={completedLessons}
-            onSelectLesson={(categorySlug, techniqueSlug, lessonId) => {
-              const next = active.techniques.find((t: Technique) => t.slug === techniqueSlug) || null;
-              setActiveTechnique(next ? { ...next } : null);
-              window.location.href = `/school/lesson/${categorySlug}/${techniqueSlug}/${lessonId}`;
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            padding: "0.35rem",
+            borderRadius: "999px",
+            border: "1px solid rgba(255,255,255,0.12)",
+            background: "rgba(255,255,255,0.04)",
+          }}
+        >
+          <button
+            type="button"
+            onClick={() => setView("universe")}
+            style={{
+              border: "none",
+              background: view === "universe" ? "rgba(255,255,255,0.12)" : "transparent",
+              color: view === "universe" ? "#fff" : "rgba(255,255,255,0.7)",
+              padding: "0.4rem 0.8rem",
+              borderRadius: "999px",
+              fontSize: "0.8rem",
+              fontWeight: 600,
+              cursor: "pointer",
             }}
-            activeTechniqueSlug={activeTechnique?.slug || null}
-            onBack={() => setActiveTechnique(null)}
-          />
+          >
+            Universe
+          </button>
+          <button
+            type="button"
+            onClick={() => setView("list")}
+            style={{
+              border: "none",
+              background: view === "list" ? "rgba(255,255,255,0.12)" : "transparent",
+              color: view === "list" ? "#fff" : "rgba(255,255,255,0.7)",
+              padding: "0.4rem 0.8rem",
+              borderRadius: "999px",
+              fontSize: "0.8rem",
+              fontWeight: 600,
+              cursor: "pointer",
+            }}
+          >
+            List
+          </button>
+        </div>
+
+        <div style={{ display: "grid", gap: "1.5rem" }}>
+          {view === "universe" ? (
+            <SpaceUniverse
+              category={active}
+              completedLessons={completedLessons}
+              onSelectLesson={(categorySlug, techniqueSlug, lessonId) => {
+                const next = active.techniques.find((t: Technique) => t.slug === techniqueSlug) || null;
+                setActiveTechnique(next ? { ...next } : null);
+                window.location.href = `/school/lesson/${categorySlug}/${techniqueSlug}/${lessonId}`;
+              }}
+              activeTechniqueSlug={activeTechnique?.slug || null}
+              onBack={() => setActiveTechnique(null)}
+            />
+          ) : (
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+                gap: "1rem",
+              }}
+            >
+              {active.techniques.map((technique) => {
+                const techCompleted = technique.lessons.filter((l) => completedLessons.has(l.id)).length;
+                return (
+                  <div
+                    key={technique.slug}
+                    style={{
+                      padding: "1.1rem 1.25rem",
+                      borderRadius: "16px",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                      background: "rgba(255,255,255,0.03)",
+                    }}
+                  >
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "0.5rem" }}>
+                      <div>
+                        <div style={{ fontWeight: 700, color: "#fff" }}>{technique.title}</div>
+                        <div style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.55)", marginTop: "0.2rem" }}>
+                          {technique.lessons.length} lessons · {techCompleted}/{technique.lessons.length} done
+                        </div>
+                      </div>
+                      <div
+                        style={{
+                          width: 36,
+                          height: 36,
+                          borderRadius: "50%",
+                          border: "2px solid rgba(255,255,255,0.1)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          fontSize: "0.7rem",
+                          color: "#a5b4fc",
+                          fontWeight: 700,
+                        }}
+                      >
+                        {technique.lessons.length > 0 ? Math.round((techCompleted / technique.lessons.length) * 100) : 0}%
+                      </div>
+                    </div>
+                    <div style={{ marginTop: "0.9rem", display: "grid", gap: "0.5rem" }}>
+                      {technique.lessons.map((lesson, idx) => (
+                        <button
+                          key={lesson.id}
+                          onClick={() => {
+                            setActiveTechnique({ ...technique });
+                            window.location.href = `/school/lesson/${active.slug}/${technique.slug}/${lesson.id}`;
+                          }}
+                          style={{
+                            textAlign: "left",
+                            padding: "0.7rem 0.9rem",
+                            borderRadius: "10px",
+                            border: "1px solid rgba(255,255,255,0.08)",
+                            background: completedLessons.has(lesson.id) ? "rgba(74,222,128,0.08)" : "rgba(255,255,255,0.02)",
+                            color: "#fff",
+                            cursor: "pointer",
+                            fontSize: "0.9rem",
+                          }}
+                        >
+                          <span style={{ color: "rgba(255,255,255,0.5)", marginRight: "0.5rem" }}>{idx + 1}.</span>
+                          {lesson.title}
+                          <span
+                            style={{
+                              marginLeft: "auto",
+                              fontSize: "0.75rem",
+                              color: "rgba(255,255,255,0.45)",
+                            }}
+                          >
+                            {completedLessons.has(lesson.id) ? "✓" : "○"}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
     </>
