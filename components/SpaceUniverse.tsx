@@ -391,7 +391,9 @@ export default function SpaceUniverse({
 
       controls.update();
       renderer.render(scene, camera);
-      sceneRef.current!.raf = requestAnimationFrame(animate);
+      if (sceneRef.current) {
+        sceneRef.current.raf = requestAnimationFrame(animate);
+      }
     };
     animate();
 
