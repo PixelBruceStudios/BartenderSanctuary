@@ -8,7 +8,6 @@ import PantryTool from '@/components/PantryTool';
 import RecipeDisplay from '@/components/RecipeDisplay';
 import RecipeModal from '@/components/RecipeModal';
 import Hero from '@/components/Hero';
-import GamesPromo from '@/components/GamesPromo';
 import FeaturedSection from '@/components/FeaturedSection';
 import type { Cocktail } from '@/data/cocktails';
 import SEO from '@/components/SEO';
@@ -141,8 +140,6 @@ export default function Home() {
         onFindDrink={() => setActiveTab('tool')}
         onBrowse={() => setActiveTab('browse')}
       />
-
-      <GamesPromo t={t} />
 
       <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1.5rem' }}>
         <div
