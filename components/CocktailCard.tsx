@@ -23,7 +23,6 @@ export default function CocktailCard({ cocktail, onClick }: CocktailCardProps) {
       }}
     >
       <div className="photo-wrapper" style={{ height: '220px' }}>
-        {/* Use regular img for static export compatibility */}
         <img
           src={imgSrc}
           alt={cocktail.name}
@@ -32,7 +31,7 @@ export default function CocktailCard({ cocktail, onClick }: CocktailCardProps) {
           onError={(e) => {
             const target = e.target as HTMLImageElement;
             target.style.display = 'none';
-            const placeholder = target.parentElement?.querySelector('.photo-placeholder') as HTMLElement;
+            const placeholder = target.parentElement?.querySelector('.photo-placeholder') as HTMLElement | null;
             if (placeholder) placeholder.style.display = 'flex';
           }}
         />

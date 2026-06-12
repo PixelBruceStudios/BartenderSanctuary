@@ -1,9 +1,9 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { useTranslation } from '@/lib/contexts';
 import { matchCocktails, getMissingIngredients, getMissingIngredientGroups } from '@/lib/matching';
 import IngredientCombobox from '@/components/IngredientCombobox';
+import RecipeDisplay from '@/components/RecipeDisplay';
 import type { Cocktail } from '@/data/cocktails';
-import SEO from '@/components/SEO';
 
 const techniqueMap: Record<string, string> = {
   'milk-wash': 'Requires Milk Wash technique',
@@ -40,6 +40,7 @@ export default function PantryTool({ cocktails }: PantryToolProps) {
   const { t } = useTranslation();
   const [selectedBases, setSelectedBases] = useState<string[]>([]);
   const [selectedMods, setSelectedMods] = useState<string[]>([]);
+  const [expandedSlug, setExpandedSlug] = useState<string | null>(null);
 
   const allBases = useMemo(
     () => [...new Set(cocktails.flatMap((c) => c.base))].sort(),
@@ -146,35 +147,41 @@ export default function PantryTool({ cocktails }: PantryToolProps) {
             return (
               <div
                 key={c.slug}
-                className={`glass-card animate-fade-in-up stagger-${Math.min(i + 1, 6)}`}
+                className="glass-card animate-fade-in-up"
                 style={{
                   padding: '1.5rem',
                   marginBottom: '1rem',
                   opacity: isFullMatch ? 1 : 0.85
                 }}
               >
-                <h3 style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.4rem' }}>
-                  {c.name}
-                  <span className="match-badge score">{c.score} match{c.score !== 1 ? 'es' : ''}</span>
-                  <span className="match-badge pantry">{c.pantryScore}% pantry</span>
-                </h3>
-                <div style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', marginBottom: '0.8rem' }}>
-                  {c.glass} glass · {c.origin}
-                </div>
-                <div style={{ color: 'var(--color-text-secondary)', fontSize: '0.95rem', marginBottom: '1rem', lineHeight: 1.7 }}>
-                  {c.story}
-                </div>
-
-                {c.recipe && c.recipe.length > 0 && (
-                  <div className="recipe-block">
-                    <h4>{t('recipeTitle')}</h4>
-                    <ul>
-                      {c.recipe.map((step, idx) => (
-                        <li key={idx}>{step}</li>
-                      ))}
-                    </ul>
+                <div
+                  onClick={() => setExpandedSlug((prev) => (prev === c.slug ? null : c.slug))}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setExpandedSlug((prev) => (prev === c.slug ? null : c.slug));
+                    }
+                  }}
+                  style={{ cursor: 'pointer' }}
+                >
+                  <h3 style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.4rem' }}>
+                    {c.name}
+                    <span className="match-badge score">{c.score} match{c.score !== 1 ? 'es' : ''}</span>
+                    <span className="match-badge pantry">{c.pantryScore}% pantry</span>
+                  </h3>
+                  <div style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', marginBottom: '0.8rem' }}>
+                    {c.glass} glass · {c.origin}
                   </div>
-                )}
+                  <div style={{ color: 'var(--color-text-secondary)', fontSize: '0.95rem', marginBottom: '1rem', lineHeight: 1.7 }}>
+                    {c.story}
+                  </div>
+
+                  {expandedSlug === c.slug && (
+                    <RecipeDisplay cocktail={c} />
+                  )}
+                </div>
 
                 <div style={{ marginTop: '0.8rem', fontSize: '0.9rem' }}>
                   {isFullMatch ? (

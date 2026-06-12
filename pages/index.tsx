@@ -5,6 +5,7 @@ import { matchCocktails, getMissingIngredients, getMissingIngredientGroups } fro
 import CocktailCard from '@/components/CocktailCard';
 import IngredientCombobox from '@/components/IngredientCombobox';
 import PantryTool from '@/components/PantryTool';
+import RecipeDisplay from '@/components/RecipeDisplay';
 import type { Cocktail } from '@/data/cocktails';
 import SEO from '@/components/SEO';
 

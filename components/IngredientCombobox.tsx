@@ -113,7 +113,7 @@ export default function IngredientCombobox({
 
   useEffect(() => {
     setHighlightedIndex(-1);
-  }, [normalizedQuery]);
+  }, [query]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -128,13 +128,28 @@ export default function IngredientCombobox({
       }
     };
 
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (document.activeElement === inputRef.current) {
+        if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+          event.preventDefault();
+          setIsOpen(true);
+          setHighlightedIndex((prev) => {
+            const next = event.key === 'ArrowDown' ? prev + 1 : prev - 1;
+            return Math.max(-1, Math.min(next, suggestions.length - 1));
+          });
+        }
+      }
+    };
+
     document.addEventListener('mousedown', handleClickOutside);
     document.addEventListener('focusin', handleFocusIn);
+    document.addEventListener('keydown', handleKeyDown, true);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('focusin', handleFocusIn);
+      document.removeEventListener('keydown', handleKeyDown, true);
     };
-  }, []);
+  }, [query, suggestions.length]);
 
   const addItem = (value: string) => {
     const trimmed = value.trim();
