@@ -6,9 +6,11 @@ import RecipeDisplay from '@/components/RecipeDisplay';
 type RecipeModalProps = {
   cocktail: Cocktail | null;
   onClose: () => void;
+  showOz: boolean;
+  onToggleUnits: () => void;
 };
 
-export default function RecipeModal({ cocktail, onClose }: RecipeModalProps) {
+export default function RecipeModal({ cocktail, onClose, showOz, onToggleUnits }: RecipeModalProps) {
   if (!cocktail) return null;
 
   return (
@@ -60,7 +62,7 @@ export default function RecipeModal({ cocktail, onClose }: RecipeModalProps) {
           {cocktail.story}
         </div>
 
-        <RecipeDisplay cocktail={cocktail} />
+        <RecipeDisplay cocktail={cocktail} showOz={showOz} onToggleUnits={onToggleUnits} />
       </div>
     </div>
   );

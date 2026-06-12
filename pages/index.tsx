@@ -49,6 +49,7 @@ export default function Home() {
   const [selectedMods, setSelectedMods] = useState<string[]>([]);
   const [selectedRecipe, setSelectedRecipe] = useState<Cocktail | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [recipeShowOz, setRecipeShowOz] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -284,7 +285,12 @@ export default function Home() {
         {t('footerText')}
       </footer>
 
-      <RecipeModal cocktail={selectedRecipe} onClose={() => setSelectedRecipe(null)} />
+      <RecipeModal
+        cocktail={selectedRecipe}
+        onClose={() => setSelectedRecipe(null)}
+        showOz={recipeShowOz}
+        onToggleUnits={() => setRecipeShowOz((prev) => !prev)}
+      />
     </>
   );
 }

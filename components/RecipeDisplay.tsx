@@ -1,14 +1,15 @@
 'use client';
 
 import { Cocktail } from '@/data/cocktails';
-import { useState, useMemo } from 'react';
+import { useMemo } from 'react';
 
 interface RecipeDisplayProps {
   cocktail: Cocktail;
+  showOz?: boolean;
+  onToggleUnits?: () => void;
 }
 
-export default function RecipeDisplay({ cocktail }: RecipeDisplayProps) {
-  const [showOz, setShowOz] = useState(false);
+export default function RecipeDisplay({ cocktail, showOz = false, onToggleUnits }: RecipeDisplayProps) {
   const ingredients = useMemo(() => {
     const list = cocktail.ingredients || [];
     return list.map((ing) => {
@@ -17,6 +18,10 @@ export default function RecipeDisplay({ cocktail }: RecipeDisplayProps) {
       const hasOz = /\b\d+(?:\.\d+)?\s*oz\b/.test(lower);
       const hasMl = /\b\d+(?:\.\d+)?\s*ml\b/.test(lower);
 
+      if (!hasOz && !hasMl) {
+        return { item: ing.item, qty };
+      }
+
       let displayQty = qty;
       if (showOz) {
         if (hasMl) {
@@ -24,32 +29,16 @@ export default function RecipeDisplay({ cocktail }: RecipeDisplayProps) {
           const oz = ml / 30;
           const rounded = Math.round(oz * 100) / 100;
           displayQty = `${rounded} oz`;
-        } else if (!hasOz) {
-          const num = parseFloat(lower.replace(/[^0-9.]/g, ''));
-          if (Number.isFinite(num)) {
-            const oz = num / 30;
-            const rounded = Math.round(oz * 100) / 100;
-            displayQty = `${rounded} oz`;
-          }
         }
-      } else if (!showOz) {
+      } else {
         if (hasOz) {
           const oz = parseFloat(lower.replace(/[^0-9.]/g, ''));
           const ml = Math.round(oz * 30 / 5) * 5;
           displayQty = `${ml} ml`;
-        } else if (!hasMl) {
-          const num = parseFloat(lower.replace(/[^0-9.]/g, ''));
-          if (Number.isFinite(num)) {
-            const ml = Math.round(num * 30 / 5) * 5;
-            displayQty = `${ml} ml`;
-          }
         }
       }
 
-      return {
-        item: ing.item,
-        qty: displayQty
-      };
+      return { item: ing.item, qty: displayQty };
     });
   }, [cocktail, showOz]);
 
@@ -66,16 +55,18 @@ export default function RecipeDisplay({ cocktail }: RecipeDisplayProps) {
         }}
       >
         <strong style={{ fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Recipe</strong>
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            setShowOz((prev) => !prev);
-          }}
-          className="btn-secondary"
-          style={{ fontSize: '0.8rem', padding: '0.35rem 0.7rem' }}
-        >
-          {showOz ? 'Show ml' : 'Show oz'}
-        </button>
+        {onToggleUnits && (
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onToggleUnits();
+            }}
+            className="btn-secondary"
+            style={{ fontSize: '0.8rem', padding: '0.35rem 0.7rem' }}
+          >
+            {showOz ? 'Show ml' : 'Show oz'}
+          </button>
+        )}
       </div>
 
       <ul style={{ display: 'grid', gap: '0.35rem', paddingLeft: 0, listStyle: 'none' }}>
