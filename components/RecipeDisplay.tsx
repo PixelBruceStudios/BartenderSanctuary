@@ -3,16 +3,6 @@
 import { Cocktail } from '@/data/cocktails';
 import { useState, useMemo } from 'react';
 
-const ML_PER_OZ = 30;
-
-function mlToOz(ml: string): string {
-  const numeric = parseFloat(ml);
-  if (!Number.isFinite(numeric)) return ml;
-  const oz = numeric / ML_PER_OZ;
-  const formatted = Number.isInteger(oz) ? oz.toFixed(1) : oz.toFixed(2).replace(/\.?0+$/, '');
-  return `${formatted} oz`;
-}
-
 interface RecipeDisplayProps {
   cocktail: Cocktail;
 }
@@ -21,10 +11,46 @@ export default function RecipeDisplay({ cocktail }: RecipeDisplayProps) {
   const [showOz, setShowOz] = useState(false);
   const ingredients = useMemo(() => {
     const list = cocktail.ingredients || [];
-    return list.map((ing) => ({
-      item: ing.item,
-      qty: showOz ? mlToOz(ing.qty) : ing.qty
-    }));
+    return list.map((ing) => {
+      const qty = (ing.qty || '').trim();
+      const lower = qty.toLowerCase();
+      const hasOz = /\b\d+(?:\.\d+)?\s*oz\b/.test(lower);
+      const hasMl = /\b\d+(?:\.\d+)?\s*ml\b/.test(lower);
+
+      let displayQty = qty;
+      if (showOz) {
+        if (hasMl) {
+          const ml = parseFloat(lower.replace(/[^0-9.]/g, ''));
+          const oz = ml / 30;
+          const rounded = Math.round(oz * 100) / 100;
+          displayQty = `${rounded} oz`;
+        } else if (!hasOz) {
+          const num = parseFloat(lower.replace(/[^0-9.]/g, ''));
+          if (Number.isFinite(num)) {
+            const oz = num / 30;
+            const rounded = Math.round(oz * 100) / 100;
+            displayQty = `${rounded} oz`;
+          }
+        }
+      } else if (!showOz) {
+        if (hasOz) {
+          const oz = parseFloat(lower.replace(/[^0-9.]/g, ''));
+          const ml = Math.round(oz * 30 / 5) * 5;
+          displayQty = `${ml} ml`;
+        } else if (!hasMl) {
+          const num = parseFloat(lower.replace(/[^0-9.]/g, ''));
+          if (Number.isFinite(num)) {
+            const ml = Math.round(num * 30 / 5) * 5;
+            displayQty = `${ml} ml`;
+          }
+        }
+      }
+
+      return {
+        item: ing.item,
+        qty: displayQty
+      };
+    });
   }, [cocktail, showOz]);
 
   return (
