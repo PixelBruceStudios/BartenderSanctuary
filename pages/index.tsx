@@ -6,6 +6,7 @@ import CocktailCard from '@/components/CocktailCard';
 import IngredientCombobox from '@/components/IngredientCombobox';
 import PantryTool from '@/components/PantryTool';
 import RecipeDisplay from '@/components/RecipeDisplay';
+import RecipeModal from '@/components/RecipeModal';
 import type { Cocktail } from '@/data/cocktails';
 import SEO from '@/components/SEO';
 
@@ -48,6 +49,7 @@ export default function Home() {
   const [customInput, setCustomInput] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [openAccordions, setOpenAccordions] = useState<Set<string>>(new Set(['base', 'mod']));
+  const [selectedRecipe, setSelectedRecipe] = useState<Cocktail | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -134,19 +136,7 @@ export default function Home() {
   };
 
   const handleCocktailClick = (cocktail: Cocktail) => {
-    setActiveTab('tool');
-    setSelectedBases(cocktail.base);
-    setSelectedMods(cocktail.modifiers);
-    const existing = new Set([...cocktail.base, ...cocktail.modifiers].map((i) => i.toLowerCase()));
-    const extras = (cocktail.ingredients || [])
-      .map((i) => i.item)
-      .filter((item) => !existing.has(item.toLowerCase()));
-    if (extras.length) {
-      setSelectedCustom((prev) => {
-        const merged = new Set([...prev, ...extras]);
-        return [...merged];
-      });
-    }
+    setSelectedRecipe(cocktail);
   };
 
   const handleSurpriseMe = () => {
@@ -631,6 +621,8 @@ export default function Home() {
       >
         {t('footerText')}
       </footer>
+
+      <RecipeModal cocktail={selectedRecipe} onClose={() => setSelectedRecipe(null)} />
     </>
   );
 }
