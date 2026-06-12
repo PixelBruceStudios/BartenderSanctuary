@@ -5,6 +5,57 @@ export interface MatchResult extends Cocktail {
   pantryScore: number;
 }
 
+export function categorizeIngredient(item: string): 'base' | 'mod' | 'ingredient' {
+  const normalized = item.toLowerCase();
+  if (
+    normalized.includes('whiskey') ||
+    normalized.includes('bourbon') ||
+    normalized.includes('rye') ||
+    normalized.includes('scotch') ||
+    normalized.includes('vodka') ||
+    normalized.includes('gin') ||
+    normalized.includes('rum') ||
+    normalized.includes('tequila') ||
+    normalized.includes('brandy') ||
+    normalized.includes('cognac') ||
+    normalized.includes('mezcal') ||
+    normalized.includes('absinthe') ||
+    normalized.includes('liqueur') ||
+    normalized.includes('bitters')
+  ) {
+    return 'base';
+  }
+
+  if (
+    normalized.includes('syrup') ||
+    normalized.includes('juice') ||
+    normalized.includes('soda') ||
+    normalized.includes('water') ||
+    normalized.includes('milk') ||
+    normalized.includes('cream') ||
+    normalized.includes('egg') ||
+    normalized.includes('honey') ||
+    normalized.includes('sugar') ||
+    normalized.includes('salt') ||
+    normalized.includes('peel') ||
+    normalized.includes('twist') ||
+    normalized.includes('wheel') ||
+    normalized.includes('leaf') ||
+    normalized.includes('herb') ||
+    normalized.includes('fruit') ||
+    normalized.includes('berry') ||
+    normalized.includes('citrus') ||
+    normalized.includes('orange') ||
+    normalized.includes('lemon') ||
+    normalized.includes('lime') ||
+    normalized.includes('grapefruit')
+  ) {
+    return 'mod';
+  }
+
+  return 'ingredient';
+}
+
 export function matchCocktails(
   cocktails: Cocktail[],
   selectedBases: string[],
@@ -51,14 +102,20 @@ export function getMissingIngredients(
   const modSet = new Set(selectedMods.map((s) => s.toLowerCase()));
   const customSet = new Set(selectedCustom.map((s) => s.toLowerCase()));
 
+  const matchesPantry = (item: string) => {
+    const lower = item.toLowerCase();
+    const isBase = [...baseSet].some((v) => lower.includes(v));
+    const isMod = [...modSet].some((v) => lower.includes(v));
+    const isCustom = [...customSet].some((v) => lower.includes(v));
+    return isBase || isMod || isCustom;
+  };
+
   const allCocktailItems = [
     ...cocktail.base,
     ...cocktail.modifiers,
     ...cocktail.ingredients.map((i) => i.item),
   ];
-  return [...new Set(allCocktailItems)].filter(
-    (i) => !baseSet.has(i.toLowerCase()) && !modSet.has(i.toLowerCase()) && !customSet.has(i.toLowerCase())
-  );
+  return [...new Set(allCocktailItems)].filter((i) => !matchesPantry(i));
 }
 
 export interface IngredientGroup {
