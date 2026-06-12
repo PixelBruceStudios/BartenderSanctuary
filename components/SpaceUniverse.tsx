@@ -417,7 +417,9 @@ export default function SpaceUniverse({
     };
 
     return () => {
-      cancelAnimationFrame(sceneRef.current!.raf);
+      if (sceneRef.current) {
+        cancelAnimationFrame(sceneRef.current.raf);
+      }
       window.removeEventListener("resize", handleResize);
       renderer.domElement.removeEventListener("click", handleClick);
       renderer.domElement.removeEventListener("mousemove", handleHover);

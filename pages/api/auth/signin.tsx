@@ -5,7 +5,9 @@ type ApiUser = {
   emailVerified: boolean;
 };
 
-export default async function handler(req: { method: string; body: { email?: string; password?: string } }, res: { status: (code: number) => { json: (arg0: { ok: boolean; user?: ApiUser }) => void } }) {
+import type { NextApiRequest, NextApiResponse } from "next";
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse<{ ok: boolean; user?: ApiUser }>) {
   if (req.method !== "POST") {
     return res.status(405).json({ ok: false });
   }
@@ -16,7 +18,10 @@ export default async function handler(req: { method: string; body: { email?: str
   }
 
   try {
-    const userRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/auth/user-by-email`, {
+    const proto = req.headers["x-forwarded-proto"]?.toString() || "http";
+    const host = req.headers.host || process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+    const baseUrl = `${proto}://${host}`;
+    const userRes = await fetch(`${baseUrl}/api/auth/user-by-email`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email }),

@@ -1,6 +1,5 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { compare } from "bcryptjs";
 
 declare module "next-auth" {
   interface Session {
@@ -24,7 +23,7 @@ declare module "next-auth/jwt" {
   }
 }
 
-export const { handlers, auth, signIn, signOut } = NextAuth({
+const _nextAuth = NextAuth({
   pages: {
     signIn: "/auth/signin",
     verifyRequest: "/auth/verify-request",
@@ -38,10 +37,23 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         password: { label: "Password", type: "password" },
       },
       authorize: async (credentials) => {
-        if (!credentials?.email || !credentials?.password) return null;
+        if (!credentials?.email || !credentials?.password) {
+          console.log("[nextauth] missing credentials");
+          return null;
+        }
+
+        const baseUrl =
+          process.env.NEXT_PUBLIC_SITE_URL ||
+          "https://bartender-sanctuary-app.vercel.app";
+        console.log("[nextauth] authorize start", {
+          email: credentials.email,
+          baseUrl,
+          hasPassword: Boolean(credentials.password),
+          passwordLen: credentials.password?.length,
+        });
 
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_SITE_URL}/api/auth/user-by-email`,
+          `${baseUrl}/api/auth/user-by-email`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -49,13 +61,24 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           }
         );
         const data = await res.json();
+        console.log("[nextauth] user-by-email response", {
+          status: res.status,
+          ok: res.ok,
+          hasUser: Boolean(data.user),
+          keys: Object.keys(data),
+        });
 
         if (!res.ok || !data.user) return null;
 
-        const passwordMatch = await compare(
+        const bcrypt = await import("bcryptjs");
+        const passwordMatch = await bcrypt.compare(
           credentials.password,
           data.user.password_hash
         );
+        console.log("[nextauth] password match", {
+          match: passwordMatch,
+          hashPrefix: data.user.password_hash?.slice(0, 10),
+        });
         if (!passwordMatch) return null;
 
         return {
@@ -84,3 +107,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     },
   },
 });
+
+export const { handlers, auth, signIn, signOut } = _nextAuth;
+export default _nextAuth;

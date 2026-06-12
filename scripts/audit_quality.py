@@ -2,15 +2,17 @@
 """
 scripts/audit_quality.py
 
-Audit existing BS school lessons for:
-  - AI artifact phrases
-  - Excessive exclamation marks (>3 per lesson = cringe flag)
+Audit existing BS school lessons for quality issues:
+  - AI artifact phrases (scaffolding, internal monologue)
+  - Excessive exclamation marks (>3 per lesson)
   - Word count (< 800 = too short)
   - Missing sources (< 2)
   - HTML tags in content
 
 Outputs JSON to stdout: summary + next_targets (worst 20).
 Writes full report to /tmp/lesson_quality_report.json
+
+Usage: .venv/bin/python3 scripts/audit_quality.py
 """
 import json, os, re, sys
 import psycopg2
@@ -46,17 +48,19 @@ rows = cur.fetchall()
 cur.close()
 conn.close()
 
+# AI artifact patterns — use word boundaries and context to avoid false positives
 AI_PATTERNS = [
-    (re.compile(r'got it, let', re.IGNORECASE), 'got_it_let'),
-    (re.compile(r'sure,', re.IGNORECASE), 'sure_comma'),
-    (re.compile(r'as an ai', re.IGNORECASE), 'as_an_ai'),
-    (re.compile(r'i cannot', re.IGNORECASE), 'i_cannot'),
-    (re.compile(r'key takeaways:\s*let', re.IGNORECASE), 'key_takeaways_let'),
+    # Sentence-starting scaffolding (must be at start of string or after sentence boundary)
+    (re.compile(r'(?:^|\.\s)Got it, let', re.IGNORECASE), 'got_it_let'),
+    (re.compile(r'(?:^|\.\s)Sure,', re.IGNORECASE), 'sure_comma'),
+    (re.compile(r'(?:^|\.\s)As an AI', re.IGNORECASE), 'as_an_ai'),
+    (re.compile(r'(?:^|\.\s)I cannot', re.IGNORECASE), 'i_cannot'),
+    (re.compile(r'Key Takeaways:\s*Let', re.IGNORECASE), 'key_takeaways_let'),
     (re.compile(r'see original research for source citations', re.IGNORECASE), 'fake_sources'),
-    (re.compile(r'next,\s*body paragraphs', re.IGNORECASE), 'next_body_paragraphs'),
+    (re.compile(r'(?:^|\.\s)Next,\s*body paragraphs', re.IGNORECASE), 'next_body_paragraphs'),
     (re.compile(r'opening hook needs', re.IGNORECASE), 'opening_hook_needs'),
-    (re.compile(r'wait,? let', re.IGNORECASE), 'wait_let'),
-    (re.compile(r'perfect,? now', re.IGNORECASE), 'perfect_now'),
+    (re.compile(r'(?:^|\.\s)Wait,?\s*let', re.IGNORECASE), 'wait_let'),
+    (re.compile(r'(?:^|\.\s)Perfect,?\s*now', re.IGNORECASE), 'perfect_now'),
     (re.compile(r'let\'s make sure', re.IGNORECASE), 'lets_make_sure'),
     (re.compile(r'let\'s outline', re.IGNORECASE), 'lets_outline'),
     (re.compile(r'let\'s structure', re.IGNORECASE), 'lets_structure'),

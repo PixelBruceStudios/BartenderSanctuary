@@ -14,11 +14,12 @@ export default function SignIn() {
     setLoading(true);
     setError(null);
 
-    const res = await signIn("credentials", {
-      email,
-      password,
-      redirect: false,
-    });
+    const payload = { email, password, redirect: false };
+    console.log("[signin] submitting", { email, passwordLen: password.length });
+
+    const res = await signIn("credentials", payload);
+
+    console.log("[signin] response", res);
 
     setLoading(false);
     if (res?.error) {
