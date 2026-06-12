@@ -82,8 +82,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     return res.status(201).json({ ok: true, message: "Account created. Check your email to verify." });
   } catch (error) {
     await client.query("ROLLBACK").catch(() => {});
+    const message = error instanceof Error ? error.message : "Something went wrong.";
     console.error("[register]", error);
-    return bad(res, 500, "Something went wrong.");
+    return bad(res, 500, message);
   } finally {
     client.release();
   }

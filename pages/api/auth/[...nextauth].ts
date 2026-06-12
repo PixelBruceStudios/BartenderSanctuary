@@ -2,6 +2,28 @@ import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { compare } from "bcryptjs";
 
+declare module "next-auth" {
+  interface Session {
+    user: {
+      id: string;
+      emailVerified: boolean;
+      name?: string | null;
+      email?: string | null;
+      image?: string | null;
+    };
+  }
+  interface User {
+    emailVerified: boolean;
+  }
+}
+
+declare module "next-auth/jwt" {
+  interface JWT {
+    id: string;
+    emailVerified: boolean;
+  }
+}
+
 export const { handlers, auth, signIn, signOut } = NextAuth({
   pages: {
     signIn: "/auth/signin",
@@ -49,14 +71,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
-        token.emailVerified = user.emailVerified;
+        token.emailVerified = Boolean((user as any).emailVerified);
       }
       return token;
     },
     async session({ session, token }) {
       if (session.user) {
-        session.user.id = token.id as string;
-        session.user.emailVerified = token.emailVerified as boolean;
+        session.user.id = token.id;
+        session.user.emailVerified = token.emailVerified;
       }
       return session;
     },

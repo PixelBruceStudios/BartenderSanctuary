@@ -1,6 +1,11 @@
-import { signIn } from "next-auth/react";
+type ApiUser = {
+  id: string;
+  email: string;
+  name?: string | null;
+  emailVerified: boolean;
+};
 
-export default async function handler(req: { method: string; body: { email?: string; password?: string } }, res: { status: (code: number) => { json: (arg0: { ok: boolean; user?: { id: string; email: string; name?: string | null; password_hash: string; email_verified: boolean } }) => void } }) {
+export default async function handler(req: { method: string; body: { email?: string; password?: string } }, res: { status: (code: number) => { json: (arg0: { ok: boolean; user?: ApiUser }) => void } }) {
   if (req.method !== "POST") {
     return res.status(405).json({ ok: false });
   }
@@ -28,14 +33,13 @@ export default async function handler(req: { method: string; body: { email?: str
       return res.status(401).json({ ok: false });
     }
 
-    // Return user info for session creation
     return res.status(200).json({
       ok: true,
       user: {
         id: userData.user.id,
         email: userData.user.email,
         name: userData.user.name,
-        emailVerified: userData.user.email_verified,
+        emailVerified: (userData.user as any).email_verified,
       },
     });
   } catch (error) {

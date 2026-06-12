@@ -1,7 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { pool } from "../../../lib/db";
 
 type ApiError = { ok: false; error: string };
-type ApiSuccess = { ok: true; user: { id: string; email: string; name?: string | null; password_hash: string; email_verified: boolean } };
+type ApiSuccess = { ok: true; user: { id: string; email: string; name?: string | null; email_verified: boolean } };
 type ApiResponse = ApiSuccess | ApiError;
 
 function bad(res: NextApiResponse<ApiError>, status: number, error: string) {
@@ -24,18 +25,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     return bad(res, 500, "Database not configured.");
   }
 
-  const poolModule = await import("@vercel/postgres");
-  const pgModule = await import("pg");
-  const pool = poolModule.default;
-  const client = new (pool ? pool(dbUrl) : pgModule.Client(dbUrl));
-
+  const client = await pool.connect();
   try {
     const result = await client.query(
       "SELECT id, email, name, password_hash, email_verified FROM users WHERE email = $1",
       [trimmed]
     );
 
-    if (result.rowCount === 0) {
+    if (result.rows.length === 0) {
       return bad(res, 404, "No account found.");
     }
 
@@ -45,6 +42,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     console.error("[user-by-email]", error);
     return bad(res, 500, "Something went wrong.");
   } finally {
-    await client.end().catch(() => {});
+    client.release();
   }
 }

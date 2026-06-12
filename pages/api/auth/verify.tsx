@@ -35,7 +35,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       [tokenHash]
     );
 
-    if (result.rowCount === 0) {
+    if (result.rows.length === 0) {
       await client.query("ROLLBACK");
       return bad(res, 400, "Invalid or expired token.");
     }
@@ -47,9 +47,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       return bad(res, 400, "Invalid or expired token.");
     }
 
-    await client.query("UPDATE users SET email_verified = true WHERE email = $1", [
-      row.identifier,
-    ]);
+    await client.query(
+      "UPDATE users SET email_verified = true WHERE email = $1",
+      [row.identifier]
+    );
     await client.query("DELETE FROM verification_tokens WHERE id = $1", [row.id]);
 
     await client.query("COMMIT");

@@ -30,7 +30,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     );
 
     let userId: string;
-    if (userResult.rowCount === 0) {
+    if (userResult.rows.length === 0) {
       const newUser = await client.query(
         "INSERT INTO users (email, email_verified, created_at) VALUES ($1, false, now()) RETURNING id",
         [trimmed]
@@ -52,9 +52,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     await client.query("COMMIT");
 
     const verifyUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/api/auth/verify?token=${token}`;
-    console.log(`[verify] link for ${trimmed}: ${verifyUrl}`);
+    console.log(`[verify-request] link for ${trimmed}: ${verifyUrl}`);
 
-    if (process.env.EMAIL_SERVER) {
+    if (process.env.RESEND_API_KEY) {
       await resend.emails.send({
         from: process.env.EMAIL_FROM || "onboarding@resend.dev",
         to: trimmed,
