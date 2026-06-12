@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import Head from 'next/head';
 import { useTranslation } from '@/lib/contexts';
-import { matchCocktails, getMissingIngredients } from '@/lib/matching';
+import { matchCocktails, getMissingIngredients, getMissingIngredientGroups } from '@/lib/matching';
 import CocktailCard from '@/components/CocktailCard';
 import type { Cocktail } from '@/data/cocktails';
 import SEO from '@/components/SEO';
@@ -41,6 +41,8 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<'browse' | 'tool'>('browse');
   const [selectedBases, setSelectedBases] = useState<string[]>([]);
   const [selectedMods, setSelectedMods] = useState<string[]>([]);
+  const [selectedCustom, setSelectedCustom] = useState<string[]>([]);
+  const [customInput, setCustomInput] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [openAccordions, setOpenAccordions] = useState<Set<string>>(new Set(['base', 'mod']));
 
@@ -87,8 +89,8 @@ export default function Home() {
   }, [searchQuery, cocktails]);
 
   const matches = useMemo(
-    () => matchCocktails(cocktails, selectedBases, selectedMods),
-    [selectedBases, selectedMods, cocktails]
+    () => matchCocktails(cocktails, selectedBases, selectedMods, selectedCustom),
+    [selectedBases, selectedMods, selectedCustom, cocktails]
   );
 
   const suggestions = useMemo(
@@ -110,10 +112,38 @@ export default function Home() {
     setter((prev) => (prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]));
   };
 
+  const addCustomIngredient = () => {
+    const trimmed = customInput.trim();
+    if (!trimmed) return;
+    if (!selectedCustom.includes(trimmed)) {
+      setSelectedCustom((prev) => [...prev, trimmed]);
+    }
+    setCustomInput('');
+  };
+
+  const removeCustomIngredient = (value: string) => {
+    setSelectedCustom((prev) => prev.filter((v) => v !== value));
+  };
+
+  const clearCustomIngredients = () => {
+    setSelectedCustom([]);
+    setCustomInput('');
+  };
+
   const handleCocktailClick = (cocktail: Cocktail) => {
     setActiveTab('tool');
     setSelectedBases(cocktail.base);
     setSelectedMods(cocktail.modifiers);
+    const existing = new Set([...cocktail.base, ...cocktail.modifiers].map((i) => i.toLowerCase()));
+    const extras = (cocktail.ingredients || [])
+      .map((i) => i.item)
+      .filter((item) => !existing.has(item.toLowerCase()));
+    if (extras.length) {
+      setSelectedCustom((prev) => {
+        const merged = new Set([...prev, ...extras]);
+        return [...merged];
+      });
+    }
   };
 
   const handleSurpriseMe = () => {
@@ -704,6 +734,130 @@ export default function Home() {
                 </div>
               </div>
 
+              <div
+                style={{
+                  border: '1px solid var(--color-border)',
+                  borderRadius: '12px',
+                  padding: '1rem',
+                  marginTop: '0.75rem',
+                  background: 'rgba(255,255,255,0.02)'
+                }}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    marginBottom: '0.5rem'
+                  }}
+                >
+                  <span
+                    style={{
+                      fontSize: '0.75rem',
+                      fontWeight: 600,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.08em',
+                      color: 'var(--color-accent)'
+                    }}
+                  >
+                    My Pantry
+                  </span>
+                  {selectedCustom.length > 0 && (
+                    <button
+                      onClick={clearCustomIngredients}
+                      style={{
+                        background: 'none',
+                        border: 'none',
+                        color: 'var(--color-text-muted)',
+                        fontSize: '0.8rem',
+                        cursor: 'pointer',
+                        textDecoration: 'underline'
+                      }}
+                    >
+                      Clear all
+                    </button>
+                  )}
+                </div>
+
+                {selectedCustom.length > 0 && (
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      gap: '0.4rem',
+                      marginBottom: '0.75rem'
+                    }}
+                  >
+                    {selectedCustom.map((item) => (
+                      <span
+                        key={item}
+                        className="tag"
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.35rem',
+                          cursor: 'default'
+                        }}
+                      >
+                        {item}
+                        <button
+                          onClick={() => removeCustomIngredient(item)}
+                          style={{
+                            background: 'none',
+                            border: 'none',
+                            color: 'inherit',
+                            cursor: 'pointer',
+                            fontSize: '1rem',
+                            lineHeight: 1,
+                            padding: 0
+                          }}
+                          aria-label={`Remove ${item}`}
+                        >
+                          ×
+                        </button>
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <div
+                  style={{
+                    display: 'flex',
+                    gap: '0.5rem'
+                  }}
+                >
+                  <input
+                    type="text"
+                    value={customInput}
+                    onChange={(e) => setCustomInput(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        e.preventDefault();
+                        addCustomIngredient();
+                      }
+                    }}
+                    placeholder="Add spirit, liqueur, mixer, garnish…"
+                    style={{
+                      flex: 1,
+                      padding: '0.55rem 0.7rem',
+                      borderRadius: '8px',
+                      border: '1px solid var(--color-border)',
+                      background: 'var(--color-surface)',
+                      color: 'var(--color-text)',
+                      fontSize: '0.95rem',
+                      outline: 'none'
+                    }}
+                  />
+                  <button
+                    onClick={addCustomIngredient}
+                    className="btn-secondary"
+                    style={{ whiteSpace: 'nowrap' }}
+                  >
+                    Add to pantry
+                  </button>
+                </div>
+              </div>
+
               <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap', marginTop: '1rem' }}>
                 <button className="btn-primary" onClick={() => setActiveTab('tool')}>
                   {t('btnFindMatches')}
@@ -775,9 +929,55 @@ export default function Home() {
                         {isFullMatch ? (
                           <span style={{ color: 'var(--color-success)' }}>{t('youHaveEverything')}</span>
                         ) : (
-                          <span style={{ color: 'var(--color-text-secondary)' }}>
-                            {t('missingLabel')} {missing.join(', ')}
-                          </span>
+                          <div>
+                            <span style={{ color: 'var(--color-text-secondary)' }}>{t('missingLabel')}</span>
+                            <div style={{ marginTop: '0.4rem' }}>
+                              {(() => {
+                                const groups = getMissingIngredientGroups(c, selectedBases, selectedMods, selectedCustom);
+                                if (groups.length === 0) return null;
+                                return groups.map((g) => (
+                                  <div
+                                    key={g.label}
+                                    style={{
+                                      display: 'flex',
+                                      flexWrap: 'wrap',
+                                      alignItems: 'center',
+                                      gap: '0.35rem',
+                                      marginBottom: '0.25rem'
+                                    }}
+                                  >
+                                    <span
+                                      style={{
+                                        fontSize: '0.75rem',
+                                        fontWeight: 600,
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '0.06em',
+                                        color: 'var(--color-accent)',
+                                        minWidth: '5.5rem'
+                                      }}
+                                    >
+                                      {g.label}
+                                    </span>
+                                    {g.missing.map((item) => (
+                                      <span
+                                        key={item}
+                                        style={{
+                                          padding: '0.15rem 0.5rem',
+                                          borderRadius: '999px',
+                                          border: '1px solid var(--color-border)',
+                                          fontSize: '0.8rem',
+                                          color: 'var(--color-text-secondary)',
+                                          background: 'rgba(255,255,255,0.02)'
+                                        }}
+                                      >
+                                        {item}
+                                      </span>
+                                    ))}
+                                  </div>
+                                ));
+                              })()}
+                            </div>
+                          </div>
                         )}
                       </div>
 
