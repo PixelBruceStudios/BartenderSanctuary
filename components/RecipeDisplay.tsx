@@ -28,7 +28,7 @@ interface RecipeDisplayProps {
 }
 
 export default function RecipeDisplay({ cocktail }: RecipeDisplayProps) {
-  const [showOz, setShowOz] = useState(true);
+  const [showOz, setShowOz] = useState(false);
   const ingredients = useMemo(() => {
     const list = cocktail.ingredients || [];
     return list.map((ing) => ({
@@ -51,7 +51,10 @@ export default function RecipeDisplay({ cocktail }: RecipeDisplayProps) {
       >
         <strong style={{ fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Recipe</strong>
         <button
-          onClick={() => setShowOz((prev) => !prev)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setShowOz((prev) => !prev);
+          }}
           className="btn-secondary"
           style={{ fontSize: '0.8rem', padding: '0.35rem 0.7rem' }}
         >
