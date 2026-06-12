@@ -48,6 +48,7 @@ export default function Home() {
   const [selectedBases, setSelectedBases] = useState<string[]>([]);
   const [selectedMods, setSelectedMods] = useState<string[]>([]);
   const [selectedRecipe, setSelectedRecipe] = useState<Cocktail | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     let cancelled = false;
@@ -84,6 +85,17 @@ export default function Home() {
     () => matchCocktails(cocktails, selectedBases, selectedMods, []),
     [selectedBases, selectedMods, cocktails]
   );
+
+  const filteredCocktails = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return cocktails;
+    return cocktails.filter(
+      (c) =>
+        c.name.toLowerCase().includes(q) ||
+        c.tags.some((tag) => tag.toLowerCase().includes(q)) ||
+        c.story.toLowerCase().includes(q)
+    );
+  }, [searchQuery, cocktails]);
 
   const suggestions = useMemo(
     () => techniqueSuggestions(selectedBases, selectedMods),
@@ -228,6 +240,8 @@ export default function Home() {
                 type="text"
                 className="search-input"
                 placeholder={t('searchPlaceholder')}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 style={{ paddingLeft: '2.5rem' }}
               />
             </div>
@@ -243,7 +257,7 @@ export default function Home() {
                   gap: '1.5rem'
                 }}
               >
-                {cocktails.map((c, i) => (
+                {filteredCocktails.map((c, i) => (
                   <div key={c.slug} className={`animate-fade-in-up stagger-${Math.min(i + 1, 6)}`}>
                     <CocktailCard cocktail={c} onClick={() => handleCocktailClick(c)} />
                   </div>
