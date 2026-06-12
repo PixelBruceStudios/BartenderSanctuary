@@ -1,0 +1,1577 @@
+[
+  {
+    "slug": "aviation",
+    "name": "Aviation",
+    "description": "A pre-Prohibition classic with a floral violet hue.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "London dry gin",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Maraschino liqueur",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Fresh lemon juice",
+        "qty": "0.75 oz"
+      },
+      {
+        "item": "Cr\u00e8me de violette",
+        "qty": "0.25 oz"
+      }
+    ],
+    "instructions": [
+      "Add all ingredients to shaker with ice.",
+      "Shake hard and double strain into chilled coupe."
+    ],
+    "glass_type": "Coupe",
+    "garnish": "Maraschino cherry",
+    "difficulty": "Intermediate"
+  },
+  {
+    "slug": "bees-knees",
+    "name": "Bee's Knees",
+    "description": "Prohibition-era sour with honey and orange blossom.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "London dry gin",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Fresh lemon juice",
+        "qty": "0.75 oz"
+      },
+      {
+        "item": "Honey syrup",
+        "qty": "0.75 oz"
+      },
+      {
+        "item": "Orange blossom water",
+        "qty": "1 dash"
+      }
+    ],
+    "instructions": [
+      "Add gin, lemon, and honey syrup to shaker with ice.",
+      "Shake hard and strain into chilled coupe."
+    ],
+    "glass_type": "Coupe",
+    "garnish": "Lemon twist",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "between-the-sheets",
+    "name": "Between the Sheets",
+    "description": "A 1930s boozy number. Cognac, rum, triple sec, and lemon.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Cognac",
+        "qty": "1 oz"
+      },
+      {
+        "item": "White rum",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Triple sec",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Fresh lemon juice",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Simple syrup",
+        "qty": "0.5 oz"
+      }
+    ],
+    "instructions": [
+      "Add all ingredients to shaker with ice.",
+      "Shake hard and strain into chilled coupe."
+    ],
+    "glass_type": "Coupe",
+    "garnish": "Lemon twist",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "bijou",
+    "name": "Bijou",
+    "description": "French for 'jewel.' Gin, vermouth, Chartreuse, and bitters.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "London dry gin",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Sweet vermouth",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Green Chartreuse",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Angostura bitters",
+        "qty": "2 dashes"
+      }
+    ],
+    "instructions": [
+      "Add all ingredients to mixing glass with ice.",
+      "Stir 20\u201330 seconds and strain into chilled coupe."
+    ],
+    "glass_type": "Coupe",
+    "garnish": "Lemon twist",
+    "difficulty": "Intermediate"
+  },
+  {
+    "slug": "bramble",
+    "name": "Bramble",
+    "description": "A modern British classic from the 1980s. Gin, lemon, sugar, and cr\u00e8me de m\u00fbre.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "London dry gin",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Fresh lemon juice",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Simple syrup",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Cr\u00e8me de m\u00fbre",
+        "qty": "0.75 oz"
+      },
+      {
+        "item": "Fresh blackberries",
+        "qty": "2\u20133"
+      }
+    ],
+    "instructions": [
+      "Add gin, lemon, and syrup to shaker with ice.",
+      "Shake and strain over crushed ice.",
+      "Drizzle cr\u00e8me de m\u00fbre over top."
+    ],
+    "glass_type": "Rocks",
+    "garnish": "Fresh blackberries",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "churchill",
+    "name": "Churchill",
+    "description": "A punchy Churchill-esque drink. Strong, stirred, and unapologetic.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Bourbon",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Sweet vermouth",
+        "qty": "1 oz"
+      },
+      {
+        "item": "B\u00e9n\u00e9dictine",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Angostura bitters",
+        "qty": "2 dashes"
+      }
+    ],
+    "instructions": [
+      "Add all ingredients to mixing glass with ice.",
+      "Stir until chilled and strain into chilled coupe."
+    ],
+    "glass_type": "Coupe",
+    "garnish": "Orange twist",
+    "difficulty": "Intermediate"
+  },
+  {
+    "slug": "hanky-panky",
+    "name": "Hanky Panky",
+    "description": "A secret menu item from London, 1903. Equal parts gin, vermouth, and Fernet-Branca.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "London dry gin",
+        "qty": "1.5 oz"
+      },
+      {
+        "item": "Sweet vermouth",
+        "qty": "1.5 oz"
+      },
+      {
+        "item": "Fernet-Branca",
+        "qty": "2 dashes"
+      }
+    ],
+    "instructions": [
+      "Add all ingredients to mixing glass with ice.",
+      "Stir until chilled and strain into chilled coupe."
+    ],
+    "glass_type": "Coupe",
+    "garnish": "Orange twist",
+    "difficulty": "Intermediate"
+  },
+  {
+    "slug": "irish-coffee",
+    "name": "Irish Coffee",
+    "description": "Hot coffee, Irish whiskey, sugar, and cream. Created at Foynes Airport in 1943.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Irish whiskey",
+        "qty": "1.5 oz"
+      },
+      {
+        "item": "Hot coffee",
+        "qty": "6 oz"
+      },
+      {
+        "item": "Sugar",
+        "qty": "1 tsp"
+      },
+      {
+        "item": "Heavy cream",
+        "qty": "1 oz"
+      }
+    ],
+    "instructions": [
+      "Preheat a heatproof glass.",
+      "Add whiskey and sugar, fill with hot coffee.",
+      "Float cream on top using a spoon."
+    ],
+    "glass_type": "Irish Coffee Glass",
+    "garnish": "Nutmeg grate",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "mint-julep",
+    "name": "Mint Julep",
+    "description": "Bourbon, mint, and crushed ice. The signature drink of the Kentucky Derby.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Bourbon",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Fresh mint leaves",
+        "qty": "8\u201310"
+      },
+      {
+        "item": "Simple syrup",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Crushed ice",
+        "qty": "as needed"
+      }
+    ],
+    "instructions": [
+      "Muddle mint with simple syrup in julep cup.",
+      "Fill with crushed ice.",
+      "Add bourbon and stir until cup frosts."
+    ],
+    "glass_type": "Julep Cup",
+    "garnish": "Mint bouquet",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "monkey-gland",
+    "name": "Monkey Gland",
+    "description": "A 1920s eccentric cocktail. Gin, orange juice, absinthe, and grenadine.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "London dry gin",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Fresh orange juice",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Absinthe",
+        "qty": "0.25 oz"
+      },
+      {
+        "item": "Grenadine",
+        "qty": "0.5 oz"
+      }
+    ],
+    "instructions": [
+      "Add all ingredients to shaker with ice.",
+      "Shake hard and strain into chilled coupe."
+    ],
+    "glass_type": "Coupe",
+    "garnish": "Orange twist",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "moscow-mule",
+    "name": "Moscow Mule",
+    "description": "Vodka, ginger beer, and lime. Served in a copper mug.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Vodka",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Fresh lime juice",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Ginger beer",
+        "qty": "4\u20136 oz"
+      }
+    ],
+    "instructions": [
+      "Add vodka and lime juice to copper mug over ice.",
+      "Top with ginger beer and stir gently."
+    ],
+    "glass_type": "Copper Mug",
+    "garnish": "Lime wheel",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "old-cuban",
+    "name": "Old Cuban",
+    "description": "Created by Audrey Saunders. Aged rum, mint, lime, and sparkling wine.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Aged rum",
+        "qty": "1.5 oz"
+      },
+      {
+        "item": "Fresh lime juice",
+        "qty": "0.75 oz"
+      },
+      {
+        "item": "Simple syrup",
+        "qty": "0.75 oz"
+      },
+      {
+        "item": "Fresh mint leaves",
+        "qty": "8\u201310"
+      },
+      {
+        "item": "Champagne",
+        "qty": "top"
+      }
+    ],
+    "instructions": [
+      "Muddle mint with lime and syrup.",
+      "Add rum and ice, shake hard.",
+      "Double strain and top with champagne."
+    ],
+    "glass_type": "Coupe",
+    "garnish": "Mint sprig",
+    "difficulty": "Intermediate"
+  },
+  {
+    "slug": "pisco-sour",
+    "name": "Pisco Sour",
+    "description": "Peru's national cocktail. Pisco, lemon, sugar, egg white, and bitters.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Pisco",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Fresh lemon juice",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Simple syrup",
+        "qty": "0.75 oz"
+      },
+      {
+        "item": "Egg white",
+        "qty": "1"
+      },
+      {
+        "item": "Angostura bitters",
+        "qty": "2 dashes"
+      }
+    ],
+    "instructions": [
+      "Add pisco, lemon, syrup, and egg white to shaker.",
+      "Dry shake without ice.",
+      "Add ice, shake hard, and double strain.",
+      "Dash bitters on foam."
+    ],
+    "glass_type": "Coupe",
+    "garnish": "Angostura bitters on foam",
+    "difficulty": "Intermediate"
+  },
+  {
+    "slug": "polar-bear",
+    "name": "Polar Bear",
+    "description": "A layered shooter. Coffee, Irish cream, and orange.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Coffee liqueur",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Irish cream",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Orange liqueur",
+        "qty": "1 oz"
+      }
+    ],
+    "instructions": [
+      "Layer coffee liqueur, Irish cream, and orange liqueur into a shot glass."
+    ],
+    "glass_type": "Shot",
+    "garnish": "None",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "pousse-cafe",
+    "name": "Pousse Caf\u00e9",
+    "description": "A layered dessert shooter. Multiple liqueurs create a rainbow.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Grenadine",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Green cr\u00e8me de menthe",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Cr\u00e8me de banane",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Brandy",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Triple sec",
+        "qty": "0.5 oz"
+      }
+    ],
+    "instructions": [
+      "Carefully layer each liqueur from heaviest to lightest using a bar spoon."
+    ],
+    "glass_type": "Pousse Caf\u00e9 Glass",
+    "garnish": "None",
+    "difficulty": "Advanced"
+  },
+  {
+    "slug": "raptor",
+    "name": "Raptor",
+    "description": "A strong, stirred number. Bourbon, amaro, and bitters.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Bourbon",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Amaro Nonino",
+        "qty": "0.75 oz"
+      },
+      {
+        "item": "Angostura bitters",
+        "qty": "2 dashes"
+      }
+    ],
+    "instructions": [
+      "Add all ingredients to mixing glass with ice.",
+      "Stir until chilled and strain into rocks glass over ice."
+    ],
+    "glass_type": "Rocks",
+    "garnish": "Orange twist",
+    "difficulty": "Intermediate"
+  },
+  {
+    "slug": "remember-the-maine",
+    "name": "Remember the Maine",
+    "description": "A rye-based cocktail from the 1930s. Whiskey, vermouth, cherry liqueur, and absinthe.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Rye whiskey",
+        "qty": "1.5 oz"
+      },
+      {
+        "item": "Sweet vermouth",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Cherry liqueur",
+        "qty": "0.25 oz"
+      },
+      {
+        "item": "Absinthe",
+        "qty": "1 dash"
+      }
+    ],
+    "instructions": [
+      "Add all ingredients to mixing glass with ice.",
+      "Stir until chilled and strain into chilled coupe."
+    ],
+    "glass_type": "Coupe",
+    "garnish": "Brandied cherry",
+    "difficulty": "Intermediate"
+  },
+  {
+    "slug": "rose",
+    "name": "Rose",
+    "description": "A delicate pink cocktail from the 1920s. Kirsch, vermouth, and applejack.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Kirsch",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Dry vermouth",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Applejack",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Grenadine",
+        "qty": "0.25 oz"
+      }
+    ],
+    "instructions": [
+      "Add all ingredients to mixing glass with ice.",
+      "Stir until chilled and strain into chilled coupe."
+    ],
+    "glass_type": "Coupe",
+    "garnish": "Lemon twist",
+    "difficulty": "Intermediate"
+  },
+  {
+    "slug": "scotch-sour",
+    "name": "Scotch Sour",
+    "description": "A whisky sour made with scotch. Smoky, citrusy, and shaken.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Blended scotch",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Fresh lemon juice",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Simple syrup",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Egg white",
+        "qty": "1 (optional)"
+      }
+    ],
+    "instructions": [
+      "Add scotch, lemon, syrup, and egg white to shaker.",
+      "Dry shake without ice.",
+      "Add ice and shake hard.",
+      "Double strain into rocks glass over ice."
+    ],
+    "glass_type": "Rocks",
+    "garnish": "Lemon slice / cherry",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "screwdriver",
+    "name": "Screwdriver",
+    "description": "The simplest good drink. Vodka and orange juice, built in the glass.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Vodka",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Fresh orange juice",
+        "qty": "6 oz"
+      }
+    ],
+    "instructions": [
+      "Add vodka to highball over ice.",
+      "Top with orange juice and stir gently."
+    ],
+    "glass_type": "Highball",
+    "garnish": "Orange slice",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "sea-breeze",
+    "name": "Sea Breeze",
+    "description": "A refreshing 1970s cocktail. Vodka, cranberry, and grapefruit.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Vodka",
+        "qty": "1.5 oz"
+      },
+      {
+        "item": "Cranberry juice",
+        "qty": "3 oz"
+      },
+      {
+        "item": "Grapefruit juice",
+        "qty": "1.5 oz"
+      }
+    ],
+    "instructions": [
+      "Add all ingredients to shaker with ice.",
+      "Shake gently and strain into rocks glass over ice."
+    ],
+    "glass_type": "Rocks",
+    "garnish": "Lime wheel",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "sex-on-the-beach",
+    "name": "Sex on the Beach",
+    "description": "A fruity tropical number from the 1980s. Vodka, peach schnapps, orange, and cranberry.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Vodka",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Peach schnapps",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Orange juice",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Cranberry juice",
+        "qty": "2 oz"
+      }
+    ],
+    "instructions": [
+      "Add all ingredients to shaker with ice.",
+      "Shake gently and strain into highball over ice."
+    ],
+    "glass_type": "Highball",
+    "garnish": "Orange slice",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "sidecar-classic",
+    "name": "Sidecar",
+    "description": "A 1920s classic from Paris. Cognac, triple sec, and lemon.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Cognac",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Triple sec",
+        "qty": "0.75 oz"
+      },
+      {
+        "item": "Fresh lemon juice",
+        "qty": "0.75 oz"
+      },
+      {
+        "item": "Simple syrup",
+        "qty": "0.25 oz"
+      }
+    ],
+    "instructions": [
+      "Add cognac, triple sec, lemon, and syrup to shaker with ice.",
+      "Shake hard and double strain into chilled coupe."
+    ],
+    "glass_type": "Coupe",
+    "garnish": "Orange twist",
+    "difficulty": "Intermediate"
+  },
+  {
+    "slug": "singapore-sling-classic",
+    "name": "Singapore Sling",
+    "description": "A fruity complex gin cocktail from the Raffles Hotel.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "London dry gin",
+        "qty": "1.5 oz"
+      },
+      {
+        "item": "Cherry liqueur",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Cointreau",
+        "qty": "0.25 oz"
+      },
+      {
+        "item": "B\u00e9n\u00e9dictine",
+        "qty": "0.25 oz"
+      },
+      {
+        "item": "Fresh lime juice",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Pineapple juice",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Grenadine",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Soda water",
+        "qty": "top"
+      }
+    ],
+    "instructions": [
+      "Add all ingredients except soda to shaker with ice.",
+      "Shake gently and strain into highball over ice.",
+      "Top with soda water."
+    ],
+    "glass_type": "Highball",
+    "garnish": "Pineapple wedge / cherry",
+    "difficulty": "Advanced"
+  },
+  {
+    "slug": "st-germain-spritz",
+    "name": "St-Germain Spritz",
+    "description": "Elderflower, sparkling wine, and soda \u2014 light, floral, and dangerously drinkable.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "St-Germain elderflower liqueur",
+        "qty": "1.5 oz"
+      },
+      {
+        "item": "Prosecco",
+        "qty": "3 oz"
+      },
+      {
+        "item": "Soda water",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Fresh lemon juice",
+        "qty": "0.5 oz"
+      }
+    ],
+    "instructions": [
+      "Add St-Germain and lemon juice to wine glass over ice.",
+      "Top with prosecco and soda water."
+    ],
+    "glass_type": "Wine Glass",
+    "garnish": "Lemon twist",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "tequila-sunrise-classic",
+    "name": "Tequila Sunrise",
+    "description": "Tequila, orange juice, and grenadine \u2014 a 1970s sunset.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Blanco tequila",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Orange juice",
+        "qty": "6 oz"
+      },
+      {
+        "item": "Grenadine",
+        "qty": "0.5 oz"
+      }
+    ],
+    "instructions": [
+      "Add tequila and orange juice to highball over ice.",
+      "Slowly pour grenadine down the inside."
+    ],
+    "glass_type": "Highball",
+    "garnish": "Orange slice / cherry",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "tom-collins-classic",
+    "name": "Tom Collins",
+    "description": "Gin, lemon, sugar, and soda \u2014 a tall refreshing highball.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "London dry gin",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Fresh lemon juice",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Simple syrup",
+        "qty": "0.75 oz"
+      },
+      {
+        "item": "Soda water",
+        "qty": "top"
+      }
+    ],
+    "instructions": [
+      "Add gin, lemon, and syrup to shaker with ice.",
+      "Shake and strain into Collins glass over ice.",
+      "Top with soda water."
+    ],
+    "glass_type": "Collins",
+    "garnish": "Lemon slice / cherry",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "vesper-martini",
+    "name": "Vesper",
+    "description": "James Bond's original. Gin, vodka, and Lillet.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "London dry gin",
+        "qty": "3 oz"
+      },
+      {
+        "item": "Vodka",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Lillet Blanc",
+        "qty": "0.5 oz"
+      }
+    ],
+    "instructions": [
+      "Add all ingredients to mixing glass with ice.",
+      "Stir until very cold and strain into chilled coupe."
+    ],
+    "glass_type": "Coupe",
+    "garnish": "Lemon twist",
+    "difficulty": "Intermediate"
+  },
+  {
+    "slug": "vieux-carre-stirred",
+    "name": "Vieux Carr\u00e9",
+    "description": "A New Orleans original from the 1930s. Rye, cognac, vermouth, B\u00e9n\u00e9dictine, and bitters.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Rye whiskey",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Cognac",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Sweet vermouth",
+        "qty": "1 oz"
+      },
+      {
+        "item": "B\u00e9n\u00e9dictine",
+        "qty": "0.25 oz"
+      },
+      {
+        "item": "Angostura bitters",
+        "qty": "2 dashes"
+      },
+      {
+        "item": "Peychaud's bitters",
+        "qty": "2 dashes"
+      }
+    ],
+    "instructions": [
+      "Add all ingredients to mixing glass with ice.",
+      "Stir until chilled and strain into chilled coupe."
+    ],
+    "glass_type": "Rocks",
+    "garnish": "Orange twist / cherry",
+    "difficulty": "Advanced"
+  },
+  {
+    "slug": "whiskey-sour-classic",
+    "name": "Whiskey Sour",
+    "description": "Bourbon, lemon, sugar, shaken hard. Foundational sour since 1862.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Bourbon",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Fresh lemon juice",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Simple syrup",
+        "qty": "0.75 oz"
+      },
+      {
+        "item": "Egg white",
+        "qty": "1 (optional)"
+      }
+    ],
+    "instructions": [
+      "Add bourbon, lemon, syrup, and egg white to shaker.",
+      "Dry shake without ice.",
+      "Add ice and shake hard.",
+      "Double strain into rocks glass over ice."
+    ],
+    "glass_type": "Rocks",
+    "garnish": "Angostura bitters on foam",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "white-russian-classic",
+    "name": "White Russian",
+    "description": "Coffee, cream, and vodka. The Dude's drink.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Vodka",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Coffee liqueur",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Heavy cream",
+        "qty": "1 oz"
+      }
+    ],
+    "instructions": [
+      "Add vodka and coffee liqueur to rocks glass over ice.",
+      "Gently float cream on top."
+    ],
+    "glass_type": "Rocks",
+    "garnish": "None",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "zombie-classic",
+    "name": "Zombie",
+    "description": "Don the Beachcomber's Tiki masterpiece. Multiple rums, citrus, and falernum.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "White rum",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Dark rum",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Overproof rum",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Fresh lime juice",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Pineapple juice",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Falernum",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Grenadine",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Angostura bitters",
+        "qty": "2 dashes"
+      }
+    ],
+    "instructions": [
+      "Add all ingredients except bitters to shaker with ice.",
+      "Shake hard and strain into tall glass over crushed ice.",
+      "Dash bitters on top."
+    ],
+    "glass_type": "Highball",
+    "garnish": "Mint sprig",
+    "difficulty": "Advanced"
+  },
+  {
+    "slug": "americano-sbagliato",
+    "name": "Americano Sbagliato",
+    "description": "The Italian accidental classic. Campari, vermouth, and sparkling wine.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Campari",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Sweet vermouth",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Prosecco",
+        "qty": "2 oz"
+      }
+    ],
+    "instructions": [
+      "Add Campari and vermouth to rocks glass over ice.",
+      "Top with prosecco and stir gently."
+    ],
+    "glass_type": "Rocks",
+    "garnish": "Orange slice",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "aviation-extra-dry",
+    "name": "Aviation Extra Dry",
+    "description": "A drier take on the Aviation with extra vermouth.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "London dry gin",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Dry vermouth",
+        "qty": "0.75 oz"
+      },
+      {
+        "item": "Maraschino liqueur",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Cr\u00e8me de violette",
+        "qty": "0.25 oz"
+      }
+    ],
+    "instructions": [
+      "Add all ingredients to mixing glass with ice.",
+      "Stir until chilled and double strain into chilled coupe."
+    ],
+    "glass_type": "Coupe",
+    "garnish": "Luxardo cherry",
+    "difficulty": "Intermediate"
+  },
+  {
+    "slug": "bacardi-cocktail",
+    "name": "Bacardi Cocktail",
+    "description": "A 1930s classic. Light rum, lime, grenadine, and sugar.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "White rum",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Fresh lime juice",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Grenadine",
+        "qty": "0.25 oz"
+      },
+      {
+        "item": "Simple syrup",
+        "qty": "0.25 oz"
+      }
+    ],
+    "instructions": [
+      "Add all ingredients to shaker with ice.",
+      "Shake hard and strain into chilled coupe."
+    ],
+    "glass_type": "Coupe",
+    "garnish": "Lime wheel",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "boston-cocktail",
+    "name": "Boston Cocktail",
+    "description": "A warm citrusy stirred cocktail from the 1910s. Brandy, orange cura\u00e7ao, and lemon.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Brandy",
+        "qty": "1.5 oz"
+      },
+      {
+        "item": "Orange cura\u00e7ao",
+        "qty": "0.75 oz"
+      },
+      {
+        "item": "Fresh lemon juice",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Grenadine",
+        "qty": "0.25 oz"
+      }
+    ],
+    "instructions": [
+      "Add all ingredients to mixing glass with ice.",
+      "Stir until chilled and strain into chilled coupe."
+    ],
+    "glass_type": "Coupe",
+    "garnish": "Orange twist",
+    "difficulty": "Intermediate"
+  },
+  {
+    "slug": "bramble-extra",
+    "name": "Bramble Extra",
+    "description": "A richer version of the Bramble with extra blackberry depth.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "London dry gin",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Fresh lemon juice",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Simple syrup",
+        "qty": "0.75 oz"
+      },
+      {
+        "item": "Cr\u00e8me de m\u00fbre",
+        "qty": "1 oz"
+      }
+    ],
+    "instructions": [
+      "Add gin, lemon, and syrup to shaker with ice.",
+      "Shake and strain over crushed ice.",
+      "Drizzle cr\u00e8me de m\u00fbre over top."
+    ],
+    "glass_type": "Rocks",
+    "garnish": "Fresh blackberries",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "caesar-cocktail",
+    "name": "Caesar",
+    "description": "Canada's answer to the Bloody Mary. Clamato, vodka, and Worcestershire.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Vodka",
+        "qty": "1.5 oz"
+      },
+      {
+        "item": "Clamato juice",
+        "qty": "4 oz"
+      },
+      {
+        "item": "Worcestershire sauce",
+        "qty": "2 dashes"
+      },
+      {
+        "item": "Hot sauce",
+        "qty": "2 dashes"
+      },
+      {
+        "item": "Celery salt",
+        "qty": "pinch"
+      }
+    ],
+    "instructions": [
+      "Rim glass with celery salt and pepper.",
+      "Add vodka, Clamato, Worcestershire, hot sauce, and celery salt.",
+      "Fill with ice and stir."
+    ],
+    "glass_type": "Highball",
+    "garnish": "Celery stalk / lime wedge",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "champagne-cocktail",
+    "name": "Champagne Cocktail",
+    "description": "A 19th-century luxury drink. Bitters, sugar, cognac, and champagne.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Sugar cube",
+        "qty": "1"
+      },
+      {
+        "item": "Angostura bitters",
+        "qty": "2 dashes"
+      },
+      {
+        "item": "Cognac",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Champagne",
+        "qty": "5 oz"
+      }
+    ],
+    "instructions": [
+      "Place sugar cube in flute and saturate with bitters.",
+      "Add cognac and top with champagne."
+    ],
+    "glass_type": "Flute",
+    "garnish": "Orange twist",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "clover-club-extra",
+    "name": "Clover Club Extra",
+    "description": "A richer raspberry sour with egg white foam.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "London dry gin",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Fresh lemon juice",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Raspberry syrup",
+        "qty": "0.75 oz"
+      },
+      {
+        "item": "Egg white",
+        "qty": "1"
+      }
+    ],
+    "instructions": [
+      "Add all ingredients to shaker.",
+      "Dry shake without ice.",
+      "Add ice and shake hard.",
+      "Double strain into chilled coupe."
+    ],
+    "glass_type": "Coupe",
+    "garnish": "Fresh raspberry",
+    "difficulty": "Intermediate"
+  },
+  {
+    "slug": "corpse-reviver-extra",
+    "name": "Corpse Reviver #3",
+    "description": "A stronger revival. Cognac, apple brandy, and absinthe.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Cognac",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Apple brandy",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Lillet Blanc",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Absinthe",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Fresh lemon juice",
+        "qty": "0.5 oz"
+      }
+    ],
+    "instructions": [
+      "Add all ingredients to shaker with ice.",
+      "Shake hard and strain into chilled coupe."
+    ],
+    "glass_type": "Coupe",
+    "garnish": "Orange twist",
+    "difficulty": "Intermediate"
+  },
+  {
+    "slug": "cuba-libre-classic",
+    "name": "Cuba Libre",
+    "description": "Rum, cola, and lime. A simple refreshing highball from Cuba.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "White rum",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Cola",
+        "qty": "4\u20136 oz"
+      },
+      {
+        "item": "Fresh lime juice",
+        "qty": "0.5 oz"
+      }
+    ],
+    "instructions": [
+      "Add rum and lime juice to highball over ice.",
+      "Top with cola and stir gently."
+    ],
+    "glass_type": "Highball",
+    "garnish": "Lime wedge",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "dark-n-stormy-extra",
+    "name": "Dark 'n' Stormy Extra",
+    "description": "A spiced-up version with ginger beer and lime.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Dark rum",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Fresh lime juice",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Ginger beer",
+        "qty": "4\u20136 oz"
+      },
+      {
+        "item": "Simple syrup",
+        "qty": "0.25 oz"
+      }
+    ],
+    "instructions": [
+      "Add rum and lime to highball over ice.",
+      "Top with ginger beer and simple syrup."
+    ],
+    "glass_type": "Highball",
+    "garnish": "Lime wheel",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "el-diablo-extra",
+    "name": "El Diablo",
+    "description": "Tequila, cr\u00e8me de cassis, lime, and ginger beer.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Blanco tequila",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Cr\u00e8me de cassis",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Fresh lime juice",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Ginger beer",
+        "qty": "top"
+      }
+    ],
+    "instructions": [
+      "Add tequila, cr\u00e8me de cassis, and lime to highball over ice.",
+      "Top with ginger beer."
+    ],
+    "glass_type": "Highball",
+    "garnish": "Lime wheel",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "espresso-martini-classic",
+    "name": "Espresso Martini",
+    "description": "Vodka, coffee liqueur, and fresh espresso. Shaken until frothy.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Vodka",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Coffee liqueur",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Fresh espresso",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Simple syrup",
+        "qty": "0.25 oz"
+      }
+    ],
+    "instructions": [
+      "Add all ingredients to shaker with ice.",
+      "Shake hard until frosty and double strain into chilled coupe."
+    ],
+    "glass_type": "Coupe",
+    "garnish": "Coffee beans",
+    "difficulty": "Intermediate"
+  },
+  {
+    "slug": "french-75-classic",
+    "name": "French 75",
+    "description": "Champagne, gin, lemon, and sugar. A WWI-era cocktail with a kick.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "London dry gin",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Fresh lemon juice",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Simple syrup",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Champagne",
+        "qty": "4 oz"
+      }
+    ],
+    "instructions": [
+      "Add gin, lemon, and syrup to shaker with ice.",
+      "Shake and strain into champagne flute.",
+      "Top with champagne."
+    ],
+    "glass_type": "Flute",
+    "garnish": "Lemon twist",
+    "difficulty": "Intermediate"
+  },
+  {
+    "slug": "godmother",
+    "name": "Godmother",
+    "description": "Vodka and amaretto \u2014 simple, nutty, and dangerously smooth.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Vodka",
+        "qty": "1.5 oz"
+      },
+      {
+        "item": "Amaretto",
+        "qty": "1.5 oz"
+      }
+    ],
+    "instructions": [
+      "Add vodka and amaretto to mixing glass with ice.",
+      "Stir until chilled and strain into rocks glass over ice."
+    ],
+    "glass_type": "Rocks",
+    "garnish": "None",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "harvey-wallbanger",
+    "name": "Harvey Wallbanger",
+    "description": "A 1970s classic. Vodka, orange juice, and a float of Galliano.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Vodka",
+        "qty": "1.5 oz"
+      },
+      {
+        "item": "Orange juice",
+        "qty": "4 oz"
+      },
+      {
+        "item": "Galliano",
+        "qty": "0.5 oz"
+      }
+    ],
+    "instructions": [
+      "Add vodka and orange juice to highball over ice.",
+      "Gently float Galliano on top."
+    ],
+    "glass_type": "Highball",
+    "garnish": "Orange slice",
+    "difficulty": "Beginner"
+  },
+  {
+    "slug": "hemingway-daiquiri",
+    "name": "Hemingway Daiquiri",
+    "description": "A Hemingway original. No sugar \u2014 maraschino, grapefruit, and lime keep it dry.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "White rum",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Maraschino liqueur",
+        "qty": "0.5 oz"
+      },
+      {
+        "item": "Fresh grapefruit juice",
+        "qty": "0.75 oz"
+      },
+      {
+        "item": "Fresh lime juice",
+        "qty": "0.5 oz"
+      }
+    ],
+    "instructions": [
+      "Add rum, maraschino, grapefruit juice, and lime juice to shaker with ice.",
+      "Shake hard and strain into chilled coupe."
+    ],
+    "glass_type": "Coupe",
+    "garnish": "Lime wheel",
+    "difficulty": "Intermediate"
+  },
+  {
+    "slug": "john-collins",
+    "name": "John Collins",
+    "description": "The precursor to the Tom Collins. Genever, lemon, sugar, and soda.",
+    "image_url": "",
+    "ingredients": [
+      {
+        "item": "Geneva gin",
+        "qty": "2 oz"
+      },
+      {
+        "item": "Fresh lemon juice",
+        "qty": "1 oz"
+      },
+      {
+        "item": "Simple syrup",
+        "qty": "0.75 oz"
+      },
+      {
+        "item": "Soda water",
+        "qty": "top"
+      }
+    ],
+    "instructions": [
+      "Add gin, lemon, and syrup to shaker with ice.",
+      "Shake and strain into Collins glass over ice.",
+      "Top with soda water."
+    ],
+    "glass_type": "Collins",
+    "garnish": "Lemon slice / cherry",
+    "difficulty": "Beginner"
+  }
+]
