@@ -3,24 +3,14 @@
 import { Cocktail } from '@/data/cocktails';
 import { useState, useMemo } from 'react';
 
-const OZ_TO_ML = 29.5735;
+const ML_PER_OZ = 30;
 
-function convertQty(qty: string, toOz: boolean): string {
-  const trimmed = qty.trim();
-  const ozMatch = trimmed.match(/^([0-9]+(?:\.[0-9]+)?)\s*oz$/i);
-  const mlMatch = trimmed.match(/^([0-9]+(?:\.[0-9]+)?)\s*ml$/i);
-
-  if (ozMatch && toOz === false) {
-    const ml = (parseFloat(ozMatch[1]) * OZ_TO_ML).toFixed(0);
-    return `${ml} ml`;
-  }
-  if (mlMatch && toOz === true) {
-    const oz = parseFloat(mlMatch[1]) / OZ_TO_ML;
-    const formatted = Number.isInteger(oz) ? oz.toFixed(1) : oz.toFixed(2).replace(/\.?0+$/, '');
-    return `${formatted} oz`;
-  }
-
-  return trimmed;
+function mlToOz(ml: string): string {
+  const numeric = parseFloat(ml);
+  if (!Number.isFinite(numeric)) return ml;
+  const oz = numeric / ML_PER_OZ;
+  const formatted = Number.isInteger(oz) ? oz.toFixed(1) : oz.toFixed(2).replace(/\.?0+$/, '');
+  return `${formatted} oz`;
 }
 
 interface RecipeDisplayProps {
@@ -33,7 +23,7 @@ export default function RecipeDisplay({ cocktail }: RecipeDisplayProps) {
     const list = cocktail.ingredients || [];
     return list.map((ing) => ({
       item: ing.item,
-      qty: convertQty(ing.qty, showOz)
+      qty: showOz ? mlToOz(ing.qty) : ing.qty
     }));
   }, [cocktail, showOz]);
 
