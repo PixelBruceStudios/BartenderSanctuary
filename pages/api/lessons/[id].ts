@@ -31,15 +31,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (!lessonRows.length) return res.status(404).json({ error: 'Not found' });
     const lesson = lessonRows[0];
     const sources = await query<any[]>('SELECT * FROM sources WHERE lesson_id = $1 ORDER BY sort_order', [lessonId]);
-    const tests = await query<any[]>(`SELECT id, lesson_id, scope, title, description, passing_score, sort_order, created_at, updated_at, sublesson_slug FROM tests WHERE lesson_id = $1 ORDER BY sort_order`, [lessonId]) as any[];
-    const testIds = (tests || []).map((t: any) => t.id);
+    let tests: any[] = [];
     let questions: any[] = [];
-    if (testIds.length) {
-      questions = await query<any[]>(`SELECT id, test_id, question_index, question_text, options, correct_index FROM questions WHERE test_id = ANY($1::uuid[]) ORDER BY question_index`, [testIds]);
+    try {
+      tests = (await query<any[]>(`SELECT id, lesson_id, scope, title, description, passing_score, sort_order, created_at, updated_at, sublesson_slug FROM tests WHERE lesson_id = $1 ORDER BY sort_order`, [lessonId])) || [];
+      const testIds = tests.map((t) => t.id);
+      if (testIds.length) {
+        questions = await query<any[]>(`SELECT id, test_id, question_index, question_text, options, correct_index FROM questions WHERE test_id = ANY($1::uuid[]) ORDER BY question_index`, [testIds]);
+      }
+    } catch (e) {
+      console.error('[lessons/[id]] failed to load tests:', e);
     }
     const testsWithQuestions = tests.map((t) => ({
       ...t,
-      questions: questions.filter((q) => q.test_id === t.id),
+      questions: questions.filter((q: any) => q.test_id === t.id),
     }));
     return res.status(200).json({ ...lesson, sources, tests: testsWithQuestions });
   }
