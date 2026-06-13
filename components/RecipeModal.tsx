@@ -1,6 +1,8 @@
 'use client';
 
 import { Cocktail } from '@/data/cocktails';
+import { useMemo } from 'react';
+import AffiliateBar from '@/components/AffiliateBar';
 import RecipeDisplay from '@/components/RecipeDisplay';
 
 type RecipeModalProps = {
@@ -63,6 +65,7 @@ export default function RecipeModal({ cocktail, onClose, showOz, onToggleUnits }
         </div>
 
         <RecipeDisplay cocktail={cocktail} showOz={showOz} onToggleUnits={onToggleUnits} />
+        <AffiliateBar cocktailSlug={cocktail.slug} />
       </div>
     </div>
   );

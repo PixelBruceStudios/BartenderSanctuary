@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { useTranslation } from '@/lib/contexts';
 import SEO from '@/components/SEO';
 import { ingredients, getCategories, getIngredientByName } from '@/data/ingredients';
+import { affiliateProducts } from '@/data/affiliate-products';
 
 const CATEGORY_ICONS: Record<string, string> = {
   'Whiskies': '🥃',
@@ -805,6 +806,71 @@ export default function IngredientLibrary() {
           onClose={() => setSelectedIngredient(null)}
         />
       )}
+
+      {/* Affiliate sidebar */}
+      <AffiliateSidebar />
     </>
+  );
+}
+
+function AffiliateSidebar() {
+  const topTools = affiliateProducts.filter(p => p.category === 'Tools').slice(0, 3);
+
+  return (
+    <aside
+      style={{
+        position: 'fixed',
+        right: '1rem',
+        top: '50%',
+        transform: 'translateY(-50%)',
+        width: '200px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '0.75rem',
+        zIndex: 50,
+      }}
+    >
+      <p
+        style={{
+          fontSize: '0.65rem',
+          textTransform: 'uppercase',
+          letterSpacing: '0.08em',
+          color: 'var(--color-text-muted)',
+          fontWeight: 600,
+          margin: 0,
+        }}
+      >
+        Top gear
+      </p>
+      {topTools.map(product => (
+        <a
+          key={product.id}
+          href={`/api/affiliate-redirect?productId=${product.id}`}
+          className="glass-card"
+          style={{
+            padding: '0.6rem',
+            textDecoration: 'none',
+            color: 'inherit',
+            fontSize: '0.75rem',
+            transition: 'all 0.2s ease',
+          }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.borderColor = 'var(--color-accent)';
+            e.currentTarget.style.transform = 'scale(1.03)';
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.borderColor = 'var(--color-border)';
+            e.currentTarget.style.transform = 'scale(1)';
+          }}
+        >
+          <p style={{ fontWeight: 600, margin: 0, lineHeight: 1.2 }}>
+            {product.name}
+          </p>
+          <p style={{ color: 'var(--color-accent)', fontWeight: 700, margin: '0.2rem 0 0' }}>
+            {product.price}
+          </p>
+        </a>
+      ))}
+    </aside>
   );
 }

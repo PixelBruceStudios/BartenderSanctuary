@@ -6,6 +6,7 @@ import CocktailCard from '@/components/CocktailCard';
 import IngredientCombobox from '@/components/IngredientCombobox';
 import PantryTool from '@/components/PantryTool';
 import RecipeDisplay from '@/components/RecipeDisplay';
+import AffiliateBar from '@/components/AffiliateBar';
 import RecipeModal from '@/components/RecipeModal';
 import Hero from '@/components/Hero';
 import FeaturedSection from '@/components/FeaturedSection';
