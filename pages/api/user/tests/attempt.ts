@@ -4,9 +4,16 @@ import { getServerSession } from 'next-auth';
 import { auth } from '../../auth/[...nextauth]';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const session: any = await getServerSession(req, res, auth);
+  const cookieHeader = req.headers.cookie || '';
+  console.log('[user/tests/attempt]', req.method, 'cookies:', cookieHeader.slice(0, 200));
+  let session: any = null;
+  try {
+    session = await getServerSession(req, res, auth);
+  } catch (e: any) {
+    console.log('[user/tests/attempt] getServerSession error:', e?.message || e);
+  }
+  console.log('[user/tests/attempt] session:', session ? { id: session.user?.id, email: session.user?.email } : null);
   const userId = session?.user?.id;
-  console.log('[user/tests/attempt]', req.method, 'userId:', userId, 'url:', req.url);
 
   if (req.method === 'POST') {
     if (!userId) {
