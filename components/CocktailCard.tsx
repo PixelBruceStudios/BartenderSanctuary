@@ -26,7 +26,7 @@ export default function CocktailCard({ cocktail, onClick }: CocktailCardProps) {
         <img
           src={imgSrc}
           alt={cocktail.name}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-full object-contain transition-transform duration-500"
           loading="lazy"
           onError={(e) => {
             const target = e.target as HTMLImageElement;
