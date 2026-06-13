@@ -557,10 +557,29 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
   const [error, setError] = useState<string | null>(null);
   const [readProgress, setReadProgress] = useState(0);
   const [completed, setCompleted] = useState(false);
+  const [completing, setCompleting] = useState(false);
   const [testPassed, setTestPassed] = useState(false);
   const [schoolData, setSchoolData] = useState<Category[]>([]);
   const { t, lang } = useTranslation();
   const contentRef = useRef<HTMLDivElement>(null);
+
+  // Sync local completed state with persisted progress
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch(`/api/user/progress/lesson?lesson_id=${lessonId}`, { credentials: 'include' });
+        if (!res.ok) return;
+        const data = await res.json();
+        if (cancelled) return;
+        if (data?.full_test_passed) setCompleted(true);
+        if (data?.all_subtests_passed) setTestPassed(true);
+      } catch {
+        // ignore
+      }
+    })();
+    return () => { cancelled = true };
+  }, [lessonId]);
 
   useEffect(() => {
     let cancelled = false;
@@ -949,8 +968,31 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
       >
         <button
           type="button"
-          onClick={() => setCompleted((prev) => !prev)}
-          disabled={!canComplete}
+          onClick={async () => {
+            if (completing) return;
+            setCompleting(true);
+            const next = !completed;
+            try {
+              await fetch('/api/user/progress/lesson', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
+                body: JSON.stringify({
+                  lesson_id: lessonId,
+                  full_test_passed: next,
+                  all_subtests_passed: next,
+                  overall_progress: next ? 100 : (testPassed ? 50 : 0),
+                }),
+              });
+              setCompleted(next);
+            } catch {
+              // keep optimistic local state anyway
+              setCompleted(next);
+            } finally {
+              setCompleting(false);
+            }
+          }}
+          disabled={completing || !canComplete}
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -964,14 +1006,14 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
               : "1px solid rgba(255,255,255,0.12)",
             background: completed ? "rgba(74,222,128,0.1)" : testPassed ? "rgba(99,102,241,0.08)" : "rgba(255,255,255,0.04)",
             color: completed ? "#4ade80" : testPassed ? "#a5b4fc" : "#fff",
-            cursor: canComplete ? "pointer" : "not-allowed",
+            cursor: canComplete && !completing ? "pointer" : "not-allowed",
             fontSize: "0.9rem",
             fontWeight: 600,
-            opacity: canComplete ? 1 : 0.5,
+            opacity: canComplete && !completing ? 1 : 0.5,
           }}
         >
-          <span>{completed ? "✓" : "○"}</span>
-          <span>{completed ? "Completed" : "Mark as complete"}</span>
+          <span>{completing ? "…" : completed ? "✓" : "○"}</span>
+          <span>{completing ? "Saving" : completed ? "Completed" : "Mark as complete"}</span>
         </button>
 
         <div style={{ display: "flex", gap: "0.75rem", fontSize: "0.85rem", color: "rgba(255,255,255,0.5)" }}>

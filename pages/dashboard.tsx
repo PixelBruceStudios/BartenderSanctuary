@@ -52,6 +52,22 @@ export default function Dashboard({ initialSession }: DashboardProps) {
     if (user?.id) loadProgress();
   }, [user?.id, loadProgress]);
 
+  // Refresh dashboard when user returns to the tab or after a short interval,
+  // so completed lessons from other pages show up promptly.
+  useEffect(() => {
+    if (!user?.id) return;
+    const tick = () => loadProgress();
+    const onVisibility = () => {
+      if (document.visibilityState === "visible") tick();
+    };
+    const id = setInterval(tick, 30000);
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => {
+      clearInterval(id);
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
+  }, [user?.id, loadProgress]);
+
   if (status === "loading" || !user) {
     return (
       <div style={{ minHeight: "100vh", background: "#08080c", color: "#e5e7eb" }}>

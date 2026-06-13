@@ -3,6 +3,25 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from 'next-auth';
 import { auth } from '../../auth/[...nextauth]';
 
+interface TestAttempt {
+  passed: boolean | null;
+  score?: number | null;
+  answers?: unknown;
+  created_at?: string;
+  [key: string]: unknown;
+}
+
+interface UserTestProgress {
+  id?: string;
+  user_id?: string;
+  test_id?: string;
+  passed: boolean | null;
+  best_score?: number | null;
+  attempts?: number | null;
+  last_attempt_at?: string | null;
+  [key: string]: unknown;
+}
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const session: any = await getServerSession(req, res, auth);
   const userId = session?.user?.id;
@@ -23,11 +42,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         [userId, testId, !!passed, score ?? 0]
       );
 
-      const testRows: any[] = await query('SELECT scope, lesson_id, passing_score FROM tests WHERE id = $1', [testId]);
+      const testRows: UserTestProgress[] = await query<UserTestProgress>('SELECT scope, lesson_id, passing_score FROM tests WHERE id = $1', [testId]);
       if (testRows.length > 0) {
         const t = testRows[0];
         if (t.scope === 'sublesson') {
-          const subs: any[] = await query('SELECT id FROM tests WHERE lesson_id = $1 AND scope = $2', [t.lesson_id, 'sublesson']);
+          const subs: { id: string }[] = await query<{ id: string }>('SELECT id FROM tests WHERE lesson_id = $1 AND scope = $2', [t.lesson_id, 'sublesson']);
           if (subs.length > 0) {
             const allPassed = await Promise.all(
               subs.map((s: any) =>
@@ -70,28 +89,28 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   if (req.method === 'GET') {
     if (userId) {
-      const rows = await query<any[]>(
+      const rows = await query<UserTestProgress>(
         `SELECT * FROM user_test_progress WHERE test_id = $1 AND user_id = $2 ORDER BY last_attempt_at DESC LIMIT 1`,
         [testId, userId]
       );
       if (!rows.length) {
         // fallback: check anonymous attempts for this test
-        const anon = await query<any[]>(
+        const anon = await query<TestAttempt>(
           `SELECT passed FROM test_attempts WHERE test_id = $1 AND user_id IS NULL ORDER BY created_at DESC LIMIT 1`,
           [testId]
         );
         return res.status(200).json({ passed: anon.length > 0 && anon[0].passed, attempt: null });
       }
-      const row = rows[0] as any;
+      const row = rows[0] as UserTestProgress;
       return res.status(200).json({ passed: row.passed, attempt: row });
     }
     // Anonymous: check test_attempts for this test
-    const anon = await query<any[]>(
+    const anon = await query<TestAttempt>(
       `SELECT * FROM test_attempts WHERE test_id = $1 AND user_id IS NULL ORDER BY created_at DESC LIMIT 1`,
       [testId]
     );
     if (!anon.length) return res.status(200).json({ passed: false, attempt: null });
-    const row = anon[0] as any;
+    const row = anon[0];
     return res.status(200).json({ passed: row.passed, attempt: row });
   }
 
