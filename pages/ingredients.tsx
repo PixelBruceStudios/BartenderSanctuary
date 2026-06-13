@@ -399,15 +399,37 @@ function BottleModal({ ingredientName, onClose }: { ingredientName: string; onCl
                   <div style={{
                     width: '100%',
                     height: '100px',
-                    background: 'linear-gradient(135deg, var(--color-bg-elevated), var(--color-surface-hover))',
                     borderRadius: '8px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '2.5rem',
+                    overflow: 'hidden',
                     border: '1px solid var(--color-border-subtle)',
+                    background: 'var(--color-surface-hover)',
                   }}>
-                    🍾
+                    {bottle.image ? (
+                      <img
+                        src={bottle.image}
+                        alt={bottle.name}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                        onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
+                          const img = e.currentTarget;
+                          img.style.display = 'none';
+                          const sibling = img.nextElementSibling as HTMLElement | null;
+                          if (sibling) sibling.style.display = 'flex';
+                        }}
+                      />
+                    ) : null}
+                    <div style={{
+                      display: bottle.image ? 'none' : 'flex',
+                      width: '100%',
+                      height: '100px',
+                      background: 'linear-gradient(135deg, var(--color-bg-elevated), var(--color-surface-hover))',
+                      borderRadius: '8px',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '2.5rem',
+                      border: '1px solid var(--color-border-subtle)',
+                    }}>
+                      🍾
+                    </div>
                   </div>
                   <div>
                     <h4 style={{
@@ -473,20 +495,42 @@ function BottleModal({ ingredientName, onClose }: { ingredientName: string; onCl
                 gap: '1.5rem',
                 alignItems: 'start',
               }}>
-                {/* Bottle image placeholder */}
+                {/* Bottle image */}
                 <div style={{
                   width: '100%',
                   aspectRatio: '3/4',
                   maxHeight: '320px',
-                  background: 'linear-gradient(135deg, var(--color-bg-elevated), var(--color-surface-hover))',
                   borderRadius: '12px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '5rem',
+                  overflow: 'hidden',
                   border: '1px solid var(--color-border-subtle)',
+                  background: 'var(--color-surface-hover)',
                 }}>
-                  🍾
+                  {activeBottle.image ? (
+                    <img
+                      src={activeBottle.image}
+                      alt={activeBottle.name}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                      onError={(e) => {
+                        (e.currentTarget as HTMLImageElement).style.display = 'none';
+                        const fallback = (e.currentTarget as HTMLImageElement).nextElementSibling as HTMLElement | null;
+                        if (fallback) fallback.style.display = 'flex';
+                      }}
+                    />
+                  ) : null}
+                  <div style={{
+                    display: activeBottle.image ? 'none' : 'flex',
+                    width: '100%',
+                    aspectRatio: '3/4',
+                    maxHeight: '320px',
+                    background: 'linear-gradient(135deg, var(--color-bg-elevated), var(--color-surface-hover))',
+                    borderRadius: '12px',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '5rem',
+                    border: '1px solid var(--color-border-subtle)',
+                  }}>
+                    🍾
+                  </div>
                 </div>
 
                 {/* Bottle info */}

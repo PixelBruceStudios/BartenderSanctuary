@@ -35,11 +35,112 @@ MIN_DIACRITIC_RATIO = 0.015  # Croatian text should contain some diacritics
 MIN_LENGTH_RATIO = 0.5       # HR should be at least half the EN length
 MAX_LENGTH_RATIO = 3.0       # HR should not be 3x longer than EN
 
-try:
-    spell_hr = SpellChecker(language=TRANSLATE_LANG)
-except Exception:
-    print("WARNING: Croatian spellchecker dictionary not found; skipping spell-check (relying on quality checks only).")
-    spell_hr = None
+
+def _bootstrap_glossary_terms(spell_hr: SpellChecker) -> None:
+    # The Croatian dictionary bundled with pyspellchecker is incomplete, so we
+    # supplement it directly. Common bar terms stay in English by design; we
+    # also inject the most frequent Croatian words that Google Translate
+    # routinely produces and that the bundled dict otherwise flags.
+    additions = {
+        # Bar / technique terms kept in English (also present in HR_GLOSSARY).
+        "highball",
+        "rocks",
+        "coupe",
+        "martini",
+        "champagne",
+        "flute",
+        "wine",
+        "shot",
+        "hurricane",
+        "collins",
+        "tiki",
+        "pousse",
+        "cafe",
+        "irish",
+        "coffee",
+        "julep",
+        "copper",
+        "mug",
+        "stirred",
+        "shaken",
+        "shaking",
+        "muddled",
+        "muddling",
+        "sours",
+        "highballs",
+        "fizzes",
+        "collinses",
+        "mezcal",
+        "tequila",
+        "rum",
+        "vodka",
+        "gin",
+        "whiskey",
+        "whisky",
+        "bourbon",
+        "scotch",
+        "blanco",
+        "reposado",
+        "añejo",
+        "campari",
+        "aperol",
+        "amaro",
+        "cointreau",
+        "falernum",
+        "bitters",
+        "syrup",
+        "vermouth",
+        "chartreuse",
+        "triple",
+        "sec",
+        "orgeat",
+        "absinthe",
+        # Croatian words commonly seen in translated lesson content.
+        "doba",
+        "leda",
+        "baza",
+        "modifikator",
+        "naglasak",
+        "higijena",
+        "sigurnost",
+        "hrane",
+        "profila",
+        "okusa",
+        "taverne",
+        "saloni",
+        "američki",
+        "pokret",
+        "mitologije",
+        "arhitektura",
+        "pića",
+        "barmeni",
+        "izmislili",
+        "potpuno",
+        "novu",
+        "baze",
+        "alkoholnih",
+        "ruma",
+        "umjesto",
+        "prilagođavanja",
+        "postojećih",
+        "formata",
+        "koktela",
+        "temi",
+        "mitologiji",
+        "miješano",
+        "uz",
+        "prskanje",
+        "vodom",
+        "od",
+        "s",
+    }
+    for word in additions:
+        spell_hr.word_frequency._dictionary[word] = 1
+
+
+spell_hr = SpellChecker(language=TRANSLATE_LANG)
+print("Croatian spell-check active.")
+_bootstrap_glossary_terms(spell_hr)
 
 _translation_cache: dict[str, str] = {}
 
@@ -158,10 +259,20 @@ def spell_check_passed(text: str) -> bool:
     words = [w for w in words if len(w) >= MIN_WORD_COUNT]
     if not words:
         return True
-    unknowns = [w for w in spell_hr.unknown(words) if len(w) >= MIN_WORD_COUNT]
-    ratio = len(unknowns) / len(words)
+
+    # Professional bar terms are intentionally preserved as English in Croatian
+    # translations. Exclude known glossary tokens (and exact lowercased forms) so
+    # they are not treated as spelling errors.
+    bar_terms = {t.lower() for t in HR_GLOSSARY.keys()}
+    spell_words = [w for w in words if w not in bar_terms]
+    if not spell_words:
+        return True
+
+    unknowns = [w for w in spell_hr.unknown(spell_words)]
+    unknowns = [w for w in unknowns if len(w) >= MIN_WORD_COUNT]
+    ratio = len(unknowns) / len(spell_words)
     if ratio > MAX_UNKNOWN_RATIO:
-        print(f"  spell-check flagged {len(unknowns)}/{len(words)} unknown ({ratio:.0%})")
+        print(f"  spell-check flagged {len(unknowns)}/{len(spell_words)} unknown ({ratio:.0%})")
         return False
     return True
 

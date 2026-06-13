@@ -55,23 +55,47 @@ export const ingredients: Ingredient[] = [
   { name: "White rum", category: "Rums", description: "Light, clean rum aged briefly (often 1 year) and filtered to remove color. Mild sweetness, subtle vanilla.", brands: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars", "Cruzan Aged Light", "Havana Club 3"], notes: "Mojito, Daiquiri, Cuba Libre." },
   { name: "Light rum", category: "Rums", description: "Same as white rum — light-bodied, clear or pale gold, mild flavor.", brands: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars"], notes: "Deduplicated with White rum." },
   { name: "Dark rum", category: "Rums", description: "Rich, full-bodied rum aged longer in heavily charred barrels. Notes of molasses, caramel, toffee, and spice.", brands: ["Gosling's Black Seal", "Myers's Original Dark", "Plantation XO", "Flor de Caña 7", "Diplomático Reserva"], notes: "Dark 'n' Stormy, Mai Tai, Jungle Bird." },
-  { name: "Aged rum", category: "Rums", description: "Rum aged in oak barrels for 3+ years. Complex with vanilla, oak, dried fruit, and spice notes.", brands: ["Flor de Caña 7", "Diplomático Reserva", "Plantation 5 Year", "Mount Gay XO", "Zacapa 23"], notes: "Ti' Punch, Rum Old Fashioned." },
+  { name: "Aged rum", category: "Rums", description: "Rum aged in oak barrels for 3+ years. Complex with vanilla, oak, dried fruit, and spice notes.", brands: ["Flor de Caña 7", "Diplomático Reserva", "Plantation 5 Year", "Mount Gay XO", "Zacapa 23"], notes: "Ti' Punch, Rum Old Fashioned.",
+  bottles: [
+        { name: "Diplomático Reserva Exclusiva", description: "Venezuelan aged rum from Diplomático. Blended from rums aged up to 8 years. Rich molasses, caramel, and vanilla with dried fruit. Smooth enough for sipping; complex enough for cocktails.", related: ["Diplomático Mantuano", "Diplomático Planas", "Ron Zacapa 23"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Diplomatico_Reserva_Exclusiva.jpg/320px-Diplomatico_Reserva_Exclusiva.jpg" }
+  ]
+},
   { name: "Overproof rum", category: "Rums", description: "High-ABV rum (57%+ / 114 proof+). Intense, fiery, used in small dashes in Tiki and flaming cocktails.", brands: ["Wray & Nephew Overproof", "Lemon Hart 151", "Plantation O.F.T.D.", "Hamilton 151"], notes: "Use ¼–½ oz dashes. Flaming Dr. Pepper, Zombie." },
 
   // GINS
-  { name: "Gin", category: "Gins", description: "Juniper-flavored spirit. Can range from crisp and citrusy (London dry) to floral and herbal (Plymouth) to bold and experimental (new Western).", brands: ["Beefeater", "Tanqueray", "Bombay Sapphire", "Plymouth", "Hendrick's", "Monkey 47"], notes: "Gin is a category — use specific type when a recipe calls for it." },
-  { name: "London dry gin", category: "Gins", description: "The strictest gin style. Juniper-forward with citrus peel and coriander. No added flavoring after distillation.", brands: ["Beefeater", "Tanqueray", "Bombay Sapphire", "Plymouth (also qualifies)", "Sipsmith VJS"], notes: "Martini, Negroni, Gin & Tonic, Tom Collins." },
+  { name: "Gin", category: "Gins", description: "Juniper-flavored spirit. Can range from crisp and citrusy (London dry) to floral and herbal (Plymouth) to bold and experimental (new Western).", brands: ["Beefeater", "Tanqueray", "Bombay Sapphire", "Plymouth", "Hendrick's", "Monkey 47"], notes: "Gin is a category — use specific type when a recipe calls for it.",
+  bottles: [
+        { name: "Hendrick's Gin", description: "Scottish gin from William Grant & Sons. Infused with rose and cucumber. Silky, floral, and unusual. 41.4% ABV.", related: ["Hendrick's Orbium", "Hendrick's Lunar", "Hendrick's Midsummer Solstice"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Hendricks_Gin_2010.jpg/320px-Hendricks_Gin_2010.jpg" }
+  ]
+},
+  { name: "London dry gin", category: "Gins", description: "The strictest gin style. Juniper-forward with citrus peel and coriander. No added flavoring after distillation.", brands: ["Beefeater", "Tanqueray", "Bombay Sapphire", "Plymouth (also qualifies)", "Sipsmith VJS"], notes: "Martini, Negroni, Gin & Tonic, Tom Collins.",
+  bottles: [
+        { name: "Tanqueray London Dry", description: "London dry gin from Charles Tanqueray & Co. Distilled with juniper, coriander, angelica root, and liquorice. Four-time distilled. Crisp juniper-forward profile with citrus and spice. 43.1% ABV.", related: ["Tanqueray No. Ten", "Tanqueray Rangpur", "Beefeater London Dry"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Tanqueray_gin_bottle.jpg/320px-Tanqueray_gin_bottle.jpg" }
+  ]
+},
   { name: "Geneva gin", category: "Gins", description: "Also known as Holland gin or genever. Malty, fuller-bodied, less juniper-forward than London dry. Can be aged (oude) or younger (jonge).", brands: ["Bols Genever", "Rutte Genever", "Hooghoudt", "Filliers Dry Gin 28"], notes: "Dutch Courage, Martinez (traditional), Corpse Reviver #2 variation." },
 
   // TEQUILA & MEZCAL
-  { name: "Tequila", category: "Tequila & Mezcal", description: "Mexican spirit made from blue agave in designated regions. Blanco (unaged), Reposado (rested 2–12 months), Añejo (aged 1–3+ years).", brands: ["Patrón Silver", "Don Julio 1942", "Casamigos Reposado", "Espolòn Blanco", "Casa Noble Reposado", "Fortaleza"], notes: "Margarita, Paloma, Tequila Sunrise." },
+  { name: "Tequila", category: "Tequila & Mezcal", description: "Mexican spirit made from blue agave in designated regions. Blanco (unaged), Reposado (rested 2–12 months), Añejo (aged 1–3+ years).", brands: ["Patrón Silver", "Don Julio 1942", "Casamigos Reposado", "Espolòn Blanco", "Casa Noble Reposado", "Fortaleza"], notes: "Margarita, Paloma, Tequila Sunrise.",
+  bottles: [
+        { name: "Fortaleza Blanco", description: "100% blue agave tequila from the Fortaleza distillery in Jalisco. Stone ovens and tahona wheel. Bright agave with pepper, citrus, and earth. Unaged, pure expression.", related: ["Fortaleza Reposado", "Fortaleza Añejo", "Patrón Silver"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Fortaleza_Blanco_tequila.jpg/320px-Fortaleza_Blanco_tequila.jpg" }
+  ]
+},
   { name: "Blanco tequila", category: "Tequila & Mezcal", description: "Unaged or aged <60 days tequila. Bright, crisp, pure agave flavor with pepper and citrus.", brands: ["Patrón Silver", "Espolòn Blanco", "Fortaleza Blanco", "Casamigos Blanco", "Don Julio Blanco"], notes: "Required when a recipe specifies Blanco — reposado would be too oaky." },
 
   // VODKA
-  { name: "Vodka", category: "Vodka", description: "Neutral, unaged spirit distilled from grains, potatoes, or grapes. Clean, versatile base for flavored and mixed drinks.", brands: ["Grey Goose", "Ketel One", "Belvedere", "Tito's", "Stolichnaya", "Cîroc", "Absolut"], notes: "Vodka Martini, Cosmopolitan, Screwdriver, Moscow Mule." },
+  { name: "Vodka", category: "Vodka", description: "Neutral, unaged spirit distilled from grains, potatoes, or grapes. Clean, versatile base for flavored and mixed drinks.", brands: ["Grey Goose", "Ketel One", "Belvedere", "Tito's", "Stolichnaya", "Cîroc", "Absolut"], notes: "Vodka Martini, Cosmopolitan, Screwdriver, Moscow Mule.",
+  bottles: [
+        { name: "Belvedere Vodka", description: "Polish rye vodka from Belvedere. Quadruple distilled from Dankowskie rye. Creamy texture with white pepper, vanilla, and almond. 40% ABV.", related: ["Grey Goose", "Ketel One", "Chopin Rye"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Belvedere_Vodka.jpg/320px-Belvedere_Vodka.jpg" }
+  ]
+},
 
   // LIQUEURS
-  { name: "Amaretto", category: "Liqueurs", description: "Italian almond-flavored liqueur, sweet and nutty with notes of apricot kernel. ~28% ABV.", brands: ["Disaronno", "Lazzaroni", "DeKuyper", "Bardinet"], notes: "Amaretto Sour, Godmother, Nutcracker." },
+  { name: "Amaretto", category: "Liqueurs", description: "Italian almond-flavored liqueur, sweet and nutty with notes of apricot kernel. ~28% ABV.", brands: ["Disaronno", "Lazzaroni", "DeKuyper", "Bardinet"], notes: "Amaretto Sour, Godmother, Nutcracker.",
+  bottles: [
+        { name: "Disaronno Amaretto", description: "Italian amaretto liqueur from Saronno. Apricot kernel and almond character with sweet vanilla and cherry notes. 28% ABV.", related: ["Lazzaroni Amaretto", "DeKuyper Amaretto", "Bardinet Amaretto"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Disaronno_Originale.jpg/320px-Disaronno_Originale.jpg" }
+  ]
+},
   { name: "Aperol", category: "Liqueurs", description: "Italian bitter-orange aperitif. Bright orange, bittersweet, 11% ABV. Lighter than Campari.", brands: ["Aperol ( Campari Group )"], notes: "Aperol Spritz, Aperol Sour, Paper Plane." },
   { name: "Bénédictine", category: "Liqueurs", description: "French herbal liqueur from Fécamp. Complex: honey, herbs, spices, citrus, stone fruit. 40% ABV.", brands: ["Bénédictine D.O.M.", "B&B (Bénédictine + Brandy)"], notes: "B&B, Vieux Carré, Jamaica Mule." },
   { name: "Campari", category: "Liqueurs", description: "Italian bitter aperitif. Intensely red, bitter, herbal — notes of rhubarb, cherry, cinnamon, and citrus peel. 20.5% ABV.", brands: ["Campari"], notes: "Negroni, Boulevardier, Americano, Jungle Bird." },
@@ -85,8 +109,16 @@ export const ingredients: Ingredient[] = [
   { name: "Drambuie", category: "Liqueurs", description: "Scottish honey-herbal liqueur. Scotch whisky base with heather honey, herbs, and spices. 40% ABV.", brands: ["Drambuie"], notes: "Rusty Nail, Civil Service, Godfather variation." },
   { name: "Elderflower liqueur", category: "Liqueurs", description: "Fragrant elderflower blossom liqueur. Floral, sweet, honeyed, with pear and lychee undertones. 20% ABV.", brands: ["St-Germain"], notes: "St-Germain Spritz, Elderflower Collins, Hugo." },
   { name: "Galliano", category: "Liqueurs", description: "Italian vanilla-herbal liqueur. Bright yellow, complex with vanilla, anise, and 30+ botanicals. 42.3% ABV.", brands: ["Galliano L'Autentico", "Galliano Vanilla"], notes: "Harvey Wallbanger, Yellow Bird." },
-  { name: "Green crème de menthe", category: "Liqueurs", description: "Bright green mint crème liqueur. Sweet, minty, artificial-bright green color.", brands: ["Marie Brizard", "Bols", "DeKuyper"], notes: "Grasshopper, Stinger variation, certain Shooters." },
-  { name: "Grenadine", category: "Liqueurs", description: "Pomegranate syrup-liqueur. Deep red, sweet-tart. Modern grenadine is often just pomegranate juice + sugar; some have a hint of orange.", brands: ["Monin Grenadine", "Fee Brothers", "Roses", "Small Hand Foods Pomegranate Molasses (mix with water)"], notes: "Tequila Sunrise, Shirley Temple, Planter's Punch." },
+  { name: "Green crème de menthe", category: "Liqueurs", description: "Bright green mint crème liqueur. Sweet, minty, artificial-bright green color.", brands: ["Marie Brizard", "Bols", "DeKuyper"], notes: "Grasshopper, Stinger variation, certain Shooters.",
+  bottles: [
+        { name: "Marie Brizard Green Crème de Menthe", description: "Bright green mint crème liqueur. Sweet, minty, artificial-bright green color.", related: ["Bols Pepermunt", "DeKuyper Peppermint"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Marie_Brizard_Cr%C3%A8me_de_Menthe.jpg/320px-Marie_Brizard_Cr%C3%A8me_de_Menthe.jpg" }
+  ]
+},
+  { name: "Grenadine", category: "Liqueurs", description: "Pomegranate syrup-liqueur. Deep red, sweet-tart. Modern grenadine is often just pomegranate juice + sugar; some have a hint of orange.", brands: ["Monin Grenadine", "Fee Brothers", "Roses", "Small Hand Foods Pomegranate Molasses (mix with water)"], notes: "Tequila Sunrise, Shirley Temple, Planter's Punch.",
+  bottles: [
+        { name: "Fee Brothers Grenadine", description: "American grenadine from Fee Brothers. Deep red, sweet-tart pomegranate syrup-liqueur.", related: ["Monin Grenadine", "Roses Grenadine", "Small Hand Foods"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Fee_Brothers_Grenadine.jpg/320px-Fee_Brothers_Grenadine.jpg" }
+  ]
+},
   { name: "Irish cream", category: "Liqueurs", description: "Cream liqueur with Irish whiskey, cream, and chocolate/coffee. Smooth, sweet, 17% ABV.", brands: ["Baileys Irish Cream", "Ryan's", "Saint Brendan's"], notes: "B-52, Irish Car Bomb, White Russian variation." },
   { name: "Maraschino liqueur", category: "Liqueurs", description: "Luxardo-style cherry liqueur from Marasca cherry pits. Complex: cherry, almond, spice. 32% ABV.", brands: ["Luxardo Maraschino", "Maraska"], notes: "Aviation, Hemingway Daiquiri, Martinez." },
   { name: "Orange curaçao", category: "Liqueurs", description: "Orange-flavored liqueur made from dried curaçao orange peels (from Caribbean island). Dry, bitter-orange, 40% ABV.", brands: ["Pierre Ferrand Dry Curaçao", "Bols Orange Curaçao", "Marie Brizard"], notes: "Margarita (when not using triple sec), Sidecar." },
@@ -95,27 +127,51 @@ export const ingredients: Ingredient[] = [
   { name: "St-Germain elderflower liqueur", category: "Liqueurs", description: "Premium elderflower liqueur. Each bottle contains up to 1,000 elderflower blossoms hand-harvested in France.", brands: ["St-Germain"], notes: "St-Germain Spritz, Elderflower Collins, Hugo." },
   { name: "Triple sec", category: "Liqueurs", description: "Generic orange-flavored liqueur. Usually 15–40% ABV, sweeter than curaçao. Cointreau is the premium triple sec.", brands: ["Cointreau", "Combier", "Marie Brizard", "Bols", "DeKuyper"], notes: "Margarita, Cosmopolitan, Long Island Iced Tea." },
   { name: "Triple sec or Cointreau", category: "Liqueurs", description: "Same as Triple sec — just specifying Cointreau as the premium option.", brands: ["Cointreau"], notes: "Deduplicated with Triple sec." },
-  { name: "White crème de menthe", category: "Liqueurs", description: "Clear/white mint crème liqueur. Same mint flavor as green but without artificial coloring. Useful in shaken cocktails.", brands: ["Marie Brizard", "Bols", "DeKuyper"], notes: "Stinger, Grasshopper (white version)." },
+  { name: "White crème de menthe", category: "Liqueurs", description: "Clear/white mint crème liqueur. Same mint flavor as green but without artificial coloring. Useful in shaken cocktails.", brands: ["Marie Brizard", "Bols", "DeKuyper"], notes: "Stinger, Grasshopper (white version).",
+  bottles: [
+        { name: "Marie Brizard White Crème de Menthe", description: "Clear white mint crème liqueur. Same mint flavor as green but without artificial coloring.", related: ["Bols White Pepermunt", "DeKuyper White Peppermint"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/White_Cr%C3%A8me_de_Menthe_Marie_Brizard.jpg/320px-White_Cr%C3%A8me_de_Menthe_Marie_Brizard.jpg" }
+  ]
+},
 
   // BITTERS & APERITIFS
   { name: "Absinthe", category: "Bitters & Aperitifs", description: "High-proof anise-flavored spirit (45–74% ABV). Wormwood, anise, fennel. Turns cloudy when water is added (louche).", brands: ["Pernod Absinthe", "Absinthe Original", "La Fee", "Lucid Absinthe Supérieure"], notes: "Sazerac rinse, Corpse Reviver #2, Death in the Afternoon." },
-  { name: "Angostura bitters", category: "Bitters & Aperitifs", description: "The iconic dash of bitters. Concentrated herbal extract with gentian root, spices, and herbs. Over 150 years old. 44.7% ABV.", brands: ["Angostura (the standard — no alternatives needed)"], notes: "In virtually every stirred cocktail. Old Fashioned, Manhattan, Martini garnish." },
+  { name: "Angostura bitters", category: "Bitters & Aperitifs", description: "The iconic dash of bitters. Concentrated herbal extract with gentian root, spices, and herbs. Over 150 years old. 44.7% ABV.", brands: ["Angostura (the standard — no alternatives needed)"], notes: "In virtually every stirred cocktail. Old Fashioned, Manhattan, Martini garnish.",
+  bottles: [
+        { name: "Angostura Aromatic Bitters", description: "The iconic dash of bitters. Concentrated herbal extract with gentian root, spices, and herbs. Over 150 years old. 44.7% ABV.", related: ["Fee Brothers Aromatic Bitters", "Bitter Truth Aromatic"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Angostura_bitters.jpg/320px-Angostura_bitters.jpg" }
+  ]
+},
   { name: "Fernet-Branca", category: "Bitters & Aperitifs", description: "Italian amaro bitter digestif. Intensely bitter, minty, menthol, eucalyptus, and herbaceous. 39% ABV.", brands: ["Fernet-Branca"], notes: "Toronto, Hanky Panky, Fernet & Coke (Argentina)." },
   { name: "Green Chartreuse", category: "Bitters & Aperitifs", description: "French herbal liqueur made by Carthusian monks since 1605. 130+ botanicals. Bright green, complex, 55% ABV.", brands: ["Green Chartreuse V.P. (55%)", "Green Chartreuse (41%) — 'Alpine Strength'"], notes: "Last Word, Chartreuse Swizzle, Ti' Punch variation." },
   { name: "Lillet Blanc", category: "Bitters & Aperitifs", description: "French aromatised wine. Citrus, honey, and quinine. 17% ABV. Similar to dry vermouth but with more citrus.", brands: ["Lillet Blanc"], notes: "Vesper, 20th Century, Corpse Reviver #2." },
   { name: "Orange bitters", category: "Bitters & Aperitifs", description: "Citrusy bitters made from dried orange peel. Lighter and more aromatic than Angostura.", brands: ["Regans' Orange Bitters No. 6", "Fee Brothers Orange Bitters", "Bitter Truth Orange"], notes: "Martini, Old Fashioned, Manhattan." },
-  { name: "Peychaud's bitters", category: "Bitters & Aperitifs", description: "Aromatic bitters from New Orleans. Anise, gentian, cherry. Distinctive red color. 35% ABV.", brands: ["Peychaud's Bitters"], notes: "Sazerac — essential. Manhattan variation." },
+  { name: "Peychaud's bitters", category: "Bitters & Aperitifs", description: "Aromatic bitters from New Orleans. Anise, gentian, cherry. Distinctive red color. 35% ABV.", brands: ["Peychaud's Bitters"], notes: "Sazerac — essential. Manhattan variation.",
+  bottles: [
+        { name: "Peychaud's Aromatic Bitters", description: "New Orleans aromatic bitters. Anise, gentian, cherry. Distinctive red color. 35% ABV.", related: ["Angostura Bitters", "Fee Brothers Bitters"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Peychauds_Bitters.jpg/320px-Peychauds_Bitters.jpg" }
+  ]
+},
   { name: "Pimm's No. 1", category: "Bitters & Aperitifs", description: "British summer cup. Gin-based fruit liqueur with herbal and citrus notes. 25% ABV.", brands: ["Pimm's No. 1"], notes: "Pimm's Cup — mix with lemonade, mint, cucumber, fruit." },
   { name: "Amaro Nonino", category: "Bitters & Aperitifs", description: "Premium Italian amaro. Made from grappa macerated with herbs, roots, and alpine flowers. Bitter-sweet, 35% ABV.", brands: ["Amaro Nonino Quintessentia"], notes: "Paper Plane, Boulevardier variation, Paper Plane." },
 
   // SHERRIES & VERMOUTHS
   { name: "Amontillado sherry", category: "Sherries & Vermouths", description: "Sherry style between fino and oloroso. Initially aged under flor, then exposed to air. Nutty, dry, complex.", brands: ["Lustau Amontillado", "Gonzalez Byass Amontillado"], notes: "Adonis, Bamboo, certain Manhattan variations." },
-  { name: "Dry vermouth", category: "Sherries & Vermouths", description: "Fortified, aromatised wine. Dry, herbal, botanical. ~18% ABV. Keep refrigerated after opening.", brands: ["Dolin Dry", "Noilly Prat", "Martini & Rossi Dry", "Carpano Antica (sweet)"], notes: "Martini, Manhattan (dry version), Gibson." },
+  { name: "Dry vermouth", category: "Sherries & Vermouths", description: "Fortified, aromatised wine. Dry, herbal, botanical. ~18% ABV. Keep refrigerated after opening.", brands: ["Dolin Dry", "Noilly Prat", "Martini & Rossi Dry", "Carpano Antica (sweet)"], notes: "Martini, Manhattan (dry version), Gibson.",
+  bottles: [
+        { name: "Noilly Prat Original French Dry", description: "Classic French dry vermouth from Noilly Prat in Marseillan. Macerated with herbs and spices from the Languedoc region. Herbal, bright, with chamomile and orange peel.", related: ["Dolin Dry", "Martini & Rossi Dry", "Carpano Antica Formula"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Noilly_Prat_Vermouth_Bottle.jpg/320px-Noilly_Prat_Vermouth_Bottle.jpg" }
+  ]
+},
   { name: "Fino sherry", category: "Sherries & Vermouths", description: "Lightest, driest sherry style. Aged under flor (yeast film). Pale, saline, almond, and green apple.", brands: ["Tio Pepe Fino", "Lustau Fino", "Gonzalez Byass Fino"], notes: "Adonis, Bamboo, Sherry Cobbler." },
-  { name: "Sweet vermouth", category: "Sherries & Vermouths", description: "Sweet, rich aromatised wine. Caramel, vanilla, herbs, citrus. ~16% ABV. Keep refrigerated.", brands: ["Carpano Antica", "Dolin Sweet", "Martini & Rossi Rosso", "Cinzano Rosso"], notes: "Negroni, Manhattan, Boulevardier, Americano, Rob Roy." },
+  { name: "Sweet vermouth", category: "Sherries & Vermouths", description: "Sweet, rich aromatised wine. Caramel, vanilla, herbs, citrus. ~16% ABV. Keep refrigerated.", brands: ["Carpano Antica", "Dolin Sweet", "Martini & Rossi Rosso", "Cinzano Rosso"], notes: "Negroni, Manhattan, Boulevardier, Americano, Rob Roy.",
+  bottles: [
+        { name: "Carpano Antica Formula", description: "Premium Italian sweet vermouth from Fratelli Branca. First vermouth created by Antonio Carpano in 1786. Intensely herbal, vanilla-forward, with dried fruit and toffee. 23% ABV.", related: ["Carpano Punt e Mes", "Dolin Sweet", "Martini & Rossi Rosso"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Carpano_Antica_Formula_Verouth.jpg/320px-Carpano_Antica_Formula_Verouth.jpg" }
+  ]
+},
 
   // WINES & SPARKLING
-  { name: "Champagne", category: "Wines & Sparkling", description: "Sparkling wine from Champagne region of France. Méthode Champenoise. Fine bubbles, toasty, complex.", brands: ["Moët & Chandon", "Veuve Clicquot", "Ruinart", "Krug", "Bollinger"], notes: "French 75, Champagne Cocktail, Champagne Sour." },
+  { name: "Champagne", category: "Wines & Sparkling", description: "Sparkling wine from Champagne region of France. Méthode Champenoise. Fine bubbles, toasty, complex.", brands: ["Moët & Chandon", "Veuve Clicquot", "Ruinart", "Krug", "Bollinger"], notes: "French 75, Champagne Cocktail, Champagne Sour.",
+  bottles: [
+        { name: "Moët & Chandon Brut Impérial", description: "Iconic Champagne from Moët & Chandon. Bright, lively, with green apple, citrus, and brioche. The standard for celebrations and French 75.", related: ["Veuve Clicquot Yellow Label", "Ruinart Blanc de Blancs", "Bollinger Special Cuvée"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Mo%C3%ABt_%26_Chandon_2010.jpg/320px-Mo%C3%ABt_%26_Chandon_2010.jpg" }
+  ]
+},
   { name: "Champagne or sparkling wine", category: "Wines & Sparkling", description: "Either Champagne or a quality sparkling wine (Cava, Prosecco, Crémant).", brands: ["Moët & Chandon", "Veuve Clicquot", "Prosecco brands"], notes: "Use for top-ups in French 75, Champagne cocktails." },
   { name: "Prosecco", category: "Wines & Sparkling", description: "Italian sparkling wine from Veneto region. Light, fruity, Glera grape. 10.5–11.5% ABV.", brands: ["Nino Franco Rustico", "Bisol Jeio", "Santa Margherita", "Zonin", "La Marca"], notes: "Aperol Spritz, Bellini, Mimosa." },
   { name: "Dry white wine", category: "Wines & Sparkling", description: "Unfortified dry white wine. Sauvignon Blanc, Pinot Grigio, etc. Used in wine-based cocktails.", brands: ["House pour"], notes: "Wine Spritzer, Sangria, certain Coolers." },

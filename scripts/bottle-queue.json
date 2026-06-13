@@ -1,0 +1,314 @@
+{
+  "Bourbon": [
+    {
+      "name": "Buffalo Trace",
+      "description": "Kentucky straight bourbon from Buffalo Trace Distillery in Frankfort. Mash bill includes corn, rye, and malted barley. Aged in new oak barrels. Vanilla, caramel, and mint notes. 90 proof.",
+      "related": ["Eagle Rare 10", "George T. Stagg", "Elijah Craig 12"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Buffalo_Trace_Bourbon_Bottle.jpg/320px-Buffalo_Trace_Bourbon_Bottle.jpg"
+    }
+  ],
+  "London dry gin": [
+    {
+      "name": "Tanqueray London Dry",
+      "description": "London dry gin from Charles Tanqueray & Co. Distilled with juniper, coriander, angelica root, and liquorice. Four-time distilled. Crisp juniper-forward profile with citrus and spice. 43.1% ABV.",
+      "related": ["Tanqueray No. Ten", "Tanqueray Rangpur", "Beefeater London Dry"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Tanqueray_gin_bottle.jpg/320px-Tanqueray_gin_bottle.jpg"
+    }
+  ],
+  "Rye whiskey": [
+    {
+      "name": "Rittenhouse Rye",
+      "description": "Bottled-in-bond rye whiskey from Heaven Hill Distillery. 100 proof. Bold spice, pepper, and baking spice character with a robust finish. The benchmark for stirred whiskey cocktails.",
+      "related": ["Bulleit Rye", "Sazerac Rye", "Wild Turkey Rye"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Rittenhouse_Bottled_in_Bond_Rye.jpg/320px-Rittenhouse_Bottled_in_Bond_Rye.jpg"
+    }
+  ],
+  "Aged rum": [
+    {
+      "name": "Diplomático Reserva Exclusiva",
+      "description": "Venezuelan aged rum from Diplomático. Blended from rums aged up to 8 years. Rich molasses, caramel, and vanilla with dried fruit. Smooth enough for sipping; complex enough for cocktails.",
+      "related": ["Diplomático Mantuano", "Diplomático Planas", "Ron Zacapa 23"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Diplomatico_Reserva_Exclusiva.jpg/320px-Diplomatico_Reserva_Exclusiva.jpg"
+    }
+  ],
+  "Sweet vermouth": [
+    {
+      "name": "Carpano Antica Formula",
+      "description": "Premium Italian sweet vermouth from Fratelli Branca. First vermouth created by Antonio Carpano in 1786. Intensely herbal, vanilla-forward, with dried fruit and toffee. 23% ABV.",
+      "related": ["Carpano Punt e Mes", "Dolin Sweet", "Martini & Rossi Rosso"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Carpano_Antica_Formula_Verouth.jpg/320px-Carpano_Antica_Formula_Verouth.jpg"
+    }
+  ],
+  "Tequila": [
+    {
+      "name": "Fortaleza Blanco",
+      "description": "100% blue agave tequila from the Fortaleza distillery in Jalisco. Stone ovens and tahona wheel. Bright agave with pepper, citrus, and earth. Unaged, pure expression.",
+      "related": ["Fortaleza Reposado", "Fortaleza Añejo", "Patrón Silver"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Fortaleza_Blanco_tequila.jpg/320px-Fortaleza_Blanco_tequila.jpg"
+    }
+  ],
+  "Amontillado sherry": [
+    {
+      "name": "Lustau Amontillado",
+      "description": "Amontillado sherry from Emilio Lustau in Jerez, Spain. Aged under flor then exposed to air. Nutty, dry, complex with hazelnut, brioche, and saline notes.",
+      "related": ["Lustau Oloroso", "Lustau Palo Cortado", "González Byass Amontillado"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Lustau_Amontillado_sherry.jpg/320px-Lustau_Amontillado_sherry.jpg"
+    }
+  ],
+  "Cognac": [
+    {
+      "name": "Remy Martin VSOP",
+      "description": "Very Superior Old Pale cognac from Remy Martin. Blended from eaux-de-vie aged at least 4 years. Ripe stone fruit, vanilla, and toasted oak. Smooth and approachable.",
+      "related": ["Remy Martin XO", "Remy Martin 1738", "Courvoisier VS"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Remy_Martin_VSOP.jpg/320px-Remy_Martin_VSOP.jpg"
+    }
+  ],
+  "Vodka": [
+    {
+      "name": "Belvedere Vodka",
+      "description": "Polish rye vodka from Belvedere. Quadruple distilled from Dankowskie rye. Creamy texture with white pepper, vanilla, and almond. 40% ABV.",
+      "related": ["Grey Goose", "Ketel One", "Chopin Rye"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Belvedere_Vodka.jpg/320px-Belvedere_Vodka.jpg"
+    }
+  ],
+  "Dry vermouth": [
+    {
+      "name": "Noilly Prat Original French Dry",
+      "description": "Classic French dry vermouth from Noilly Prat in Marseillan. Macerated with herbs and spices from the Languedoc region. Herbal, bright, with chamomile and orange peel.",
+      "related": ["Dolin Dry", "Martini & Rossi Dry", "Carpano Antica Formula"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Noilly_Prat_Vermouth_Bottle.jpg/320px-Noilly_Prat_Vermouth_Bottle.jpg"
+    }
+  ],
+  "Prosecco": [
+    {
+      "name": "Nino Franco Rustico",
+      "description": "Premium Prosecco from Nino Franco in Valdobbiadene. Glera grapes from historic vineyards. Fresh pear, white peach, and mineral notes. Dry finish.",
+      "related": ["Bisol Crede", "Santa Margherita", "La Marca"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Nino_Franco_Prosecco_Rustico.jpg/320px-Nino_Franco_Prosecco_Rustico.jpg"
+    }
+  ],
+  "Orange curaçao": [
+    {
+      "name": "Pierre Ferrand Dry Curaçao",
+      "description": "Premium dry curaçao from Pierre Ferrand in Cognac. Made from dried Caraçao oranges, cognac base, and sugar. Dry, bitter-orange profile with honey and spice.",
+      "related": ["Bols Orange Curaçao", "Marie Brizard Orange Curaçao", "Cointreau"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Pierre_Ferrand_Dry_Curacao.jpg/320px-Pierre_Ferrand_Dry_Curacao.jpg"
+    }
+  ],
+  "White rum": [
+    {
+      "name": "Bacardi Superior",
+      "description": "Iconic white rum from Bacardi, founded in Cuba in 1862. Light, smooth, and mixable with subtle vanilla and almond notes. The benchmark rum for Cuba Libre, Mojito, and Daiquiri.",
+      "related": ["Bacardi 8", "Bacardi Oakheart", "Don Q Cristal"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Bacardi_Superior_Rum.jpg/320px-Bacardi_Superior_Rum.jpg"
+    }
+  ],
+  "Dark rum": [
+    {
+      "name": "Gosling's Black Seal",
+      "description": "Bermudian dark rum from Gosling's. Rich molasses, toffee, and warm spice. Famous as the base of the Dark 'n' Stormy.",
+      "related": ["Myers's Original Dark", "Plantation XO", "Flor de Caña 7"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Goslings_Black_Seal_Rum.jpg/320px-Goslings_Black_Seal_Rum.jpg"
+    }
+  ],
+  "Overproof rum": [
+    {
+      "name": "Wray & Nephew Overproof",
+      "description": "Jamaican overproof white rum at 63% ABV. Intense ester-forward funk and alcohol heat. A dash is enough in Tiki drinks and flaming cocktails.",
+      "related": ["Lemon Hart 151", "Plantation O.F.T.D.", "Hamilton 151"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Wray_%26_Nephew_Overproof.jpg/320px-Wray_%26_Nephew_Overproof.jpg"
+    }
+  ],
+  "Gin": [
+    {
+      "name": "Hendrick's Gin",
+      "description": "Scottish gin from William Grant & Sons. Infused with rose and cucumber. Silky, floral, and unusual. 41.4% ABV.",
+      "related": ["Hendrick's Orbium", "Hendrick's Lunar", "Hendrick's Midsummer Solstice"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Hendricks_Gin_2010.jpg/320px-Hendricks_Gin_2010.jpg"
+    }
+  ],
+  "Geneva gin": [
+    {
+      "name": "Rutte Genever",
+      "description": "Dutch genever from Rutte Distillery. Malt-forward, malty, and rounded with juniper and citrus. Good bridge between whisky and gin.",
+      "related": ["Bols Genever", "Hooghoudt", "Filliers Dry Gin 28"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Rutte_Genever.jpg/320px-Rutte_Genever.jpg"
+    }
+  ],
+  "Blanco tequila": [
+    {
+      "name": "Don Julio Blanco",
+      "description": "100% blue agave blanco tequila from Don Julio. Bright agave with pepper, citrus, and light pepper. Crisp and clean. 38% ABV.",
+      "related": ["Don Julio Reposado", "Don Julio 1942", "Don Julio Añejo"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Don_Julio_Blanco.jpg/320px-Don_Julio_Blanco.jpg"
+    }
+  ],
+  "Amaretto": [
+    {
+      "name": "Disaronno Amaretto",
+      "description": "Italian amaretto liqueur from Saronno. Apricot kernel and almond character with sweet vanilla and cherry notes. 28% ABV.",
+      "related": ["Lazzaroni Amaretto", "DeKuyper Amaretto", "Bardinet Amaretto"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Disaronno_Originale.jpg/320px-Disaronno_Originale.jpg"
+    }
+  ],
+  "Campari": [
+    {
+      "name": "Campari",
+      "description": "Italian bitter aperitif from Milan. Intensely red, bitter, herbal with rhubarb, cherry, cinnamon, and citrus peel. 20.5% ABV.",
+      "related": ["Campari Negroni", "Aperol", "Cynar"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Campari_bottle.jpg/320px-Campari_bottle.jpg"
+    }
+  ],
+  "Cherry liqueur": [
+    {
+      "name": "Luxardo Maraschino",
+      "description": "Premium Italian cherry liqueur from Marasca cherries. Complex with cherry, almond, spice, and herbal notes. 32% ABV.",
+      "related": ["Maraska Maraschino", "Bols Cherry", "Cherry Heering"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Luxardo_Maraschino.jpg/320px-Luxardo_Maraschino.jpg"
+    }
+  ],
+  "Cointreau": [
+    {
+      "name": "Cointreau",
+      "description": "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish. The standard for classic cocktails.",
+      "related": ["Pierre Ferrand Dry Curaçao", "Combier", "Marie Brizard Triple Sec"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Cointreau_bottle.jpg/320px-Cointreau_bottle.jpg"
+    }
+  ],
+  "Coffee liqueur": [
+    {
+      "name": "Kahlúa",
+      "description": "Mexican coffee liqueur from Veracruz. Sweet, dark, with strong coffee notes. 20% ABV.",
+      "related": ["Tia Maria", "Mr Black", "St Brendan's"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Kahlua_coffee_liqueur.jpg/320px-Kahlua_coffee_liqueur.jpg"
+    }
+  ],
+  "Green crème de menthe": [
+    {
+      "name": "Marie Brizard Green Crème de Menthe",
+      "description": "Bright green mint crème liqueur. Sweet, minty, artificial-bright green color.",
+      "related": ["Bols Pepermunt", "DeKuyper Peppermint"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Marie_Brizard_Cr%C3%A8me_de_Menthe.jpg/320px-Marie_Brizard_Cr%C3%A8me_de_Menthe.jpg"
+    }
+  ],
+  "White crème de menthe": [
+    {
+      "name": "Marie Brizard White Crème de Menthe",
+      "description": "Clear white mint crème liqueur. Same mint flavor as green but without artificial coloring.",
+      "related": ["Bols White Pepermunt", "DeKuyper White Peppermint"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/White_Cr%C3%A8me_de_Menthe_Marie_Brizard.jpg/320px-White_Cr%C3%A8me_de_Menthe_Marie_Brizard.jpg"
+    }
+  ],
+  "Grenadine": [
+    {
+      "name": "Fee Brothers Grenadine",
+      "description": "American grenadine from Fee Brothers. Deep red, sweet-tart pomegranate syrup-liqueur.",
+      "related": ["Monin Grenadine", "Roses Grenadine", "Small Hand Foods"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Fee_Brothers_Grenadine.jpg/320px-Fee_Brothers_Grenadine.jpg"
+    }
+  ],
+  "Drambuie": [
+    {
+      "name": "Drambuie",
+      "description": "Scottish honey-herbal liqueur. Scotch whisky base with heather honey, herbs, and spices. 40% ABV.",
+      "related": ["Drambuie 10", "Rusty Nail ingredients"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Drambuie_2010.jpg/320px-Drambuie_2010.jpg"
+    }
+  ],
+  "Absinthe": [
+    {
+      "name": "Pernod Absinthe",
+      "description": "French absinthe from Pernod Fils. High-proof anise-flavored spirit with wormwood, anise, and fennel. Turns cloudy with water. 68% ABV.",
+      "related": ["Absinthe Original", "La Fee", "Lucid Absinthe Supérieure"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pernod_Absinthe.jpg/320px-Pernod_absinthe.jpg"
+    }
+  ],
+  "Angostura bitters": [
+    {
+      "name": "Angostura Aromatic Bitters",
+      "description": "The iconic dash of bitters. Concentrated herbal extract with gentian root, spices, and herbs. Over 150 years old. 44.7% ABV.",
+      "related": ["Fee Brothers Aromatic Bitters", "Bitter Truth Aromatic"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Angostura_bitters.jpg/320px-Angostura_bitters.jpg"
+    }
+  ],
+  "Orange bitters": [
+    {
+      "name": "Regans' Orange Bitters No. 6",
+      "description": "Classic orange bitters from cocktail authority Gary Regan. Citrusy and aromatic. Lighter than Angostura.",
+      "related": ["Fee Brothers Orange Bitters", "Bitter Truth Orange"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Regans_Orange_Bitters.jpg/320px-Regans_Orange_Bitters.jpg"
+    }
+  ],
+  "Peychaud's bitters": [
+    {
+      "name": "Peychaud's Aromatic Bitters",
+      "description": "New Orleans aromatic bitters. Anise, gentian, cherry. Distinctive red color. 35% ABV.",
+      "related": ["Angostura Bitters", "Fee Brothers Bitters"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Peychauds_Bitters.jpg/320px-Peychauds_Bitters.jpg"
+    }
+  ],
+  "Fino sherry": [
+    {
+      "name": "Tio Pepe Fino",
+      "description": "Classic fino sherry from González Byass. Lightest, driest sherry style. Pale, saline, almond, and green apple.",
+      "related": ["Lustau Fino", "Gonzalez Byass Fino", "Lustau Manzanilla"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tio_Pepe_Fino.jpg/320px-Tio_Pepe_Fino.jpg"
+    }
+  ],
+  "Champagne": [
+    {
+      "name": "Moët & Chandon Brut Impérial",
+      "description": "Iconic Champagne from Moët & Chandon. Bright, lively, with green apple, citrus, and brioche. The standard for celebrations and French 75.",
+      "related": ["Veuve Clicquot Yellow Label", "Ruinart Blanc de Blancs", "Bollinger Special Cuvée"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Mo%C3%ABt_%26_Chandon_2010.jpg/320px-Mo%C3%ABt_%26_Chandon_2010.jpg"
+    }
+  ],
+  "Irish cream": [
+    {
+      "name": "Baileys Irish Cream",
+      "description": "Irish cream liqueur with Irish whiskey, cream, and chocolate. Smooth, sweet, 17% ABV.",
+      "related": ["Ryan's Irish Cream", "Saint Brendan's"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Baileys_Irish_Cream.jpg/320px-Baileys_Irish_Cream.jpg"
+    }
+  ],
+  "Maraschino liqueur": [
+    {
+      "name": "Luxardo Maraschino",
+      "description": "Premium Italian maraschino liqueur from Marasca cherry pits. Complex cherry, almond, spice. 32% ABV.",
+      "related": ["Maraska Maraschino", "Bols Maraschino"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Luxardo_Maraschino.jpg/320px-Luxardo_Maraschino.jpg"
+    }
+  ],
+  "Triple sec": [
+    {
+      "name": "Cointreau",
+      "description": "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish. The standard for classic cocktails.",
+      "related": ["Combier", "Marie Brizard Triple Sec", "Bols Triple Sec"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Cointreau_bottle.jpg/320px-Cointreau_bottle.jpg"
+    }
+  ],
+  "Heavy cream": [
+    {
+      "name": "Heavy cream",
+      "description": "High-fat dairy cream, usually 36–40% fat. Used for body and richness in shaken cocktails.",
+      "related": ["Brandy Alexander", "White Russian", "Ramos Gin Fizz"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Cream_glass.jpg/320px-Cream_glass.jpg"
+    }
+  ],
+  "Simple syrup": [
+    {
+      "name": "Simple syrup",
+      "description": "Equal parts sugar and water, dissolved. The standard neutral sweetener for cocktails.",
+      "related": ["Honey syrup", "Rich simple syrup", "Agave syrup"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Simple_Syrup.jpg/320px-Simple_Syrup.jpg"
+    }
+  ],
+  "Orange liqueur": [
+    {
+      "name": "Pierre Ferrand Dry Curaçao",
+      "description": "Premium dry curaçao from Pierre Ferrand in Cognac. Dry, bitter-orange profile with honey and spice.",
+      "related": ["Cointreau", "Combier", "Marie Brizard Orange Curaçao"],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Pierre_Ferrand_Dry_Curacao.jpg/320px-Pierre_Ferrand_Dry_Curacao.jpg"
+    }
+  ]
+}
