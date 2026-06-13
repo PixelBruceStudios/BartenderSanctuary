@@ -205,23 +205,30 @@ function LessonTests({ lessonId }: { lessonId: string }) {
 
       // Save authenticated progress
       try {
-        await fetch('/api/user/tests/attempt', {
+        const res = await fetch('/api/user/tests/attempt', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include',
           body: JSON.stringify({ testId: openTest.id, score: pct, passed, answers }),
         });
-      } catch {
-        // non-fatal: anonymous session still works
+        if (!res.ok) {
+          const txt = await res.text().catch(() => '');
+          throw new Error(`Auth submit failed (${res.status}): ${txt.slice(0, 200)}`);
+        }
+      } catch (e: any) {
+        // surface auth submit errors so we can see what's failing
+        setError(e.message || 'Failed to save authenticated progress');
+        setRunning(false);
+        return;
       }
 
       // Also save to legacy test_attempts (session-based)
-      const res = await fetch(`/api/tests/${openTest.id}/attempt/`, {
+      const legacyRes = await fetch(`/api/tests/${openTest.id}/attempt/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ score: pct, passed, answers, session_id: sessionId }),
       });
-      if (!res.ok) throw new Error(`Submit failed (${res.status})`);
+      if (!legacyRes.ok) throw new Error(`Submit failed (${legacyRes.status})`);
 
       setScore(pct);
       setSubmitted(true);
