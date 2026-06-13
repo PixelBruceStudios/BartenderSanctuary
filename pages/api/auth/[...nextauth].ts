@@ -80,5 +80,8 @@ const _nextAuth = NextAuth({
   },
 });
 
-export const { handlers, auth, signIn, signOut } = _nextAuth;
+export const auth = _nextAuth;
+export const handlers = _nextAuth.handlers;
+export const signIn = _nextAuth.signIn;
+export const signOut = _nextAuth.signOut;
 export default _nextAuth;
