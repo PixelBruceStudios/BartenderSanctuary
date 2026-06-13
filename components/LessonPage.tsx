@@ -137,26 +137,14 @@ function LessonTests({ lessonId }: { lessonId: string }) {
         );
         if (!cancelled) setTests(withQuestions);
 
-        // Load session (anonymous) attempts for the counter — always runs
-        const anonTests = withQuestions.length ? withQuestions : rows;
-        const sMap: Record<string, boolean> = {};
-        await Promise.all(
-          anonTests.map(async (t: any) => {
-            const r = await fetch(`/api/tests/${t.id}/attempt/`, { method: 'GET' });
-            if (r.ok) {
-              const d = await r.json();
-              if (d?.passed) sMap[t.id] = true;
-            }
-          })
-        );
-        if (!cancelled) setSessionAttempts(sMap);
-
-        // Load authenticated user attempts (best-effort, non-fatal)
+        // Load authenticated user attempts first (best-effort, non-fatal)
+        let isAuthed = false;
         try {
           const sRes = await fetch('/api/auth/session', { credentials: 'include' });
           const sData = await sRes.json();
           if (cancelled) return;
           if (sData.user?.id) {
+            isAuthed = true;
             const aRes = await fetch('/api/user/tests/attempt', { credentials: 'include' });
             const aData = await aRes.json();
             if (Array.isArray(aData)) {
@@ -164,9 +152,27 @@ function LessonTests({ lessonId }: { lessonId: string }) {
               aData.forEach((a: any) => { map[a.test_id] = a; });
               setUserAttempts(map);
             }
+            // drop stale anonymous session state for logged-in users
+            setSessionAttempts({});
           }
         } catch {
           // ignore - not logged in
+        }
+
+        // Load session (anonymous) attempts ONLY if not authenticated
+        if (!isAuthed) {
+          const anonTests = withQuestions.length ? withQuestions : rows;
+          const sMap: Record<string, boolean> = {};
+          await Promise.all(
+            anonTests.map(async (t: any) => {
+              const r = await fetch(`/api/tests/${t.id}/attempt/`, { method: 'GET' });
+              if (r.ok) {
+                const d = await r.json();
+                if (d?.passed) sMap[t.id] = true;
+              }
+            })
+          );
+          if (!cancelled) setSessionAttempts(sMap);
         }
       } catch {
         // ignore
@@ -234,6 +240,20 @@ function LessonTests({ lessonId }: { lessonId: string }) {
       setSubmitted(true);
       if (passed) {
         window.dispatchEvent(new CustomEvent('test-passed', { detail: { testId: openTest.id } }));
+      }
+      // refresh authenticated attempts immediately so the UI flips to Done
+      try {
+        const refreshRes = await fetch('/api/user/tests/attempt', { credentials: 'include' });
+        if (refreshRes.ok) {
+          const aData = await refreshRes.json();
+          if (Array.isArray(aData)) {
+            const map: Record<string, any> = {};
+            aData.forEach((a: any) => { map[a.test_id] = a; });
+            setUserAttempts(map);
+          }
+        }
+      } catch {
+        // ignore refresh failure
       }
     } catch (e: any) {
       setError(e.message || 'Failed to submit test');
