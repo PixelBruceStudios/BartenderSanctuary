@@ -48,20 +48,11 @@ const _nextAuth = NextAuth({
         password: { label: "Password", type: "password" },
       },
       authorize: async (credentials) => {
-        if (!credentials?.email || !credentials?.password) {
-          console.log("[nextauth] missing credentials");
-          return null;
-        }
+        if (!credentials?.email || !credentials?.password) return null;
 
         const baseUrl =
           process.env.NEXT_PUBLIC_SITE_URL ||
           "https://bartender-sanctuary-app.vercel.app";
-        console.log("[nextauth] authorize start", {
-          email: credentials.email,
-          baseUrl,
-          hasPassword: Boolean(credentials.password),
-          passwordLen: credentials.password?.length,
-        });
 
         const res = await fetch(
           `${baseUrl}/api/auth/user-by-email`,
@@ -72,12 +63,6 @@ const _nextAuth = NextAuth({
           }
         );
         const data = await res.json();
-        console.log("[nextauth] user-by-email response", {
-          status: res.status,
-          ok: res.ok,
-          hasUser: Boolean(data.user),
-          keys: Object.keys(data),
-        });
 
         if (!res.ok || !data.user) return null;
 
@@ -86,10 +71,6 @@ const _nextAuth = NextAuth({
           credentials.password,
           data.user.password_hash
         );
-        console.log("[nextauth] password match", {
-          match: passwordMatch,
-          hashPrefix: data.user.password_hash?.slice(0, 10),
-        });
         if (!passwordMatch) return null;
 
         return {
@@ -103,20 +84,19 @@ const _nextAuth = NextAuth({
   ],
   callbacks: {
     async jwt({ token, user }) {
+      const hadUser = Boolean(user);
       if (user) {
         token.id = user.id;
         token.emailVerified = Boolean((user as any).emailVerified);
-        console.log('[nextauth] jwt callback set token.id:', token.id, 'email:', token.email);
-      } else {
-        console.log('[nextauth] jwt callback (no user) token.id:', token.id, 'email:', token.email);
       }
+      console.log('[nextauth] jwt', JSON.stringify({ hadUser, tokenId: token.id, tokenEmail: token.email }));
       return token;
     },
     async session({ session, token }) {
+      console.log('[nextauth] session', JSON.stringify({ sessionUser: session.user ? { id: session.user.id, email: session.user.email } : null, tokenId: token.id }));
       if (session.user) {
         session.user.id = token.id;
         session.user.emailVerified = token.emailVerified;
-        console.log('[nextauth] session callback set user.id:', session.user.id, 'email:', session.user.email);
       }
       return session;
     },
