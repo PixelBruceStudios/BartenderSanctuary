@@ -5,7 +5,7 @@ import { auth } from '../../auth/[...nextauth]';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const cookieHeader = req.headers.cookie || '';
-  console.log('[user/tests/attempt]', req.method, 'cookies:', cookieHeader.slice(0, 200));
+  console.log('[user/tests/attempt]', req.method, 'cookies:', cookieHeader);
   let session: any = null;
   try {
     session = await getServerSession(req, res, auth);

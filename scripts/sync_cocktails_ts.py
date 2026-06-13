@@ -55,7 +55,7 @@ for c in data:
     base = legacy.get('base', [])
     modifiers = legacy.get('modifiers', [])
     glass = legacy.get('glass', c.get('glass_type', ''))
-    story = legacy.get('story', c.get('description', '') or '')
+    story = legacy.get('story', c.get('story', '') or c.get('description', '') or '')
     technique = legacy.get('technique', 'Shaken')
     tags = legacy.get('tags', [c.get('difficulty', '').lower()] if c.get('difficulty') else [])
     recipe = [f"{i['qty']} {i['item']}" for i in c.get('ingredients', [])]
