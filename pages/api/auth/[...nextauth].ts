@@ -106,6 +106,9 @@ const _nextAuth = NextAuth({
       if (user) {
         token.id = user.id;
         token.emailVerified = Boolean((user as any).emailVerified);
+        console.log('[nextauth] jwt callback set token.id:', token.id, 'email:', token.email);
+      } else {
+        console.log('[nextauth] jwt callback (no user) token.id:', token.id, 'email:', token.email);
       }
       return token;
     },
@@ -113,6 +116,7 @@ const _nextAuth = NextAuth({
       if (session.user) {
         session.user.id = token.id;
         session.user.emailVerified = token.emailVerified;
+        console.log('[nextauth] session callback set user.id:', session.user.id, 'email:', session.user.email);
       }
       return session;
     },
