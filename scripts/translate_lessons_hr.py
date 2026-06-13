@@ -154,13 +154,22 @@ def chunk_text(text: str, max_chars: int = 4500) -> list[str]:
     return result
 
 
+def apply_glossary(text: str) -> str:
+    """Replace English bartending terms with canonical Croatian forms."""
+    result = text
+    for en_term, hr_term in HR_GLOSSARY.items():
+        pattern = re.compile(re.escape(en_term), re.IGNORECASE)
+        result = pattern.sub(hr_term, result)
+    return result
+
+
 def translate_text(text: str) -> str:
     if not text or not text.strip():
         return text
     if text in _translation_cache:
         return _translation_cache[text]
     chunks = chunk_text(text)
-    translated_chunks = []
+    translated_chunks: list[str] = []
     try:
         for chunk in chunks:
             tr = GoogleTranslator(source="en", target=TRANSLATE_LANG).translate(chunk)
@@ -170,6 +179,7 @@ def translate_text(text: str) -> str:
     except Exception as e:
         print(f"  translate failed: {e}; using original")
         translated = text
+    translated = apply_glossary(translated)
     _translation_cache[text] = translated
     return translated
 
