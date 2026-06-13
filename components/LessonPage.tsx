@@ -203,21 +203,16 @@ function LessonTests({ lessonId }: { lessonId: string }) {
       const pct = Math.round((correctCount / openTest.questions.length) * 100);
       const passed = pct >= (openTest.passing_score ?? 70);
 
-      // Save authenticated progress (preferred)
+      // Save authenticated progress
       try {
-        const sessionRes = await fetch('/api/auth/session', { credentials: 'include' });
-        const sessionData = await sessionRes.json();
-        const authedUserId = sessionData?.user?.id;
-        if (authedUserId) {
-          await fetch('/api/user/tests/attempt', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            credentials: 'include',
-            body: JSON.stringify({ testId: openTest.id, score: pct, passed, answers }),
-          });
-        }
+        await fetch('/api/user/tests/attempt', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
+          body: JSON.stringify({ testId: openTest.id, score: pct, passed, answers }),
+        });
       } catch {
-        // non-fatal
+        // non-fatal: anonymous session still works
       }
 
       // Also save to legacy test_attempts (session-based)
