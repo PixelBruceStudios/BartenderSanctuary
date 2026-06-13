@@ -32,49 +32,61 @@ MIN_LENGTH_RATIO = 0.5       # HR should be at least half the EN length
 MAX_LENGTH_RATIO = 3.0       # HR should not be 3x longer than EN
 
 # Croatian bartending / bar terminology glossary (case-insensitive)
-# These are canonical Croatian terms that should replace generic translator output.
+# Canonical Croatian terms that should replace generic translator output.
 HR_GLOSSARY: dict[str, str] = {
-    "highball": "visoki balon",
+    # Glassware — translated to actual Croatian bar terms
     "highball glass": "čaša visoki balon",
-    "highball cocktail": "visoki balon",
-    "rocks": "na kockama",
     "rocks glass": "čaša na kockama",
-    "old fashioned": "old fashioned",
-    "old-fashioned": "old fashioned",
     "old fashioned glass": "čaša old fashioned",
-    "coupe": "kupa",
     "coupe glass": "kupasta čaša",
-    "martini": "martini",
     "martini glass": "kupasta čaša",
     "champagne flute": "čahura za šampanjac",
-    "flute": "čahura",
     "wine glass": "čaša za vino",
-    "shot": "čašica",
     "shot glass": "čašica",
     "julep cup": "kup za julep",
-    "julep": "julep",
     "copper mug": "bakarana mugla",
-    "mule": "mugla",
-    "hurricane": "hurikan",
     "hurricane glass": "čaša hurikan",
-    "collins": "kolins",
     "collins glass": "čaša kolins",
-    "tiki": "tiki",
     "tiki glass": "tiki čaša",
-    "pousse café": "pus kafe",
     "pousse cafe glass": "čaša pus kafe",
-    "irish coffee": "irski kafa",
     "irish coffee glass": "irski kafa",
+    # Technique names / actions
     "stirred": "miješano",
     "shaken": "uz prskanje leda",
     "shaking": "prskanje leda",
     "muddled": "mudlano",
     "muddling": "mudlanje",
+    # Ingredients / modifiers
     "bitters": "biters",
     "simple syrup": "limunada",
     "vermouth": "vermut",
     "dry vermouth": "suhi vermut",
     "sweet vermouth": "slatki vermut",
+    "chartreuse": "šartrez",
+    "triple sec": "tripel sek",
+    "orgeat": "oržat",
+    # International cocktail / spirit names kept as-is in Croatian bar usage
+    "sours": "Sours",
+    "sour": "Sour",
+    "highballs": "Highballs",
+    "highball": "visoki balon",
+    "fizzes & collinses": "Fizzes & Collinses",
+    "stirred spirit-forward cocktails": "Stirred Spirit-Forward Cocktails",
+    "old fashioned": "old fashioned",
+    "old-fashioned": "old fashioned",
+    "coupe": "kupa",
+    "martini": "martini",
+    "champagne flute": "čahura za šampanjac",
+    "flute": "čahura",
+    "shot": "čašica",
+    "julep": "julep",
+    "mule": "mugla",
+    "hurricane": "hurikan",
+    "collins": "kolins",
+    "tiki": "tiki",
+    "pousse café": "pus kafe",
+    "pousse cafe": "pus kafe",
+    "irish coffee": "irski kafa",
     "blanco": "blanco",
     "reposado": "reposado",
     "anejo": "anejo",
@@ -90,13 +102,8 @@ HR_GLOSSARY: dict[str, str] = {
     "campari": "kampari",
     "aperol": "aperol",
     "amaro": "amaro",
-    "chartreuse": "šartrez",
     "cointreau": "kuantru",
-    "triple sec": "tripel sek",
-    "orgeat": "oržat",
     "falernum": "falernum",
-    "sour": "sour",
-    "sours": "sour kokteli",
 }
 
 try:
@@ -155,10 +162,11 @@ def chunk_text(text: str, max_chars: int = 4500) -> list[str]:
 
 
 def apply_glossary(text: str) -> str:
-    """Replace English bartending terms with canonical Croatian forms."""
+    """Replace English bartending terms with canonical Croatian forms.
+    Terms mapped to themselves are preserved as proper nouns."""
     result = text
     for en_term, hr_term in HR_GLOSSARY.items():
-        pattern = re.compile(re.escape(en_term), re.IGNORECASE)
+        pattern = re.compile(r"\b" + re.escape(en_term) + r"\b", re.IGNORECASE)
         result = pattern.sub(hr_term, result)
     return result
 
