@@ -845,7 +845,9 @@ function AffiliateSidebar() {
       {topTools.map(product => (
         <a
           key={product.id}
-          href={`/api/affiliate-redirect?productId=${product.id}`}
+          href={`/api/affiliate-redirect?productId=${encodeURIComponent(product.id)}`}
+          target="_blank"
+          rel="noopener noreferrer sponsored nofollow"
           className="glass-card"
           style={{
             padding: '0.6rem',

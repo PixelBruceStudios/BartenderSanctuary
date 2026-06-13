@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { getProductsForCocktail, affiliateUrl, type AffiliateProduct } from '@/data/affiliate-products';
+import { getProductsForCocktail, type AffiliateProduct } from '@/data/affiliate-products';
 
 interface AffiliateBarProps {
   cocktailSlug: string;
@@ -74,7 +74,7 @@ export default function AffiliateBar({ cocktailSlug }: AffiliateBarProps) {
 
 function ProductCard({ product }: { product: AffiliateProduct }) {
   const [imgError, setImgError] = useState(false);
-  const href = affiliateUrl(product);
+  const href = `/api/affiliate-redirect?productId=${encodeURIComponent(product.id)}`;
 
   return (
     <a

@@ -1,0 +1,26 @@
+Bartender Sanctuary – Cron Health Watchdog Report
+Generated: 2026-06-14
+
+Summary
+-------
+Total jobs : 24
+OK         : 21
+WARNING    : 3
+CRITICAL   : 0
+
+Warnings (script-not-found)
+----------------------------
+1) project-auditor
+   Job ID  : 4f50186c6877
+   Status  : WARNING
+   Reason  : script-not-found
+
+2) project-refactorer
+   Job ID  : cbfe29dc49d8
+   Status  : WARNING
+   Reason  : script-not-found
+
+3) cron-telegram-reporter
+   Job ID  : a2baa97847f2
+   Status  : WARNING
+   Reason  : script-not-found

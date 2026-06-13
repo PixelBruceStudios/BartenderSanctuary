@@ -1,10 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { affiliateProducts } from '@/data/affiliate-products';
 import { affiliateUrl } from '@/data/affiliate-products';
+import { query } from '@/lib/db';
 
 type RedirectResponse = { ok: true; url: string } | { ok: false; error: string };
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<RedirectResponse>) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<RedirectResponse>) {
   if (req.method !== 'GET') {
     return res.status(405).json({ ok: false, error: 'Method not allowed' });
   }
@@ -23,8 +24,21 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Redire
 
   const target = affiliateUrl(product);
 
-  // TODO: Log click to database when DB is available
-  // await db.query('INSERT INTO affiliate_clicks ...')
+  // Log click to database (non-blocking — redirect happens regardless)
+  try {
+    const sourcePath = (req.headers.referer || req.headers.referrer || '').toString();
+    const userAgent = (req.headers['user-agent'] || '').toString();
+    const sessionId = (req as any).cookies?.session || '';
+
+    await query(
+      `INSERT INTO affiliate_clicks (product_id, product_name, source_path, session_id, user_agent)
+       VALUES ($1, $2, $3, $4, $5)`,
+      [product.id, product.name, sourcePath, sessionId, userAgent]
+    );
+  } catch (err) {
+    // Never block the redirect on logging failure
+    console.error('Affiliate click logging failed:', err);
+  }
 
   return res.redirect(302, target);
 }

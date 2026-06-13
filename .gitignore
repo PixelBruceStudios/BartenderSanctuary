@@ -1,9 +1,11 @@
-node_modules
-.next
-out
-.vercel
-.env.local
-.env.vercel.*
+# Added by deploy script
+backups/
+*.log
+.env*.local
+node_modules/
+.next/
+out/
+.vercel/
 
 # Added by refactorer
 .env.vercel.prod

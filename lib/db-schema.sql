@@ -135,6 +135,19 @@ CREATE INDEX IF NOT EXISTS idx_cocktails_slug ON cocktails(slug);
 CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);
 CREATE INDEX IF NOT EXISTS idx_verification_tokens_token ON verification_tokens(token);
 
+-- ── Affiliate click tracking ──────────────────────────────────────────────
+CREATE TABLE IF NOT EXISTS affiliate_clicks (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  product_id TEXT NOT NULL,
+  product_name TEXT NOT NULL,
+  source_path TEXT NOT NULL DEFAULT '',
+  session_id TEXT NOT NULL DEFAULT '',
+  user_agent TEXT NOT NULL DEFAULT '',
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS idx_affiliate_clicks_product ON affiliate_clicks(product_id);
+CREATE INDEX IF NOT EXISTS idx_affiliate_clicks_created ON affiliate_clicks(created_at);
+
 -- ── Test tables ──────────────────────────────────────────────────────────────
 
 -- One test row per scope unit (sublesson block, whole lesson, combined technique)

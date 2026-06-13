@@ -80,6 +80,7 @@ const _nextAuth = NextAuth({
   },
 });
 
+export const authOptions = _nextAuth;
 export const auth = _nextAuth;
 export const handlers = _nextAuth.handlers;
 export const signIn = _nextAuth.signIn;
