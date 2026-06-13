@@ -398,6 +398,9 @@ export default function SchoolPage() {
   const active = activeCategory || categories[0];
   const user = session?.user;
   const isVerified = Boolean(user?.emailVerified);
+  const completedLessonIds = new Set<string>(
+    (active?.techniques ?? []).flatMap((t: any) => (t.lessons ?? []).filter(isLessonDone).map((l: any) => l.id) as string[])
+  );
 
   return (
     <>
@@ -540,7 +543,7 @@ export default function SchoolPage() {
           {view === "universe" ? (
             <SpaceUniverse
               category={active}
-              completedLessons={active.techniques?.flatMap((t: any) => t.lessons?.filter(isLessonDone).map((l: any) => l.id) ?? [])}
+              completedLessons={completedLessonIds}
               onSelectLesson={(categorySlug, techniqueSlug, lessonId) => {
                 const next = active.techniques.find((t: Technique) => t.slug === techniqueSlug) || null;
                 setActiveTechnique(next ? { ...next } : null);
@@ -558,7 +561,8 @@ export default function SchoolPage() {
               }}
             >
               {active.techniques.map((technique) => {
-                const techCompleted = technique.lessons.filter(isLessonDone).length;
+                const done = technique.lessons.filter(isLessonDone).length;
+                const pct = technique.lessons.length > 0 ? Math.round((done / technique.lessons.length) * 100) : 0;
                 return (
                   <div
                     key={technique.slug}
@@ -573,7 +577,7 @@ export default function SchoolPage() {
                       <div>
                         <div style={{ fontWeight: 700, color: "#fff" }}>{technique.title}</div>
                         <div style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.55)", marginTop: "0.2rem" }}>
-                          {technique.lessons.length} lessons · {techCompleted}/{technique.lessons.length} done
+                          {technique.lessons.length} lessons · {done}/{technique.lessons.length} done
                         </div>
                       </div>
                       <div
@@ -581,16 +585,17 @@ export default function SchoolPage() {
                           width: 36,
                           height: 36,
                           borderRadius: "50%",
-                          border: "2px solid rgba(255,255,255,0.1)",
+                          border: done > 0 ? "2px solid rgba(74,222,128,0.35)" : "2px solid rgba(255,255,255,0.1)",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
                           fontSize: "0.7rem",
-                          color: "#a5b4fc",
+                          color: done > 0 ? "#4ade80" : "#a5b4fc",
                           fontWeight: 700,
+                          background: done > 0 ? "rgba(74,222,128,0.1)" : "transparent",
                         }}
                       >
-                        {technique.lessons.length > 0 ? Math.round((techCompleted / technique.lessons.length) * 100) : 0}%
+                        {pct}%
                       </div>
                     </div>
                     <div style={{ marginTop: "0.9rem", display: "grid", gap: "0.5rem" }}>
@@ -605,8 +610,8 @@ export default function SchoolPage() {
                             textAlign: "left",
                             padding: "0.7rem 0.9rem",
                             borderRadius: "10px",
-                            border: "1px solid rgba(255,255,255,0.08)",
-                            background: isLessonDone(lesson) ? "rgba(74,222,128,0.08)" : "rgba(255,255,255,0.02)",
+                            border: isLessonDone(lesson) ? "1px solid rgba(74,222,128,0.25)" : "1px solid rgba(255,255,255,0.08)",
+                            background: isLessonDone(lesson) ? "rgba(74,222,128,0.1)" : "rgba(255,255,255,0.02)",
                             color: "#fff",
                             cursor: "pointer",
                             fontSize: "0.9rem",
@@ -618,7 +623,8 @@ export default function SchoolPage() {
                             style={{
                               marginLeft: "auto",
                               fontSize: "0.75rem",
-                              color: "rgba(255,255,255,0.45)",
+                              color: isLessonDone(lesson) ? "#4ade80" : "rgba(255,255,255,0.45)",
+                              fontWeight: isLessonDone(lesson) ? 700 : 400,
                             }}
                           >
                             {isLessonDone(lesson) ? "✓" : "○"}

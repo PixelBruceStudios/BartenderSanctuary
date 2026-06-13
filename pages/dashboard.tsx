@@ -291,7 +291,7 @@ export default function Dashboard({ initialSession }: DashboardProps) {
                 >
                   <div style={{ flex: 1, minWidth: "180px" }}>
                     <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "#fff" }}>
-                      {p.full_test_passed ? "✓ " : ""}Lesson {p.lesson_id.slice(0, 8)}
+                      {p.full_test_passed ? "✓ " : ""}{p.lesson_title ?? `Lesson ${p.lesson_id.slice(0, 8)}`}
                     </div>
                     <div style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.5)", marginTop: "0.2rem" }}>
                       {p.all_subtests_passed ? "All sublesson checks passed" : "Sublesson checks in progress"} · {p.overall_progress}%

@@ -11,10 +11,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method === 'GET') {
     const { lesson_id } = req.query;
     if (lesson_id && typeof lesson_id === 'string') {
-      const rows = await query<any[]>('SELECT * FROM user_lesson_progress WHERE user_id = $1 AND lesson_id = $2', [userId, lesson_id]);
+      const rows = await query<any[]>(
+        `SELECT ulp.*, l.title as lesson_title
+         FROM user_lesson_progress ulp
+         LEFT JOIN lessons l ON l.id = ulp.lesson_id
+         WHERE ulp.user_id = $1 AND ulp.lesson_id = $2`,
+        [userId, lesson_id]
+      );
       return res.status(200).json(rows[0] || null);
     }
-    const rows = await query<any[]>('SELECT * FROM user_lesson_progress WHERE user_id = $1 ORDER BY updated_at DESC', [userId]);
+    const rows = await query<any[]>(
+      `SELECT ulp.*, l.title as lesson_title
+       FROM user_lesson_progress ulp
+       LEFT JOIN lessons l ON l.id = ulp.lesson_id
+       WHERE ulp.user_id = $1
+       ORDER BY ulp.updated_at DESC`,
+      [userId]
+    );
     return res.status(200).json(rows);
   }
 
@@ -22,16 +35,22 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { lesson_id, all_subtests_passed, full_test_passed, overall_progress } = req.body;
     if (!lesson_id) return res.status(400).json({ error: 'lesson_id required' });
 
-    const rows = await query<any[]>(
+    await query(
       `INSERT INTO user_lesson_progress (user_id, lesson_id, all_subtests_passed, full_test_passed, overall_progress)
        VALUES ($1,$2,$3,$4,$5)
        ON CONFLICT (user_id, lesson_id) DO UPDATE SET
          all_subtests_passed = EXCLUDED.all_subtests_passed,
          full_test_passed = EXCLUDED.full_test_passed,
          overall_progress = EXCLUDED.overall_progress,
-         updated_at = now()
-       RETURNING *`,
+         updated_at = now()`,
       [userId, lesson_id, !!all_subtests_passed, !!full_test_passed, overall_progress ?? 0]
+    );
+    const rows = await query<any[]>(
+      `SELECT ulp.*, l.title as lesson_title
+       FROM user_lesson_progress ulp
+       LEFT JOIN lessons l ON l.id = ulp.lesson_id
+       WHERE ulp.user_id = $1 AND ulp.lesson_id = $2`,
+      [userId, lesson_id]
     );
     return res.status(200).json(rows[0]);
   }
