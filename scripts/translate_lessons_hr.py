@@ -31,6 +31,74 @@ MIN_DIACRITIC_RATIO = 0.015  # Croatian text should contain some diacritics
 MIN_LENGTH_RATIO = 0.5       # HR should be at least half the EN length
 MAX_LENGTH_RATIO = 3.0       # HR should not be 3x longer than EN
 
+# Croatian bartending / bar terminology glossary (case-insensitive)
+# These are canonical Croatian terms that should replace generic translator output.
+HR_GLOSSARY: dict[str, str] = {
+    "highball": "visoki balon",
+    "highball glass": "čaša visoki balon",
+    "highball cocktail": "visoki balon",
+    "rocks": "na kockama",
+    "rocks glass": "čaša na kockama",
+    "old fashioned": "old fashioned",
+    "old-fashioned": "old fashioned",
+    "old fashioned glass": "čaša old fashioned",
+    "coupe": "kupa",
+    "coupe glass": "kupasta čaša",
+    "martini": "martini",
+    "martini glass": "kupasta čaša",
+    "champagne flute": "čahura za šampanjac",
+    "flute": "čahura",
+    "wine glass": "čaša za vino",
+    "shot": "čašica",
+    "shot glass": "čašica",
+    "julep cup": "kup za julep",
+    "julep": "julep",
+    "copper mug": "bakarana mugla",
+    "mule": "mugla",
+    "hurricane": "hurikan",
+    "hurricane glass": "čaša hurikan",
+    "collins": "kolins",
+    "collins glass": "čaša kolins",
+    "tiki": "tiki",
+    "tiki glass": "tiki čaša",
+    "pousse café": "pus kafe",
+    "pousse cafe glass": "čaša pus kafe",
+    "irish coffee": "irski kafa",
+    "irish coffee glass": "irski kafa",
+    "stirred": "miješano",
+    "shaken": "uz prskanje leda",
+    "shaking": "prskanje leda",
+    "muddled": "mudlano",
+    "muddling": "mudlanje",
+    "bitters": "biters",
+    "simple syrup": "limunada",
+    "vermouth": "vermut",
+    "dry vermouth": "suhi vermut",
+    "sweet vermouth": "slatki vermut",
+    "blanco": "blanco",
+    "reposado": "reposado",
+    "anejo": "anejo",
+    "mezcal": "mezcal",
+    "tequila": "tekila",
+    "rum": "rum",
+    "vodka": "votka",
+    "gin": "đin",
+    "whiskey": "viski",
+    "whisky": "viski",
+    "bourbon": "burbon",
+    "scotch": "skotski viski",
+    "campari": "kampari",
+    "aperol": "aperol",
+    "amaro": "amaro",
+    "chartreuse": "šartrez",
+    "cointreau": "kuantru",
+    "triple sec": "tripel sek",
+    "orgeat": "oržat",
+    "falernum": "falernum",
+    "sour": "sour",
+    "sours": "sour kokteli",
+}
+
 try:
     spell_hr = SpellChecker(language=TRANSLATE_LANG)
 except Exception:
@@ -202,8 +270,8 @@ def fetch_pending_lessons(cur, limit: int) -> list[LessonRow]:
 def upsert_hr(cur, lesson: LessonRow, hr_title: str, hr_description: str, hr_content: str) -> None:
     cur.execute(
         """
-        INSERT INTO lessons_hr (technique_id, slug, title, description, duration, difficulty, content, sort_order)
-        SELECT technique_id, slug, %s, %s, duration, difficulty, %s, sort_order
+        INSERT INTO lessons_hr (id, technique_id, slug, title, description, duration, difficulty, content, sort_order)
+        SELECT id, technique_id, slug, %s, %s, duration, difficulty, %s, sort_order
         FROM lessons
         WHERE id = %s
         ON CONFLICT (technique_id, slug)

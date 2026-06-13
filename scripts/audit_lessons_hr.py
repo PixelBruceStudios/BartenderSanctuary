@@ -113,8 +113,8 @@ def fetch_hr_lesson(cur, technique_id: str, slug: str) -> Optional[LessonHRRow]:
 def upsert_hr(cur, lesson: LessonRow, hr_title: str, hr_description: str, hr_content: str) -> None:
     cur.execute(
         """
-        INSERT INTO lessons_hr (technique_id, slug, title, description, duration, difficulty, content, sort_order)
-        SELECT technique_id, slug, %s, %s, duration, difficulty, %s, sort_order
+        INSERT INTO lessons_hr (id, technique_id, slug, title, description, duration, difficulty, content, sort_order)
+        SELECT id, technique_id, slug, %s, %s, duration, difficulty, %s, sort_order
         FROM lessons
         WHERE id = %s
         ON CONFLICT (technique_id, slug)
