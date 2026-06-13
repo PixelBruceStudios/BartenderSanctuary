@@ -18,7 +18,7 @@ declare module "next-auth" {
 
 declare module "next-auth/jwt" {
   interface JWT {
-    id: string;
+    sub: string;
     emailVerified: boolean;
   }
 }
@@ -75,18 +75,18 @@ const _nextAuth = NextAuth({
     async jwt({ token, user }) {
       const hadUser = Boolean(user);
       if (user) {
-        token.id = user.id;
+        token.sub = user.id;
         token.emailVerified = Boolean((user as any).emailVerified);
       }
-      console.log('[nextauth] jwt', JSON.stringify({ hadUser, tokenId: token.id, tokenEmail: token.email }));
+      console.log('[nextauth] jwt', JSON.stringify({ hadUser, tokenSub: token.sub, tokenEmail: token.email }));
       return token;
     },
     async session({ session, token }) {
-      console.log('[nextauth] session', JSON.stringify({ sessionUser: session.user ? { id: session.user.id, email: session.user.email } : null, tokenId: token.id }));
+      console.log('[nextauth] session', JSON.stringify({ sessionUser: session.user ? { id: session.user.id, email: session.user.email } : null, tokenSub: token.sub }));
       if (!session.user) {
         session.user = { id: '', email: '', emailVerified: false, name: null };
       }
-      session.user.id = token.id;
+      session.user.id = token.sub;
       session.user.emailVerified = token.emailVerified;
       return session;
     },
