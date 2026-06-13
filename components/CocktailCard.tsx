@@ -1,4 +1,5 @@
 import { Cocktail } from '@/data/cocktails';
+import GlassVisual from './GlassVisual';
 
 interface CocktailCardProps {
   cocktail: Cocktail;
@@ -7,7 +8,6 @@ interface CocktailCardProps {
 
 export default function CocktailCard({ cocktail, onClick }: CocktailCardProps) {
   const imgSrc = `/photos/${cocktail.slug}.jpg`;
-  const fallbackLetter = cocktail.name.charAt(0).toUpperCase();
 
   return (
     <div
@@ -26,7 +26,7 @@ export default function CocktailCard({ cocktail, onClick }: CocktailCardProps) {
         <img
           src={imgSrc}
           alt={cocktail.name}
-          className="w-full h-full object-contain transition-transform duration-500"
+          className="w-full h-full object-contain transition-opacity duration-300"
           loading="lazy"
           onError={(e) => {
             const target = e.target as HTMLImageElement;
@@ -34,9 +34,14 @@ export default function CocktailCard({ cocktail, onClick }: CocktailCardProps) {
             const placeholder = target.parentElement?.querySelector('.photo-placeholder') as HTMLElement | null;
             if (placeholder) placeholder.style.display = 'flex';
           }}
+          onLoad={(e) => {
+            const target = e.target as HTMLImageElement;
+            const placeholder = target.parentElement?.querySelector('.photo-placeholder') as HTMLElement | null;
+            if (placeholder) placeholder.style.display = 'none';
+          }}
         />
-        <div className="photo-placeholder absolute inset-0 flex items-center justify-center text-5xl font-bold text-[#5a5a7a]">
-          {fallbackLetter}
+        <div className="photo-placeholder absolute inset-0 flex items-center justify-center" style={{ display: 'none' }}>
+          <GlassVisual glassType={cocktail.glass_type} size={140} />
         </div>
       </div>
       <div style={{ padding: '1.2rem' }}>
