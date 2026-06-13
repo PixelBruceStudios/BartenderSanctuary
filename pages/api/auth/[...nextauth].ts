@@ -64,6 +64,14 @@ const _nextAuth = NextAuth({
       },
     }),
   ],
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.sub = user.id;
+      }
+      return token;
+    },
+  },
 });
 
 export const { handlers, auth, signIn, signOut } = _nextAuth;
