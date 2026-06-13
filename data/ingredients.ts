@@ -1,0 +1,190 @@
+export interface Bottle {
+  name: string;
+  description: string;
+  related: string[];
+  image: string;
+}
+
+export interface Ingredient {
+  name: string;
+  category: string;
+  description: string;
+  brands: string[];
+  notes: string;
+  bottles?: Bottle[];
+}
+
+export const ingredients: Ingredient[] = [
+  // WHISKIES
+  { name: "Scotch whisky", category: "Whiskies", description: "Whisky produced in Scotland, typically aged in oak casks for at least 3 years. Ranges from light and floral (Lowlands) to smoky and peaty (Islay).", brands: ["Glenfiddich", "The Glenlivet", "Macallan", "Lagavulin", "Laphroaig", "Ardbeg", "Balvenie", "Oban", "Talisker", "Johnnie Walker"], notes: "Use blended for mixed drinks, single malt for sipping or spirit-forward cocktails.", bottles: [
+    { name: "Glenfiddich 12", description: "Scotland's most popular single malt. Light, fruity, with pear and oak notes. The ideal introduction to Speyside whiskies.", related: ["Glenfiddich 14", "Glenfiddich 18", "Glenfiddich 21"], image: "/images/bottles/glenfiddich-12.png" },
+    { name: "The Glenlivet 12", description: "Smooth, elegant Speyside single malt. Citrus, vanilla, and stone fruit. A classic gateway whisky.", related: ["The Glenlivet 15", "The Glenlivet 18", "The Glenlivet 21"], image: "/images/bottles/glenlivet-12.png" },
+    { name: "Macallan 12 Double Cask", description: "Rich, sherried Speyside single malt. Honey, ginger, and dried fruit. Luxury benchmark for cocktails like Rob Roy.", related: ["Macallan 18", "Macallan 25", "Macallan Rare Cask"], image: "/images/bottles/macallan-12.png" },
+    { name: "Laphroaig 10", description: "Iconic Islay single malt. Intense peat smoke, seaweed, and medicinal iodine. Love it or hate it — unforgettable.", related: ["Laphroaig Quarter Cask", "Laphroaig 18", "Laphroaig Lore"], image: "/images/bottles/laphroaig-10.png" },
+    { name: "Ardbeg 10", description: "Peaty Islay single malt with surprising sweetness. Tar, smoked fish, and citrus. The balanced Islay experience.", related: ["Ardbeg Uigeadail", "Ardbeg Corryvreckan", "Ardbeg 10"], image: "/images/bottles/ardbeg-10.png" },
+    { name: "Lagavulin 16", description: "The king of Islay. Deep peat smoke, dried fruit, and maritime salt. The definitive smoky whisky.", related: ["Lagavulin 12", "Lagavulin 25", "Lagavulin Distillers Edition"], image: "/images/bottles/lagavulin-16.png" },
+  ] },
+  { name: "Blended scotch", category: "Whiskies", description: "A blend of malt and grain whiskies from multiple Scottish distilleries. Consistent year-round character, smoother and more approachable.", brands: ["Johnnie Walker Black", "Chivas Regal 12", "Ballantine's Finest", "Dewar's 12", "Cutty Sark"], notes: "Workhorse for Rusty Nail, Blood and Sand, Rob Roy.", bottles: [
+    { name: "Johnnie Walker Red Label", description: "The original Johnnie Walker blend. Bold, fiery, and versatile. Designed for mixing in highballs and cocktails — not meant for sipping neat.", related: ["Johnnie Walker Black Label", "Johnnie Walker Gold Label", "Johnnie Walker Blue Label"], image: "/images/bottles/jw-red.png" },
+    { name: "Johnnie Walker Black Label", description: "12-year-old blended Scotch. Rich, smooth, with notes of vanilla, honey, and dried fruit. The benchmark for mixed drinks and sipping alike.", related: ["Johnnie Walker Red Label", "Johnnie Walker Gold Label", "Johnnie Walker Blue Label", "Johnnie Walker Double Black"], image: "/images/bottles/jw-black.png" },
+    { name: "Johnnie Walker Gold Label", description: "Luxurious blend of rare single malts and grains. Honeyed, floral, and remarkably smooth. Reserved for special occasions.", related: ["Johnnie Walker Black Label", "Johnnie Walker Platinum Label", "Johnnie Walker Blue Label"], image: "/images/bottles/jw-gold.png" },
+    { name: "Johnnie Walker Blue Label", description: "The pinnacle. A rare blend of exceptional single malts from across Scotland. Unmatched depth, complexity, and smoothness.", related: ["Johnnie Walker Gold Label", "Johnnie Walker Platinum Label", "Johnnie Walker King George V"], image: "/images/bottles/jw-blue.png" },
+    { name: "Chivas Regal 12", description: "The benchmark for smooth, balanced blended Scotch. Honey, ripe pear, and hazelnut. Excellent for cocktails and sipping.", related: ["Chivas Regal 18", "Chivas Regal Extra"], image: "/images/bottles/chivas-12.png" },
+    { name: "Ballantine's Finest", description: "Light, elegant blended Scotch. Soft, sweet, with floral notes. The classic choice for a Rusty Nail.", related: ["Ballantine's 12 Year", "Ballantine's 17 Year"], image: "/images/bottles/ballantines.png" },
+  ]},
+  { name: "Blended Scotch", category: "Whiskies", description: "Same as blended scotch — kept as separate entry because it appeared in recipe text with capital S.", brands: ["Johnnie Walker Black", "Chivas Regal 12", "Ballantine's"], notes: "Deduplicated with Blended scotch at runtime.", bottles: [
+    { name: "Johnnie Walker Black Label", description: "12-year-old blended Scotch. Rich, smooth, with notes of vanilla, honey, and dried fruit. The benchmark for mixed drinks and sipping alike.", related: ["Johnnie Walker Red Label", "Johnnie Walker Gold Label", "Johnnie Walker Blue Label"], image: "/images/bottles/jw-black.png" },
+    { name: "Chivas Regal 12", description: "The benchmark for smooth, balanced blended Scotch. Honey, ripe pear, and hazelnut. Excellent for cocktails and sipping.", related: ["Chivas Regal 18", "Chivas Regal Extra"], image: "/images/bottles/chivas-12.png" },
+  ]},
+  { name: "Islay Scotch", category: "Whiskies", description: "Single malt Scotch from Islay island, known for intense peat smoke, medicinal iodine, and maritime salinity.", brands: ["Laphroaig 10", "Ardbeg 10", "Lagavulin 16", "Bowmore 12", "Caol Ila 12"], notes: "Use sparingly — a ½ oz can dominate a cocktail. Great in Penicillin or Blood and Sand variation." },
+  { name: "Irish whiskey", category: "Whiskies", description: "Triple-distilled Irish whiskey, typically lighter and smoother than Scotch with notes of honey, vanilla, and green apple.", brands: ["Jameson", "Bushmills Original", "Redbreast 12", "Tullamore D.E.W.", "Green Spot"], notes: "Key for Irish Coffee, Tipperary, Forty-Three." },
+  { name: "Rye whiskey", category: "Whiskies", description: "American whiskey made with at least 51% rye grain. Spicy, herbal, and drier than bourbon with a peppery finish.", brands: ["Rittenhouse Rye", "Bulleit Rye", "Sazerac Rye", "Wild Turkey Rye", "WhistlePig 10"], notes: "Essential for Manhattan, Sazerac, Boulevardier." },
+  { name: "Bourbon", category: "Whiskies", description: "American whiskey made with at least 51% corn, aged in new charred American oak. Sweet vanilla, caramel, and oak notes.", brands: ["Buffalo Trace", "Maker's Mark", "Woodford Reserve", "Bulleit Bourbon", "Wild Turkey 101", "Four Roses Small Batch"], notes: "Versatile: Mint Julep, Old Fashioned, Whiskey Sour, Boulevardier." },
+  { name: "Bourbon or rye", category: "Whiskies", description: "Either bourbon or rye whiskey depending on preference. Bourbon = sweeter; rye = spicier/drier.", brands: ["Buffalo Trace", "Rittenhouse Rye"], notes: "Manhattan flexibility." },
+  { name: "Brandy", category: "Whiskies", description: "General term for spirit distilled from fermented fruit juice, most commonly grapes (cognac is the finest brandy).", brands: ["Remy Martin VSOP", "Hennessy VS", "Martell VSOP"], notes: "Covers Brandy Alexander, Sidecar, Between the Sheets." },
+  { name: "Brandy or Cognac", category: "Whiskies", description: "Cognac is a specific type of brandy from the Cognac region of France, always double-distilled in copper pot stills.", brands: ["Remy Martin VSOP", "Hennessy VS", "Martell Cordon Bleu", "Courvoisier VS"], notes: "Cognac gives richer fruit notes in Brandy Alexander, Sazerac variation." },
+  { name: "Cognac", category: "Whiskies", description: "Fine French brandy from Cognac region. VS (very special, min 2 years), VSOP (min 4 years), XO (min 10 years).", brands: ["Remy Martin VS", "Hennessy VS", "Martell VS", "Courvoisier VS", "Remy Martin VSOP", "Hennessy VSOP"], notes: "Sidecar, Brandy Alexander, B&B." },
+  { name: "Cognac or VSOP brandy", category: "Whiskies", description: "VSOP-grade cognac or equivalent brandy, aged minimum 4 years. Smooth with dried fruit and vanilla.", brands: ["Remy Martin VSOP", "Hennessy VSOP", "Martell VSOP"], notes: "VSOP specifically required for some classic recipes." },
+  { name: "Apple brandy", category: "Whiskies", description: "Brandy distilled from apples, also called applejack when American. Clear or lightly aged. Apple-forward with warm spice.", brands: ["Calvados Boulard", "Laird's Applejack", "Clear Creek Apple Brandy", "St-Germain (not apple — Calvados)"], notes: "Jack Rose, Applejack Rabbit." },
+  { name: "Apricot brandy", category: "Whiskies", description: "Brandy infused with or distilled from apricots. Sweet, fruity, golden-amber.", brands: ["Marie Brizard Apricot Brandy", "Bols Apricot Brandy", "Rothman & Winter"], notes: "B&B, Apricot Sour." },
+  { name: "Cherry brandy", category: "Whiskies", description: "Fruit brandy made from cherries, distinct from cherry liqueur which is sweeter and red. More spirit-forward.", brands: ["Clear Creek Kirschwasser", "Luxardo Maraschino (semi-related)", "G.E. Massenez Kirsch"], notes: "Japanese Cocktail, certain Boulevardier variations." },
+  { name: "Kirsch", category: "Whiskies", description: "Clear, dry cherry brandy from Germany/France. Unaged, eau-de-vie style. Pure cherry with no added sugar.", brands: ["G.E. Massenez Kirsch", "Clear Creek Kirschwasser", "Distillerie de Neuchâtel"], notes: "White Lady, Kirsch Royal, Tiki drinks." },
+  { name: "Pisco", category: "Whiskies", description: "Un-aged or lightly aged grape brandy from Peru or Chile. Fragrant, floral, with citrus and stone fruit notes.", brands: ["Macchu Pisco (Peru)", "Campo de Encanto (Peru)", "Alto del Carmen (Chile)", "La Botija (Peru)"], notes: "Pisco Sour, Chilcano." },
+
+  // RUMS
+  { name: "White rum", category: "Rums", description: "Light, clean rum aged briefly (often 1 year) and filtered to remove color. Mild sweetness, subtle vanilla.", brands: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars", "Cruzan Aged Light", "Havana Club 3"], notes: "Mojito, Daiquiri, Cuba Libre." },
+  { name: "Light rum", category: "Rums", description: "Same as white rum — light-bodied, clear or pale gold, mild flavor.", brands: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars"], notes: "Deduplicated with White rum." },
+  { name: "Dark rum", category: "Rums", description: "Rich, full-bodied rum aged longer in heavily charred barrels. Notes of molasses, caramel, toffee, and spice.", brands: ["Gosling's Black Seal", "Myers's Original Dark", "Plantation XO", "Flor de Caña 7", "Diplomático Reserva"], notes: "Dark 'n' Stormy, Mai Tai, Jungle Bird." },
+  { name: "Aged rum", category: "Rums", description: "Rum aged in oak barrels for 3+ years. Complex with vanilla, oak, dried fruit, and spice notes.", brands: ["Flor de Caña 7", "Diplomático Reserva", "Plantation 5 Year", "Mount Gay XO", "Zacapa 23"], notes: "Ti' Punch, Rum Old Fashioned." },
+  { name: "Overproof rum", category: "Rums", description: "High-ABV rum (57%+ / 114 proof+). Intense, fiery, used in small dashes in Tiki and flaming cocktails.", brands: ["Wray & Nephew Overproof", "Lemon Hart 151", "Plantation O.F.T.D.", "Hamilton 151"], notes: "Use ¼–½ oz dashes. Flaming Dr. Pepper, Zombie." },
+
+  // GINS
+  { name: "Gin", category: "Gins", description: "Juniper-flavored spirit. Can range from crisp and citrusy (London dry) to floral and herbal (Plymouth) to bold and experimental (new Western).", brands: ["Beefeater", "Tanqueray", "Bombay Sapphire", "Plymouth", "Hendrick's", "Monkey 47"], notes: "Gin is a category — use specific type when a recipe calls for it." },
+  { name: "London dry gin", category: "Gins", description: "The strictest gin style. Juniper-forward with citrus peel and coriander. No added flavoring after distillation.", brands: ["Beefeater", "Tanqueray", "Bombay Sapphire", "Plymouth (also qualifies)", "Sipsmith VJS"], notes: "Martini, Negroni, Gin & Tonic, Tom Collins." },
+  { name: "Geneva gin", category: "Gins", description: "Also known as Holland gin or genever. Malty, fuller-bodied, less juniper-forward than London dry. Can be aged (oude) or younger (jonge).", brands: ["Bols Genever", "Rutte Genever", "Hooghoudt", "Filliers Dry Gin 28"], notes: "Dutch Courage, Martinez (traditional), Corpse Reviver #2 variation." },
+
+  // TEQUILA & MEZCAL
+  { name: "Tequila", category: "Tequila & Mezcal", description: "Mexican spirit made from blue agave in designated regions. Blanco (unaged), Reposado (rested 2–12 months), Añejo (aged 1–3+ years).", brands: ["Patrón Silver", "Don Julio 1942", "Casamigos Reposado", "Espolòn Blanco", "Casa Noble Reposado", "Fortaleza"], notes: "Margarita, Paloma, Tequila Sunrise." },
+  { name: "Blanco tequila", category: "Tequila & Mezcal", description: "Unaged or aged <60 days tequila. Bright, crisp, pure agave flavor with pepper and citrus.", brands: ["Patrón Silver", "Espolòn Blanco", "Fortaleza Blanco", "Casamigos Blanco", "Don Julio Blanco"], notes: "Required when a recipe specifies Blanco — reposado would be too oaky." },
+
+  // VODKA
+  { name: "Vodka", category: "Vodka", description: "Neutral, unaged spirit distilled from grains, potatoes, or grapes. Clean, versatile base for flavored and mixed drinks.", brands: ["Grey Goose", "Ketel One", "Belvedere", "Tito's", "Stolichnaya", "Cîroc", "Absolut"], notes: "Vodka Martini, Cosmopolitan, Screwdriver, Moscow Mule." },
+
+  // LIQUEURS
+  { name: "Amaretto", category: "Liqueurs", description: "Italian almond-flavored liqueur, sweet and nutty with notes of apricot kernel. ~28% ABV.", brands: ["Disaronno", "Lazzaroni", "DeKuyper", "Bardinet"], notes: "Amaretto Sour, Godmother, Nutcracker." },
+  { name: "Aperol", category: "Liqueurs", description: "Italian bitter-orange aperitif. Bright orange, bittersweet, 11% ABV. Lighter than Campari.", brands: ["Aperol ( Campari Group )"], notes: "Aperol Spritz, Aperol Sour, Paper Plane." },
+  { name: "Bénédictine", category: "Liqueurs", description: "French herbal liqueur from Fécamp. Complex: honey, herbs, spices, citrus, stone fruit. 40% ABV.", brands: ["Bénédictine D.O.M.", "B&B (Bénédictine + Brandy)"], notes: "B&B, Vieux Carré, Jamaica Mule." },
+  { name: "Campari", category: "Liqueurs", description: "Italian bitter aperitif. Intensely red, bitter, herbal — notes of rhubarb, cherry, cinnamon, and citrus peel. 20.5% ABV.", brands: ["Campari"], notes: "Negroni, Boulevardier, Americano, Jungle Bird." },
+  { name: "Cherry liqueur", category: "Liqueurs", description: "Sweet, red cherry-flavored liqueur. Brighter and sweeter than cherry brandy.", brands: ["Luxardo Maraschino", "Maraska", "Bols Cherry"], notes: "Singapore Sling, Blood and Sand." },
+  { name: "Cointreau", category: "Liqueurs", description: "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish. The standard for classic cocktails.", brands: ["Cointreau"], notes: "Margarita, Cosmopolitan, Sidecar, White Lady." },
+  { name: "Coffee liqueur", category: "Liqueurs", description: "Coffee-flavored liqueur, typically 20–25% ABV. Sweet, dark, with strong coffee notes.", brands: ["Kahlúa", "Tia Maria", "Mr Black", "St- Brendan's", "Licor 43 (not coffee)"], notes: "Espresso Martini, White Russian, Black Russian." },
+  { name: "Crème de banane", category: "Liqueurs", description: "Banana-flavored crème liqueur. Bright, artificial-yet-fun banana flavor. 25% ABV.", brands: ["Marie Brizard", "Bols", "DeKuyper"], notes: "Flaming Dr. Pepper, certain Tiki drinks." },
+  { name: "Crème de cassis", category: "Liqueurs", description: "Blackcurrant crème liqueur from France. Deep purple, tart-sweet, 15–20% ABV.", brands: ["Joseph Cartron", "Briottet", "Giffard", "Marie Brizard"], notes: "Kir, Kir Royal, Cassis Spritz." },
+  { name: "Crème de mûre", category: "Liqueurs", description: "Blackberry crème liqueur. Rich, dark, sweet-tart blackberry flavor.", brands: ["Joseph Cartron", "Giffard", "Briottet", "Bols"], notes: "Bramble, French 75 variation." },
+  { name: "Crème de violette", category: "Liqueurs", description: "Violet flower crème liqueur. Floral, sweet, perfumed. 20–25% ABV. Rare and expensive.", brands: ["Giffard Crème de Violette", "Briottet", "Rothman & Winter"], notes: "Aviation — ¼ oz is enough. Violet Fizz." },
+  { name: "Drambuie", category: "Liqueurs", description: "Scottish honey-herbal liqueur. Scotch whisky base with heather honey, herbs, and spices. 40% ABV.", brands: ["Drambuie"], notes: "Rusty Nail, Civil Service, Godfather variation." },
+  { name: "Elderflower liqueur", category: "Liqueurs", description: "Fragrant elderflower blossom liqueur. Floral, sweet, honeyed, with pear and lychee undertones. 20% ABV.", brands: ["St-Germain"], notes: "St-Germain Spritz, Elderflower Collins, Hugo." },
+  { name: "Galliano", category: "Liqueurs", description: "Italian vanilla-herbal liqueur. Bright yellow, complex with vanilla, anise, and 30+ botanicals. 42.3% ABV.", brands: ["Galliano L'Autentico", "Galliano Vanilla"], notes: "Harvey Wallbanger, Yellow Bird." },
+  { name: "Green crème de menthe", category: "Liqueurs", description: "Bright green mint crème liqueur. Sweet, minty, artificial-bright green color.", brands: ["Marie Brizard", "Bols", "DeKuyper"], notes: "Grasshopper, Stinger variation, certain Shooters." },
+  { name: "Grenadine", category: "Liqueurs", description: "Pomegranate syrup-liqueur. Deep red, sweet-tart. Modern grenadine is often just pomegranate juice + sugar; some have a hint of orange.", brands: ["Monin Grenadine", "Fee Brothers", "Roses", "Small Hand Foods Pomegranate Molasses (mix with water)"], notes: "Tequila Sunrise, Shirley Temple, Planter's Punch." },
+  { name: "Irish cream", category: "Liqueurs", description: "Cream liqueur with Irish whiskey, cream, and chocolate/coffee. Smooth, sweet, 17% ABV.", brands: ["Baileys Irish Cream", "Ryan's", "Saint Brendan's"], notes: "B-52, Irish Car Bomb, White Russian variation." },
+  { name: "Maraschino liqueur", category: "Liqueurs", description: "Luxardo-style cherry liqueur from Marasca cherry pits. Complex: cherry, almond, spice. 32% ABV.", brands: ["Luxardo Maraschino", "Maraska"], notes: "Aviation, Hemingway Daiquiri, Martinez." },
+  { name: "Orange curaçao", category: "Liqueurs", description: "Orange-flavored liqueur made from dried curaçao orange peels (from Caribbean island). Dry, bitter-orange, 40% ABV.", brands: ["Pierre Ferrand Dry Curaçao", "Bols Orange Curaçao", "Marie Brizard"], notes: "Margarita (when not using triple sec), Sidecar." },
+  { name: "Orange liqueur", category: "Liqueurs", description: "General term for orange-flavored liqueurs including triple sec, curaçao, and Cointreau.", brands: ["Cointreau", "Pierre Ferrand Dry Curaçao", "Combier", "Marie Brizard"], notes: "Encompasses Triple sec, Cointreau, and Orange curaçao." },
+  { name: "Peach schnapps", category: "Liqueurs", description: "Peach-flavored schnapps. Sweet, often artificially flavored, 15–20% ABV. Very 1980s-90s.", brands: ["DeKuyper Peach Schnapps", "Archers", "Hiram Walker"], notes: "Sex on the Beach, Fuzzy Navel, certain Shooters." },
+  { name: "St-Germain elderflower liqueur", category: "Liqueurs", description: "Premium elderflower liqueur. Each bottle contains up to 1,000 elderflower blossoms hand-harvested in France.", brands: ["St-Germain"], notes: "St-Germain Spritz, Elderflower Collins, Hugo." },
+  { name: "Triple sec", category: "Liqueurs", description: "Generic orange-flavored liqueur. Usually 15–40% ABV, sweeter than curaçao. Cointreau is the premium triple sec.", brands: ["Cointreau", "Combier", "Marie Brizard", "Bols", "DeKuyper"], notes: "Margarita, Cosmopolitan, Long Island Iced Tea." },
+  { name: "Triple sec or Cointreau", category: "Liqueurs", description: "Same as Triple sec — just specifying Cointreau as the premium option.", brands: ["Cointreau"], notes: "Deduplicated with Triple sec." },
+  { name: "White crème de menthe", category: "Liqueurs", description: "Clear/white mint crème liqueur. Same mint flavor as green but without artificial coloring. Useful in shaken cocktails.", brands: ["Marie Brizard", "Bols", "DeKuyper"], notes: "Stinger, Grasshopper (white version)." },
+
+  // BITTERS & APERITIFS
+  { name: "Absinthe", category: "Bitters & Aperitifs", description: "High-proof anise-flavored spirit (45–74% ABV). Wormwood, anise, fennel. Turns cloudy when water is added (louche).", brands: ["Pernod Absinthe", "Absinthe Original", "La Fee", "Lucid Absinthe Supérieure"], notes: "Sazerac rinse, Corpse Reviver #2, Death in the Afternoon." },
+  { name: "Angostura bitters", category: "Bitters & Aperitifs", description: "The iconic dash of bitters. Concentrated herbal extract with gentian root, spices, and herbs. Over 150 years old. 44.7% ABV.", brands: ["Angostura (the standard — no alternatives needed)"], notes: "In virtually every stirred cocktail. Old Fashioned, Manhattan, Martini garnish." },
+  { name: "Fernet-Branca", category: "Bitters & Aperitifs", description: "Italian amaro bitter digestif. Intensely bitter, minty, menthol, eucalyptus, and herbaceous. 39% ABV.", brands: ["Fernet-Branca"], notes: "Toronto, Hanky Panky, Fernet & Coke (Argentina)." },
+  { name: "Green Chartreuse", category: "Bitters & Aperitifs", description: "French herbal liqueur made by Carthusian monks since 1605. 130+ botanicals. Bright green, complex, 55% ABV.", brands: ["Green Chartreuse V.P. (55%)", "Green Chartreuse (41%) — 'Alpine Strength'"], notes: "Last Word, Chartreuse Swizzle, Ti' Punch variation." },
+  { name: "Lillet Blanc", category: "Bitters & Aperitifs", description: "French aromatised wine. Citrus, honey, and quinine. 17% ABV. Similar to dry vermouth but with more citrus.", brands: ["Lillet Blanc"], notes: "Vesper, 20th Century, Corpse Reviver #2." },
+  { name: "Orange bitters", category: "Bitters & Aperitifs", description: "Citrusy bitters made from dried orange peel. Lighter and more aromatic than Angostura.", brands: ["Regans' Orange Bitters No. 6", "Fee Brothers Orange Bitters", "Bitter Truth Orange"], notes: "Martini, Old Fashioned, Manhattan." },
+  { name: "Peychaud's bitters", category: "Bitters & Aperitifs", description: "Aromatic bitters from New Orleans. Anise, gentian, cherry. Distinctive red color. 35% ABV.", brands: ["Peychaud's Bitters"], notes: "Sazerac — essential. Manhattan variation." },
+  { name: "Pimm's No. 1", category: "Bitters & Aperitifs", description: "British summer cup. Gin-based fruit liqueur with herbal and citrus notes. 25% ABV.", brands: ["Pimm's No. 1"], notes: "Pimm's Cup — mix with lemonade, mint, cucumber, fruit." },
+  { name: "Amaro Nonino", category: "Bitters & Aperitifs", description: "Premium Italian amaro. Made from grappa macerated with herbs, roots, and alpine flowers. Bitter-sweet, 35% ABV.", brands: ["Amaro Nonino Quintessentia"], notes: "Paper Plane, Boulevardier variation, Paper Plane." },
+
+  // SHERRIES & VERMOUTHS
+  { name: "Amontillado sherry", category: "Sherries & Vermouths", description: "Sherry style between fino and oloroso. Initially aged under flor, then exposed to air. Nutty, dry, complex.", brands: ["Lustau Amontillado", "Gonzalez Byass Amontillado"], notes: "Adonis, Bamboo, certain Manhattan variations." },
+  { name: "Dry vermouth", category: "Sherries & Vermouths", description: "Fortified, aromatised wine. Dry, herbal, botanical. ~18% ABV. Keep refrigerated after opening.", brands: ["Dolin Dry", "Noilly Prat", "Martini & Rossi Dry", "Carpano Antica (sweet)"], notes: "Martini, Manhattan (dry version), Gibson." },
+  { name: "Fino sherry", category: "Sherries & Vermouths", description: "Lightest, driest sherry style. Aged under flor (yeast film). Pale, saline, almond, and green apple.", brands: ["Tio Pepe Fino", "Lustau Fino", "Gonzalez Byass Fino"], notes: "Adonis, Bamboo, Sherry Cobbler." },
+  { name: "Sweet vermouth", category: "Sherries & Vermouths", description: "Sweet, rich aromatised wine. Caramel, vanilla, herbs, citrus. ~16% ABV. Keep refrigerated.", brands: ["Carpano Antica", "Dolin Sweet", "Martini & Rossi Rosso", "Cinzano Rosso"], notes: "Negroni, Manhattan, Boulevardier, Americano, Rob Roy." },
+
+  // WINES & SPARKLING
+  { name: "Champagne", category: "Wines & Sparkling", description: "Sparkling wine from Champagne region of France. Méthode Champenoise. Fine bubbles, toasty, complex.", brands: ["Moët & Chandon", "Veuve Clicquot", "Ruinart", "Krug", "Bollinger"], notes: "French 75, Champagne Cocktail, Champagne Sour." },
+  { name: "Champagne or sparkling wine", category: "Wines & Sparkling", description: "Either Champagne or a quality sparkling wine (Cava, Prosecco, Crémant).", brands: ["Moët & Chandon", "Veuve Clicquot", "Prosecco brands"], notes: "Use for top-ups in French 75, Champagne cocktails." },
+  { name: "Prosecco", category: "Wines & Sparkling", description: "Italian sparkling wine from Veneto region. Light, fruity, Glera grape. 10.5–11.5% ABV.", brands: ["Nino Franco Rustico", "Bisol Jeio", "Santa Margherita", "Zonin", "La Marca"], notes: "Aperol Spritz, Bellini, Mimosa." },
+  { name: "Dry white wine", category: "Wines & Sparkling", description: "Unfortified dry white wine. Sauvignon Blanc, Pinot Grigio, etc. Used in wine-based cocktails.", brands: ["House pour"], notes: "Wine Spritzer, Sangria, certain Coolers." },
+
+  // JUICES & MIXERS
+  { name: "Cranberry juice", category: "Juices & Mixers", description: "Tart-sweet juice from cranberries. Mix with soda or use as a mixer. Often sweetened.", brands: ["Ocean Spray", "Lakewood", "R.W. Knudsen"], notes: "Cape Codder, Cosmopolitan, Woo Woo." },
+  { name: "Grapefruit juice", category: "Juices & Mixers", description: "Bitter-sweet juice from grapefruit. Can be white (blond) or ruby (red). Freshest when juiced.", brands: ["Fresh"], notes: "Greyhound, Paloma, Hemingway Daiquiri." },
+  { name: "Fresh grapefruit juice", category: "Juices & Mixers", description: "Same as grapefruit juice — fresh-squeezed for better flavor and no added sugar.", brands: ["Fresh"], notes: "Deduplicated with Grapefruit juice; fresh preferred." },
+  { name: "Lemon juice", category: "Juices & Mixers", description: "Fresh lemon juice is essential for cocktails. Bottled lacks brightness. Always use fresh.", brands: ["Fresh lemons"], notes: "Whiskey Sour, Tom Collins, Gimlet, 90% of sour cocktails." },
+  { name: "Fresh lemon juice", category: "Juices & Mixers", description: "Same as lemon juice — specifying fresh-squeezed as the standard.", brands: ["Fresh lemons"], notes: "Deduplicated with Lemon juice." },
+  { name: "Lime juice", category: "Juices & Mixers", description: "Persian lime juice, fresh-squeezed. Bright, sharp acidity. Key for Tiki and tropical drinks.", brands: ["Fresh limes"], notes: "Daiquiri, Mojito, Margarita, Gimlet (traditional)." },
+  { name: "Fresh lime", category: "Juices & Mixers", description: "Whole fresh lime — juiced as needed.", brands: ["Fresh limes"], notes: "Same as Lime juice." },
+  { name: "Fresh lime juice", category: "Juices & Mixers", description: "Freshly squeezed lime juice. The standard for all Tiki and tropical drinks.", brands: ["Fresh limes"], notes: "Deduplicated with Lime juice." },
+  { name: "Orange juice", category: "Juices & Mixers", description: "Fresh orange juice for cocktails. Sweet, fruity, bright.", brands: ["Fresh oranges"], notes: "Screwdriver, Mimosa, Brass Monkey." },
+  { name: "Fresh orange juice", category: "Juices & Mixers", description: "Fresh-squeezed orange juice. Superior to carton for cocktails.", brands: ["Fresh oranges"], notes: "Deduplicated with Orange juice." },
+  { name: "Papaya juice", category: "Juices & Mixers", description: "Tropical juice from papaya. Sweet, mild, creamy texture. Rare in classic cocktails.", brands: ["Fresh or canned"], notes: "Tiki drinks, tropical variations." },
+  { name: "Passion fruit juice", category: "Juices & Mixers", description: "Tart, aromatic juice from passion fruit pulp. Intensely tropical.", brands: ["Fresh or frozen puree"], notes: "Passion fruit Daiquiri, certain Tiki drinks." },
+  { name: "Pineapple juice", category: "Juices & Mixers", description: "Sweet, tropical juice. Best when fresh, acceptable from can for mixing.", brands: ["Dole, fresh"], notes: "Piña Colada, Jungle Bird, Hawaii Five-O." },
+  { name: "Clamato juice", category: "Juices & Mixers", description: "Tomato juice + clam broth blend. Savory, briny. Used in savory cocktails.", brands: ["Clamato ( Mott's )"], notes: "Michelada, Caesar (Canadian Bloody Mary)." },
+  { name: "Tomato juice", category: "Juices & Mixers", description: "Savory juice from tomatoes. Base for Bloody Mary and savory cocktails.", brands: ["Campbell's, fresh"], notes: "Bloody Mary, Bloody Caesar." },
+  { name: "Cola", category: "Juices & Mixers", description: "Carbonated cola drink. Used as a mixer in highball-style cocktails.", brands: ["Coca-Cola", "Pepsi", "Mexican Coke (real sugar)"], notes: "Cuba Libre, Long Island Iced Tea." },
+  { name: "Soda water", category: "Juices & Mixers", description: "Carbonated water with no added flavor. Essential for highballs, Tom Collins, Tom Collins.", brands: ["Schweppes, Pellegrino, Topo Chico"], notes: "Tom Collins, Mojito top-up, Americano top-up, Rickey." },
+  { name: "Sparkling water", category: "Juices & Mixers", description: "Same as soda water — may include mineral/sparkling waters like Topo Chico or Perrier.", brands: ["Topo Chico", "Perrier", "Pellegrino", "Schweppes"], notes: "Deduplicated with Soda water." },
+  { name: "Ginger beer", category: "Juices & Mixers", description: "Spicy, sweet ginger-flavored carbonated drink. Non-alcoholic (unlike ginger ale). Stronger ginger kick.", brands: ["Fever-Tree Ginger Beer", "Bundaberg", "Gosling's Stormy", "Q Tonic Ginger Beer"], notes: "Dark 'n' Stormy, Moscow Mule." },
+  { name: "Lemonade", category: "Juices & Mixers", description: "Sweetened lemon drink. Often used in British/Irish cocktails.", brands: ["Fresh or commercial"], notes: "Lemonade & Gin, certain Collins variations." },
+  { name: "Hot coffee", category: "Juices & Mixers", description: "Freshly brewed hot coffee. Used as a base or addition in coffee cocktails.", brands: ["Fresh brew"], notes: "Irish Coffee, Espresso Martini." },
+  { name: "Hot sauce", category: "Juices & Mixers", description: "Spicy condiment sauce. Used in small quantities for heat in savory cocktails.", brands: ["Tabasco", "Cholula", "Sriracha", "Valentina"], notes: "Michelada, Bloody Maria, Bloody Caesar." },
+  { name: "Worcestershire sauce", category: "Juices & Mixers", description: "Fermented savory condiment. Umami, vinegar, anchovy. Used in Bloody Mary-style drinks.", brands: ["Lea & Perrins"], notes: "Bloody Mary, Bloody Caesar — 2–3 dashes." },
+
+  // SYRUPS & SWEETENERS
+  { name: "Cinnamon syrup", category: "Syrups & Sweeteners", description: "Simple syrup infused with cinnamon sticks. Warm, spicy sweetener.", brands: ["Homemade (1:1 sugar:water + cinnamon sticks)"], notes: "Hot Toddies, certain Fall/Winter cocktails." },
+  { name: "Honey syrup", category: "Syrups & Sweeteners", description: "Honey thinned with hot water (usually 2:1 honey:water) for pourability. Floral, rich sweetness.", brands: ["Homemade"], notes: "Bee's Knees, Gold Rush, Penicillin." },
+  { name: "Honey-ginger syrup", category: "Syrups & Sweeteners", description: "Honey syrup infused with fresh ginger. Spicy, warming sweetener.", brands: ["Homemade"], notes: "Penicillin, Dark 'n' Stormy variation." },
+  { name: "Orgeat syrup", category: "Syrups & Sweeteners", description: "Almond-orange blossom water syrup. Nutty, floral, essential in Tiki drinks.", brands: ["Monin Orgeat", "Fee Brothers", "Small Hand Foods"], notes: "Maï Taï, Scorpion, Saturn." },
+  { name: "Raspberry syrup", category: "Syrups & Sweeteners", description: "Syrup made from raspberries. Tart-sweet, deep pink-red.", brands: ["Monin", "Fee Brothers", "Homemade"], notes: "Raspberry Collins, certain Sours." },
+  { name: "Simple syrup", category: "Syrups & Sweeteners", description: "Equal parts sugar and water, dissolved. The standard neutral sweetener for cocktails. 1:1 ratio.", brands: ["Homemade", "Monin Simple Syrup"], notes: "Almost every cocktail that needs sweetness. ¾ oz per sour cocktail." },
+  { name: "Sugar", category: "Syrups & Sweeteners", description: "Granulated white sugar. Used for Old Fashioned muddling, sugar rims, or making simple syrup.", brands: ["Any white granulated sugar"], notes: "Old Fashioned (muddled with bitters), rimming glasses." },
+  { name: "Sugar cube", category: "Syrups & Sweeteners", description: "Compressed sugar cubes. Traditional for Old Fashioned — muddled with bitters.", brands: ["Any sugar cube brand"], notes: "Old Fashioned — standard presentation." },
+
+  // FRESH & GARNISH
+  { name: "Celery salt", category: "Fresh & Garnish", description: "Coarse salt blended with ground celery seeds. Savory, briny rim salt.", brands: ["McCormick", "Diamond Crystal"], notes: "Bloody Caesar rim, Bloody Mary rim." },
+  { name: "Cucumber slices", category: "Fresh & Garnish", description: "Fresh cucumber, thinly sliced. Cool, watery, mild flavor for garnish or muddling.", brands: ["Fresh"], notes: "Hendrick's garnish, Pimm's Cup garnish." },
+  { name: "Egg white", category: "Fresh & Garnish", description: "Fresh egg white for foaming cocktails. Dry shake (no ice) to emulsify, then add ice and shake again.", brands: ["Fresh eggs"], notes: "Whiskey Sour, Gin Sour, Clover Club — ¾–1 egg white per cocktail." },
+  { name: "Fresh blackberries", category: "Fresh & Garnish", description: "Fresh blackberries for muddling, garnish, or as a flavor component.", brands: ["Fresh seasonal"], notes: "Bramble garnish, muddled in Berry Sours." },
+  { name: "Fresh espresso", category: "Fresh & Garnish", description: "Freshly brewed espresso shot. Concentrated coffee flavor for coffee cocktails.", brands: ["Fresh brew"], notes: "Espresso Martini." },
+  { name: "Fresh mint", category: "Fresh & Garnish", description: "Fresh mint sprigs. Muddled gently for flavor or used as a garnish slap.", brands: ["Fresh spearmint"], notes: "Mojito, Mint Julep, Southside." },
+  { name: "Fresh mint leaves", category: "Fresh & Garnish", description: "Same as Fresh mint — individual leaves for muddling or garnish.", brands: ["Fresh spearmint"], notes: "Deduplicated with Fresh mint." },
+  { name: "Nutmeg", category: "Fresh & Garnish", description: "Freshly grated nutmeg. Warm, nutty, aromatic spice for garnish.", brands: ["Whole nutmeg + grater"], notes: "Brandy Alexander garnish, Eggnog, certain punches." },
+  { name: "Orange blossom water", category: "Fresh & Garnish", description: "Distilled water with orange blossom essence. Highly concentrated — use drops. Floral, perfumed.", brands: ["Cortas", "Moussel", "Food-grade"], notes: "Bee's Knees, certain Ramos Fizz, Arabic cocktails." },
+
+  // DAIRY & CREAM
+  { name: "Coconut cream", category: "Dairy & Cream", description: "Thick, rich cream from coconut meat. Not coconut milk — higher fat content. Separates when chilled.", brands: ["Chaokoh", "Aroy-D", "Savoy"], notes: "Piña Colada, Blue Hawaii." },
+  { name: "Heavy cream", category: "Dairy & Cream", description: "High-fat dairy cream (36–40% fat). Used for body and richness in shaken cocktails.", brands: ["Any heavy cream brand"], notes: "Brandy Alexander, White Russian, Ramos Gin Fizz." },
+
+  // OTHER SPIRITS & INGREDIENTS
+  { name: "Falernum", category: "Other Spirits", description: "Caribbean syrup-spice liqueur. Almond, ginger, clove, allspice. Sweet, warm, 11% ABV.", brands: ["Fee Brothers Falernum", "Old Professor Falernum", "Romilly's"], notes: "Tiki Punch, Scorpion, certain Mai Tai recipes." },
+  { name: "Applejack", category: "Other Spirits", description: "American apple brandy made from hard cider. Strong apple character, warm spirit.", brands: ["Laird's Applejack (100 proof or 80 proof)"], notes: "Jack Rose, Applejack Rabbit." },
+  { name: "Cachaça", category: "Other Spirits", description: "Brazilian spirit from fermented sugarcane juice. Funky, grassy, herbaceous. Unlike rum (molasses).", brands: ["Leblon", "Avuá", "Novo Fogo", "Ypióca"], notes: "Caipirinha, Caipiroska, Batida." },
+  { name: "White peach purée", category: "Other Spirits", description: "Puréed white peach, strained. Sweet, floral, velvety.", brands: ["Bardezzo, Boiron, or fresh purée"], notes: "Bellini (with Prosecco), Peach Sour." },
+];
+
+export function getIngredientByName(name: string): Ingredient | undefined {
+  return ingredients.find(i => i.name.toLowerCase() === name.toLowerCase());
+}
+
+export function getCategories(): string[] {
+  return [...new Set(ingredients.map(i => i.category))];
+}
+
+export function getIngredientsByCategory(category: string): Ingredient[] {
+  return ingredients.filter(i => i.category === category);
+}

@@ -200,6 +200,18 @@ export default function Home() {
             {t('tabSchoolLink')}
           </a>
           <a
+            href="/ingredients"
+            style={{
+              marginRight: '1rem',
+              fontSize: '0.9rem',
+              color: 'var(--color-accent)',
+              textDecoration: 'none',
+              fontWeight: 500
+            }}
+          >
+            Ingredient Library
+          </a>
+          <a
             href="/games"
             style={{
               fontSize: '0.9rem',

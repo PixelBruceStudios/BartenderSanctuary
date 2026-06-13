@@ -1,4 +1,4 @@
-import { useTranslation } from '@/lib/contexts';
+import HeroNebula from '@/components/HeroNebula';
 
 export default function Hero({ t, cocktailsCount, basesCount, onFindDrink, onBrowse }: {
   t: any;
@@ -13,55 +13,14 @@ export default function Hero({ t, cocktailsCount, basesCount, onFindDrink, onBro
         position: 'relative',
         overflow: 'hidden',
         borderBottom: '1px solid var(--color-border)',
-        background: 'linear-gradient(180deg, #0a0a14 0%, #0f0f1f 50%, #0a0a14 100%)',
+        background: '#0a0a14',
         minHeight: '520px',
         display: 'flex',
         alignItems: 'center'
       }}
     >
-      {/* Animated gradient orbs */}
-      <div
-        style={{
-          position: 'absolute',
-          top: '-15%',
-          left: '-8%',
-          width: '420px',
-          height: '420px',
-          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, transparent 70%)',
-          borderRadius: '50%',
-          filter: 'blur(70px)',
-          pointerEvents: 'none',
-          animation: 'pulse-soft 8s ease-in-out infinite'
-        }}
-      />
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '-25%',
-          right: '-8%',
-          width: '500px',
-          height: '500px',
-          background: 'radial-gradient(circle, rgba(168, 85, 247, 0.14) 0%, transparent 70%)',
-          borderRadius: '50%',
-          filter: 'blur(80px)',
-          pointerEvents: 'none',
-          animation: 'pulse-soft 10s ease-in-out infinite 2s'
-        }}
-      />
-      <div
-        style={{
-          position: 'absolute',
-          top: '40%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: '300px',
-          height: '300px',
-          background: 'radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, transparent 70%)',
-          borderRadius: '50%',
-          filter: 'blur(60px)',
-          pointerEvents: 'none'
-        }}
-      />
+      {/* Three.js nebula background */}
+      <HeroNebula />
 
       <div
         style={{
@@ -70,7 +29,8 @@ export default function Hero({ t, cocktailsCount, basesCount, onFindDrink, onBro
           margin: '0 auto',
           padding: '5rem 1.5rem 4.5rem',
           textAlign: 'center',
-          width: '100%'
+          width: '100%',
+          zIndex: 1
         }}
       >
         <div className="animate-fade-in-up">
@@ -200,62 +160,40 @@ export default function Hero({ t, cocktailsCount, basesCount, onFindDrink, onBro
             flexWrap: 'wrap'
           }}
         >
-          {[
-            { value: `${cocktailsCount}+`, label: t('statCocktails') },
-            { value: `${basesCount}+`, label: t('statTechniques') },
-            { value: '∞', label: t('statPossibilities') }
-          ].map((stat, idx) => (
-            <div
-              key={stat.label}
-              style={{
-                textAlign: 'center',
-                padding: '1rem 1.5rem',
-                background: 'rgba(26, 26, 36, 0.5)',
-                backdropFilter: 'blur(8px)',
-                border: '1px solid var(--color-border)',
-                borderRadius: '14px',
-                minWidth: '100px',
-                transition: 'all 0.25s ease',
-                cursor: 'default'
-              }}
-              onMouseEnter={(e) => {
-                const el = e.currentTarget;
-                el.style.borderColor = 'var(--color-accent)';
-                el.style.transform = 'translateY(-3px)';
-                el.style.boxShadow = '0 8px 24px rgba(99, 102, 241, 0.15)';
-              }}
-              onMouseLeave={(e) => {
-                const el = e.currentTarget;
-                el.style.borderColor = 'var(--color-border)';
-                el.style.transform = 'translateY(0)';
-                el.style.boxShadow = 'none';
-              }}
-            >
-              <div
-                style={{
-                  fontSize: '2rem',
-                  fontWeight: 700,
-                  fontFamily: "'Playfair Display', Georgia, serif",
-                  color: 'var(--color-accent)',
-                  lineHeight: 1.1
-                }}
-              >
-                {stat.value}
-              </div>
-              <div
-                style={{
-                  fontSize: '0.75rem',
-                  color: 'var(--color-text-muted)',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.1em',
-                  marginTop: '0.3rem',
-                  fontWeight: 500
-                }}
-              >
-                {stat.label}
-              </div>
+          <div
+            style={{
+              background: 'rgba(26, 26, 36, 0.6)',
+              backdropFilter: 'blur(8px)',
+              border: '1px solid var(--color-border)',
+              borderRadius: '12px',
+              padding: '1rem 1.4rem',
+              textAlign: 'center'
+            }}
+          >
+            <div style={{ fontSize: '1.6rem', fontWeight: 700, color: 'var(--color-accent)' }}>
+              {cocktailsCount}
             </div>
-          ))}
+            <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', marginTop: '0.15rem' }}>
+              Cocktails
+            </div>
+          </div>
+          <div
+            style={{
+              background: 'rgba(26, 26, 36, 0.6)',
+              backdropFilter: 'blur(8px)',
+              border: '1px solid var(--color-border)',
+              borderRadius: '12px',
+              padding: '1rem 1.4rem',
+              textAlign: 'center'
+            }}
+          >
+            <div style={{ fontSize: '1.6rem', fontWeight: 700, color: 'var(--color-accent)' }}>
+              {basesCount}
+            </div>
+            <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', marginTop: '0.15rem' }}>
+              Base Spirits
+            </div>
+          </div>
         </div>
       </div>
     </section>

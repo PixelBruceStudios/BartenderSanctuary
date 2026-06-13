@@ -26,6 +26,7 @@ lines = [
   "  ingredients: { item: string; qty: string }[];",
   "  instructions: string[];",
   "  glass_type: string;",
+  "  icon_type: string;",
   "  difficulty: string;",
   "  created_at: string;",
   "  updated_at: string;",
@@ -53,33 +54,34 @@ for c in data:
     origin = legacy.get('origin', '')
     base = legacy.get('base', [])
     modifiers = legacy.get('modifiers', [])
-    glass = legacy.get('glass', c['glass_type'])
-    story = legacy.get('story', c['description'])
+    glass = legacy.get('glass', c.get('glass_type', ''))
+    story = legacy.get('story', c.get('description', '') or '')
     technique = legacy.get('technique', 'Shaken')
-    tags = legacy.get('tags', [c['difficulty'].lower()] if c['difficulty'] else [])
+    tags = legacy.get('tags', [c.get('difficulty', '').lower()] if c.get('difficulty') else [])
     recipe = [f"{i['qty']} {i['item']}" for i in c.get('ingredients', [])]
 
     lines.append("  {")
     lines.append(f"    id: \"{c['id']}\",")
     lines.append(f"    slug: \"{c['slug']}\",")
-    lines.append(f"    name: {json.dumps(c['name'])},")
-    lines.append(f"    description: {json.dumps(c['description'])},")
-    lines.append(f"    image_url: {json.dumps(c['image_url'])},")
-    lines.append(f"    origin: {json.dumps(origin)},")
-    lines.append(f"    base: {json.dumps(base)},")
-    lines.append(f"    modifiers: {json.dumps(modifiers)},")
-    lines.append(f"    glass: {json.dumps(glass)},")
-    lines.append(f"    garnish: {json.dumps(c['garnish'])},")
-    lines.append(f"    tags: {json.dumps(tags)},")
-    lines.append(f"    story: {json.dumps(story)},")
-    lines.append(f"    recipe: {json.dumps(recipe)},")
-    lines.append(f"    technique: {json.dumps(technique)},")
-    lines.append(f"    ingredients: {json.dumps(c['ingredients'])},")
-    lines.append(f"    instructions: {json.dumps(c['instructions'])},")
-    lines.append(f"    glass_type: {json.dumps(c['glass_type'])},")
-    lines.append(f"    difficulty: {json.dumps(c['difficulty'])},")
-    lines.append(f"    created_at: {json.dumps(c['created_at'])},")
-    lines.append(f"    updated_at: {json.dumps(c['updated_at'])},")
+    lines.append(f"    name: {json.dumps(c['name'])},",)
+    lines.append(f"    description: {json.dumps(c['description'])},",)
+    lines.append(f"    image_url: {json.dumps(c.get('image_url'))},",)
+    lines.append(f"    origin: {json.dumps(origin)},",)
+    lines.append(f"    base: {json.dumps(base)},",)
+    lines.append(f"    modifiers: {json.dumps(modifiers)},",)
+    lines.append(f"    glass: {json.dumps(glass)},",)
+    lines.append(f"    garnish: {json.dumps(c.get('garnish'))},",)
+    lines.append(f"    tags: {json.dumps(tags)},",)
+    lines.append(f"    story: {json.dumps(story)},",)
+    lines.append(f"    recipe: {json.dumps(recipe)},",)
+    lines.append(f"    technique: {json.dumps(technique)},",)
+    lines.append(f"    ingredients: {json.dumps(c.get('ingredients', []))},",)
+    lines.append(f"    instructions: {json.dumps(c.get('instructions', []))},",)
+    lines.append(f"    glass_type: {json.dumps(c.get('glass_type'))},",)
+    lines.append(f"    icon_type: {json.dumps(c.get('icon_type'))},",)
+    lines.append(f"    difficulty: {json.dumps(c.get('difficulty'))},",)
+    lines.append(f"    created_at: {json.dumps(str(c.get('created_at')))},",)
+    lines.append(f"    updated_at: {json.dumps(str(c.get('updated_at')))},",)
     lines.append("  },")
 
 lines.append("];")
