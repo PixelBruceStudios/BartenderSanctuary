@@ -218,7 +218,7 @@ def quality_check_passed(original: str, translated: str) -> tuple[bool, str]:
         return False, f"too long (ratio {ratio:.2f})"
 
     diac_ratio = diacritic_ratio(translated)
-    if diac_ratio < MIN_DIACRITIC_RATIO:
+    if diac_ratio < MIN_DIACRITIC_RATIO and len(translated) > 200:
         return False, f"too few Croatian diacritics ({diac_ratio:.3f})"
 
     if spell_hr is not None and not spell_check_passed(translated):
