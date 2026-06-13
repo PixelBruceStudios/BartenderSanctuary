@@ -325,7 +325,7 @@ export default function SchoolPage() {
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
-    fetch(`/api/school/full?lang=${lang}`)
+    fetch(`/api/school/full/?lang=${lang}`)
       .then((r) => {
         if (!r.ok) throw new Error("Failed to load school data");
         return r.json();

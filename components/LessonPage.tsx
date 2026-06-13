@@ -572,7 +572,7 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
 
   useEffect(() => {
     let cancelled = false;
-    fetch(`/api/school/full?lang=${lang}`)
+    fetch(`/api/school/full/?lang=${lang}`)
       .then((r) => r.json())
       .then((data: Category[]) => {
         if (cancelled) return;
