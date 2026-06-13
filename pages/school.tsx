@@ -310,14 +310,13 @@ function LessonList({
 }
 
 export default function SchoolPage() {
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
   const [view, setView] = useState<"universe" | "list">("universe");
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState<Category | null>(null);
   const [activeTechnique, setActiveTechnique] = useState<Technique | null>(null);
-  const [completedLessons, setCompletedLessons] = useState<Set<string>>(new Set());
   const [session, setSession] = useState<{
     user?: { id: string; email: string; name?: string | null; emailVerified: boolean };
   } | null>(null);
@@ -326,7 +325,7 @@ export default function SchoolPage() {
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
-    fetch("/api/school/full")
+    fetch(`/api/school/full?lang=${lang}`)
       .then((r) => {
         if (!r.ok) throw new Error("Failed to load school data");
         return r.json();
@@ -365,14 +364,8 @@ export default function SchoolPage() {
     fetchSession();
   }, []);
 
-  const toggleLesson = (id: string) => {
-    setCompletedLessons((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
-  };
+  const isLessonDone = (lesson: any) =>
+    Boolean(lesson.progress?.full_test_passed || lesson.progress?.all_subtests_passed);
 
   if (loading || sessionLoading) {
     return (
@@ -547,7 +540,7 @@ export default function SchoolPage() {
           {view === "universe" ? (
             <SpaceUniverse
               category={active}
-              completedLessons={completedLessons}
+              completedLessons={active.techniques?.flatMap((t: any) => t.lessons?.filter(isLessonDone).map((l: any) => l.id) ?? [])}
               onSelectLesson={(categorySlug, techniqueSlug, lessonId) => {
                 const next = active.techniques.find((t: Technique) => t.slug === techniqueSlug) || null;
                 setActiveTechnique(next ? { ...next } : null);
@@ -565,7 +558,7 @@ export default function SchoolPage() {
               }}
             >
               {active.techniques.map((technique) => {
-                const techCompleted = technique.lessons.filter((l) => completedLessons.has(l.id)).length;
+                const techCompleted = technique.lessons.filter(isLessonDone).length;
                 return (
                   <div
                     key={technique.slug}
@@ -613,7 +606,7 @@ export default function SchoolPage() {
                             padding: "0.7rem 0.9rem",
                             borderRadius: "10px",
                             border: "1px solid rgba(255,255,255,0.08)",
-                            background: completedLessons.has(lesson.id) ? "rgba(74,222,128,0.08)" : "rgba(255,255,255,0.02)",
+                            background: isLessonDone(lesson) ? "rgba(74,222,128,0.08)" : "rgba(255,255,255,0.02)",
                             color: "#fff",
                             cursor: "pointer",
                             fontSize: "0.9rem",
@@ -628,7 +621,7 @@ export default function SchoolPage() {
                               color: "rgba(255,255,255,0.45)",
                             }}
                           >
-                            {completedLessons.has(lesson.id) ? "✓" : "○"}
+                            {isLessonDone(lesson) ? "✓" : "○"}
                           </span>
                         </button>
                       ))}

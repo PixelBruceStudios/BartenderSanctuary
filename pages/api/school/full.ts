@@ -1,8 +1,12 @@
 import { query } from '@/lib/db';
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { getServerSession } from 'next-auth';
+import { auth } from '../auth/[...nextauth]';
 
 export default async function handler(_: NextApiRequest, res: NextApiResponse) {
   const lang = (_.query.lang as string) === 'hr' ? 'hr' : 'en';
+  const session: any = await getServerSession(_, res, auth);
+  const userId = session?.user?.id;
 
   const categories: any[] = await query(`
     SELECT id, slug, title, description, icon, sort_order
@@ -30,6 +34,20 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
         `,
         [tech.id]
       );
+
+      if (userId && lessons.length > 0) {
+        const lessonIds = lessons.map((l: any) => l.id);
+        const progressRows: any[] = await query(
+          `SELECT lesson_id, all_subtests_passed, full_test_passed, overall_progress
+           FROM user_lesson_progress WHERE user_id = $1 AND lesson_id = ANY($2::uuid[])`,
+          [userId, lessonIds]
+        );
+        const progressMap = new Map(progressRows.map((r) => [r.lesson_id, r]));
+        (lessons as any[]).forEach((l: any) => {
+          l.progress = progressMap.get(l.id) ?? null;
+        });
+      }
+
       tech.lessons = lessons;
     }
     cat.techniques = techniques;

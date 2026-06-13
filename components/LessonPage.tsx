@@ -201,7 +201,7 @@ function LessonTests({ lessonId }: { lessonId: string }) {
       }
 
       // Also save to legacy test_attempts (session-based)
-      const res = await fetch(`/api/tests/${openTest.id}/attempt`, {
+      const res = await fetch(`/api/tests/${openTest.id}/attempt/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ score: pct, passed, answers, session_id: sessionId }),
@@ -572,7 +572,7 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
 
   useEffect(() => {
     let cancelled = false;
-    fetch("/api/school/full")
+    fetch(`/api/school/full?lang=${lang}`)
       .then((r) => r.json())
       .then((data: Category[]) => {
         if (cancelled) return;
