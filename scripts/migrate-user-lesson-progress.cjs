@@ -16,7 +16,7 @@ const passPath = path.join(process.env.HOME || '', 'Desktop', 'NeonDbPass');
 const dbPass = fs.readFileSync(passPath, 'utf8').trim();
 
 const envPath = path.join(__dirname, '..', '.env.local');
-let connectionString = 'postgresql://neondb_owner:***@ep-young-cell-apbcicg9-pooler.c-7.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require';
+let connectionString = 'postgresql://neondb_owner:***@ep-young-cell-apbcicg9-pooler.c-7.us-east-1.aws.neon.tech/BartenderSanctuary?sslmode=require&channel_binding=require';
 if (fs.existsSync(envPath)) {
   const envContent = fs.readFileSync(envPath, 'utf8');
   const m = envContent.match(/DATABASE_URL="([^"]+)"/);
@@ -70,27 +70,38 @@ async function main() {
     // 2. Backfill data from legacy columns if present
     if (hasOld.length) {
       console.log('Backfilling from legacy columns...');
+      // Use CASE to safely handle missing columns
       await client.query(`
-        UPDATE user_lesson_progress ulp
+        UPDATE user_lesson_progress
         SET
           all_subtests_passed = COALESCE(
-            (ul.lesson_test_score >= 50),
+            CASE
+              WHEN all_subtests_passed IS NOT NULL THEN all_subtests_passed
+              WHEN lesson_test_score IS NOT NULL AND lesson_test_score >= 50 THEN true
+              ELSE false
+            END,
             false
           ),
-          full_test_passed = COALESCE(ul.lesson_test_passed, false),
-          overall_progress = CASE
-            WHEN ul.lesson_test_passed = true THEN 100
-            WHEN ul.lesson_test_score >= 50 THEN 50
-            ELSE COALESCE(ul.overall_progress, 0)
-          END
-        FROM (
-          SELECT id, lesson_test_passed, lesson_test_score, overall_progress
-          FROM user_lesson_progress
-          WHERE lesson_test_passed IS NOT NULL
-             OR lesson_test_score IS NOT NULL
-             OR overall_progress IS NOT NULL
-        ) ul
-        WHERE ulp.id = ul.id
+          full_test_passed = COALESCE(
+            CASE
+              WHEN full_test_passed IS NOT NULL THEN full_test_passed
+              WHEN lesson_test_passed IS NOT NULL THEN lesson_test_passed
+              ELSE false
+            END,
+            false
+          ),
+          overall_progress = COALESCE(
+            CASE
+              WHEN overall_progress IS NOT NULL THEN overall_progress
+              WHEN lesson_test_passed = true THEN 100
+              WHEN lesson_test_score IS NOT NULL AND lesson_test_score >= 50 THEN 50
+              ELSE 0
+            END,
+            0
+          )
+        WHERE
+          (all_subtests_passed IS NULL OR full_test_passed IS NULL OR overall_progress IS NULL)
+          AND (lesson_test_passed IS NOT NULL OR lesson_test_score IS NOT NULL OR overall_progress IS NOT NULL)
       `);
       console.log('  Backfill complete.');
     }
