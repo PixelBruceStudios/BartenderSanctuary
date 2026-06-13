@@ -15,6 +15,10 @@ import psycopg2
 from deep_translator import GoogleTranslator
 from spellchecker import SpellChecker
 
+# Allow importing hr_glossary from the same scripts/ directory
+sys.path.append(str(Path(__file__).resolve().parent))
+from hr_glossary import HR_GLOSSARY, apply_glossary  # noqa: E402
+
 PASS_FILE = os.path.expanduser('~/Desktop/NeonDbPass')
 HOST = 'ep-young-cell-apbcicg9-pooler.c-7.us-east-1.aws.neon.tech'
 DB = 'BartenderSanctuary'
@@ -31,81 +35,6 @@ MIN_DIACRITIC_RATIO = 0.015  # Croatian text should contain some diacritics
 MIN_LENGTH_RATIO = 0.5       # HR should be at least half the EN length
 MAX_LENGTH_RATIO = 3.0       # HR should not be 3x longer than EN
 
-# Croatian bartending / bar terminology glossary (case-insensitive)
-# Canonical Croatian terms that should replace generic translator output.
-HR_GLOSSARY: dict[str, str] = {
-    # Glassware — translated to actual Croatian bar terms
-    "highball glass": "čaša visoki balon",
-    "rocks glass": "čaša na kockama",
-    "old fashioned glass": "čaša old fashioned",
-    "coupe glass": "kupasta čaša",
-    "martini glass": "kupasta čaša",
-    "champagne flute": "čahura za šampanjac",
-    "wine glass": "čaša za vino",
-    "shot glass": "čašica",
-    "julep cup": "kup za julep",
-    "copper mug": "bakarana mugla",
-    "hurricane glass": "čaša hurikan",
-    "collins glass": "čaša kolins",
-    "tiki glass": "tiki čaša",
-    "pousse cafe glass": "čaša pus kafe",
-    "irish coffee glass": "irski kafa",
-    # Technique names / actions
-    "stirred": "miješano",
-    "shaken": "uz prskanje leda",
-    "shaking": "prskanje leda",
-    "muddled": "mudlano",
-    "muddling": "mudlanje",
-    # Ingredients / modifiers
-    "bitters": "biters",
-    "simple syrup": "limunada",
-    "vermouth": "vermut",
-    "dry vermouth": "suhi vermut",
-    "sweet vermouth": "slatki vermut",
-    "chartreuse": "šartrez",
-    "triple sec": "tripel sek",
-    "orgeat": "oržat",
-    # International cocktail / spirit names kept as-is in Croatian bar usage
-    "sours": "Sours",
-    "sour": "Sour",
-    "highballs": "Highballs",
-    "highball": "visoki balon",
-    "fizzes & collinses": "Fizzes & Collinses",
-    "stirred spirit-forward cocktails": "Stirred Spirit-Forward Cocktails",
-    "old fashioned": "old fashioned",
-    "old-fashioned": "old fashioned",
-    "coupe": "kupa",
-    "martini": "martini",
-    "champagne flute": "čahura za šampanjac",
-    "flute": "čahura",
-    "shot": "čašica",
-    "julep": "julep",
-    "mule": "mugla",
-    "hurricane": "hurikan",
-    "collins": "kolins",
-    "tiki": "tiki",
-    "pousse café": "pus kafe",
-    "pousse cafe": "pus kafe",
-    "irish coffee": "irski kafa",
-    "blanco": "blanco",
-    "reposado": "reposado",
-    "anejo": "anejo",
-    "mezcal": "mezcal",
-    "tequila": "tekila",
-    "rum": "rum",
-    "vodka": "votka",
-    "gin": "đin",
-    "whiskey": "viski",
-    "whisky": "viski",
-    "bourbon": "burbon",
-    "scotch": "skotski viski",
-    "campari": "kampari",
-    "aperol": "aperol",
-    "amaro": "amaro",
-    "cointreau": "kuantru",
-    "falernum": "falernum",
-}
-
 try:
     spell_hr = SpellChecker(language=TRANSLATE_LANG)
 except Exception:
@@ -113,6 +42,16 @@ except Exception:
     spell_hr = None
 
 _translation_cache: dict[str, str] = {}
+
+
+@dataclass
+class LessonRow:
+    id: str
+    technique_id: str
+    slug: str
+    title: str
+    description: str
+    content: str
 
 
 def chunk_text(text: str, max_chars: int = 4500) -> list[str]:
@@ -158,16 +97,6 @@ def chunk_text(text: str, max_chars: int = 4500) -> list[str]:
         else:
             for i in range(0, len(p), max_chars):
                 result.append(p[i:i + max_chars])
-    return result
-
-
-def apply_glossary(text: str) -> str:
-    """Replace English bartending terms with canonical Croatian forms.
-    Terms mapped to themselves are preserved as proper nouns."""
-    result = text
-    for en_term, hr_term in HR_GLOSSARY.items():
-        pattern = re.compile(r"\b" + re.escape(en_term) + r"\b", re.IGNORECASE)
-        result = pattern.sub(hr_term, result)
     return result
 
 
@@ -249,20 +178,13 @@ def quality_check_passed(original: str, translated: str) -> tuple[bool, str]:
         return False, f"too long (ratio {ratio:.2f})"
 
     diac_ratio = diacritic_ratio(translated)
-    if diac_ratio < MIN_DIACRITIC_RATIO and len(translated) > 200:
+    if diac_ratio < MIN_DIACRITIC_RATIO:
         return False, f"too few Croatian diacritics ({diac_ratio:.3f})"
 
+    if spell_hr is not None and not spell_check_passed(translated):
+        return False, "spell-check failed"
+
     return True, "ok"
-
-
-@dataclass
-class LessonRow:
-    id: str
-    technique_id: str
-    slug: str
-    title: str
-    description: str
-    content: str
 
 
 def fetch_pending_lessons(cur, limit: int) -> list[LessonRow]:
@@ -270,19 +192,14 @@ def fetch_pending_lessons(cur, limit: int) -> list[LessonRow]:
         """
         SELECT l.id, l.technique_id, l.slug, l.title, l.description, l.content
         FROM lessons l
-        LEFT JOIN lessons_hr lhr
-          ON lhr.technique_id = l.technique_id AND lhr.slug = l.slug
+        LEFT JOIN lessons_hr lhr ON lhr.technique_id = l.technique_id AND lhr.slug = l.slug
         WHERE lhr.id IS NULL
-        ORDER BY l.id
+        ORDER BY l.created_at ASC
         LIMIT %s
         """,
         (limit,),
     )
-    rows = cur.fetchall()
-    return [
-        LessonRow(id=r[0], technique_id=r[1], slug=r[2], title=r[3], description=r[4], content=r[5])
-        for r in rows
-    ]
+    return [LessonRow(*r) for r in cur.fetchall()]
 
 
 def upsert_hr(cur, lesson: LessonRow, hr_title: str, hr_description: str, hr_content: str) -> None:
@@ -318,42 +235,38 @@ def run_once() -> tuple[int, int, int, list[str]]:
     failed = 0
 
     for lesson in pending:
-        log.append(f"→ {lesson.slug} ({lesson.title[:40]})")
         hr_title = translate_text(lesson.title)
         hr_description = translate_text(lesson.description)
         hr_content = translate_text(lesson.content)
 
-        combined = f"{hr_title}\n{hr_description}\n{hr_content}"
+        ok1, reason1 = quality_check_passed(lesson.title, hr_title)
+        ok2, reason2 = quality_check_passed(lesson.description, hr_description)
+        ok3, reason3 = quality_check_passed(lesson.content, hr_content)
 
-        ok, reason = quality_check_passed(lesson.content, combined)
-        if not ok:
+        if not (ok1 and ok2 and ok3):
+            reasons = [r for ok, r in [(ok1, reason1), (ok2, reason2), (ok3, reason3)] if not ok]
+            log.append(f"✗ {lesson.slug} ({lesson.title}) — {'; '.join(reasons)}")
             failed += 1
-            log.append(f"  ✗ quality check failed: {reason}")
             continue
 
-        if not spell_check_passed(combined):
-            failed += 1
-            log.append(f"  ✗ spell-check failed; skipping")
-            continue
-
-        try:
-            upsert_hr(cur, lesson, hr_title, hr_description, hr_content)
-            translated += 1
-            log.append(f"  ✓ injected")
-        except Exception as e:
-            failed += 1
-            log.append(f"  ✗ DB upsert failed: {e}")
-
+        upsert_hr(cur, lesson, hr_title, hr_description, hr_content)
+        conn.commit()
+        log.append(f"✓ {lesson.slug} ({lesson.title})")
+        translated += 1
         time.sleep(0.3)
 
-    conn.commit()
     cur.close()
     conn.close()
     return translated, skipped, failed, log
 
 
-if __name__ == '__main__':
-    print("=== lesson translation run ===")
-    done, skipped, failed, log = run_once()
-    print("\n".join(log))
-    print(f"Done: translated={done} skipped={skipped} failed={failed}")
+def main() -> None:
+    translated, skipped, failed, log = run_once()
+    print(f"=== lesson translation run ===")
+    for line in log:
+        print(line)
+    print(f"Done: translated={translated} skipped={skipped} failed={failed}")
+
+
+if __name__ == "__main__":
+    main()

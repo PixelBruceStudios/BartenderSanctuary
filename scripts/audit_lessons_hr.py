@@ -8,7 +8,7 @@ import os
 import re
 import time
 import psycopg2
-from dataclasses import dataclass
+# from dataclasses import dataclass
 from typing import Optional
 
 from deep_translator import GoogleTranslator
@@ -126,26 +126,10 @@ def upsert_hr(cur, lesson: LessonRow, hr_title: str, hr_description: str, hr_con
         (hr_title, hr_description, hr_content, lesson.id),
     )
 
-
 # Croatian bartending / bar terminology glossary (case-insensitive)
-# Canonical Croatian terms that should replace generic translator output.
+# Only includes terms that should actually be translated.
+# Glassware and most bar equipment names are left in English.
 HR_GLOSSARY: dict[str, str] = {
-    # Glassware — translated to actual Croatian bar terms
-    "highball glass": "čaša visoki balon",
-    "rocks glass": "čaša na kockama",
-    "old fashioned glass": "čaša old fashioned",
-    "coupe glass": "kupasta čaša",
-    "martini glass": "kupasta čaša",
-    "champagne flute": "čahura za šampanjac",
-    "wine glass": "čaša za vino",
-    "shot glass": "čašica",
-    "julep cup": "kup za julep",
-    "copper mug": "bakarana mugla",
-    "hurricane glass": "čaša hurikan",
-    "collins glass": "čaša kolins",
-    "tiki glass": "tiki čaša",
-    "pousse cafe glass": "čaša pus kafe",
-    "irish coffee glass": "irski kafa",
     # Technique names / actions
     "stirred": "miješano",
     "shaken": "uz prskanje leda",
@@ -170,15 +154,9 @@ HR_GLOSSARY: dict[str, str] = {
     "stirred spirit-forward cocktails": "Stirred Spirit-Forward Cocktails",
     "old fashioned": "old fashioned",
     "old-fashioned": "old fashioned",
-    "coupe": "kupa",
     "martini": "martini",
-    "champagne flute": "čahura za šampanjac",
-    "flute": "čahura",
-    "shot": "čašica",
     "julep": "julep",
     "mule": "mugla",
-    "hurricane": "hurikan",
-    "collins": "kolins",
     "tiki": "tiki",
     "pousse café": "pus kafe",
     "pousse cafe": "pus kafe",
