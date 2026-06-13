@@ -81,15 +81,6 @@ const _nextAuth = NextAuth({
       console.log('[nextauth] jwt', JSON.stringify({ hadUser, tokenSub: token.sub, tokenEmail: token.email }));
       return token;
     },
-    async session({ session, token }) {
-      console.log('[nextauth] session', JSON.stringify({ sessionUser: session.user ? { id: session.user.id, email: session.user.email } : null, tokenSub: token.sub }));
-      if (!session.user) {
-        session.user = { id: '', email: '', emailVerified: false, name: null };
-      }
-      session.user.id = token.sub;
-      session.user.emailVerified = token.emailVerified;
-      return session;
-    },
   },
 });
 
