@@ -9,3 +9,4 @@
 [2026-06-11 15:10:10] Updated rich-syrup: Rich syrup & concentration — Added verified °Brix values (1:1 ≈ 50, 2:1 ≈ 67), expanded water-activity/preservation explanation, clarified agave nectar concentration (75–80° Brix), and added sourced references (deploy: success)
 
 [2026-06-11 21:30:38Z] Updated whiskey-grains: Grain Bills & Mash Bills — Added verified facts on mashing process, diastatic power (°Lintner), enzymatic activity (amylase), base vs. specialty malts, nitrogen content, and grain ratios (corn/rye/wheat/barley); added 4 authoritative sources (Wikipedia Mash bill, Wikipedia Mash ingredients, TTB 27 CFR §5.22, Scotch Whisky Regulations 2009); deploy: success
+[2026-06-13T00:00:00Z] FIXED cocktail-chemistry/molecular-advanced/spherification - Added 2 sources (BarSmarts, Punch Drink). Remaining: 36/183. Telegram CLI unavailable; log-only notification.

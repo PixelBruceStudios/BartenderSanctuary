@@ -110,40 +110,65 @@ function LessonTest({ lessonId }: { lessonId: string }) {
   const [selected, setSelected] = useState<Record<number, number>>({});
   const [submitted, setSubmitted] = useState(false);
   const [score, setScore] = useState<number | null>(null);
+  const [running, setRunning] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [sessionId] = useState(() => `sess_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`);
   const { t } = useTranslation();
 
   useEffect(() => {
-    fetch(`/api/tests?scope=lesson&lesson_id=${lessonId}`)
-      .then((r) => r.json())
-      .then((rows: any[]) => {
-        if (rows.length) setTest(rows[0]);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
+    let cancelled = false;
+    setLoading(true);
+    setError(null);
+    (async () => {
+      try {
+        const listRes = await fetch(`/api/tests?scope=lesson&lesson_id=${lessonId}`);
+        const rows: any[] = await listRes.json();
+        if (cancelled) return;
+        if (!rows.length) { setLoading(false); return; }
+        const testRes = await fetch(`/api/tests/${rows[0].id}`);
+        if (testRes.ok) {
+          const full: any = await testRes.json();
+          if (!cancelled) setTest(full);
+        }
+      } catch {
+        // ignore
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    })();
+    return () => { cancelled = true };
   }, [lessonId]);
 
   const handleSubmit = useCallback(async () => {
     if (!test || !test.questions) return;
-    const answers = test.questions.map((q: any, i: number) => ({
-      question_index: i,
-      selected: selected[i] ?? -1,
-      correct: q.correct_index,
-    }));
-    const correctCount = answers.filter((a: any) => a.selected === a.correct).length;
-    const pct = Math.round((correctCount / test.questions.length) * 100);
-    const passed = pct >= (test.passing_score ?? 70);
+    setRunning(true);
+    setError(null);
+    try {
+      const answers = test.questions.map((q: any, i: number) => ({
+        question_index: i,
+        selected: selected[i] ?? -1,
+        correct: q.correct_index,
+      }));
+      const correctCount = answers.filter((a: any) => a.selected === a.correct).length;
+      const pct = Math.round((correctCount / test.questions.length) * 100);
+      const passed = pct >= (test.passing_score ?? 70);
 
-    await fetch(`/api/tests/${test.id}/attempt`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ score: pct, passed, answers, session_id: sessionId }),
-    });
+      const res = await fetch(`/api/tests/${test.id}/attempt`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ score: pct, passed, answers, session_id: sessionId }),
+      });
+      if (!res.ok) throw new Error(`Attempt failed (${res.status})`);
 
-    setScore(pct);
-    setSubmitted(true);
-    if (passed) {
-      window.dispatchEvent(new CustomEvent("test-passed", { detail: { testId: test.id } }));
+      setScore(pct);
+      setSubmitted(true);
+      if (passed) {
+        window.dispatchEvent(new CustomEvent("test-passed", { detail: { testId: test.id } }));
+      }
+    } catch (e: any) {
+      setError(e.message || "Failed to submit test");
+    } finally {
+      setRunning(false);
     }
   }, [test, selected, sessionId]);
 
@@ -178,6 +203,7 @@ function LessonTest({ lessonId }: { lessonId: string }) {
           ? "1px solid rgba(74,222,128,0.4)"
           : "1px solid rgba(255,255,255,0.1)",
         background: passed ? "rgba(74,222,128,0.05)" : "rgba(255,255,255,0.03)",
+        position: "relative",
       }}
     >
       <h3
@@ -272,11 +298,36 @@ function LessonTest({ lessonId }: { lessonId: string }) {
         );
       })}
 
+      {error && (
+        <div style={{ marginTop: "0.75rem", padding: "0.7rem 1rem", borderRadius: "8px", border: "1px solid rgba(248,113,113,0.4)", background: "rgba(248,113,113,0.08)", color: "#f87171", fontSize: "0.85rem" }}>
+          {error}
+        </div>
+      )}
+
+      {/* Running overlay */}
+      {running && (
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "rgba(7,7,15,0.55)",
+            backdropFilter: "blur(2px)",
+            borderRadius: "12px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 5,
+          }}
+        >
+          <div style={{ color: "#a5b4fc", fontSize: "0.95rem", fontWeight: 600 }}>Running test…</div>
+        </div>
+      )}
+
       {!submitted ? (
         <button
           type="button"
           onClick={handleSubmit}
-          disabled={!allAnswered}
+          disabled={!allAnswered || running}
           style={{
             padding: "0.7rem 1.5rem",
             borderRadius: "10px",
@@ -287,9 +338,10 @@ function LessonTest({ lessonId }: { lessonId: string }) {
             fontSize: "0.9rem",
             fontWeight: 600,
             marginTop: "0.5rem",
+            opacity: running ? 0.7 : 1,
           }}
         >
-          Submit answers
+          {running ? "Running test…" : "Pass test to finish sublesson"}
         </button>
       ) : (
         <div
