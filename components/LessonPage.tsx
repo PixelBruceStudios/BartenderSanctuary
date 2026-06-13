@@ -568,7 +568,7 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
         setLoading(false);
       });
     return () => { cancelled = true };
-  }, [lessonId]);
+  }, [lessonId, lang]);
 
   useEffect(() => {
     let cancelled = false;
@@ -580,7 +580,7 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
       })
       .catch(() => {});
     return () => { cancelled = true };
-  }, []);
+  }, [lang]);
 
   // Listen for test-passed custom event
   useEffect(() => {

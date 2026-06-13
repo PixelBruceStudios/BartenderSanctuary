@@ -344,7 +344,7 @@ export default function SchoolPage() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [lang]);
 
   useEffect(() => {
     const fetchSession = async () => {
