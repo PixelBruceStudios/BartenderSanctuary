@@ -83,10 +83,11 @@ const _nextAuth = NextAuth({
     },
     async session({ session, token }) {
       console.log('[nextauth] session', JSON.stringify({ sessionUser: session.user ? { id: session.user.id, email: session.user.email } : null, tokenId: token.id }));
-      if (session.user) {
-        session.user.id = token.id;
-        session.user.emailVerified = token.emailVerified;
+      if (!session.user) {
+        session.user = { email: '', name: '' };
       }
+      session.user.id = token.id;
+      session.user.emailVerified = token.emailVerified;
       return session;
     },
   },
