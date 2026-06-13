@@ -115,6 +115,7 @@ function LessonTests({ lessonId }: { lessonId: string }) {
   const [error, setError] = useState<string | null>(null);
   const [sessionId] = useState(() => `sess_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`);
   const [userAttempts, setUserAttempts] = useState<Record<string, any>>({});
+  const [sessionAttempts, setSessionAttempts] = useState<Record<string, boolean>>({});
   const { t } = useTranslation();
 
   // Load tests + user progress
@@ -136,7 +137,21 @@ function LessonTests({ lessonId }: { lessonId: string }) {
         );
         if (!cancelled) setTests(withQuestions);
 
-        // Load authenticated user attempts
+        // Load session (anonymous) attempts for the counter — always runs
+        const anonTests = withQuestions.length ? withQuestions : rows;
+        const sMap: Record<string, boolean> = {};
+        await Promise.all(
+          anonTests.map(async (t: any) => {
+            const r = await fetch(`/api/tests/${t.id}/attempt/`, { method: 'GET' });
+            if (r.ok) {
+              const d = await r.json();
+              if (d?.passed) sMap[t.id] = true;
+            }
+          })
+        );
+        if (!cancelled) setSessionAttempts(sMap);
+
+        // Load authenticated user attempts (best-effort, non-fatal)
         try {
           const sRes = await fetch('/api/auth/session', { credentials: 'include' });
           const sData = await sRes.json();
@@ -221,8 +236,10 @@ function LessonTests({ lessonId }: { lessonId: string }) {
   }, [openTest, selected, sessionId]);
 
   const isTestPassed = useCallback((testId: string) => {
-    return userAttempts[testId]?.passed === true;
-  }, [userAttempts]);
+    if (userAttempts[testId]?.passed === true) return true;
+    // fallback: check anonymous session attempts for this test
+    return sessionAttempts[testId] === true;
+  }, [userAttempts, sessionAttempts]);
 
   const subTests = tests.filter((t: any) => t.scope === 'sublesson');
   const fullTests = tests.filter((t: any) => t.scope === 'lesson');
