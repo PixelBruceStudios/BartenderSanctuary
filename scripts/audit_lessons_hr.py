@@ -9,6 +9,7 @@ import re
 import time
 import psycopg2
 from typing import Optional
+from dataclasses import dataclass
 
 from deep_translator import GoogleTranslator
 
