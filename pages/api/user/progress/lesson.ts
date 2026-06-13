@@ -11,13 +11,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { lesson_id } = req.query;
     if (lesson_id && typeof lesson_id === 'string') {
       const rows = await query<any[]>(
-        `SELECT ulp.*, l.title as lesson_title
-         FROM user_lesson_progress ulp
-         LEFT JOIN lessons l ON l.id = ulp.lesson_id
-         WHERE ulp.user_id = $1 AND ulp.lesson_id = $2`,
+        `SELECT user_id, lesson_id, all_subtests_passed, full_test_passed, overall_progress, updated_at
+         FROM user_lesson_progress
+         WHERE user_id = $1 AND lesson_id = $2`,
         [userId, lesson_id]
       );
-      if (rows.length > 0) return res.status(200).json(rows[0]);
+      if (rows.length > 0) {
+        return res.status(200).json(rows[0]);
+      }
       // Fallback: derive from anonymous test_attempts
       const attemptRows: any[] = await query(
         `SELECT t.lesson_id, t.id as test_id, t.scope, ta.passed
@@ -46,11 +47,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
     if (userId) {
       const rows = await query<any[]>(
-        `SELECT ulp.*, l.title as lesson_title
-         FROM user_lesson_progress ulp
-         LEFT JOIN lessons l ON l.id = ulp.lesson_id
-         WHERE ulp.user_id = $1
-         ORDER BY ulp.updated_at DESC`,
+        `SELECT user_id, lesson_id, all_subtests_passed, full_test_passed, overall_progress, updated_at
+         FROM user_lesson_progress
+         WHERE user_id = $1
+         ORDER BY updated_at DESC`,
         [userId]
       );
       return res.status(200).json(rows);
@@ -73,10 +73,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       [userId, lesson_id, !!all_subtests_passed, !!full_test_passed, overall_progress ?? 0]
     );
     const rows = await query<any[]>(
-      `SELECT ulp.*, l.title as lesson_title
-       FROM user_lesson_progress ulp
-       LEFT JOIN lessons l ON l.id = ulp.lesson_id
-       WHERE ulp.user_id = $1 AND ulp.lesson_id = $2`,
+      `SELECT user_id, lesson_id, all_subtests_passed, full_test_passed, overall_progress, updated_at
+       FROM user_lesson_progress
+       WHERE user_id = $1 AND lesson_id = $2`,
       [userId, lesson_id]
     );
     return res.status(200).json(rows[0]);
