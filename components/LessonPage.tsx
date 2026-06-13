@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { useTranslation } from "@/lib/contexts";
@@ -103,12 +103,240 @@ function StarField() {
   );
 }
 
+/* ── Inline test widget ──────────────────────────────────────────── */
+function LessonTest({ lessonId }: { lessonId: string }) {
+  const [test, setTest] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [selected, setSelected] = useState<Record<number, number>>({});
+  const [submitted, setSubmitted] = useState(false);
+  const [score, setScore] = useState<number | null>(null);
+  const [sessionId] = useState(() => `sess_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`);
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    fetch(`/api/tests?scope=lesson&lesson_id=${lessonId}`)
+      .then((r) => r.json())
+      .then((rows: any[]) => {
+        if (rows.length) setTest(rows[0]);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, [lessonId]);
+
+  const handleSubmit = useCallback(async () => {
+    if (!test || !test.questions) return;
+    const answers = test.questions.map((q: any, i: number) => ({
+      question_index: i,
+      selected: selected[i] ?? -1,
+      correct: q.correct_index,
+    }));
+    const correctCount = answers.filter((a: any) => a.selected === a.correct).length;
+    const pct = Math.round((correctCount / test.questions.length) * 100);
+    const passed = pct >= (test.passing_score ?? 70);
+
+    await fetch(`/api/tests/${test.id}/attempt`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ score: pct, passed, answers, session_id: sessionId }),
+    });
+
+    setScore(pct);
+    setSubmitted(true);
+    if (passed) {
+      window.dispatchEvent(new CustomEvent("test-passed", { detail: { testId: test.id } }));
+    }
+  }, [test, selected, sessionId]);
+
+  if (loading) {
+    return (
+      <div style={{ marginTop: "2rem", padding: "1.25rem", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)", color: "rgba(255,255,255,0.5)" }}>
+        Loading test…
+      </div>
+    );
+  }
+
+  if (!test) {
+    return (
+      <div style={{ marginTop: "2rem", padding: "1.25rem", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)", color: "rgba(255,255,255,0.5)" }}>
+        No test has been added for this lesson yet.
+      </div>
+    );
+  }
+
+  const questions = test.questions ?? [];
+  const allAnswered = questions.every((_: any, i: number) => selected[i] !== undefined);
+  const passThreshold = test.passing_score ?? 70;
+  const passed = submitted && score !== null && score >= passThreshold;
+
+  return (
+    <div
+      style={{
+        marginTop: "2rem",
+        padding: "1.5rem",
+        borderRadius: "12px",
+        border: passed
+          ? "1px solid rgba(74,222,128,0.4)"
+          : "1px solid rgba(255,255,255,0.1)",
+        background: passed ? "rgba(74,222,128,0.05)" : "rgba(255,255,255,0.03)",
+      }}
+    >
+      <h3
+        style={{
+          fontSize: "1rem",
+          fontWeight: 600,
+          marginBottom: "0.4rem",
+          color: passed ? "#4ade80" : "#fff",
+        }}
+      >
+        {test.title}
+      </h3>
+      <p style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.5)", marginBottom: "1.25rem" }}>
+        {test.description} · Pass: {passThreshold}% · {questions.length} questions
+      </p>
+
+      {questions.map((q: any, i: number) => {
+        const userAnswer = selected[i];
+        const isCorrect = submitted && userAnswer === q.correct_index;
+        const isWrong = submitted && userAnswer !== undefined && userAnswer !== q.correct_index;
+        return (
+          <div
+            key={i}
+            style={{
+              marginBottom: "1.25rem",
+              padding: "1rem",
+              borderRadius: "10px",
+              border: submitted
+                ? isCorrect
+                  ? "1px solid rgba(74,222,128,0.35)"
+                  : isWrong
+                  ? "1px solid rgba(248,113,113,0.4)"
+                  : "1px solid rgba(255,255,255,0.08)"
+                : "1px solid rgba(255,255,255,0.08)",
+              background: "rgba(0,0,0,0.15)",
+            }}
+          >
+            <p style={{ fontSize: "0.95rem", color: "rgba(255,255,255,0.9)", marginBottom: "0.75rem", lineHeight: 1.6 }}>
+              {i + 1}. {q.question_text}
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+              {(q.options as string[]).map((opt: string, oi: number) => {
+                const isChosen = userAnswer === oi;
+                const isRightOpt = oi === q.correct_index;
+                let optStyle: Record<string, string> = {
+                  padding: "0.55rem 0.85rem",
+                  borderRadius: "8px",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  background: "rgba(255,255,255,0.02)",
+                  cursor: submitted ? "default" : "pointer",
+                  fontSize: "0.9rem",
+                  color: "rgba(255,255,255,0.8)",
+                  transition: "all 0.15s ease",
+                };
+                if (!submitted && isChosen) {
+                  optStyle = { ...optStyle, borderColor: "rgba(99,102,241,0.6)", background: "rgba(99,102,241,0.12)" };
+                }
+                if (submitted && isRightOpt) {
+                  optStyle = { ...optStyle, borderColor: "rgba(74,222,128,0.5)", background: "rgba(74,222,128,0.1)", color: "#4ade80" };
+                }
+                if (submitted && isWrong && isChosen) {
+                  optStyle = { ...optStyle, borderColor: "rgba(248,113,113,0.4)", background: "rgba(248,113,113,0.08)", color: "#f87171" };
+                }
+                return (
+                  <button
+                    key={oi}
+                    type="button"
+                    disabled={submitted}
+                    onClick={() => !submitted && setSelected((prev) => ({ ...prev, [i]: oi }))}
+                    style={optStyle}
+                  >
+                    {opt}
+                  </button>
+                );
+              })}
+            </div>
+
+            {submitted && q.explanation && (
+              <p
+                style={{
+                  marginTop: "0.6rem",
+                  fontSize: "0.8rem",
+                  color: "rgba(255,255,255,0.5)",
+                  fontStyle: "italic",
+                  lineHeight: 1.5,
+                }}
+              >
+                {isCorrect ? "✓" : isWrong ? "✗" : ""} {q.explanation}
+              </p>
+            )}
+          </div>
+        );
+      })}
+
+      {!submitted ? (
+        <button
+          type="button"
+          onClick={handleSubmit}
+          disabled={!allAnswered}
+          style={{
+            padding: "0.7rem 1.5rem",
+            borderRadius: "10px",
+            border: allAnswered ? "1px solid rgba(99,102,241,0.5)" : "1px solid rgba(255,255,255,0.1)",
+            background: allAnswered ? "rgba(99,102,241,0.15)" : "rgba(255,255,255,0.03)",
+            color: allAnswered ? "#a5b4fc" : "rgba(255,255,255,0.4)",
+            cursor: allAnswered ? "pointer" : "not-allowed",
+            fontSize: "0.9rem",
+            fontWeight: 600,
+            marginTop: "0.5rem",
+          }}
+        >
+          Submit answers
+        </button>
+      ) : (
+        <div
+          style={{
+            marginTop: "0.75rem",
+            padding: "0.85rem 1rem",
+            borderRadius: "10px",
+            background: passed ? "rgba(74,222,128,0.08)" : "rgba(248,113,113,0.08)",
+            border: passed ? "1px solid rgba(74,222,128,0.3)" : "1px solid rgba(248,113,113,0.3)",
+            fontSize: "0.9rem",
+            color: passed ? "#4ade80" : "#f87171",
+            fontWeight: 600,
+          }}
+        >
+          {passed ? "✓ Passed" : "✗ Not passed"} — you scored {score}% (need {passThreshold}%)
+          {!passed && (
+            <button
+              type="button"
+              onClick={() => { setSubmitted(false); setSelected({}); setScore(null); }}
+              style={{
+                marginLeft: "1rem",
+                background: "transparent",
+                border: "1px solid rgba(255,255,255,0.2)",
+                borderRadius: "8px",
+                padding: "0.4rem 0.8rem",
+                color: "#fff",
+                cursor: "pointer",
+                fontSize: "0.8rem",
+              }}
+            >
+              Retry
+            </button>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ── Lesson page shell ──────────────────────────────────────────── */
 function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
   const [lesson, setLesson] = useState<Lesson | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [readProgress, setReadProgress] = useState(0);
   const [completed, setCompleted] = useState(false);
+  const [testPassed, setTestPassed] = useState(false);
   const [schoolData, setSchoolData] = useState<Category[]>([]);
   const { t } = useTranslation();
   const contentRef = useRef<HTMLDivElement>(null);
@@ -119,6 +347,7 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
     setError(null);
     setReadProgress(0);
     setCompleted(false);
+    setTestPassed(false);
     fetch(`/api/lessons/${lessonId}`)
       .then((r) => {
         if (!r.ok) throw new Error("Lesson not found");
@@ -149,6 +378,16 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
     return () => { cancelled = true };
   }, []);
 
+  // Listen for test-passed custom event
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent).detail;
+      if (detail?.testId) setTestPassed(true);
+    };
+    window.addEventListener("test-passed", handler as EventListener);
+    return () => window.removeEventListener("test-passed", handler as EventListener);
+  }, []);
+
   const flatLessons = useMemo(() => {
     const out: { categorySlug: string; techniqueSlug: string; lesson: Lesson }[] = [];
     schoolData.forEach((cat: Category) => {
@@ -172,6 +411,9 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
   const nextLesson = currentIndex < flatLessons.length - 1 ? flatLessons[currentIndex + 1] : null;
   const lessonProgress =
     flatLessons.length > 0 ? Math.round(((currentIndex + 1) / flatLessons.length) * 100) : 0;
+
+  // Completion gating: can only mark complete if test is passed
+  const canComplete = testPassed || !lesson; // if no test exists yet, allow manual complete
 
   useEffect(() => {
     const handleScroll = () => {
@@ -406,6 +648,9 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
           ))}
         </div>
 
+        {/* ── Inline lesson test ── */}
+        <LessonTest lessonId={lessonId} />
+
         {lesson.sources && lesson.sources.length > 0 && (
           <div
             style={{
@@ -484,57 +729,50 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
         <button
           type="button"
           onClick={() => setCompleted((prev) => !prev)}
+          disabled={!canComplete}
           style={{
             display: "inline-flex",
             alignItems: "center",
             gap: "0.5rem",
             padding: "0.6rem 1rem",
             borderRadius: "12px",
-            border: completed ? "1px solid rgba(74,222,128,0.4)" : "1px solid rgba(255,255,255,0.12)",
-            background: completed ? "rgba(74,222,128,0.1)" : "rgba(255,255,255,0.04)",
-            color: completed ? "#4ade80" : "#fff",
-            cursor: "pointer",
+            border: completed
+              ? "1px solid rgba(74,222,128,0.4)"
+              : testPassed
+              ? "1px solid rgba(99,102,241,0.5)"
+              : "1px solid rgba(255,255,255,0.12)",
+            background: completed ? "rgba(74,222,128,0.1)" : testPassed ? "rgba(99,102,241,0.08)" : "rgba(255,255,255,0.04)",
+            color: completed ? "#4ade80" : testPassed ? "#a5b4fc" : "#fff",
+            cursor: canComplete ? "pointer" : "not-allowed",
             fontSize: "0.9rem",
             fontWeight: 600,
+            opacity: canComplete ? 1 : 0.5,
           }}
         >
-          <span aria-hidden>{completed ? "✓" : "○"}</span>
-          {completed ? "Completed" : "Mark complete"}
+          <span>{completed ? "✓" : "○"}</span>
+          <span>{completed ? "Completed" : "Mark as complete"}</span>
         </button>
 
-        <div style={{ display: "flex", gap: "0.75rem" }}>
-          {prevLesson && (
+        <div style={{ display: "flex", gap: "0.75rem", fontSize: "0.85rem", color: "rgba(255,255,255,0.5)" }}>
+          {prevLesson ? (
             <Link
               href={`/school/lesson/${prevLesson.categorySlug}/${prevLesson.techniqueSlug}/${prevLesson.lesson.id}`}
-              style={{
-                padding: "0.6rem 1rem",
-                borderRadius: "12px",
-                border: "1px solid rgba(255,255,255,0.12)",
-                background: "rgba(255,255,255,0.04)",
-                color: "#fff",
-                textDecoration: "none",
-                fontSize: "0.9rem",
-              }}
+              style={{ color: "#a5b4fc", textDecoration: "none" }}
             >
-              ← Previous
+              ← {prevLesson.lesson.title}
             </Link>
+          ) : (
+            <span />
           )}
-          {nextLesson && (
+          {nextLesson ? (
             <Link
               href={`/school/lesson/${nextLesson.categorySlug}/${nextLesson.techniqueSlug}/${nextLesson.lesson.id}`}
-              style={{
-                padding: "0.6rem 1rem",
-                borderRadius: "12px",
-                border: "none",
-                background: "linear-gradient(135deg, #6366f1, #a855f7)",
-                color: "#fff",
-                textDecoration: "none",
-                fontSize: "0.9rem",
-                fontWeight: 600,
-              }}
+              style={{ color: "#a5b4fc", textDecoration: "none" }}
             >
-              Next lesson →
+              {nextLesson.lesson.title} →
             </Link>
+          ) : (
+            <span />
           )}
         </div>
       </div>
@@ -546,14 +784,9 @@ export default function LessonPage({ categorySlug, techniqueSlug, lessonId }: Le
   return (
     <>
       <Head>
-        <title>Lesson | Bartender School</title>
-        <meta name="description" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Lesson — Bartender Sanctuary</title>
       </Head>
-
-      <div style={{ maxWidth: "860px", margin: "0 auto", padding: "2rem 1.5rem" }}>
-        <LessonContent categorySlug={categorySlug} techniqueSlug={techniqueSlug} lessonId={lessonId} />
-      </div>
+      <LessonContent categorySlug={categorySlug} techniqueSlug={techniqueSlug} lessonId={lessonId} />
     </>
   );
 }

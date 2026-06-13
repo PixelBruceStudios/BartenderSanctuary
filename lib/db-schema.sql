@@ -133,3 +133,58 @@ CREATE INDEX IF NOT EXISTS idx_sources_lesson ON sources(lesson_id);
 CREATE INDEX IF NOT EXISTS idx_cocktails_slug ON cocktails(slug);
 CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);
 CREATE INDEX IF NOT EXISTS idx_verification_tokens_token ON verification_tokens(token);
+
+-- ── Test tables ──────────────────────────────────────────────────────────────
+
+-- One test row per scope unit (sublesson block, whole lesson, combined technique)
+CREATE TABLE IF NOT EXISTS tests (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  scope TEXT NOT NULL CHECK (scope IN ('sublesson','lesson','combined')),
+  lesson_id UUID REFERENCES lessons(id) ON DELETE CASCADE,
+  technique_id UUID REFERENCES techniques(id) ON DELETE CASCADE,
+  title TEXT NOT NULL DEFAULT '',
+  description TEXT NOT NULL DEFAULT '',
+  passing_score INTEGER NOT NULL DEFAULT 70,
+  sort_order INTEGER NOT NULL DEFAULT 0,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  CONSTRAINT tests_scope_target_chk CHECK (
+    (scope = 'sublesson' AND lesson_id IS NOT NULL) OR
+    (scope = 'lesson'   AND lesson_id IS NOT NULL) OR
+    (scope = 'combined' AND technique_id IS NOT NULL)
+  )
+);
+CREATE UNIQUE INDEX IF NOT EXISTS idx_tests_scope_lesson
+  ON tests(scope, lesson_id) WHERE scope IN ('sublesson','lesson');
+CREATE UNIQUE INDEX IF NOT EXISTS idx_tests_scope_technique
+  ON tests(scope, technique_id) WHERE scope = 'combined';
+
+-- Individual questions belonging to a test
+CREATE TABLE IF NOT EXISTS test_questions (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  test_id UUID NOT NULL REFERENCES tests(id) ON DELETE CASCADE,
+  question_text TEXT NOT NULL,
+  options JSONB NOT NULL DEFAULT '[]',
+  correct_index INTEGER NOT NULL,
+  explanation TEXT NOT NULL DEFAULT '',
+  sort_order INTEGER NOT NULL DEFAULT 0,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS idx_test_questions_test ON test_questions(test_id);
+
+-- Per-user (session) attempt log — used to gate completion
+CREATE TABLE IF NOT EXISTS test_attempts (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  test_id UUID NOT NULL REFERENCES tests(id) ON DELETE CASCADE,
+  session_id TEXT NOT NULL,
+  score INTEGER NOT NULL,
+  passed BOOLEAN NOT NULL DEFAULT false,
+  answers JSONB NOT NULL DEFAULT '[]',
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS idx_test_attempts_test_session
+  ON test_attempts(test_id, session_id);
+
+DROP TRIGGER IF EXISTS tests_updated ON tests;
+CREATE TRIGGER tests_updated BEFORE UPDATE ON tests
+  FOR EACH ROW EXECUTE FUNCTION set_updated_at();
