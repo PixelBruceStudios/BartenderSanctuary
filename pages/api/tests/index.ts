@@ -41,10 +41,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (!scope || !['sublesson', 'lesson', 'combined'].includes(scope)) {
       return res.status(400).json({ error: 'Invalid scope (sublesson|lesson|combined)' });
     }
+    // Resolve lesson slug to UUID if needed
+    let resolvedLessonId: string | null = null;
+    if (lesson_id) {
+      if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(lesson_id)) {
+        resolvedLessonId = lesson_id;
+      } else {
+        resolvedLessonId = await resolveLessonId(String(lesson_id));
+        if (!resolvedLessonId) return res.status(404).json({ error: 'Lesson not found', slug: lesson_id });
+      }
+    }
     const rows = await query<any[]>(
       `INSERT INTO tests (scope, lesson_id, technique_id, title, description, passing_score, sort_order)
        VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *`,
-      [scope, lesson_id || null, technique_id || null, title || '', description || '', passing_score ?? 70, sort_order ?? 0]
+      [scope, resolvedLessonId, technique_id || null, title || '', description || '', passing_score ?? 70, sort_order ?? 0]
     );
     return res.status(201).json(rows[0]);
   }
