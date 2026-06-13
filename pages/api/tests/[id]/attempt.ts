@@ -93,16 +93,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         `SELECT * FROM user_test_progress WHERE test_id = $1 AND user_id = $2 ORDER BY last_attempt_at DESC LIMIT 1`,
         [testId, userId]
       );
-      if (!rows.length) {
-        // fallback: check anonymous attempts for this test
-        const anon = await query<TestAttempt>(
-          `SELECT passed FROM test_attempts WHERE test_id = $1 AND user_id IS NULL ORDER BY created_at DESC LIMIT 1`,
-          [testId]
-        );
-        return res.status(200).json({ passed: anon.length > 0 && anon[0].passed, attempt: null });
+      if (rows.length > 0) {
+        const row = rows[0] as UserTestProgress;
+        return res.status(200).json({ passed: row.passed, attempt: row });
       }
-      const row = rows[0] as UserTestProgress;
-      return res.status(200).json({ passed: row.passed, attempt: row });
+      return res.status(200).json({ passed: false, attempt: null });
     }
     // Anonymous: check test_attempts for this test
     const anon = await query<TestAttempt>(
