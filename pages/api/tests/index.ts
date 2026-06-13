@@ -1,6 +1,15 @@
 import { query } from '@/lib/db';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
+async function resolveLessonId(slug: string): Promise<string | null> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const rows: any[] = await query(
+    `SELECT id FROM lessons WHERE slug = $1 UNION ALL SELECT id FROM lessons_hr WHERE slug = $1 LIMIT 1`,
+    [slug]
+  );
+  return rows.length > 0 ? String(rows[0].id) : null;
+}
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { method } = req;
 
@@ -10,7 +19,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const where: string[] = [];
     const params: any[] = [];
     if (scope) { where.push('scope = $' + (params.length + 1)); params.push(scope); }
-    if (lesson_id) { where.push('lesson_id = $' + (params.length + 1)); params.push(lesson_id); }
+    if (lesson_id) {
+      const raw = String(lesson_id);
+      // Resolve slug to UUID if needed
+      if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(raw)) {
+        const resolved = await resolveLessonId(raw);
+        if (!resolved) return res.status(200).json([]);
+        where.push('lesson_id = $' + (params.length + 1)); params.push(resolved);
+      } else {
+        where.push('lesson_id = $' + (params.length + 1)); params.push(raw);
+      }
+    }
     if (technique_id) { where.push('technique_id = $' + (params.length + 1)); params.push(technique_id); }
     const sql = 'SELECT * FROM tests' + (where.length ? ' WHERE ' + where.join(' AND ') : '') + ' ORDER BY sort_order';
     const rows = await query<any[]>(sql, params);
