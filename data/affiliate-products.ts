@@ -16,12 +16,13 @@ export interface AffiliateProduct {
 export const AMAZON_ASSOCIATE_TAG = 'pixelbruce-20';
 
 export function affiliateUrl(product: AffiliateProduct): string {
-  // If URL already has a tag param, keep it; otherwise add our affiliate tag
-  if (product.url.includes('tag=')) {
-    return product.url;
+  const url = new URL(product.url);
+  // Always ensure our affiliate tag is present (Amazon search URLs use &tag=, /dp/ uses ?tag=)
+  if (!url.searchParams.has('tag')) {
+    url.searchParams.set('tag', AMAZON_ASSOCIATE_TAG);
   }
-  const base = product.url.split('?')[0];
-  return `${base}?tag=${AMAZON_ASSOCIATE_TAG}&language=en_US`;
+  url.searchParams.set('language', 'en_US');
+  return url.toString();
 }
 
 export const affiliateProducts: AffiliateProduct[] = [
@@ -34,7 +35,7 @@ export const affiliateProducts: AffiliateProduct[] = [
     description: '2-piece stainless steel Boston shaker (18oz + 28oz) with built-in strainer. Weighted ends for perfect seal. Restaurant-grade.',
     price: '$19.99',
     image: 'https://m.media-amazon.com/images/I/51oXfMTdHxL._AC_SL1500_.jpg',
-    url: 'https://www.amazon.com/dp/B01N9N0JGG',
+    url: 'https://www.amazon.com/s?k=professional+boston+shaker+set+barillio&tag=pixelbruce-20',
     tags: ['shaker', 'boston', 'stainless-steel', 'essential'],
     relatedCocktails: ['whiskey-sour', 'daiquiri', 'espresso-martini'],
   },
@@ -46,7 +47,7 @@ export const affiliateProducts: AffiliateProduct[] = [
     description: '304 stainless steel double jigger (0.5oz/1oz + 1oz/2oz). Japanese precision measurement. 18/8 food-grade steel.',
     price: '$8.99',
     image: 'https://m.media-amazon.com/images/I/51zDgKEz8ML._AC_SL1500_.jpg',
-    url: 'https://www.amazon.com/dp/B01H3YF3LQ',
+    url: 'https://www.amazon.com/s?k=japanese+style+double+jigger+stainless+steel&tag=pixelbruce-20',
     tags: ['jigger', 'measurement', 'precision'],
     relatedCocktails: ['manhattan', 'martini', 'negroni'],
   },
@@ -58,7 +59,7 @@ export const affiliateProducts: AffiliateProduct[] = [
     description: 'Stainless steel bar spoons (11 inch) with weighted ends for smooth stirring. Teardrop design. Dishwasher safe.',
     price: '$9.99',
     image: 'https://m.media-amazon.com/images/I/51wnpSfCjML._AC_SL1500_.jpg',
-    url: 'https://www.amazon.com/dp/B01N5D6FQW',
+    url: 'https://www.amazon.com/s?k=bar+spoon+set+stainless+steel+weighted&tag=pixelbruce-20',
     tags: ['bar-spoon', 'stirred', 'essential'],
     relatedCocktails: ['manhattan', 'martini', 'old-fashioned'],
   },
@@ -70,7 +71,7 @@ export const affiliateProducts: AffiliateProduct[] = [
     description: 'Thick-bottomed mixing glass (750ml) with measuring markings. Shatter-resistant. Essential for stirred cocktails.',
     price: '$14.99',
     image: 'https://m.media-amazon.com/images/I/51aqnqDnKjL._AC_SL1500_.jpg',
-    url: 'https://www.amazon.com/dp/B07P5VK7C4',
+    url: 'https://www.amazon.com/s?k=mixing+glass+750ml+thick+bottom+bartender&tag=pixelbruce-20',
     tags: ['mixing-glass', 'stirred', 'essential'],
     relatedCocktails: ['manhattan', 'martini', 'negroni'],
   },
