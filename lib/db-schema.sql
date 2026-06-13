@@ -84,6 +84,7 @@ CREATE TABLE cocktails (
   technique TEXT NOT NULL DEFAULT 'Shaken',
   base TEXT[] NOT NULL DEFAULT '{}',
   modifiers TEXT[] NOT NULL DEFAULT '{}',
+  icon_type TEXT NOT NULL DEFAULT 'martini',
   created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
@@ -172,10 +173,11 @@ CREATE TABLE IF NOT EXISTS test_questions (
 );
 CREATE INDEX IF NOT EXISTS idx_test_questions_test ON test_questions(test_id);
 
--- Per-user (session) attempt log — used to gate completion
+-- Per-user attempt log — used to gate completion
 CREATE TABLE IF NOT EXISTS test_attempts (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   test_id UUID NOT NULL REFERENCES tests(id) ON DELETE CASCADE,
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
   session_id TEXT NOT NULL,
   score INTEGER NOT NULL,
   passed BOOLEAN NOT NULL DEFAULT false,
@@ -184,6 +186,23 @@ CREATE TABLE IF NOT EXISTS test_attempts (
 );
 CREATE INDEX IF NOT EXISTS idx_test_attempts_test_session
   ON test_attempts(test_id, session_id);
+CREATE INDEX IF NOT EXISTS idx_test_attempts_user
+  ON test_attempts(user_id);
+
+-- Per-user lesson progress (tracks sublesson + lesson completion state)
+CREATE TABLE IF NOT EXISTS user_lesson_progress (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  lesson_id UUID NOT NULL REFERENCES lessons(id) ON DELETE CASCADE,
+  sublesson_tests_passed INTEGER NOT NULL DEFAULT 0,
+  sublesson_tests_total INTEGER NOT NULL DEFAULT 0,
+  lesson_test_passed BOOLEAN NOT NULL DEFAULT false,
+  lesson_test_score INTEGER,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  UNIQUE (user_id, lesson_id)
+);
+CREATE INDEX IF NOT EXISTS idx_user_lesson_progress_user
+  ON user_lesson_progress(user_id);
 
 DROP TRIGGER IF EXISTS tests_updated ON tests;
 CREATE TRIGGER tests_updated BEFORE UPDATE ON tests

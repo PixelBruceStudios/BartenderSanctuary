@@ -178,7 +178,19 @@ export default function GlassVisual({ glassType, size = 200, className = '' }: G
   // Normalize glass type to key
   const normalized = glassType.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-');
   const pathKey = `glass-${normalized}`;
-  const svgContent = glassPaths[pathKey] || glassPaths['glass-rocks'];
+  
+  // Alias mapping for variations
+  const aliases: Record<string, string> = {
+    'glass-wine': 'glass-wine-glass',
+    'glass-flute': 'glass-champagne-flute',
+    'glass-champagne': 'glass-champagne-flute',
+    'glass-tumbler': 'glass-rocks',
+    'glass-lowball': 'glass-rocks',
+    'glass-old-fashioned': 'glass-rocks',
+  };
+  
+  const svgKey = aliases[pathKey] || pathKey;
+  const svgContent = glassPaths[svgKey] || glassPaths['glass-rocks'];
 
   return (
     <svg
