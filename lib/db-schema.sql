@@ -194,10 +194,9 @@ CREATE TABLE IF NOT EXISTS user_lesson_progress (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   lesson_id UUID NOT NULL REFERENCES lessons(id) ON DELETE CASCADE,
-  sublesson_tests_passed INTEGER NOT NULL DEFAULT 0,
-  sublesson_tests_total INTEGER NOT NULL DEFAULT 0,
-  lesson_test_passed BOOLEAN NOT NULL DEFAULT false,
-  lesson_test_score INTEGER,
+  all_subtests_passed BOOLEAN NOT NULL DEFAULT false,
+  full_test_passed BOOLEAN NOT NULL DEFAULT false,
+  overall_progress INTEGER NOT NULL DEFAULT 0,
   updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   UNIQUE (user_id, lesson_id)
 );
