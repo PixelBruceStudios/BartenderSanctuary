@@ -62,7 +62,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     await client.query("COMMIT");
 
     const verifyUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/api/auth/verify?token=${token}`;
-    console.log(`[register] verification link for ${trimmedEmail}: ${verifyUrl}`);
 
     // Email send is best-effort; registration should succeed even if email fails
     if (process.env.RESEND_API_KEY) {

@@ -52,7 +52,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     await client.query("COMMIT");
 
     const verifyUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/api/auth/verify?token=${token}`;
-    console.log(`[verify-request] link for ${trimmed}: ${verifyUrl}`);
 
     if (process.env.RESEND_API_KEY) {
       await resend.emails.send({

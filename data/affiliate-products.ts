@@ -16,6 +16,10 @@ export interface AffiliateProduct {
 export const AMAZON_ASSOCIATE_TAG = 'pixelbruce-20';
 
 export function affiliateUrl(product: AffiliateProduct): string {
+  // If URL already has a tag param, keep it; otherwise add our affiliate tag
+  if (product.url.includes('tag=')) {
+    return product.url;
+  }
   const base = product.url.split('?')[0];
   return `${base}?tag=${AMAZON_ASSOCIATE_TAG}&language=en_US`;
 }
@@ -166,7 +170,7 @@ export const affiliateProducts: AffiliateProduct[] = [
     description: 'Large 2-inch clear ice cubes. Slow melting = less dilution. Essential for whiskey cocktails and stirred drinks.',
     price: '$14.99',
     image: 'https://m.media-amazon.com/images/I/51rNJpBcP4L._AC_SL1500_.jpg',
-    url: 'https://www.amazon.com/dp/B008B7Q8HW',
+    url: 'https://www.amazon.com/s?k=king+cube+ice+tray+2+inch&TAG=pixelbruce-20',
     tags: ['ice', 'dilution', 'whiskey', 'essential'],
     relatedCocktails: ['old-fashioned', 'manhattan', 'whiskey-sour'],
   },
@@ -179,7 +183,7 @@ export const affiliateProducts: AffiliateProduct[] = [
     description: 'Classic spring-loaded Hawthorne strainer. Fits standard tins. The workhorse strainer for shaken cocktails.',
     price: '$7.99',
     image: 'https://m.media-amazon.com/images/I/51kEaPOa4GL._AC_SL1500_.jpg',
-    url: 'https://www.amazon.com/dp/B008B7Q8HW',
+    url: 'https://www.amazon.com/s?k=hawthorne+strainer+bar+tool&TAG=pixelbruce-20',
     tags: ['strainer', 'shaken', 'essential'],
     relatedCocktails: ['whiskey-sour', 'daiquiri', 'martini'],
   },
@@ -191,7 +195,7 @@ export const affiliateProducts: AffiliateProduct[] = [
     description: 'Perforated julep strainer. For stirred cocktails in mixing glasses. Slots catch ice chips while pouring.',
     price: '$6.99',
     image: 'https://m.media-amazon.com/images/I/51kEaPOa4GL._AC_SL1500_.jpg',
-    url: 'https://www.amazon.com/dp/B008B7Q8HW',
+    url: 'https://www.amazon.com/s?k=julep+strainer+bar+tool&TAG=pixelbruce-20',
     tags: ['strainer', 'stirred', 'mixing-glass'],
     relatedCocktails: ['manhattan', 'martini', 'negroni'],
   },

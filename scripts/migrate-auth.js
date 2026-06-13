@@ -29,14 +29,13 @@ async function main() {
       ORDER BY table_name
     `);
     const tables = result.rows.map(r => r.table_name);
-    console.log('Existing tables:', tables.join(', '));
 
     // Check if auth tables exist
     const hasUsers = tables.includes('users');
     const hasVerificationTokens = tables.includes('verification_tokens');
 
     if (hasUsers && hasVerificationTokens) {
-      console.log('Auth tables already exist. No migration needed.');
+
       return;
     }
 
@@ -71,7 +70,7 @@ async function main() {
     `;
 
     await client.query(authDDL);
-    console.log('Auth tables migration applied successfully.');
+
   } catch (err) {
     console.error('Migration failed:', err.message);
     process.exitCode = 1;

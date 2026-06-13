@@ -5,24 +5,23 @@ import { auth } from '../../auth/[...nextauth]';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const cookieHeader = req.headers.cookie || '';
-  console.log('[user/tests/attempt]', req.method, 'cookies:', cookieHeader);
+
   let session: any = null;
   try {
     session = await getServerSession(req, res, auth);
   } catch (e: any) {
-    console.log('[user/tests/attempt] getServerSession error:', e?.message || e);
+
   }
-  console.log('[user/tests/attempt] session:', session ? { id: session.user?.id, email: session.user?.email } : null);
+
   const userId = session?.user?.id;
 
   if (req.method === 'POST') {
     if (!userId) {
-      console.log('[user/tests/attempt] 401 - not authenticated');
+
       return res.status(401).json({ error: 'Not authenticated' });
     }
     const { testId, score, passed, answers } = req.body;
     if (!testId) return res.status(400).json({ error: 'testId required' });
-    console.log('[user/tests/attempt] POST testId:', testId, 'score:', score, 'passed:', passed);
 
     await query(
       `INSERT INTO user_test_progress (user_id, test_id, passed, best_score, attempts, last_attempt_at)
