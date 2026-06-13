@@ -16,13 +16,6 @@ declare module "next-auth" {
   }
 }
 
-declare module "next-auth/jwt" {
-  interface JWT {
-    sub: string;
-    emailVerified: boolean;
-  }
-}
-
 const _nextAuth = NextAuth({
   pages: {
     signIn: "/auth/signin",
@@ -71,23 +64,6 @@ const _nextAuth = NextAuth({
       },
     }),
   ],
-  callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token.sub = user.id;
-        token.emailVerified = Boolean((user as any).emailVerified);
-      }
-      return token;
-    },
-    async session({ session, token }) {
-      if (!session.user) {
-        session.user = { id: "", email: "", emailVerified: false };
-      }
-      session.user.id = token.sub;
-      session.user.emailVerified = token.emailVerified;
-      return session;
-    },
-  },
 });
 
 export const { handlers, auth, signIn, signOut } = _nextAuth;
