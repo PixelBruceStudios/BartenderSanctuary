@@ -73,13 +73,19 @@ const _nextAuth = NextAuth({
   ],
   callbacks: {
     async jwt({ token, user }) {
-      const hadUser = Boolean(user);
       if (user) {
         token.sub = user.id;
         token.emailVerified = Boolean((user as any).emailVerified);
       }
-      console.log('[nextauth] jwt', JSON.stringify({ hadUser, tokenSub: token.sub, tokenEmail: token.email }));
       return token;
+    },
+    async session({ session, token }) {
+      if (!session.user) {
+        session.user = { id: "", email: "", emailVerified: false };
+      }
+      session.user.id = token.sub;
+      session.user.emailVerified = token.emailVerified;
+      return session;
     },
   },
 });
