@@ -1,13 +1,10 @@
 import { query } from '@/lib/db';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { getServerSession } from 'next-auth';
-import { auth } from '../auth/[...nextauth]';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const session = await getServerSession(req, res, auth);
+  const session = (req as any).session;
   if (!session?.user?.id) return res.status(401).json({ error: 'Not authenticated' });
-
-  const userId = session.user.id as string;
+  const userId = session.user.id;
   const { testId } = req.query;
 
   if (req.method === 'POST') {

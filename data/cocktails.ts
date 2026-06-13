@@ -17,6 +17,7 @@ export interface Cocktail {
   instructions: string[];
   glass_type: string;
   difficulty: string;
+  icon_type: string;
   created_at: string;
   updated_at: string;
 }
@@ -40,6 +41,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1.5 oz", "item": "Fino sherry"}, {"qty": "1 oz", "item": "Sweet vermouth"}, {"qty": "2 dashes", "item": "Orange bitters"}],
     instructions: ["Stir all ingredients with ice.", "Strain into coupe over ice.", "Garnish with orange twist."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:17.523Z",
     updated_at: "2026-06-12T04:58:17.523Z",
@@ -62,6 +65,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1.5 oz", "item": "Campari"}, {"qty": "1.5 oz", "item": "Sweet vermouth"}, {"qty": "top", "item": "Soda water"}],
     instructions: ["Add Campari and vermouth to rocks glass over ice.", "Top with soda.", "Stir gently.", "Garnish with orange slice."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:02.565Z",
     updated_at: "2026-06-12T04:58:02.565Z",
@@ -84,6 +89,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1 oz", "item": "Campari"}, {"qty": "1 oz", "item": "Sweet vermouth"}, {"qty": "2 oz", "item": "Prosecco"}],
     instructions: ["Add Campari and vermouth to rocks glass over ice.", "Top with prosecco and stir gently."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:39.424Z",
     updated_at: "2026-06-12T19:06:39.424Z",
@@ -106,6 +113,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Aperol"}, {"qty": "0.75 oz", "item": "Fresh lemon juice"}, {"qty": "0.5 oz", "item": "Simple syrup"}, {"qty": "1 (optional)", "item": "Egg white"}],
     instructions: ["Dry shake all ingredients without ice.", "Add ice and shake again.", "Double strain into rocks glass over ice.", "Garnish with orange twist."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:03.422Z",
     updated_at: "2026-06-12T04:58:03.422Z",
@@ -128,6 +137,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "3 oz", "item": "Aperol"}, {"qty": "3 oz", "item": "Prosecco"}, {"qty": "1 oz", "item": "Soda water"}],
     instructions: ["Add Aperol to wine glass over ice.", "Top with prosecco and soda.", "Stir gently.", "Garnish with orange slice."],
     glass_type: "Wine",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:01.694Z",
     updated_at: "2026-06-12T04:58:01.694Z",
@@ -150,6 +161,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "London dry gin"}, {"qty": "0.5 oz", "item": "Maraschino liqueur"}, {"qty": "0.75 oz", "item": "Fresh lemon juice"}, {"qty": "0.25 oz", "item": "Cr\u00e8me de violette"}],
     instructions: ["Add all ingredients to shaker with ice.", "Shake hard and double strain into chilled coupe."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T19:06:26.924Z",
     updated_at: "2026-06-12T19:06:26.924Z",
@@ -172,6 +185,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "London dry gin"}, {"qty": "0.75 oz", "item": "Dry vermouth"}, {"qty": "0.5 oz", "item": "Maraschino liqueur"}, {"qty": "0.25 oz", "item": "Cr\u00e8me de violette"}],
     instructions: ["Add all ingredients to mixing glass with ice.", "Stir until chilled and double strain into chilled coupe."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T19:06:39.806Z",
     updated_at: "2026-06-12T19:06:39.806Z",
@@ -194,6 +209,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "0.5 oz", "item": "Coffee liqueur"}, {"qty": "0.5 oz", "item": "Irish cream"}, {"qty": "0.5 oz", "item": "Orange liqueur"}],
     instructions: ["Layer coffee liqueur in bottom of shot glass.", "Slowly layer Irish cream over back of spoon.", "Top with orange liqueur.", "Serve upright."],
     glass_type: "Shot",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T04:58:05.503Z",
     updated_at: "2026-06-12T04:58:05.503Z",
@@ -216,6 +233,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "White rum"}, {"qty": "1 oz", "item": "Fresh lime juice"}, {"qty": "0.25 oz", "item": "Grenadine"}, {"qty": "0.25 oz", "item": "Simple syrup"}],
     instructions: ["Add all ingredients to shaker with ice.", "Shake hard and strain into chilled coupe."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:40.187Z",
     updated_at: "2026-06-12T19:06:40.187Z",
@@ -238,6 +257,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Fino sherry"}, {"qty": "1 oz", "item": "Dry vermouth"}, {"qty": "1 dash", "item": "Angostura bitters"}],
     instructions: ["Stir all ingredients with ice.", "Strain into coupe.", "Garnish with lemon twist."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:17.132Z",
     updated_at: "2026-06-12T04:58:17.132Z",
@@ -260,6 +281,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Amontillado sherry"}, {"qty": "1 oz", "item": "Dry vermouth"}, {"qty": "1 dash", "item": "Angostura bitters"}],
     instructions: ["Stir all ingredients with ice.", "Strain into coupe.", "Garnish with lemon twist."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:17.924Z",
     updated_at: "2026-06-12T04:58:17.924Z",
@@ -282,6 +305,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "London dry gin"}, {"qty": "0.75 oz", "item": "Fresh lemon juice"}, {"qty": "0.75 oz", "item": "Honey syrup"}, {"qty": "1 dash", "item": "Orange blossom water"}],
     instructions: ["Add gin, lemon, and honey syrup to shaker with ice.", "Shake hard and strain into chilled coupe."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:27.432Z",
     updated_at: "2026-06-12T19:06:27.432Z",
@@ -304,6 +329,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "3 oz", "item": "Prosecco"}, {"qty": "2 oz", "item": "White peach pur\u00e9e"}],
     instructions: ["Pour peach pur\u00e9e into champagne flute.", "Top with prosecco.", "Stir gently.", "Garnish with peach slice."],
     glass_type: "Champagne flute",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:01.263Z",
     updated_at: "2026-06-12T04:58:01.263Z",
@@ -326,6 +353,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1 oz", "item": "Cognac"}, {"qty": "1 oz", "item": "White rum"}, {"qty": "1 oz", "item": "Triple sec"}, {"qty": "0.5 oz", "item": "Fresh lemon juice"}, {"qty": "0.5 oz", "item": "Simple syrup"}],
     instructions: ["Add all ingredients to shaker with ice.", "Shake hard and strain into chilled coupe."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:27.880Z",
     updated_at: "2026-06-12T19:06:27.880Z",
@@ -348,6 +377,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "London dry gin"}, {"qty": "1 oz", "item": "Sweet vermouth"}, {"qty": "1 oz", "item": "Green Chartreuse"}, {"qty": "2 dashes", "item": "Angostura bitters"}],
     instructions: ["Add all ingredients to mixing glass with ice.", "Stir 20\u201330 seconds and strain into chilled coupe."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T19:06:28.248Z",
     updated_at: "2026-06-12T19:06:28.248Z",
@@ -370,6 +401,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Vodka"}, {"qty": "1 oz", "item": "Coffee liqueur"}],
     instructions: ["Add both ingredients to rocks glass over ice.", "Stir gently."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:04.709Z",
     updated_at: "2026-06-12T04:58:04.709Z",
@@ -392,6 +425,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "0.75 oz", "item": "Scotch whisky"}, {"qty": "0.75 oz", "item": "Cherry brandy"}, {"qty": "0.75 oz", "item": "Sweet vermouth"}, {"qty": "0.75 oz", "item": "Fresh orange juice"}],
     instructions: ["Shake all ingredients with ice.", "Double strain into coupe.", "Garnish with brandied cherry and orange twist."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T04:58:20.966Z",
     updated_at: "2026-06-12T04:58:20.966Z",
@@ -414,6 +449,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Vodka"}, {"qty": "4 oz", "item": "Tomato juice"}, {"qty": "0.5 oz", "item": "Fresh lemon juice"}, {"qty": "2 dashes", "item": "Worcestershire sauce"}, {"qty": "2 dashes", "item": "Hot sauce"}, {"qty": "pinch", "item": "Celery salt"}],
     instructions: ["Add all ingredients to shaker with ice.", "Shake gently.", "Strain into highball over ice.", "Garnish with celery stalk and lemon wedge."],
     glass_type: "Highball",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:14.631Z",
     updated_at: "2026-06-12T04:58:14.631Z",
@@ -436,6 +473,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1.5 oz", "item": "Scotch whisky"}, {"qty": "1 oz", "item": "Sweet vermouth"}, {"qty": "0.25 oz", "item": "B\u00e9n\u00e9dictine"}],
     instructions: ["Stir all ingredients with ice.", "Strain into coupe.", "Garnish with lemon twist."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T04:58:21.391Z",
     updated_at: "2026-06-12T04:58:21.391Z",
@@ -458,6 +497,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1.5 oz", "item": "Brandy"}, {"qty": "0.75 oz", "item": "Orange cura\u00e7ao"}, {"qty": "0.5 oz", "item": "Fresh lemon juice"}, {"qty": "0.25 oz", "item": "Grenadine"}],
     instructions: ["Add all ingredients to mixing glass with ice.", "Stir until chilled and strain into chilled coupe."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T19:06:40.595Z",
     updated_at: "2026-06-12T19:06:40.595Z",
@@ -480,6 +521,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1.5 oz", "item": "Bourbon or rye"}, {"qty": "1 oz", "item": "Campari"}, {"qty": "1 oz", "item": "Sweet vermouth"}],
     instructions: ["Stir all ingredients with ice.", "Strain into coupe or rocks glass over ice.", "Garnish with orange peel."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:02.141Z",
     updated_at: "2026-06-12T04:58:02.141Z",
@@ -502,6 +545,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "London dry gin"}, {"qty": "1 oz", "item": "Fresh lemon juice"}, {"qty": "0.5 oz", "item": "Simple syrup"}, {"qty": "0.75 oz", "item": "Cr\u00e8me de m\u00fbre"}, {"qty": "2\u20133", "item": "Fresh blackberries"}],
     instructions: ["Add gin, lemon, and syrup to shaker with ice.", "Shake and strain over crushed ice.", "Drizzle cr\u00e8me de m\u00fbre over top."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:28.689Z",
     updated_at: "2026-06-12T19:06:28.689Z",
@@ -524,6 +569,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "London dry gin"}, {"qty": "1 oz", "item": "Fresh lemon juice"}, {"qty": "0.75 oz", "item": "Simple syrup"}, {"qty": "1 oz", "item": "Cr\u00e8me de m\u00fbre"}],
     instructions: ["Add gin, lemon, and syrup to shaker with ice.", "Shake and strain over crushed ice.", "Drizzle cr\u00e8me de m\u00fbre over top."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:41.001Z",
     updated_at: "2026-06-12T19:06:41.001Z",
@@ -546,6 +593,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1.5 oz", "item": "Vodka"}, {"qty": "4 oz", "item": "Clamato juice"}, {"qty": "2 dashes", "item": "Worcestershire sauce"}, {"qty": "2 dashes", "item": "Hot sauce"}, {"qty": "pinch", "item": "Celery salt"}],
     instructions: ["Rim glass with celery salt and pepper.", "Add vodka, Clamato, Worcestershire, hot sauce, and celery salt.", "Fill with ice and stir."],
     glass_type: "Highball",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:41.390Z",
     updated_at: "2026-06-12T19:06:41.390Z",
@@ -568,6 +617,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Cacha\u00e7a"}, {"qty": "1 (cut into wedges)", "item": "Fresh lime"}, {"qty": "1\u20132 tsp", "item": "Simple syrup"}],
     instructions: ["Muddle lime wedges with syrup in rocks glass.", "Fill with ice.", "Add cacha\u00e7a and stir.", "Garnish with lime wedge."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:57:59.642Z",
     updated_at: "2026-06-12T04:57:59.642Z",
@@ -590,6 +641,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1", "item": "Sugar cube"}, {"qty": "2 dashes", "item": "Angostura bitters"}, {"qty": "1 oz", "item": "Cognac"}, {"qty": "5 oz", "item": "Champagne"}],
     instructions: ["Place sugar cube in flute and saturate with bitters.", "Add cognac and top with champagne."],
     glass_type: "Flute",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:41.776Z",
     updated_at: "2026-06-12T19:06:41.776Z",
@@ -612,6 +665,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Bourbon"}, {"qty": "1 oz", "item": "Sweet vermouth"}, {"qty": "0.5 oz", "item": "B\u00e9n\u00e9dictine"}, {"qty": "2 dashes", "item": "Angostura bitters"}],
     instructions: ["Add all ingredients to mixing glass with ice.", "Stir until chilled and strain into chilled coupe."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T19:06:29.063Z",
     updated_at: "2026-06-12T19:06:29.063Z",
@@ -634,6 +689,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1.5 oz", "item": "Gin"}, {"qty": "0.75 oz", "item": "Raspberry syrup"}, {"qty": "0.75 oz", "item": "Fresh lemon juice"}, {"qty": "1", "item": "Egg white"}],
     instructions: ["Dry shake all ingredients without ice.", "Add ice and shake again.", "Double strain into coupe.", "Garnish with brandied cherry."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T04:58:16.326Z",
     updated_at: "2026-06-12T04:58:16.326Z",
@@ -656,6 +713,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "London dry gin"}, {"qty": "1 oz", "item": "Fresh lemon juice"}, {"qty": "0.75 oz", "item": "Raspberry syrup"}, {"qty": "1", "item": "Egg white"}],
     instructions: ["Add all ingredients to shaker.", "Dry shake without ice.", "Add ice and shake hard.", "Double strain into chilled coupe."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T19:06:42.489Z",
     updated_at: "2026-06-12T19:06:42.489Z",
@@ -678,6 +737,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "0.75 oz", "item": "Gin"}, {"qty": "0.75 oz", "item": "Lillet Blanc"}, {"qty": "0.75 oz", "item": "Triple sec or Cointreau"}, {"qty": "0.75 oz", "item": "Fresh lemon juice"}, {"qty": "1 dash", "item": "Absinthe"}],
     instructions: ["Shake gin, Lillet, triple sec, and lemon with ice.", "Strain into coupe.", "Rinse glass with absinthe and discard.", "Garnish with lemon twist."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T04:58:07.926Z",
     updated_at: "2026-06-12T04:58:07.926Z",
@@ -700,6 +761,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1 oz", "item": "Cognac"}, {"qty": "1 oz", "item": "Apple brandy"}, {"qty": "1 oz", "item": "Lillet Blanc"}, {"qty": "0.5 oz", "item": "Absinthe"}, {"qty": "0.5 oz", "item": "Fresh lemon juice"}],
     instructions: ["Add all ingredients to shaker with ice.", "Shake hard and strain into chilled coupe."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T19:06:42.991Z",
     updated_at: "2026-06-12T19:06:42.991Z",
@@ -722,6 +785,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [],
     instructions: [],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-11T17:16:12.092Z",
     updated_at: "2026-06-11T17:16:12.092Z",
@@ -744,6 +809,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "White rum"}, {"qty": "4\u20136 oz", "item": "Cola"}, {"qty": "0.5 oz", "item": "Fresh lime juice"}],
     instructions: ["Add rum and lime juice to highball over ice.", "Top with cola and stir gently."],
     glass_type: "Highball",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:45.418Z",
     updated_at: "2026-06-12T19:06:45.418Z",
@@ -766,6 +833,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "White rum"}, {"qty": "4\u20136 oz", "item": "Cola"}, {"qty": "0.5 oz", "item": "Fresh lime juice"}],
     instructions: ["Fill highball with ice.", "Add rum and lime juice.", "Top with cola.", "Garnish with lime wedge."],
     glass_type: "Highball",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:57:58.881Z",
     updated_at: "2026-06-12T04:57:58.881Z",
@@ -788,6 +857,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [],
     instructions: [],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-11T17:16:11.533Z",
     updated_at: "2026-06-11T17:16:11.533Z",
@@ -810,6 +881,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Dark rum"}, {"qty": "4\u20136 oz", "item": "Ginger beer"}, {"qty": "0.5 oz", "item": "Fresh lime juice"}],
     instructions: ["Fill highball with ice.", "Add rum and lime.", "Top with ginger beer.", "Garnish with lime wedge."],
     glass_type: "Highball",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:57:59.242Z",
     updated_at: "2026-06-12T04:57:59.242Z",
@@ -832,6 +905,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Dark rum"}, {"qty": "0.5 oz", "item": "Fresh lime juice"}, {"qty": "4\u20136 oz", "item": "Ginger beer"}, {"qty": "0.25 oz", "item": "Simple syrup"}],
     instructions: ["Add rum and lime to highball over ice.", "Top with ginger beer and simple syrup."],
     glass_type: "Highball",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:45.798Z",
     updated_at: "2026-06-12T19:06:45.798Z",
@@ -854,6 +929,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Blanco tequila"}, {"qty": "1 oz", "item": "Cr\u00e8me de cassis"}, {"qty": "0.5 oz", "item": "Fresh lime juice"}, {"qty": "top", "item": "Ginger beer"}],
     instructions: ["Add tequila, cr\u00e8me de cassis, and lime to highball over ice.", "Top with ginger beer."],
     glass_type: "Highball",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:46.195Z",
     updated_at: "2026-06-12T19:06:46.195Z",
@@ -876,6 +953,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Tequila"}, {"qty": "0.75 oz", "item": "Cr\u00e8me de cassis"}, {"qty": "0.5 oz", "item": "Fresh lime juice"}, {"qty": "top", "item": "Ginger beer"}],
     instructions: ["Add tequila, cassis, and lime to shaker with ice.", "Shake and strain into highball over ice.", "Top with ginger beer.", "Garnish with lime wedge."],
     glass_type: "Highball",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:18.313Z",
     updated_at: "2026-06-12T04:58:18.313Z",
@@ -898,6 +977,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Vodka"}, {"qty": "1 oz", "item": "Fresh espresso"}, {"qty": "1 oz", "item": "Coffee liqueur"}, {"qty": "0.5 oz (optional)", "item": "Simple syrup"}],
     instructions: ["Add all ingredients to shaker with ice.", "Shake hard until tin is frosty.", "Double strain into coupe.", "Garnish with three coffee beans."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:05.095Z",
     updated_at: "2026-06-12T04:58:05.095Z",
@@ -920,6 +1001,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Vodka"}, {"qty": "1 oz", "item": "Coffee liqueur"}, {"qty": "1 oz", "item": "Fresh espresso"}, {"qty": "0.25 oz", "item": "Simple syrup"}],
     instructions: ["Add all ingredients to shaker with ice.", "Shake hard until frosty and double strain into chilled coupe."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T19:06:46.571Z",
     updated_at: "2026-06-12T19:06:46.571Z",
@@ -942,6 +1025,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [],
     instructions: [],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-11T17:16:12.705Z",
     updated_at: "2026-06-11T17:16:12.705Z",
@@ -964,6 +1049,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1 oz", "item": "Gin"}, {"qty": "0.5 oz", "item": "Fresh lemon juice"}, {"qty": "0.5 oz", "item": "Simple syrup"}, {"qty": "top", "item": "Champagne"}],
     instructions: ["Shake gin, lemon, and syrup with ice.", "Strain into champagne flute.", "Top with champagne.", "Garnish with lemon twist."],
     glass_type: "Champagne flute",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T04:58:13.241Z",
     updated_at: "2026-06-12T04:58:13.241Z",
@@ -986,6 +1073,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1 oz", "item": "London dry gin"}, {"qty": "0.5 oz", "item": "Fresh lemon juice"}, {"qty": "0.5 oz", "item": "Simple syrup"}, {"qty": "4 oz", "item": "Champagne"}],
     instructions: ["Add gin, lemon, and syrup to shaker with ice.", "Shake and strain into champagne flute.", "Top with champagne."],
     glass_type: "Flute",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T19:06:46.936Z",
     updated_at: "2026-06-12T19:06:46.936Z",
@@ -1008,6 +1097,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1.5 oz", "item": "Scotch whisky"}, {"qty": "0.75 oz", "item": "Amaretto"}],
     instructions: ["Add both ingredients to rocks glass over ice.", "Stir gently."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:06.286Z",
     updated_at: "2026-06-12T04:58:06.286Z",
@@ -1030,6 +1121,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1.5 oz", "item": "Vodka"}, {"qty": "1.5 oz", "item": "Amaretto"}],
     instructions: ["Add vodka and amaretto to mixing glass with ice.", "Stir until chilled and strain into rocks glass over ice."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:47.351Z",
     updated_at: "2026-06-12T19:06:47.351Z",
@@ -1052,6 +1145,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1.5 oz", "item": "London dry gin"}, {"qty": "1.5 oz", "item": "Sweet vermouth"}, {"qty": "2 dashes", "item": "Fernet-Branca"}],
     instructions: ["Add all ingredients to mixing glass with ice.", "Stir until chilled and strain into chilled coupe."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T19:06:29.424Z",
     updated_at: "2026-06-12T19:06:29.424Z",
@@ -1074,6 +1169,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1.5 oz", "item": "Vodka"}, {"qty": "4 oz", "item": "Orange juice"}, {"qty": "0.5 oz", "item": "Galliano"}],
     instructions: ["Add vodka and orange juice to highball over ice.", "Gently float Galliano on top."],
     glass_type: "Highball",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:47.718Z",
     updated_at: "2026-06-12T19:06:47.718Z",
@@ -1096,6 +1193,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "White rum"}, {"qty": "0.5 oz", "item": "Maraschino liqueur"}, {"qty": "0.75 oz", "item": "Fresh grapefruit juice"}, {"qty": "0.5 oz", "item": "Fresh lime juice"}],
     instructions: ["Add rum, maraschino, grapefruit juice, and lime juice to shaker with ice.", "Shake hard and strain into chilled coupe."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T19:06:48.123Z",
     updated_at: "2026-06-12T19:06:48.123Z",
@@ -1118,6 +1217,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Gin"}, {"qty": "1 oz", "item": "Lillet Blanc"}, {"qty": "2 dashes", "item": "Orange bitters"}],
     instructions: ["Stir all ingredients with ice.", "Strain into coupe.", "Garnish with orange twist."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:18.701Z",
     updated_at: "2026-06-12T04:58:18.701Z",
@@ -1140,6 +1241,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "4 oz", "item": "Prosecco"}, {"qty": "1 oz", "item": "Elderflower liqueur"}, {"qty": "1 oz", "item": "Soda water"}, {"qty": "few leaves", "item": "Fresh mint"}],
     instructions: ["Muddle mint gently in wine glass.", "Add ice, elderflower, and prosecco.", "Top with soda.", "Stir and garnish with mint sprig."],
     glass_type: "Wine",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:03.000Z",
     updated_at: "2026-06-12T04:58:03.000Z",
@@ -1162,6 +1265,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "White rum"}, {"qty": "1 oz", "item": "Dark rum"}, {"qty": "2 oz", "item": "Passion fruit juice"}, {"qty": "0.5 oz", "item": "Fresh lime juice"}, {"qty": "0.5 oz", "item": "Simple syrup"}],
     instructions: ["Shake all ingredients with ice.", "Strain into hurricane glass over ice.", "Garnish with orange slice and cherry."],
     glass_type: "Hurricane",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T04:58:11.103Z",
     updated_at: "2026-06-12T04:58:11.103Z",
@@ -1184,6 +1289,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1.5 oz", "item": "Irish whiskey"}, {"qty": "6 oz", "item": "Hot coffee"}, {"qty": "1 tsp", "item": "Sugar"}, {"qty": "1 oz", "item": "Heavy cream"}],
     instructions: ["Preheat a heatproof glass.", "Add whiskey and sugar, fill with hot coffee.", "Float cream on top using a spoon."],
     glass_type: "Irish Coffee Glass",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:29.791Z",
     updated_at: "2026-06-12T19:06:29.791Z",
@@ -1206,6 +1313,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Applejack"}, {"qty": "0.75 oz", "item": "Fresh lime juice"}, {"qty": "0.5 oz", "item": "Grenadine"}],
     instructions: ["Shake all ingredients with ice.", "Strain into coupe.", "Garnish with lime wheel."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:16.733Z",
     updated_at: "2026-06-12T04:58:16.733Z",
@@ -1228,6 +1337,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Geneva gin"}, {"qty": "1 oz", "item": "Fresh lemon juice"}, {"qty": "0.75 oz", "item": "Simple syrup"}, {"qty": "top", "item": "Soda water"}],
     instructions: ["Add gin, lemon, and syrup to shaker with ice.", "Shake and strain into Collins glass over ice.", "Top with soda water."],
     glass_type: "Collins",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:48.495Z",
     updated_at: "2026-06-12T19:06:48.495Z",
@@ -1250,6 +1361,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1.5 oz", "item": "Dark rum"}, {"qty": "0.75 oz", "item": "Campari"}, {"qty": "1.5 oz", "item": "Pineapple juice"}, {"qty": "0.5 oz", "item": "Fresh lime juice"}, {"qty": "0.5 oz", "item": "Simple syrup"}],
     instructions: ["Shake all ingredients with ice.", "Strain into rocks glass over ice.", "Garnish with pineapple wedge."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T04:58:10.221Z",
     updated_at: "2026-06-12T04:58:10.221Z",
@@ -1272,6 +1385,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "0.5 oz", "item": "Cr\u00e8me de cassis"}, {"qty": "5 oz", "item": "Dry white wine"}],
     instructions: ["Add cr\u00e8me de cassis to wine glass.", "Top with white wine.", "Stir gently."],
     glass_type: "Wine",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:13.709Z",
     updated_at: "2026-06-12T04:58:13.709Z",
@@ -1294,6 +1409,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "0.5 oz", "item": "Cr\u00e8me de cassis"}, {"qty": "5 oz", "item": "Champagne"}],
     instructions: ["Add cr\u00e8me de cassis to champagne flute.", "Top with champagne.", "Stir gently."],
     glass_type: "Champagne flute",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:14.150Z",
     updated_at: "2026-06-12T04:58:14.150Z",
@@ -1316,6 +1433,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "0.75 oz", "item": "Gin"}, {"qty": "0.75 oz", "item": "Green Chartreuse"}, {"qty": "0.75 oz", "item": "Maraschino liqueur"}, {"qty": "0.75 oz", "item": "Fresh lime juice"}],
     instructions: ["Shake all ingredients with ice.", "Strain into coupe.", "Garnish with brandied cherry."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T04:58:08.317Z",
     updated_at: "2026-06-12T04:58:08.317Z",
@@ -1338,6 +1457,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "0.5 oz", "item": "Vodka"}, {"qty": "0.5 oz", "item": "Gin"}, {"qty": "0.5 oz", "item": "White rum"}, {"qty": "0.5 oz", "item": "Tequila"}, {"qty": "0.5 oz", "item": "Triple sec"}, {"qty": "1 oz", "item": "Lemon juice"}, {"qty": "1 oz", "item": "Simple syrup"}, {"qty": "top", "item": "Cola"}],
     instructions: ["Add all spirits, lemon, and syrup to shaker with ice.", "Shake and strain into highball over ice.", "Top with cola.", "Garnish with lemon twist."],
     glass_type: "Highball",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T04:57:58.477Z",
     updated_at: "2026-06-12T04:57:58.477Z",
@@ -1360,6 +1481,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Aged rum"}, {"qty": "0.75 oz", "item": "Fresh lime juice"}, {"qty": "0.5 oz", "item": "Orange cura\u00e7ao"}, {"qty": "0.5 oz", "item": "Orgeat syrup"}, {"qty": "0.25 oz", "item": "Simple syrup"}, {"qty": "0.5 oz (float)", "item": "Light rum"}],
     instructions: ["Shake aged rum, lime, cura\u00e7ao, orgeat, and syrup with ice.", "Strain into rocks glass filled with crushed ice.", "Float light rum on top.", "Garnish with mint sprig and lime wedge."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T04:57:57.650Z",
     updated_at: "2026-06-12T04:57:57.650Z",
@@ -1382,6 +1505,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [],
     instructions: [],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-11T17:16:11.402Z",
     updated_at: "2026-06-11T17:16:11.402Z",
@@ -1404,6 +1529,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [],
     instructions: [],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-11T17:16:11.666Z",
     updated_at: "2026-06-11T17:16:11.666Z",
@@ -1426,6 +1553,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [],
     instructions: [],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-11T17:16:11.268Z",
     updated_at: "2026-06-11T17:16:11.268Z",
@@ -1448,6 +1577,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [],
     instructions: [],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-11T17:16:12.568Z",
     updated_at: "2026-06-11T17:16:12.568Z",
@@ -1470,6 +1601,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "3 oz", "item": "Champagne or sparkling wine"}, {"qty": "3 oz", "item": "Orange juice"}],
     instructions: ["Pour orange juice into champagne flute.", "Top with champagne.", "Stir gently.", "Garnish with orange twist."],
     glass_type: "Champagne flute",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:00.862Z",
     updated_at: "2026-06-12T04:58:00.862Z",
@@ -1492,6 +1625,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1 oz", "item": "Vodka"}, {"qty": "0.5 oz", "item": "Coffee liqueur"}, {"qty": "top", "item": "Sparkling water"}],
     instructions: ["Add vodka and coffee liqueur to highball over ice.", "Top with sparkling water.", "Stir gently."],
     glass_type: "Highball",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:05.895Z",
     updated_at: "2026-06-12T04:58:05.895Z",
@@ -1514,6 +1649,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Bourbon"}, {"qty": "8\u201310", "item": "Fresh mint leaves"}, {"qty": "0.5 oz", "item": "Simple syrup"}, {"qty": "as needed", "item": "Crushed ice"}],
     instructions: ["Muddle mint with simple syrup in julep cup.", "Fill with crushed ice.", "Add bourbon and stir until cup frosts."],
     glass_type: "Julep Cup",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:30.152Z",
     updated_at: "2026-06-12T19:06:30.152Z",
@@ -1536,6 +1673,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [],
     instructions: [],
     glass_type: "Highball",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-11T17:16:11.948Z",
     updated_at: "2026-06-11T17:16:11.948Z",
@@ -1558,6 +1697,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "London dry gin"}, {"qty": "1 oz", "item": "Fresh orange juice"}, {"qty": "0.25 oz", "item": "Absinthe"}, {"qty": "0.5 oz", "item": "Grenadine"}],
     instructions: ["Add all ingredients to shaker with ice.", "Shake hard and strain into chilled coupe."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:30.530Z",
     updated_at: "2026-06-12T19:06:30.530Z",
@@ -1580,6 +1721,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Vodka"}, {"qty": "0.5 oz", "item": "Fresh lime juice"}, {"qty": "4\u20136 oz", "item": "Ginger beer"}],
     instructions: ["Add vodka and lime juice to copper mug over ice.", "Top with ginger beer and stir gently."],
     glass_type: "Copper Mug",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:30.894Z",
     updated_at: "2026-06-12T19:06:30.894Z",
@@ -1602,6 +1745,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [],
     instructions: [],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-11T17:16:11.806Z",
     updated_at: "2026-06-11T17:16:11.806Z",
@@ -1624,6 +1769,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1 oz", "item": "Campari"}, {"qty": "1 oz", "item": "Sweet vermouth"}, {"qty": "1.5 oz", "item": "Prosecco"}],
     instructions: ["Add Campari and vermouth to rocks glass over ice.", "Top with prosecco.", "Stir gently.", "Garnish with orange slice."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:03.861Z",
     updated_at: "2026-06-12T04:58:03.861Z",
@@ -1646,6 +1793,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1.5 oz", "item": "Aged rum"}, {"qty": "0.75 oz", "item": "Fresh lime juice"}, {"qty": "0.75 oz", "item": "Simple syrup"}, {"qty": "8\u201310", "item": "Fresh mint leaves"}, {"qty": "top", "item": "Champagne"}],
     instructions: ["Muddle mint with lime and syrup.", "Add rum and ice, shake hard.", "Double strain and top with champagne."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T19:06:31.302Z",
     updated_at: "2026-06-12T19:06:31.302Z",
@@ -1668,6 +1817,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [],
     instructions: [],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-11T17:16:11.125Z",
     updated_at: "2026-06-11T17:16:11.125Z",
@@ -1690,6 +1841,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Blanco tequila"}, {"qty": "1 oz", "item": "Fresh grapefruit juice"}, {"qty": "0.5 oz", "item": "Fresh lime juice"}, {"qty": "0.5 oz", "item": "Simple syrup"}, {"qty": "top", "item": "Soda water"}],
     instructions: ["Rim half of glass with salt.", "Add tequila, grapefruit, lime, and syrup to shaker with ice.", "Shake and strain over ice.", "Top with soda water and garnish with grapefruit wedge."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:00.437Z",
     updated_at: "2026-06-12T04:58:00.437Z",
@@ -1712,6 +1865,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "0.75 oz", "item": "Bourbon"}, {"qty": "0.75 oz", "item": "Aperol"}, {"qty": "0.75 oz", "item": "Amaro Nonino"}, {"qty": "0.75 oz", "item": "Fresh lemon juice"}],
     instructions: ["Shake all ingredients with ice.", "Strain into rocks glass over ice.", "Garnish with lemon twist."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T04:58:08.707Z",
     updated_at: "2026-06-12T04:58:08.707Z",
@@ -1734,6 +1889,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "0.75 oz", "item": "Bourbon"}, {"qty": "0.75 oz", "item": "Aperol"}, {"qty": "0.75 oz", "item": "Amaro Nonino"}, {"qty": "0.75 oz", "item": "Fresh lemon juice"}],
     instructions: ["Shake all ingredients with ice.", "Strain into rocks glass over ice.", "Garnish with lemon twist."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T04:58:22.263Z",
     updated_at: "2026-06-12T04:58:22.263Z",
@@ -1756,6 +1913,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Gin"}, {"qty": "0.75 oz", "item": "Apricot brandy"}, {"qty": "0.5 oz", "item": "Fresh lemon juice"}],
     instructions: ["Shake all ingredients with ice.", "Strain into coupe.", "Garnish with lemon twist."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T04:58:15.909Z",
     updated_at: "2026-06-12T04:58:15.909Z",
@@ -1778,6 +1937,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Blended Scotch"}, {"qty": "0.75 oz", "item": "Fresh lemon juice"}, {"qty": "0.75 oz", "item": "Honey-ginger syrup"}, {"qty": "0.25 oz (float)", "item": "Islay Scotch"}],
     instructions: ["Shake blended Scotch, lemon, and syrup with ice.", "Strain into rocks glass over ice.", "Float Islay Scotch on top.", "Garnish with candied ginger."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T04:58:21.849Z",
     updated_at: "2026-06-12T04:58:21.849Z",
@@ -1800,6 +1961,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1.5 oz", "item": "Pimm's No. 1"}, {"qty": "4 oz", "item": "Lemonade"}, {"qty": "few", "item": "Cucumber slices"}, {"qty": "sprig", "item": "Fresh mint"}],
     instructions: ["Add Pimm's and lemonade to highball over ice.", "Add cucumber and mint.", "Stir gently."],
     glass_type: "Highball",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:12.813Z",
     updated_at: "2026-06-12T04:58:12.813Z",
@@ -1822,6 +1985,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Pisco"}, {"qty": "1 oz", "item": "Fresh lemon juice"}, {"qty": "0.75 oz", "item": "Simple syrup"}, {"qty": "1", "item": "Egg white"}, {"qty": "2 dashes", "item": "Angostura bitters"}],
     instructions: ["Add pisco, lemon, syrup, and egg white to shaker.", "Dry shake without ice.", "Add ice, shake hard, and double strain.", "Dash bitters on foam."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T19:06:31.703Z",
     updated_at: "2026-06-12T19:06:31.703Z",
@@ -1844,6 +2009,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "White rum"}, {"qty": "1 oz", "item": "Coconut cream"}, {"qty": "3 oz", "item": "Pineapple juice"}],
     instructions: ["Add all ingredients to blender with ice.", "Blend until smooth.", "Pour into hurricane glass.", "Garnish with pineapple wedge and maraschino cherry."],
     glass_type: "Hurricane",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:57:58.085Z",
     updated_at: "2026-06-12T04:57:58.085Z",
@@ -1866,6 +2033,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Dark rum"}, {"qty": "1 oz", "item": "Fresh lime juice"}, {"qty": "0.75 oz", "item": "Simple syrup"}, {"qty": "1 oz", "item": "Pineapple juice"}, {"qty": "grate", "item": "Nutmeg"}],
     instructions: ["Shake rum, lime, syrup, and pineapple with ice.", "Strain into rocks glass over ice.", "Grate nutmeg on top."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:11.941Z",
     updated_at: "2026-06-12T04:58:11.941Z",
@@ -1888,6 +2057,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1 oz", "item": "Coffee liqueur"}, {"qty": "1 oz", "item": "Irish cream"}, {"qty": "1 oz", "item": "Orange liqueur"}],
     instructions: ["Layer coffee liqueur, Irish cream, and orange liqueur into a shot glass."],
     glass_type: "Shot",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:32.083Z",
     updated_at: "2026-06-12T19:06:32.083Z",
@@ -1910,6 +2081,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "0.5 oz", "item": "Grenadine"}, {"qty": "0.5 oz", "item": "Green cr\u00e8me de menthe"}, {"qty": "0.5 oz", "item": "Cr\u00e8me de banane"}, {"qty": "0.5 oz", "item": "Brandy"}, {"qty": "0.5 oz", "item": "Triple sec"}],
     instructions: ["Carefully layer each liqueur from heaviest to lightest using a bar spoon."],
     glass_type: "Pousse Caf\u00e9 Glass",
+    icon_type: "martini",
+
     difficulty: "Advanced",
     created_at: "2026-06-12T19:06:32.513Z",
     updated_at: "2026-06-12T19:06:32.513Z",
@@ -1932,6 +2105,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Bourbon"}, {"qty": "0.75 oz", "item": "Amaro Nonino"}, {"qty": "2 dashes", "item": "Angostura bitters"}],
     instructions: ["Add all ingredients to mixing glass with ice.", "Stir until chilled and strain into rocks glass over ice."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T19:06:32.885Z",
     updated_at: "2026-06-12T19:06:32.885Z",
@@ -1954,6 +2129,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1.5 oz", "item": "Rye whiskey"}, {"qty": "1 oz", "item": "Sweet vermouth"}, {"qty": "0.25 oz", "item": "Cherry liqueur"}, {"qty": "1 dash", "item": "Absinthe"}],
     instructions: ["Add all ingredients to mixing glass with ice.", "Stir until chilled and strain into chilled coupe."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T19:06:33.257Z",
     updated_at: "2026-06-12T19:06:33.257Z",
@@ -1976,6 +2153,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Scotch whisky"}, {"qty": "1 oz", "item": "Sweet vermouth"}, {"qty": "2 dashes", "item": "Angostura bitters"}],
     instructions: ["Stir all ingredients with ice.", "Strain into coupe.", "Garnish with brandied cherry."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:20.545Z",
     updated_at: "2026-06-12T04:58:20.545Z",
@@ -1998,6 +2177,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1 oz", "item": "Kirsch"}, {"qty": "1 oz", "item": "Dry vermouth"}, {"qty": "0.5 oz", "item": "Applejack"}, {"qty": "0.25 oz", "item": "Grenadine"}],
     instructions: ["Add all ingredients to mixing glass with ice.", "Stir until chilled and strain into chilled coupe."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T19:06:33.630Z",
     updated_at: "2026-06-12T19:06:33.630Z",
@@ -2020,6 +2201,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1.5 oz", "item": "Scotch whisky"}, {"qty": "0.75 oz", "item": "Drambuie"}],
     instructions: ["Add both ingredients to rocks glass over ice.", "Stir gently."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:06.673Z",
     updated_at: "2026-06-12T04:58:06.673Z",
@@ -2042,6 +2225,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Rye whiskey"}, {"qty": "1 rinse", "item": "Absinthe"}, {"qty": "1", "item": "Sugar cube"}, {"qty": "3 dashes", "item": "Peychaud's bitters"}],
     instructions: ["Rinse rocks glass with absinthe and discard.", "Muddle sugar with bitters in separate glass.", "Add rye and ice; stir.", "Strain into absinthe-rinsed glass.", "Garnish with lemon peel."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T04:58:15.070Z",
     updated_at: "2026-06-12T04:58:15.070Z",
@@ -2064,6 +2249,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Blended scotch"}, {"qty": "1 oz", "item": "Fresh lemon juice"}, {"qty": "0.5 oz", "item": "Simple syrup"}, {"qty": "1 (optional)", "item": "Egg white"}],
     instructions: ["Add scotch, lemon, syrup, and egg white to shaker.", "Dry shake without ice.", "Add ice and shake hard.", "Double strain into rocks glass over ice."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:34.028Z",
     updated_at: "2026-06-12T19:06:34.028Z",
@@ -2086,6 +2273,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Vodka"}, {"qty": "6 oz", "item": "Fresh orange juice"}],
     instructions: ["Add vodka to highball over ice.", "Top with orange juice and stir gently."],
     glass_type: "Highball",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:34.412Z",
     updated_at: "2026-06-12T19:06:34.412Z",
@@ -2108,6 +2297,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1.5 oz", "item": "Vodka"}, {"qty": "3 oz", "item": "Cranberry juice"}, {"qty": "1.5 oz", "item": "Grapefruit juice"}],
     instructions: ["Add all ingredients to shaker with ice.", "Shake gently and strain into rocks glass over ice."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:34.781Z",
     updated_at: "2026-06-12T19:06:34.781Z",
@@ -2130,6 +2321,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1 oz", "item": "Vodka"}, {"qty": "1 oz", "item": "Peach schnapps"}, {"qty": "2 oz", "item": "Orange juice"}, {"qty": "2 oz", "item": "Cranberry juice"}],
     instructions: ["Add all ingredients to shaker with ice.", "Shake gently and strain into highball over ice."],
     glass_type: "Highball",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:35.160Z",
     updated_at: "2026-06-12T19:06:35.160Z",
@@ -2152,6 +2345,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Cognac or VSOP brandy"}, {"qty": "0.75 oz", "item": "Triple sec or Cointreau"}, {"qty": "0.75 oz", "item": "Fresh lemon juice"}],
     instructions: ["Shake all ingredients with ice.", "Strain into coupe.", "Garnish with orange twist."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T04:58:07.524Z",
     updated_at: "2026-06-12T04:58:07.524Z",
@@ -2174,6 +2369,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Cognac"}, {"qty": "0.75 oz", "item": "Triple sec"}, {"qty": "0.75 oz", "item": "Fresh lemon juice"}, {"qty": "0.25 oz", "item": "Simple syrup"}],
     instructions: ["Add cognac, triple sec, lemon, and syrup to shaker with ice.", "Shake hard and double strain into chilled coupe."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T19:06:35.650Z",
     updated_at: "2026-06-12T19:06:35.650Z",
@@ -2196,6 +2393,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1.5 oz", "item": "Gin"}, {"qty": "0.5 oz", "item": "Cherry brandy"}, {"qty": "0.5 oz", "item": "Fresh lime juice"}, {"qty": "1 oz", "item": "Pineapple juice"}, {"qty": "0.25 oz", "item": "Grenadine"}, {"qty": "top", "item": "Soda water"}],
     instructions: ["Shake gin, brandy, lime, pineapple, and grenadine with ice.", "Strain into highball over ice.", "Top with soda.", "Garnish with cherry and pineapple wedge."],
     glass_type: "Highball",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T04:58:12.381Z",
     updated_at: "2026-06-12T04:58:12.381Z",
@@ -2218,6 +2417,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1.5 oz", "item": "London dry gin"}, {"qty": "0.5 oz", "item": "Cherry liqueur"}, {"qty": "0.25 oz", "item": "Cointreau"}, {"qty": "0.25 oz", "item": "B\u00e9n\u00e9dictine"}, {"qty": "0.5 oz", "item": "Fresh lime juice"}, {"qty": "1 oz", "item": "Pineapple juice"}, {"qty": "0.5 oz", "item": "Grenadine"}, {"qty": "top", "item": "Soda water"}],
     instructions: ["Add all ingredients except soda to shaker with ice.", "Shake gently and strain into highball over ice.", "Top with soda water."],
     glass_type: "Highball",
+    icon_type: "martini",
+
     difficulty: "Advanced",
     created_at: "2026-06-12T19:06:36.022Z",
     updated_at: "2026-06-12T19:06:36.022Z",
@@ -2240,6 +2441,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1.5 oz", "item": "St-Germain elderflower liqueur"}, {"qty": "3 oz", "item": "Prosecco"}, {"qty": "1 oz", "item": "Soda water"}, {"qty": "0.5 oz", "item": "Fresh lemon juice"}],
     instructions: ["Add St-Germain and lemon juice to wine glass over ice.", "Top with prosecco and soda water."],
     glass_type: "Wine Glass",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:36.398Z",
     updated_at: "2026-06-12T19:06:36.398Z",
@@ -2262,6 +2465,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1.5 oz", "item": "Brandy or Cognac"}, {"qty": "0.5 oz", "item": "White cr\u00e8me de menthe"}],
     instructions: ["Add both ingredients to shaker with ice.", "Shake and strain into coupe or rocks glass.", "Stir if served over ice."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:07.084Z",
     updated_at: "2026-06-12T04:58:07.084Z",
@@ -2284,6 +2489,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1 oz", "item": "Gin"}, {"qty": "1 oz", "item": "Bourbon"}, {"qty": "0.5 oz", "item": "Fresh lime juice"}, {"qty": "top", "item": "Ginger beer"}, {"qty": "2 dashes", "item": "Angostura bitters"}],
     instructions: ["Add gin, bourbon, lime, and bitters to shaker with ice.", "Shake and strain into highball over ice.", "Top with ginger beer.", "Garnish with mint sprig and lime wedge."],
     glass_type: "Highball",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T04:58:11.512Z",
     updated_at: "2026-06-12T04:58:11.512Z",
@@ -2306,6 +2513,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Tequila"}, {"qty": "4 oz", "item": "Orange juice"}, {"qty": "0.5 oz", "item": "Grenadine"}],
     instructions: ["Add tequila and orange juice to highball over ice.", "Slowly pour grenadine down the inside of the glass.", "Let it settle to create gradient.", "Garnish with orange slice and cherry."],
     glass_type: "Highball",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:00.030Z",
     updated_at: "2026-06-12T04:58:00.030Z",
@@ -2328,6 +2537,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Blanco tequila"}, {"qty": "6 oz", "item": "Orange juice"}, {"qty": "0.5 oz", "item": "Grenadine"}],
     instructions: ["Add tequila and orange juice to highball over ice.", "Slowly pour grenadine down the inside."],
     glass_type: "Highball",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:36.787Z",
     updated_at: "2026-06-12T19:06:36.787Z",
@@ -2350,6 +2561,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [],
     instructions: [],
     glass_type: "Highball",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-11T17:16:12.430Z",
     updated_at: "2026-06-11T17:16:12.430Z",
@@ -2372,6 +2585,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "London dry gin"}, {"qty": "1 oz", "item": "Fresh lemon juice"}, {"qty": "0.75 oz", "item": "Simple syrup"}, {"qty": "top", "item": "Soda water"}],
     instructions: ["Add gin, lemon, and syrup to shaker with ice.", "Shake and strain into Collins glass over ice.", "Top with soda water."],
     glass_type: "Collins",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:37.180Z",
     updated_at: "2026-06-12T19:06:37.180Z",
@@ -2394,6 +2609,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "3 oz", "item": "Gin"}, {"qty": "1 oz", "item": "Vodka"}, {"qty": "0.5 oz", "item": "Lillet Blanc"}],
     instructions: ["Stir all ingredients with ice.", "Strain into coupe.", "Garnish with lemon twist."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:19.099Z",
     updated_at: "2026-06-12T04:58:19.099Z",
@@ -2416,6 +2633,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "3 oz", "item": "London dry gin"}, {"qty": "1 oz", "item": "Vodka"}, {"qty": "0.5 oz", "item": "Lillet Blanc"}],
     instructions: ["Add all ingredients to mixing glass with ice.", "Stir until very cold and strain into chilled coupe."],
     glass_type: "Coupe",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T19:06:37.552Z",
     updated_at: "2026-06-12T19:06:37.552Z",
@@ -2438,6 +2657,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1 oz", "item": "Rye whiskey"}, {"qty": "1 oz", "item": "Cognac"}, {"qty": "1 oz", "item": "Sweet vermouth"}, {"qty": "0.25 oz", "item": "B\u00e9n\u00e9dictine"}, {"qty": "2 dashes", "item": "Peychaud's bitters"}],
     instructions: ["Stir all ingredients with ice.", "Strain into rocks glass over ice.", "Garnish with lemon twist and brandied cherry."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Intermediate",
     created_at: "2026-06-12T04:58:15.530Z",
     updated_at: "2026-06-12T04:58:15.530Z",
@@ -2460,6 +2681,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1 oz", "item": "Rye whiskey"}, {"qty": "1 oz", "item": "Cognac"}, {"qty": "1 oz", "item": "Sweet vermouth"}, {"qty": "0.25 oz", "item": "B\u00e9n\u00e9dictine"}, {"qty": "2 dashes", "item": "Angostura bitters"}, {"qty": "2 dashes", "item": "Peychaud's bitters"}],
     instructions: ["Add all ingredients to mixing glass with ice.", "Stir until chilled and strain into chilled coupe."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Advanced",
     created_at: "2026-06-12T19:06:37.920Z",
     updated_at: "2026-06-12T19:06:37.920Z",
@@ -2482,6 +2705,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [],
     instructions: [],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-11T17:16:12.232Z",
     updated_at: "2026-06-11T17:16:12.232Z",
@@ -2504,6 +2729,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Bourbon"}, {"qty": "1 oz", "item": "Fresh lemon juice"}, {"qty": "0.75 oz", "item": "Simple syrup"}, {"qty": "1 (optional)", "item": "Egg white"}],
     instructions: ["Add bourbon, lemon, syrup, and egg white to shaker.", "Dry shake without ice.", "Add ice and shake hard.", "Double strain into rocks glass over ice."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:38.303Z",
     updated_at: "2026-06-12T19:06:38.303Z",
@@ -2526,6 +2753,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Vodka"}, {"qty": "1 oz", "item": "Coffee liqueur"}, {"qty": "1 oz", "item": "Heavy cream"}],
     instructions: ["Add vodka and coffee liqueur to rocks glass over ice.", "Float cream on top.", "Stir gently before drinking."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T04:58:04.269Z",
     updated_at: "2026-06-12T04:58:04.269Z",
@@ -2548,6 +2777,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "2 oz", "item": "Vodka"}, {"qty": "1 oz", "item": "Coffee liqueur"}, {"qty": "1 oz", "item": "Heavy cream"}],
     instructions: ["Add vodka and coffee liqueur to rocks glass over ice.", "Gently float cream on top."],
     glass_type: "Rocks",
+    icon_type: "martini",
+
     difficulty: "Beginner",
     created_at: "2026-06-12T19:06:38.687Z",
     updated_at: "2026-06-12T19:06:38.687Z",
@@ -2570,6 +2801,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1 oz", "item": "White rum"}, {"qty": "1 oz", "item": "Dark rum"}, {"qty": "0.5 oz", "item": "Overproof rum"}, {"qty": "1 oz", "item": "Fresh lime juice"}, {"qty": "1 oz", "item": "Pineapple juice"}, {"qty": "1 oz", "item": "Papaya juice"}, {"qty": "0.25 oz", "item": "Cinnamon syrup"}],
     instructions: ["Shake all ingredients with ice (except overproof rum).", "Strain into tiki mug over crushed ice.", "Float overproof rum on top.", "Garnish with mint sprig."],
     glass_type: "Tiki",
+    icon_type: "martini",
+
     difficulty: "Advanced",
     created_at: "2026-06-12T04:58:10.668Z",
     updated_at: "2026-06-12T04:58:10.668Z",
@@ -2592,6 +2825,8 @@ export const cocktails: Cocktail[] = [
     ingredients: [{"qty": "1 oz", "item": "White rum"}, {"qty": "1 oz", "item": "Dark rum"}, {"qty": "0.5 oz", "item": "Overproof rum"}, {"qty": "1 oz", "item": "Fresh lime juice"}, {"qty": "1 oz", "item": "Pineapple juice"}, {"qty": "0.5 oz", "item": "Falernum"}, {"qty": "0.5 oz", "item": "Grenadine"}, {"qty": "2 dashes", "item": "Angostura bitters"}],
     instructions: ["Add all ingredients except bitters to shaker with ice.", "Shake hard and strain into tall glass over crushed ice.", "Dash bitters on top."],
     glass_type: "Highball",
+    icon_type: "martini",
+
     difficulty: "Advanced",
     created_at: "2026-06-12T19:06:39.053Z",
     updated_at: "2026-06-12T19:06:39.053Z",

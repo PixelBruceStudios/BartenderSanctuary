@@ -204,6 +204,21 @@ CREATE TABLE IF NOT EXISTS user_lesson_progress (
 CREATE INDEX IF NOT EXISTS idx_user_lesson_progress_user
   ON user_lesson_progress(user_id);
 
+-- Authenticated per-user best-score / pass tracking (parallel to test_attempts for anonymous)
+CREATE TABLE IF NOT EXISTS user_test_progress (
+  user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  test_id UUID NOT NULL REFERENCES tests(id) ON DELETE CASCADE,
+  passed BOOLEAN NOT NULL DEFAULT false,
+  best_score INTEGER NOT NULL DEFAULT 0,
+  attempts INTEGER NOT NULL DEFAULT 0,
+  last_attempt_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  PRIMARY KEY (user_id, test_id)
+);
+CREATE INDEX IF NOT EXISTS idx_user_test_progress_user
+  ON user_test_progress(user_id);
+CREATE INDEX IF NOT EXISTS idx_user_test_progress_test
+  ON user_test_progress(test_id);
+
 DROP TRIGGER IF EXISTS tests_updated ON tests;
 CREATE TRIGGER tests_updated BEFORE UPDATE ON tests
   FOR EACH ROW EXECUTE FUNCTION set_updated_at();

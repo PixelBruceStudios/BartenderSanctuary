@@ -542,7 +542,7 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
   const [completed, setCompleted] = useState(false);
   const [testPassed, setTestPassed] = useState(false);
   const [schoolData, setSchoolData] = useState<Category[]>([]);
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -552,7 +552,7 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
     setReadProgress(0);
     setCompleted(false);
     setTestPassed(false);
-    fetch(`/api/lessons/${lessonId}`)
+    fetch(`/api/lessons/${lessonId}?lang=${lang}`)
       .then((r) => {
         if (!r.ok) throw new Error("Lesson not found");
         return r.json();
@@ -852,8 +852,8 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
           ))}
         </div>
 
-        {/* ── Inline lesson test ── */}
-        <LessonTest lessonId={lessonId} />
+        {/* ── Lesson tests (sublesson checks + full lesson test) ── */}
+        <LessonTests lessonId={lessonId} />
 
         {lesson.sources && lesson.sources.length > 0 && (
           <div

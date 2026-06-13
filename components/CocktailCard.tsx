@@ -1,5 +1,5 @@
 import { Cocktail } from '@/data/cocktails';
-import GlassVisual from './GlassVisual';
+import CocktailIcon from './CocktailIcon';
 
 interface CocktailCardProps {
   cocktail: Cocktail;
@@ -41,7 +41,7 @@ export default function CocktailCard({ cocktail, onClick }: CocktailCardProps) {
           }}
         />
         <div className="photo-placeholder absolute inset-0 flex items-center justify-center" style={{ display: 'none' }}>
-          <GlassVisual glassType={cocktail.glass_type} size={140} />
+          <CocktailIcon iconType={cocktail.icon_type} size={140} />
         </div>
       </div>
       <div style={{ padding: '1.2rem' }}>
