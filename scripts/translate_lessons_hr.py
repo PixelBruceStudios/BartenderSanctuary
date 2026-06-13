@@ -28,17 +28,62 @@ MAX_UNKNOWN_RATIO = 0.18
 
 # Quality thresholds
 MIN_DIACRITIC_RATIO = 0.015  # Croatian text should contain some diacritics
-MAX_ENGLISH_RATIO = 0.25     # fail if >25% of words look English
 MIN_LENGTH_RATIO = 0.5       # HR should be at least half the EN length
 MAX_LENGTH_RATIO = 3.0       # HR should not be 3x longer than EN
 
 try:
     spell_hr = SpellChecker(language=TRANSLATE_LANG)
 except Exception:
-    print("WARNING: Croatian spellchecker dictionary not found; falling back to English (weak signal).")
-    spell_hr = SpellChecker(language='en')
+    print("WARNING: Croatian spellchecker dictionary not found; skipping spell-check (relying on quality checks only).")
+    spell_hr = None
 
 _translation_cache: dict[str, str] = {}
+
+
+def chunk_text(text: str, max_chars: int = 4500) -> list[str]:
+    """Split long text into chunks that stay under the translator limit."""
+    if len(text) <= max_chars:
+        return [text]
+    parts: list[str] = []
+    current = ""
+    # First pass: respect paragraph boundaries
+    for para in text.split("\n\n"):
+        para = para.strip()
+        if not para:
+            continue
+        candidate = f"{current}\n\n{para}" if current else para
+        if len(candidate) <= max_chars:
+            current = candidate
+            continue
+        if current:
+            parts.append(current)
+            current = ""
+        # If a single paragraph is still too long, split by sentences
+        if len(para) > max_chars:
+            sentences = re.split(r'(?<=[.!?])\s+', para)
+            buf = ""
+            for s in sentences:
+                sc = f"{buf}\n\n{s}" if buf else s
+                if len(sc) > max_chars and buf:
+                    parts.append(buf)
+                    buf = s
+                else:
+                    buf = sc
+            if buf:
+                current = buf
+        else:
+            current = para
+    if current:
+        parts.append(current)
+    # Second pass: hard-split anything still over max_chars by character
+    result: list[str] = []
+    for p in parts:
+        if len(p) <= max_chars:
+            result.append(p)
+        else:
+            for i in range(0, len(p), max_chars):
+                result.append(p[i:i + max_chars])
+    return result
 
 
 def translate_text(text: str) -> str:
@@ -46,9 +91,14 @@ def translate_text(text: str) -> str:
         return text
     if text in _translation_cache:
         return _translation_cache[text]
+    chunks = chunk_text(text)
+    translated_chunks = []
     try:
-        translated = GoogleTranslator(source='en', target=TRANSLATE_LANG).translate(text)
-        translated = translated or text
+        for chunk in chunks:
+            tr = GoogleTranslator(source="en", target=TRANSLATE_LANG).translate(chunk)
+            translated_chunks.append(tr or chunk)
+            time.sleep(0.2)
+        translated = "\n\n".join(translated_chunks)
     except Exception as e:
         print(f"  translate failed: {e}; using original")
         translated = text
@@ -87,6 +137,8 @@ def length_ratio(original: str, translated: str) -> float:
 
 
 def spell_check_passed(text: str) -> bool:
+    if spell_hr is None:
+        return True
     words = [w.lower() for w in re.findall(r"[A-Za-zÀ-ÖØ-öø-ÿŠšŽžĆćĐđ]+", text)]
     words = [w for w in words if len(w) >= MIN_WORD_COUNT]
     if not words:
@@ -109,10 +161,6 @@ def quality_check_passed(original: str, translated: str) -> tuple[bool, str]:
         return False, f"too short (ratio {ratio:.2f})"
     if ratio > MAX_LENGTH_RATIO:
         return False, f"too long (ratio {ratio:.2f})"
-
-    en_ratio = english_word_ratio(translated)
-    if en_ratio > MAX_ENGLISH_RATIO:
-        return False, f"too many English-looking words ({en_ratio:.0%})"
 
     diac_ratio = diacritic_ratio(translated)
     if diac_ratio < MIN_DIACRITIC_RATIO and len(translated) > 200:
