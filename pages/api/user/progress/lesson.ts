@@ -1,26 +1,20 @@
 import { query } from '@/lib/db';
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { getServerSession } from 'next-auth';
+import { auth } from '../../auth/[...nextauth]';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const session = (req as any).session;
+  const session: any = await getServerSession(req, res, auth);
   if (!session?.user?.id) return res.status(401).json({ error: 'Not authenticated' });
-
   const userId = session.user.id;
 
   if (req.method === 'GET') {
     const { lesson_id } = req.query;
-    if (lesson_id) {
-      const rows = await query<any[]>(
-        'SELECT * FROM user_lesson_progress WHERE user_id = $1 AND lesson_id = $2',
-        [userId, lesson_id]
-      );
+    if (lesson_id && typeof lesson_id === 'string') {
+      const rows = await query<any[]>('SELECT * FROM user_lesson_progress WHERE user_id = $1 AND lesson_id = $2', [userId, lesson_id]);
       return res.status(200).json(rows[0] || null);
     }
-
-    const rows = await query<any[]>(
-      'SELECT * FROM user_lesson_progress WHERE user_id = $1 ORDER BY updated_at DESC',
-      [userId]
-    );
+    const rows = await query<any[]>('SELECT * FROM user_lesson_progress WHERE user_id = $1 ORDER BY updated_at DESC', [userId]);
     return res.status(200).json(rows);
   }
 
@@ -37,7 +31,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
          overall_progress = EXCLUDED.overall_progress,
          updated_at = now()
        RETURNING *`,
-      [userId, lesson_id, all_subtests_passed ?? false, full_test_passed ?? false, overall_progress ?? 0]
+      [userId, lesson_id, !!all_subtests_passed, !!full_test_passed, overall_progress ?? 0]
     );
     return res.status(200).json(rows[0]);
   }
