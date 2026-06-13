@@ -8,10 +8,15 @@ import os
 import re
 import time
 import psycopg2
-# from dataclasses import dataclass
 from typing import Optional
 
 from deep_translator import GoogleTranslator
+
+# Allow importing hr_glossary from the same scripts/ directory
+from pathlib import Path
+import sys
+sys.path.append(str(Path(__file__).resolve().parent))
+from hr_glossary import HR_GLOSSARY, apply_glossary  # noqa: E402
 
 # ---------------------------------------------------------------------------
 # Config
@@ -126,73 +131,10 @@ def upsert_hr(cur, lesson: LessonRow, hr_title: str, hr_description: str, hr_con
         (hr_title, hr_description, hr_content, lesson.id),
     )
 
-# Croatian bartending / bar terminology glossary (case-insensitive)
-# Only includes terms that should actually be translated.
-# Glassware and most bar equipment names are left in English.
-HR_GLOSSARY: dict[str, str] = {
-    # Technique names / actions
-    "stirred": "miješano",
-    "shaken": "uz prskanje leda",
-    "shaking": "prskanje leda",
-    "muddled": "mudlano",
-    "muddling": "mudlanje",
-    # Ingredients / modifiers
-    "bitters": "biters",
-    "simple syrup": "limunada",
-    "vermouth": "vermut",
-    "dry vermouth": "suhi vermut",
-    "sweet vermouth": "slatki vermut",
-    "chartreuse": "šartrez",
-    "triple sec": "tripel sek",
-    "orgeat": "oržat",
-    # International cocktail / spirit names kept as-is in Croatian bar usage
-    "sours": "Sours",
-    "sour": "Sour",
-    "highballs": "Highballs",
-    "highball": "visoki balon",
-    "fizzes & collinses": "Fizzes & Collinses",
-    "stirred spirit-forward cocktails": "Stirred Spirit-Forward Cocktails",
-    "old fashioned": "old fashioned",
-    "old-fashioned": "old fashioned",
-    "martini": "martini",
-    "julep": "julep",
-    "mule": "mugla",
-    "tiki": "tiki",
-    "pousse café": "pus kafe",
-    "pousse cafe": "pus kafe",
-    "irish coffee": "irski kafa",
-    "blanco": "blanco",
-    "reposado": "reposado",
-    "anejo": "anejo",
-    "mezcal": "mezcal",
-    "tequila": "tekila",
-    "rum": "rum",
-    "vodka": "votka",
-    "gin": "đin",
-    "whiskey": "viski",
-    "whisky": "viski",
-    "bourbon": "burbon",
-    "scotch": "skotski viski",
-    "campari": "kampari",
-    "aperol": "aperol",
-    "amaro": "amaro",
-    "cointreau": "kuantru",
-    "falernum": "falernum",
-}
-
-
-def apply_glossary(text: str) -> str:
-    """Replace English bartending terms with canonical Croatian forms.
-    Terms mapped to themselves are preserved as proper nouns."""
-    result = text
-    for en_term, hr_term in HR_GLOSSARY.items():
-        pattern = re.compile(r"\b" + re.escape(en_term) + r"\b", re.IGNORECASE)
-        result = pattern.sub(hr_term, result)
-    return result
-
 
 # ---------------------------------------------------------------------------
 # Translation
+# ---------------------------------------------------------------------------
 # ---------------------------------------------------------------------------
 _translation_cache: dict[str, str] = {}
 
