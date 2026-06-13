@@ -66,7 +66,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       [testId, userId]
     );
     if (!rows.length) return res.status(200).json({ passed: false, attempt: null });
-    return res.status(200).json({ passed: rows[0].passed, attempt: rows[0] });
+    const row = rows[0] as any;
+    return res.status(200).json({ passed: row.passed, attempt: row });
   }
 
   return res.status(405).json({ error: 'Method not allowed' });

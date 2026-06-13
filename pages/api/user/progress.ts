@@ -1,7 +1,7 @@
 import { query } from '@/lib/db';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from 'next-auth';
-import { auth } from '../../auth/[...nextauth]';
+import { auth } from '../auth/[...nextauth]';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const session: any = await getServerSession(req, res, auth);
