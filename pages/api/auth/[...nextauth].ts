@@ -29,17 +29,6 @@ const _nextAuth = NextAuth({
     verifyRequest: "/auth/verify-request",
   },
   session: { strategy: "jwt" },
-  cookies: {
-    sessionToken: {
-      name: "next-auth.session-token",
-      options: {
-        httpOnly: true,
-        sameSite: "lax",
-        path: "/",
-        secure: process.env.NODE_ENV === "production",
-      },
-    },
-  },
   providers: [
     Credentials({
       name: "Email and password",
