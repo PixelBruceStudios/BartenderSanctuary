@@ -102,13 +102,20 @@ def process_enrichments() -> dict:
     queue = json.loads(QUEUE_FILE.read_text(encoding="utf-8"))
     text = load_ingredients()
     updated = 0
-    for ingredient_name, bottles in queue.items():
-        for bottle in bottles:
+    for ingredient_name, bottles in list(queue.items()):
+        for i, bottle in enumerate(list(bottles)):
             before = text
             text = enrich_bottle(text, ingredient_name, bottle)
             if text != before:
                 updated += 1
                 save_ingredients(text)
+                # Remove processed bottle from queue
+                bottles.pop(i)
+                if not bottles:
+                    del queue[ingredient_name]
+                else:
+                    queue[ingredient_name] = bottles
+                QUEUE_FILE.write_text(json.dumps(queue, indent=2, ensure_ascii=False), encoding="utf-8")
                 return {"status": "enriched", "bottle": bottle["name"], "ingredient": ingredient_name}
     return {"status": "queue_empty"}
 

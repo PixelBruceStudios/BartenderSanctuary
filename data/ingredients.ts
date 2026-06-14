@@ -110,7 +110,9 @@ export const ingredients: Ingredient[] = [
         { name: "Tanqueray London Dry", description: "London dry gin from Charles Tanqueray & Co. Distilled with juniper, coriander, angelica root, and liquorice. Four-time distilled. Crisp juniper-forward profile with citrus and spice. 43.1% ABV.", related: ["Tanqueray No. Ten", "Tanqueray Rangpur", "Beefeater London Dry"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Tanqueray_gin_bottle.jpg/320px-Tanqueray_gin_bottle.jpg" }
   ]
 },
-  { name: "Geneva gin", category: "Gins", description: "Also known as Holland gin or genever. Malty, fuller-bodied, less juniper-forward than London dry. Can be aged (oude) or younger (jonge).", brands: ["Bols Genever", "Rutte Genever", "Hooghoudt", "Filliers Dry Gin 28"], notes: "Dutch Courage, Martinez (traditional), Corpse Reviver #2 variation." },
+  { name: "Geneva gin", category: "Gins", description: "Also known as Holland gin or genever. Malty, fuller-bodied, less juniper-forward than London dry. Can be aged (oude) or younger (jonge).", brands: ["Bols Genever", "Rutte Genever", "Hooghoudt", "Filliers Dry Gin 28"], notes: "Dutch Courage, Martinez (traditional), Corpse Reviver #2 variation.", bottles: [
+    { name: "Bols Genever", description: "Dutch genever from the Bols distillery, dating to 1575. Malt wine base gives a mellow, slightly sweet, malty character with a hint of juniper. Less assertive than London dry.", related: ["Rutte Genever", "Filliers Dry Gin 28", "Hooghoudt"] }
+  ] },
 
   // TEQUILA & MEZCAL
   { name: "Tequila", category: "Tequila & Mezcal", description: "Mexican spirit made from blue agave in designated regions. Blanco (unaged), Reposado (rested 2–12 months), Añejo (aged 1–3+ years).", brands: ["Patrón Silver", "Don Julio 1942", "Casamigos Reposado", "Espolòn Blanco", "Casa Noble Reposado", "Fortaleza"], notes: "Margarita, Paloma, Tequila Sunrise.",
