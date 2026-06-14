@@ -1,6 +1,6 @@
 {
   "cron": {
-    "errored": 1
+    "errored": 0
   },
   "metrics": {
     "lessons_filled": 183,

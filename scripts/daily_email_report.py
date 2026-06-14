@@ -613,6 +613,8 @@ def main() -> int:
     subject = f"Bartender Sanctuary Daily Review — {now:%Y-%m-%d}"
 
     send_result = send_email_smtp(to_email, subject, f"<pre>{narrative}</pre>")
+    if not send_result.get("ok"):
+        send_result = send_email_resend(to_email, subject, f"<pre>{narrative}</pre>")
     if send_result.get("ok"):
         print(f"  Email sent to {to_email}")
     else:

@@ -37,7 +37,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       tests = (await query<any[]>(`SELECT id, lesson_id, scope, title, description, passing_score, sort_order, created_at, updated_at, sublesson_slug FROM tests WHERE lesson_id = $1 ORDER BY sort_order`, [lessonId])) || [];
       const testIds = tests.map((t) => t.id);
       if (testIds.length) {
-        questions = await query<any[]>(`SELECT id, test_id, question_index, question_text, options, correct_index FROM questions WHERE test_id = ANY($1::uuid[]) ORDER BY question_index`, [testIds]);
+        questions = await query<any[]>(`SELECT id, test_id, sort_order, question_text, options, correct_index FROM test_questions WHERE test_id = ANY($1::uuid[]) ORDER BY sort_order`, [testIds]);
       }
     } catch (e) {
       console.error('[lessons/[id]] failed to load tests:', e);

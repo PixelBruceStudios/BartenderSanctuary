@@ -1,23 +1,13 @@
 import { query } from '@/lib/db';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { getServerSession } from 'next-auth/next';
 import { auth } from '../../auth/[...nextauth]';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const cookieHeader = req.headers.cookie || '';
-
-  let session: any = null;
-  try {
-    session = await getServerSession(req, res, auth);
-  } catch (e: any) {
-
-  }
-
+  const session = await auth(req, res);
   const userId = session?.user?.id;
 
   if (req.method === 'POST') {
     if (!userId) {
-
       return res.status(401).json({ error: 'Not authenticated' });
     }
     const { testId, score, passed, answers } = req.body;
