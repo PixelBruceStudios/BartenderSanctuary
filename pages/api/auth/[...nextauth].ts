@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
+import { Pool } from "pg";
 
 declare module "next-auth" {
   interface Session {
@@ -15,6 +16,9 @@ declare module "next-auth" {
     emailVerified: boolean;
   }
 }
+
+const connectionString = process.env.DATABASE_URL;
+const pool = new Pool({ connectionString, ssl: { rejectUnauthorized: false } });
 
 const _nextAuth = NextAuth({
   pages: {
@@ -32,35 +36,32 @@ const _nextAuth = NextAuth({
       authorize: async (credentials) => {
         if (!credentials?.email || !credentials?.password) return null;
 
-        const baseUrl =
-          process.env.NEXT_PUBLIC_SITE_URL ||
-          "https://bartender-sanctuary-app.vercel.app";
+        const trimmed = String(credentials.email).trim().toLowerCase();
+        const client = await pool.connect();
+        try {
+          const result = await client.query(
+            "SELECT id, email, name, password_hash, email_verified FROM users WHERE email = $1",
+            [trimmed]
+          );
+          const user = result.rows[0];
+          if (!user) return null;
 
-        const res = await fetch(
-          `${baseUrl}/api/auth/user-by-email`,
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email: credentials.email }),
-          }
-        );
-        const data = await res.json();
+          const bcrypt = await import("bcryptjs");
+          const passwordMatch = await bcrypt.compare(
+            credentials.password,
+            user.password_hash
+          );
+          if (!passwordMatch) return null;
 
-        if (!res.ok || !data.user) return null;
-
-        const bcrypt = await import("bcryptjs");
-        const passwordMatch = await bcrypt.compare(
-          credentials.password,
-          data.user.password_hash
-        );
-        if (!passwordMatch) return null;
-
-        return {
-          id: data.user.id,
-          email: data.user.email,
-          name: data.user.name,
-          emailVerified: data.user.email_verified,
-        };
+          return {
+            id: user.id,
+            email: user.email,
+            name: user.name,
+            emailVerified: user.email_verified,
+          };
+        } finally {
+          client.release();
+        }
       },
     }),
   ],
@@ -73,7 +74,7 @@ const _nextAuth = NextAuth({
     },
     async session({ session, token }) {
       if (session.user) {
-        session.user.id = token.sub ?? '';
+        session.user.id = token.sub ?? "";
       }
       return session;
     },
