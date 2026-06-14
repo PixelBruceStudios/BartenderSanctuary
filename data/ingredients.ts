@@ -308,6 +308,7 @@ export const ingredients: Ingredient[] = [
   { name: "Orange curaçao", category: "Liqueurs", description: "Orange-flavored liqueur made from dried curaçao orange peels (from Caribbean island). Dry, bitter-orange, 40% ABV.", brands: ["Pierre Ferrand Dry Curaçao", "Bols Orange Curaçao", "Marie Brizard"], notes: "Margarita (when not using triple sec), Sidecar.",
   bottles: [
     { name: "Pierre Ferrand Dry Curaçao", description: "Premium dry orange curaçao from Pierre Ferrand. Made from dried curaçao orange peels. 40% ABV.", related: ["Bols Orange Curaçao", "Marie Brizard Orange Curaçao", "Cointreau"] },
+    { name: "Marie Brizard Orange Curaçao", description: "French orange curaçao from Marie Brizard. Balanced dry-orange flavor from Caribbean curaçao peels. 40% ABV.", related: ["Pierre Ferrand Dry Curaçao", "Bols Orange Curaçao"] },
     { name: "Bols Orange Curaçao", description: "Dutch orange curaçao from Bols. Dry, bitter-orange flavor. 35% ABV.", related: ["Pierre Ferrand Dry Curaçao", "Marie Brizard"] }
   ]
 },
