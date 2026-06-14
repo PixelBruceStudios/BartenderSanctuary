@@ -281,8 +281,7 @@ export const ingredients: Ingredient[] = [
 },
   { name: "Green crème de menthe", category: "Liqueurs", description: "Bright green mint crème liqueur. Sweet, minty, artificial-bright green color.", brands: ["Marie Brizard", "Bols", "DeKuyper"], notes: "Grasshopper, Stinger variation, certain Shooters.",
   bottles: [
-        { name: "Marie Brizard Green Crème de Menthe", description: "Bright green mint crème liqueur. Sweet, minty, artificial-bright green color.", related: ["Bols Pepermunt", "DeKuyper Peppermint"], image: "https://upload.wikimedia.org/wikipedia/commons/66/Marie_Brizard_Cr%C3%A8me_de_Menthe.jpg" }
-  ,
+        { name: "Marie Brizard Green Crème de Menthe", description: "Bright green mint crème liqueur. Sweet, minty, artificial-bright green color.", related: ["Bols Pepermunt", "DeKuyper Peppermint"] },
     { name: "Bols Pepermunt", description: "Dutch green crème de menthe from Bols. Bright green, sweet, minty. 24% ABV. The classic for Grasshopper and Stinger.", related: ["Marie Brizard Green Cr\u00e8me de Menthe", "DeKuyper Peppermint"] }
   ]
 },
@@ -331,7 +330,7 @@ export const ingredients: Ingredient[] = [
   ] },
   { name: "Triple sec", category: "Liqueurs", description: "Generic orange-flavored liqueur. Usually 15–40% ABV, sweeter than curaçao. Cointreau is the premium triple sec.", brands: ["Cointreau", "Combier", "Marie Brizard", "Bols", "DeKuyper"], notes: "Margarita, Cosmopolitan, Long Island Iced Tea.",
   bottles: [
-        { name: "Cointreau", description: "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish. The standard for classic cocktails.", related: ["Combier", "Marie Brizard Triple Sec", "Bols Triple Sec"], image: "https://upload.wikimedia.org/wikipedia/commons/9f/Cointreau_bottle.jpg" },
+        { name: "Cointreau", description: "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish. The standard for classic cocktails.", related: ["Combier", "Marie Brizard Triple Sec", "Bols Triple Sec"] },
     { name: "Combier Triple Sec", description: "French triple sec from Combier, made since 1834. 40% ABV.", related: ["Cointreau", "Marie Brizard Triple Sec", "Bols Triple Sec"] }
   ]
 },
@@ -343,7 +342,7 @@ export const ingredients: Ingredient[] = [
 },
   { name: "White crème de menthe", category: "Liqueurs", description: "Clear/white mint crème liqueur. Same mint flavor as green but without artificial coloring. Useful in shaken cocktails.", brands: ["Marie Brizard", "Bols", "DeKuyper"], notes: "Stinger, Grasshopper (white version).",
   bottles: [
-        { name: "Marie Brizard White Crème de Menthe", description: "Clear white mint crème liqueur. Same mint flavor as green but without artificial coloring.", related: ["Bols White Pepermunt", "DeKuyper White Peppermint"], image: "https://upload.wikimedia.org/wikipedia/commons/91/White_Cr%C3%A8me_de_Menthe_Marie_Brizard.jpg" }
+        { name: "Marie Brizard White Crème de Menthe", description: "Clear white mint crème liqueur. Same mint flavor as green but without artificial coloring.", related: ["Bols White Pepermunt", "DeKuyper White Peppermint"] }
   ,
     { name: "Bols White Pepermunt", description: "Dutch white crème de menthe from Bols. Clear, minty, sweet. 24% ABV. The classic for Stinger.", related: ["Marie Brizard White Cr\u00e8me de Menthe", "DeKuyper White Peppermint"] }
   ]
@@ -359,8 +358,7 @@ export const ingredients: Ingredient[] = [
 },
   { name: "Angostura bitters", category: "Bitters & Aperitifs", description: "The iconic dash of bitters. Concentrated herbal extract with gentian root, spices, and herbs. Over 150 years old. 44.7% ABV.", brands: ["Angostura (the standard — no alternatives needed)"], notes: "In virtually every stirred cocktail. Old Fashioned, Manhattan, Martini garnish.",
   bottles: [
-        { name: "Angostura Aromatic Bitters", description: "The iconic dash of bitters. Concentrated herbal extract with gentian root, spices, and herbs. Over 150 years old. 44.7% ABV.", related: ["Fee Brothers Aromatic Bitters", "Bitter Truth Aromatic"], image: "https://upload.wikimedia.org/wikipedia/commons/46/Angostura_bitters.jpg" }
-  ,
+        { name: "Angostura Aromatic Bitters", description: "The iconic dash of bitters. Concentrated herbal extract with gentian root, spices, and herbs. Over 150 years old. 44.7% ABV.", related: ["Fee Brothers Aromatic Bitters", "Bitter Truth Aromatic"] },
     { name: "Fee Brothers Aromatic Bitters", description: "American aromatic bitters from Fee Brothers. Concentrated herbal extract with gentian root, spices, and herbs. A classic alternative to Angostura.", related: ["Angostura Aromatic Bitters", "Bitter Truth Aromatic"] }
   ]
 },
@@ -393,8 +391,7 @@ export const ingredients: Ingredient[] = [
 },
   { name: "Peychaud's bitters", category: "Bitters & Aperitifs", description: "Aromatic bitters from New Orleans. Anise, gentian, cherry. Distinctive red color. 35% ABV.", brands: ["Peychaud's Bitters"], notes: "Sazerac — essential. Manhattan variation.",
   bottles: [
-        { name: "Peychaud's Aromatic Bitters", description: "New Orleans aromatic bitters. Anise, gentian, cherry. Distinctive red color. 35% ABV.", related: ["Angostura Bitters", "Fee Brothers Bitters"], image: "https://upload.wikimedia.org/wikipedia/commons/52/Peychauds_Bitters.jpg" }
-  ,
+        { name: "Peychaud's Aromatic Bitters", description: "New Orleans aromatic bitters. Anise, gentian, cherry. Distinctive red color. 35% ABV.", related: ["Angostura Bitters", "Fee Brothers Bitters"] },
     { name: "Fee Brothers Bitters", description: "American aromatic bitters from Fee Brothers. A versatile all-purpose bitter for Old Fashioned and Manhattan when Peychaud's isn't specified.", related: ["Peychaud's Aromatic Bitters", "Angostura Bitters"] }
   ]
 },
@@ -408,7 +405,7 @@ export const ingredients: Ingredient[] = [
   bottles: [
     { name: "Amaro Nonino Quintessentia", description: "Premium Italian amaro from Nonino. Bitter-sweet, 35% ABV.", related: ["Amaro Averna", "Amaro Montenegro", "Aperol"] },
     { name: "Amaro Averna", description: "Sicilian amaro from Averna. Bitter-sweet. 29% ABV.", related: ["Amaro Nonino", "Amaro Montenegro", "Fernet-Branca"] },
-    { name: "Amaro Montenegro", description: "Italian amaro from Montenegro. Bitter-sweet with notes of orange, eucalyptus, and herbs. 23% ABV.", related: ["Amaro Nonino", "Amaro Averna", "Aperol"], image: "https://upload.wikimedia.org/wikipedia/commons/f/ff/Amaro_Montenegro.jpg" }
+    { name: "Amaro Montenegro", description: "Italian amaro from Montenegro. Bitter-sweet with notes of orange, eucalyptus, and herbs. 23% ABV.", related: ["Amaro Nonino", "Amaro Averna", "Aperol"] }
   ]
 },
 
@@ -417,8 +414,8 @@ export const ingredients: Ingredient[] = [
   bottles: [
     { name: "Lustau Amontillado", description: "Spanish amontillado sherry from Lustau. Nutty, dry, complex.", related: ["Lustau Fino", "Lustau Oloroso", "Gonzalez Byass"] },
     { name: "Gonzalez Byass Amontillado", description: "Classic amontillado sherry from Jerez. Dry, nutty.", related: ["Lustau Amontillado", "Tio Pepe Fino"] },
-    { name: "Del Duque Amontillado Sherry", description: "VORS (Very Old Rare Sherry) amontillado from Del Duque. Rich, nutty, complex, aged for decades under solera.", related: ["Lustau Amontillado", "Gonzalez Byass Amontillado", "Tio Pepe Fino"], image: "https://upload.wikimedia.org/wikipedia/commons/f/f8/Del_Duque_Amontillado_Sherry.jpg" },
-    { name: "Sanchez Romate NPU Amontillado Sherry", description: "NPU (No Puede Ser) amontillado from Sanchez Romate. Extremely rare, aged 60+ years in solera. Intensely nutty and complex.", related: ["Lustau Amontillado", "Gonzalez Byass Amontillado", "Del Duque Amontillado Sherry"], image: "https://upload.wikimedia.org/wikipedia/commons/6/69/Sanchez_Romate_NPU_Amontillado_Sherry.jpg" }
+    { name: "Del Duque Amontillado Sherry", description: "VORS (Very Old Rare Sherry) amontillado from Del Duque. Rich, nutty, complex, aged for decades under solera.", related: ["Lustau Amontillado", "Gonzalez Byass Amontillado", "Tio Pepe Fino"] },
+    { name: "Sanchez Romate NPU Amontillado Sherry", description: "NPU (No Puede Ser) amontillado from Sanchez Romate. Extremely rare, aged 60+ years in solera. Intensely nutty and complex.", related: ["Lustau Amontillado", "Gonzalez Byass Amontillado", "Del Duque Amontillado Sherry"] }
   ]
 },
   { name: "Dry vermouth", category: "Sherries & Vermouths", description: "Fortified, aromatised wine. Dry, herbal, botanical. ~18% ABV. Keep refrigerated after opening.", brands: ["Dolin Dry", "Noilly Prat", "Martini & Rossi Dry", "Carpano Antica (sweet)"], notes: "Martini, Manhattan (dry version), Gibson.",
@@ -435,8 +432,7 @@ export const ingredients: Ingredient[] = [
 },
   { name: "Sweet vermouth", category: "Sherries & Vermouths", description: "Sweet, rich aromatised wine. Caramel, vanilla, herbs, citrus. ~16% ABV. Keep refrigerated.", brands: ["Carpano Antica", "Dolin Sweet", "Martini & Rossi Rosso", "Cinzano Rosso"], notes: "Negroni, Manhattan, Boulevardier, Americano, Rob Roy.",
   bottles: [
-        { name: "Carpano Antica Formula", description: "Premium Italian sweet vermouth from Fratelli Branca. First vermouth created by Antonio Carpano in 1786. Intensely herbal, vanilla-forward, with dried fruit and toffee. 23% ABV.", related: ["Carpano Punt e Mes", "Dolin Sweet", "Martini & Rossi Rosso"], image: "https://upload.wikimedia.org/wikipedia/commons/5f/Carpano_Antica_Formula_Verouth.jpg" }
-  ,
+        { name: "Carpano Antica Formula", description: "Premium Italian sweet vermouth from Fratelli Branca. First vermouth created by Antonio Carpano in 1786. Intensely herbal, vanilla-forward, with dried fruit and toffee. 23% ABV.", related: ["Carpano Punt e Mes", "Dolin Sweet", "Martini & Rossi Rosso"] },
     { name: "Carpano Antica Formula", description: "Premium sweet vermouth from Carpano. Rich vanilla, caramel, dried fruit, and baking spices. 16% ABV. The benchmark for Manhattan.", related: ["Dolin Sweet Vermouth", "Martini & Rossi Rosso", "Cinzano Rosso"] }
   ]
 },
@@ -444,14 +440,13 @@ export const ingredients: Ingredient[] = [
   // WINES & SPARKLING
   { name: "Champagne", category: "Wines & Sparkling", description: "Sparkling wine from Champagne region of France. Méthode Champenoise. Fine bubbles, toasty, complex.", brands: ["Moët & Chandon", "Veuve Clicquot", "Ruinart", "Krug", "Bollinger"], notes: "French 75, Champagne Cocktail, Champagne Sour.",
   bottles: [
-        { name: "Moët & Chandon Brut Impérial", description: "Iconic Champagne from Moët & Chandon. Bright, lively, with green apple, citrus, and brioche. The standard for celebrations and French 75.", related: ["Veuve Clicquot Yellow Label", "Ruinart Blanc de Blancs", "Bollinger Special Cuvée"], image: "https://upload.wikimedia.org/wikipedia/commons/68/Mo%C3%ABt_%26_Chandon_2010.jpg" }
-  ,
-    { name: "Ruinart Blanc de Blancs", description: "Champagne from Ruinart. 100% Chardonnay. Light, elegant, with citrus, white flowers, and brioche. The refined alternative to Moët for French 75.", related: ["Mo\u00ebt & Chandon Brut Imp\u00e9rial", "Veuve Clicquot Yellow Label", "Bollinger Special Cuv\u00e9e"] }
+        { name: "Moët & Chandon Brut Impérial", description: "Iconic Champagne from Moët & Chandon. Bright, lively, with green apple, citrus, and brioche. The standard for celebrations and French 75.", related: ["Veuve Clicquot Yellow Label", "Ruinart Blanc de Blancs", "Bollinger Special Cuvée"] },
+    { name: "Ruinart Blanc de Blancs", description: "Champagne from Ruinart. 100% Chardonnay. Light, elegant, with citrus, white flowers, and brioche. The refined alternative to Moët for French 75.", related: ["Moët & Chandon Brut Impérial", "Veuve Clicquot Yellow Label", "Bollinger Special Cuvée"] }
   ]
 },
   { name: "Champagne or sparkling wine", category: "Wines & Sparkling", description: "Either Champagne or a quality sparkling wine (Cava, Prosecco, Crémant).", brands: ["Moët & Chandon", "Veuve Clicquot", "Prosecco brands"], notes: "Use for top-ups in French 75, Champagne cocktails.",
   bottles: [
-    { name: "Moët & Chandon Brut Impérial", description: "Iconic Champagne. Bright, lively, with green apple, citrus, and brioche.", related: ["Veuve Clicquot Yellow Label", "Ruinart Blanc de Blancs"], image: "https://upload.wikimedia.org/wikipedia/commons/68/Mo%C3%ABt_%26_Chandon_2010.jpg" },
+    { name: "Moët & Chandon Brut Impérial", description: "Iconic Champagne. Bright, lively, with green apple, citrus, and brioche.", related: ["Veuve Clicquot Yellow Label", "Ruinart Blanc de Blancs"] },
     { name: "Veuve Clicquot Yellow Label", description: "Brut Champagne. Bright, balanced, with brioche and citrus.", related: ["Moët & Chandon Brut", "Ruinart Blanc de Blancs", "Bollinger Special Cuvée"] }
   ]
 },
