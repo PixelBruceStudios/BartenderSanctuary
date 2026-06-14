@@ -274,8 +274,9 @@ export const ingredients: Ingredient[] = [
   ] },
   { name: "Galliano", category: "Liqueurs", description: "Italian vanilla-herbal liqueur. Bright yellow, complex with vanilla, anise, and 30+ botanicals. 42.3% ABV.", brands: ["Galliano L'Autentico", "Galliano Vanilla"], notes: "Harvey Wallbanger, Yellow Bird.",
   bottles: [
-    { name: "Galliano L'Autentico", description: "Iconic Italian vanilla-herbal liqueur. Bright yellow, complex. 42.3% ABV.", related: ["Galliano Vanilla"] },
-    { name: "Galliano Vanilla", description: "Smooth vanilla liqueur from Galliano. Rich vanilla with hints of herbs and spice.", related: ["Galliano L'Autentico"] }
+    { name: "Galliano L'Autentico", description: "Iconic Italian vanilla-herbal liqueur. Bright yellow, complex. 42.3% ABV.", related: ["Galliano Vanilla", "Galliano Ristretto"] },
+    { name: "Galliano Vanilla", description: "Smooth vanilla liqueur from Galliano. Rich vanilla with hints of herbs and spice.", related: ["Galliano L'Autentico", "Galliano Ristretto"] },
+    { name: "Galliano Ristretto", description: "Coffee-flavored variant of Galliano liqueur. 30% ABV. Combines vanilla-herbal Galliano with roasted coffee notes. Used in coffee cocktails.", related: ["Galliano L'Autentico", "Galliano Vanilla"] }
   ]
 },
   { name: "Green crème de menthe", category: "Liqueurs", description: "Bright green mint crème liqueur. Sweet, minty, artificial-bright green color.", brands: ["Marie Brizard", "Bols", "DeKuyper"], notes: "Grasshopper, Stinger variation, certain Shooters.",
