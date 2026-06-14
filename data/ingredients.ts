@@ -180,7 +180,10 @@ export const ingredients: Ingredient[] = [
   { name: "Blanco tequila", category: "Tequila & Mezcal", description: "Unaged or aged <60 days tequila. Bright, crisp, pure agave flavor with pepper and citrus.", brands: ["Patrón Silver", "Espolòn Blanco", "Fortaleza Blanco", "Casamigos Blanco", "Don Julio Blanco"], notes: "Required when a recipe specifies Blanco — reposado would be too oaky.",
   bottles: [
     { name: "Patrón Silver", description: "Premium 100% blue agave blanco. Smooth, crisp, with sweet agave, citrus, and pepper.", related: ["Patrón Reposado", "Patrón Añejo", "Espolòn Blanco"] },
-    { name: "Espolòn Blanco", description: "100% blue agave blanco from Jalisco. Bright agave, pepper, citrus.", related: ["Espolòn Reposado", "Patrón Silver", "Fortaleza Blanco"] }
+    { name: "Espolòn Blanco", description: "100% blue agave blanco from Jalisco. Bright agave, pepper, citrus.", related: ["Espolòn Reposado", "Patrón Silver", "Fortaleza Blanco"] },
+    { name: "Fortaleza Blanco", description: "100% blue agave tequila from the Fortaleza distillery in Jalisco. Stone ovens and tahona wheel. Bright agave with pepper, citrus, and earth. Unaged, pure expression.", related: ["Fortaleza Reposado", "Fortaleza Añejo", "Patrón Silver"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Fortaleza_Blanco_tequila.jpg/320px-Fortaleza_Blanco_tequila.jpg" },
+    { name: "Don Julio Blanco", description: "100% blue agave blanco from Jalisco. Bright, crisp agave with pepper, citrus, and light pepper finish. 38% ABV. Widely considered one of the finest blancos.", related: ["Don Julio 1942", "Patrón Silver", "Casamigos Blanco"], image: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Don_Julio_Blanco_Tequila_01.tif" },
+    { name: "Casamigos Blanco", description: "100% blue agave blanco co-founded by George Clooney. Smooth, sweet agave with citrus and vanilla notes. 40% ABV. Ideal for Margaritas and sipping.", related: ["Casamigos Reposado", "Patrón Silver", "Don Julio Blanco"], image: "https://upload.wikimedia.org/wikipedia/commons/2/22/Casamigos_Blanco_Tequila_01.jpg" }
   ]
 },
 
