@@ -41,19 +41,19 @@ export const ingredients: Ingredient[] = [
     { name: "Laphroaig 10", description: "Iconic Islay single malt. Intense peat smoke, seaweed, and medicinal iodine. Love it or hate it — unforgettable.", related: ["Laphroaig Quarter Cask", "Laphroaig 18", "Laphroaig Lore"], image: "/images/bottles/laphroaig-10.png" },
     { name: "Lagavulin 16", description: "The king of Islay. Deep peat smoke, dried fruit, and maritime salt. The definitive smoky whisky.", related: ["Lagavulin 12", "Lagavulin 25", "Lagavulin Distillers Edition"], image: "/images/bottles/lagavulin-16.png" },
     { name: "Ardbeg 10", description: "Peaty Islay single malt with surprising sweetness. Tar, smoked fish, and citrus. The balanced Islay experience.", related: ["Ardbeg Uigeadail", "Ardbeg Corryvreckan", "Ardbeg 10"], image: "/images/bottles/ardbeg-10.png" },
-    { name: "Bowmore 12", description: "Islay single malt with balanced peat smoke, heather honey, and citrus. Less aggressive than Laphroaig or Lagavulin — a gentler introduction to Islay.", related: ["Bowmore 15", "Caol Ila 12", "Laphroaig 10"], image: "https://upload.wikimedia.org/wikipedia/commons4/4a/Bowmore_12_Year_Old.jpg/Bowmore_12_Year_Old.jpg" },
+    { name: "Bowmore 12", description: "Islay single malt with balanced peat smoke, heather honey, and citrus. Less aggressive than Laphroaig or Lagavulin — a gentler introduction to Islay.", related: ["Bowmore 15", "Caol Ila 12", "Laphroaig 10"], image: "https://upload.wikimedia.org/wikipedia/commons/4a/Bowmore_12_Year_Old.jpg" },
     { name: "Johnnie Walker Black Label", description: "The world's most recognized blended Scotch. 12-year-old, rich and smooth with vanilla, honey, and dried fruit. The workhorse for Rusty Nail, Blood and Sand, and Rob Roy.", related: ["Johnnie Walker Red Label", "Johnnie Walker Gold Label", "Johnnie Walker Blue Label"], image: "/images/bottles/jw-black.png" }
   ] },
   { name: "Irish whiskey", category: "Whiskies", description: "Triple-distilled Irish whiskey, typically lighter and smoother than Scotch with notes of honey, vanilla, and green apple.", brands: ["Jameson", "Bushmills Original", "Redbreast 12", "Tullamore D.E.W.", "Green Spot"], notes: "Key for Irish Coffee, Tipperary, Forty-Three.", bottles: [
-    { name: "Jameson", description: "Ireland's best-selling whiskey. Triple-distilled, smooth, with honey, vanilla, and green apple. The standard for Irish Coffee and mixers.", related: ["Jameson Black Barrel", "Jameson Caskmates", "Bushmills Original"], image: "https://upload.wikimedia.org/wikipedia/commons4/4a/Jameson_whiskey_bottle.jpg/Jameson_whiskey_bottle.jpg" },
-    { name: "Bushmills Original", description: "Smooth Irish whiskey from the Old Bushmills Distillery. Triple-distilled, light, with vanilla and oak. A classic alternative to Jameson.", related: ["Bushmills 10", "Bushmills 16", "Jameson"], image: "https://upload.wikimedia.org/wikipedia/commons4/4a/Jameson_whiskey_bottle.jpg/Jameson_whiskey_bottle.jpg" },
+    { name: "Jameson", description: "Ireland's best-selling whiskey. Triple-distilled, smooth, with honey, vanilla, and green apple. The standard for Irish Coffee and mixers.", related: ["Jameson Black Barrel", "Jameson Caskmates", "Bushmills Original"], image: "https://upload.wikimedia.org/wikipedia/commons/4a/Jameson_whiskey_bottle.jpg" },
+    { name: "Bushmills Original", description: "Smooth Irish whiskey from the Old Bushmills Distillery. Triple-distilled, light, with vanilla and oak. A classic alternative to Jameson.", related: ["Bushmills 10", "Bushmills 16", "Jameson"], image: "https://upload.wikimedia.org/wikipedia/commons/4a/Jameson_whiskey_bottle.jpg" },
     { name: "Redbreast 12", description: "Single pot still Irish whiskey from Midleton Distillery. Rich, full, with dried fruit, spice, and toasted oak. The premium choice for Irish Coffee or neat sipping.", related: ["Jameson", "Bushmills Original", "Redbreast 15"] },
     { name: "Tullamore D.E.W.", description: "Irish whiskey from Tullamore. Triple-distilled with a touch of pot still malt. Smooth, balanced, with honey and spice. Great for Irish Coffee.", related: ["Jameson", "Bushmills Original", "Redbreast 12"] },
     { name: "Redbreast 15", description: "Premium single pot still Irish whiskey from Midleton Distillery. Older sibling to Redbreast 12. Rich, full-bodied, with dried fruit, spice, toasted oak, and a long warming finish. 46% ABV, non-chill-filtered.", related: ["Jameson", "Bushmills Original", "Redbreast 12"] },
     { name: "Powers Gold Label", description: "Classic Irish single pot still whiskey from John Powers & Co. Rich, spicy, with notes of apple, pepper, and toasted oak. The original gold label Irish whiskey, unchanged for over a century.", related: ["Jameson", "Bushmills Original", "Redbreast 12"] }
   ] },
   { name: "Rye whiskey", category: "Whiskies", description: "American whiskey made with at least 51% rye grain. Spicy, herbal, and drier than bourbon with a peppery finish.", brands: ["Rittenhouse Rye", "Bulleit Rye", "Sazerac Rye", "Wild Turkey Rye", "WhistlePig 10"], notes: "Essential for Manhattan, Sazerac, Boulevardier.", bottles: [
-    { name: "Rittenhouse Rye", description: "100-proof bonded rye whiskey from Heaven Hill. Bold, spicy, with pepper, clove, and cinnamon. The standard for classic Manhattans and Sazeracs.", related: ["Bulleit Rye", "Sazerac Rye", "Wild Turkey Rye"], image: "https://upload.wikimedia.org/wikipedia/commons8/8b/Rittenhouse_Rye.jpg/Rittenhouse_Rye.jpg" },
+    { name: "Rittenhouse Rye", description: "100-proof bonded rye whiskey from Heaven Hill. Bold, spicy, with pepper, clove, and cinnamon. The standard for classic Manhattans and Sazeracs.", related: ["Bulleit Rye", "Sazerac Rye", "Wild Turkey Rye"], image: "https://upload.wikimedia.org/wikipedia/commons/8b/Rittenhouse_Rye.jpg" },
     { name: "Bulleit Rye", description: "High-rye whiskey from Bulleit. Spicy, clean, with pepper and vanilla. Sourced from MGP; easy-mixing for Manhattan and Boulevardier.", related: ["Rittenhouse Rye", "WhistlePig 10", "Bulleit Bourbon"] },
     { name: "Sazerac Rye", description: "Straight rye whiskey from the Sazerac Company. Spicy, bold, with cinnamon and clove. The classic pick for a Sazerac cocktail.", related: ["Rittenhouse Rye", "Bulleit Rye", "Wild Turkey Rye"] }
   ] },
@@ -65,27 +65,27 @@ export const ingredients: Ingredient[] = [
   ] },
   { name: "Bourbon or rye", category: "Whiskies", description: "Either bourbon or rye whiskey depending on preference. Bourbon = sweeter; rye = spicier/drier.", brands: ["Buffalo Trace", "Rittenhouse Rye"], notes: "Manhattan flexibility.", bottles: [
     { name: "Buffalo Trace", description: "Kentucky straight bourbon. Rich vanilla, caramel, and mint. Widely available and affordable — the go-to when a recipe just says bourbon.", related: ["Wild Turkey 101", "Maker's Mark", "Rittenhouse Rye"], image: "https://upload.wikimedia.org/wikipedia/commonsa/ae/Buffalo_Trace_Bourbon.jpg/Buffalo_Trace_Bourbon.jpg" },
-    { name: "Rittenhouse Rye", description: "100-proof bonded rye. Bold, spicy, with pepper and clove. The rye pick for Manhattan flexibility.", related: ["Bulleit Rye", "Buffalo Trace", "Sazerac Rye"], image: "https://upload.wikimedia.org/wikipedia/commons8/8b/Rittenhouse_Rye.jpg/Rittenhouse_Rye.jpg" }
+    { name: "Rittenhouse Rye", description: "100-proof bonded rye. Bold, spicy, with pepper and clove. The rye pick for Manhattan flexibility.", related: ["Bulleit Rye", "Buffalo Trace", "Sazerac Rye"], image: "https://upload.wikimedia.org/wikipedia/commons/8b/Rittenhouse_Rye.jpg" }
   ] },
   { name: "Brandy", category: "Whiskies", description: "General term for spirit distilled from fermented fruit juice, most commonly grapes (cognac is the finest brandy).", brands: ["Remy Martin VSOP", "Hennessy VS", "Martell VSOP"], notes: "Covers Brandy Alexander, Sidecar, Between the Sheets.", bottles: [
-    { name: "Remy Martin VSOP", description: "Premium VSOP cognac from Remy Martin. Rich, smooth, with vanilla, dried fruit, and cocoa. A step up from VS for cocktails.", related: ["Remy Martin VS", "Remy Martin XO", "Martell VSOP"], image: "https://upload.wikimedia.org/wikipedia/commons3/38/Remy_Martin_VSOP_Cognac.jpg/Remy_Martin_VSOP_Cognac.jpg" },
-    { name: "Hennessy VS", description: "World's most popular cognac. A blend of eaux-de-vie aged at least 2 years. Bold, warm, with vanilla, spice, and toasted oak.", related: ["Hennessy VSOP", "Hennessy XO", "Remy Martin VS"], image: "https://upload.wikimedia.org/wikipedia/commons6/66/Hennessy_VS_cognac.jpg/Hennessy_VS_cognac.jpg" }
+    { name: "Remy Martin VSOP", description: "Premium VSOP cognac from Remy Martin. Rich, smooth, with vanilla, dried fruit, and cocoa. A step up from VS for cocktails.", related: ["Remy Martin VS", "Remy Martin XO", "Martell VSOP"], image: "https://upload.wikimedia.org/wikipedia/commons/38/Remy_Martin_VSOP_Cognac.jpg" },
+    { name: "Hennessy VS", description: "World's most popular cognac. A blend of eaux-de-vie aged at least 2 years. Bold, warm, with vanilla, spice, and toasted oak.", related: ["Hennessy VSOP", "Hennessy XO", "Remy Martin VS"], image: "https://upload.wikimedia.org/wikipedia/commons/66/Hennessy_VS_cognac.jpg" }
   ] },
   { name: "Brandy or Cognac", category: "Whiskies", description: "Cognac is a specific type of brandy from the Cognac region of France, always double-distilled in copper pot stills.", brands: ["Remy Martin VSOP", "Hennessy VS", "Martell Cordon Bleu", "Courvoisier VS"], notes: "Cognac gives richer fruit notes in Brandy Alexander, Sazerac variation.", bottles: [
-    { name: "Remy Martin VSOP", description: "Premium VSOP cognac. Rich, smooth, with vanilla, dried fruit, and cocoa.", related: ["Remy Martin VS", "Remy Martin XO", "Martell VSOP"], image: "https://upload.wikimedia.org/wikipedia/commons3/38/Remy_Martin_VSOP_Cognac.jpg/Remy_Martin_VSOP_Cognac.jpg" },
-    { name: "Hennessy VS", description: "World's most popular cognac. Bold, warm, with vanilla, spice, and toasted oak.", related: ["Hennessy VSOP", "Hennessy XO", "Remy Martin VS"], image: "https://upload.wikimedia.org/wikipedia/commons6/66/Hennessy_VS_cognac.jpg/Hennessy_VS_cognac.jpg" }
+    { name: "Remy Martin VSOP", description: "Premium VSOP cognac. Rich, smooth, with vanilla, dried fruit, and cocoa.", related: ["Remy Martin VS", "Remy Martin XO", "Martell VSOP"], image: "https://upload.wikimedia.org/wikipedia/commons/38/Remy_Martin_VSOP_Cognac.jpg" },
+    { name: "Hennessy VS", description: "World's most popular cognac. Bold, warm, with vanilla, spice, and toasted oak.", related: ["Hennessy VSOP", "Hennessy XO", "Remy Martin VS"], image: "https://upload.wikimedia.org/wikipedia/commons/66/Hennessy_VS_cognac.jpg" }
   ] },
   { name: "Cognac", category: "Whiskies", description: "Fine French brandy from Cognac region. VS (very special, min 2 years), VSOP (min 4 years), XO (min 10 years).", brands: ["Remy Martin VS", "Hennessy VS", "Martell VS", "Courvoisier VS", "Remy Martin VSOP", "Hennessy VSOP"], notes: "Sidecar, Brandy Alexander, B&B.", bottles: [
-    { name: "Hennessy VS", description: "World's most popular cognac. A blend of eaux-de-vie aged at least 2 years. Bold, warm, with vanilla, spice, and toasted oak. The standard for Sidecars and Brandy Alexander.", related: ["Hennessy VSOP", "Hennessy XO", "Remy Martin VS"], image: "https://upload.wikimedia.org/wikipedia/commons6/66/Hennessy_VS_cognac.jpg/Hennessy_VS_cognac.jpg" },
-    { name: "Remy Martin VSOP", description: "Premium VSOP cognac from Remy Martin. Rich, smooth, with vanilla, dried fruit, and cocoa. A step up from VS for cocktails.", related: ["Remy Martin VS", "Remy Martin XO", "Martell VSOP"], image: "https://upload.wikimedia.org/wikipedia/commons3/38/Remy_Martin_VSOP_Cognac.jpg/Remy_Martin_VSOP_Cognac.jpg" }
+    { name: "Hennessy VS", description: "World's most popular cognac. A blend of eaux-de-vie aged at least 2 years. Bold, warm, with vanilla, spice, and toasted oak. The standard for Sidecars and Brandy Alexander.", related: ["Hennessy VSOP", "Hennessy XO", "Remy Martin VS"], image: "https://upload.wikimedia.org/wikipedia/commons/66/Hennessy_VS_cognac.jpg" },
+    { name: "Remy Martin VSOP", description: "Premium VSOP cognac from Remy Martin. Rich, smooth, with vanilla, dried fruit, and cocoa. A step up from VS for cocktails.", related: ["Remy Martin VS", "Remy Martin XO", "Martell VSOP"], image: "https://upload.wikimedia.org/wikipedia/commons/38/Remy_Martin_VSOP_Cognac.jpg" }
   ] },
   { name: "Cognac or VSOP brandy", category: "Whiskies", description: "VSOP-grade cognac or equivalent brandy, aged minimum 4 years. Smooth with dried fruit and vanilla.", brands: ["Remy Martin VSOP", "Hennessy VSOP", "Martell VSOP"], notes: "VSOP specifically required for some classic recipes.",
   bottles: [
-    { name: "Remy Martin VSOP", description: "Premium VSOP cognac. Rich, smooth, with vanilla, dried fruit, and cocoa.", related: ["Remy Martin VS", "Remy Martin XO", "Martell VSOP"], image: "https://upload.wikimedia.org/wikipedia/commons3/38/Remy_Martin_VSOP_Cognac.jpg/Remy_Martin_VSOP_Cognac.jpg" },
-    { name: "Hennessy VSOP", description: "Popular VSOP cognac. Smooth, with vanilla, spice, and toasted oak.", related: ["Hennessy VS", "Hennessy XO", "Remy Martin VSOP"], image: "https://upload.wikimedia.org/wikipedia/commons6/66/Hennessy_VS_cognac.jpg/Hennessy_VS_cognac.jpg" },
-    { name: "Martell VSOP", description: "Classic VSOP cognac from the world's oldest cognac house. Smooth, elegant, with vanilla, dried fruit, and toasted oak. 4-year minimum aging.", related: ["Remy Martin VSOP", "Hennessy VSOP", "Martell XO"], image: "https://upload.wikimedia.org/wikipedia/commons9/9e/Martell_VSOP_Cognac.jpg/Martell_VSOP_Cognac.jpg" },
-    { name: "Remy Martin VS", description: "Entry-level VS cognac from Remy Martin. Young, vibrant, with fresh fruit and floral notes. The most accessible Remy Martin for mixed drinks.", related: ["Remy Martin VSOP", "Remy Martin XO", "Hennessy VS"], image: "https://upload.wikimedia.org/wikipedia/commons3/38/Remy_Martin_VSOP_Cognac.jpg/Remy_Martin_VSOP_Cognac.jpg" },
-    { name: "Hennessy VS", description: "The world's best-selling VS cognac. Bold, warm, with vanilla, spice, and toasted oak. Aged minimum 2 years. The standard for Sidecars and Brandy Alexander when VSOP is not specified.", related: ["Hennessy VSOP", "Hennessy XO", "Remy Martin VS"], image: "https://upload.wikimedia.org/wikipedia/commons6/66/Hennessy_VS_cognac.jpg/Hennessy_VS_cognac.jpg" }
+    { name: "Remy Martin VSOP", description: "Premium VSOP cognac. Rich, smooth, with vanilla, dried fruit, and cocoa.", related: ["Remy Martin VS", "Remy Martin XO", "Martell VSOP"], image: "https://upload.wikimedia.org/wikipedia/commons/38/Remy_Martin_VSOP_Cognac.jpg" },
+    { name: "Hennessy VSOP", description: "Popular VSOP cognac. Smooth, with vanilla, spice, and toasted oak.", related: ["Hennessy VS", "Hennessy XO", "Remy Martin VSOP"], image: "https://upload.wikimedia.org/wikipedia/commons/66/Hennessy_VS_cognac.jpg" },
+    { name: "Martell VSOP", description: "Classic VSOP cognac from the world's oldest cognac house. Smooth, elegant, with vanilla, dried fruit, and toasted oak. 4-year minimum aging.", related: ["Remy Martin VSOP", "Hennessy VSOP", "Martell XO"], image: "https://upload.wikimedia.org/wikipedia/commons/9e/Martell_VSOP_Cognac.jpg" },
+    { name: "Remy Martin VS", description: "Entry-level VS cognac from Remy Martin. Young, vibrant, with fresh fruit and floral notes. The most accessible Remy Martin for mixed drinks.", related: ["Remy Martin VSOP", "Remy Martin XO", "Hennessy VS"], image: "https://upload.wikimedia.org/wikipedia/commons/38/Remy_Martin_VSOP_Cognac.jpg" },
+    { name: "Hennessy VS", description: "The world's best-selling VS cognac. Bold, warm, with vanilla, spice, and toasted oak. Aged minimum 2 years. The standard for Sidecars and Brandy Alexander when VSOP is not specified.", related: ["Hennessy VSOP", "Hennessy XO", "Remy Martin VS"], image: "https://upload.wikimedia.org/wikipedia/commons/66/Hennessy_VS_cognac.jpg" }
   ]
 },
   { name: "Apple brandy", category: "Whiskies", description: "Brandy distilled from apples, also called applejack when American. Clear or lightly aged. Apple-forward with warm spice.", brands: ["Calvados Boulard", "Laird's Applejack", "Clear Creek Apple Brandy", "St-Germain (not apple — Calvados)"], notes: "Jack Rose, Applejack Rabbit.", bottles: [
@@ -116,18 +116,18 @@ export const ingredients: Ingredient[] = [
   ]
 },
   { name: "Pisco", category: "Whiskies", description: "Un-aged or lightly aged grape brandy from Peru or Chile. Fragrant, floral, with citrus and stone fruit notes.", brands: ["Macchu Pisco (Peru)", "Campo de Encanto (Peru)", "Alto del Carmen (Chile)", "La Botija (Peru)"], notes: "Pisco Sour, Chilcano.", bottles: [
-    { name: "Campo de Encanto Pisco", description: "Peruvian pisco from the Ica Valley. Distilled from Quebranta grapes. Smooth, aromatic, with citrus and stone fruit. The standard for Pisco Sour.", related: ["Macchu Pisco", "La Botija", "Alto del Carmen"], image: "https://upload.wikimedia.org/wikipedia/commons5/5d/Pisco_Campo_de_Encanto.jpg/Pisco_Campo_de_Encanto.jpg" },
+    { name: "Campo de Encanto Pisco", description: "Peruvian pisco from the Ica Valley. Distilled from Quebranta grapes. Smooth, aromatic, with citrus and stone fruit. The standard for Pisco Sour.", related: ["Macchu Pisco", "La Botija", "Alto del Carmen"], image: "https://upload.wikimedia.org/wikipedia/commons/5d/Pisco_Campo_de_Encanto.jpg" },
     { name: "Macchu Pisco", description: "Peruvian pisco from the valleys of Ica. Aromatic, floral, with grape and citrus notes. Smooth and versatile.", related: ["Campo de Encanto", "La Botija", "Alto del Carmen"] }
   ] },
 
   // RUMS
   { name: "White rum", category: "Rums", description: "Light, clean rum aged briefly (often 1 year) and filtered to remove color. Mild sweetness, subtle vanilla.", brands: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars", "Cruzan Aged Light", "Havana Club 3"], notes: "Mojito, Daiquiri, Cuba Libre.", bottles: [
-    { name: "Bacardi Superior", description: "The world's best-selling white rum. Light, clean, with mild sweetness and subtle vanilla. Aged in American oak then charcoal-filtered. The standard for Mojito and Daiquiri.", related: ["Bacardi Gold", "Don Q Cristal", "Plantation 3 Stars"], image: "https://upload.wikimedia.org/wikipedia/commons5/5f/Bacardi_Superior_rum_bottle.jpg/Bacardi_Superior_rum_bottle.jpg" },
-    { name: "Plantation 3 Stars", description: "Premium Trinidadian white rum. Smooth, soft, with notes of vanilla, citrus, and tropical fruit. Ideal for Ti' Punch and mixed drinks.", related: ["Plantation 5 Year", "Bacardi Superior", "Don Q Cristal"], image: "https://upload.wikimedia.org/wikipedia/commons4/40/Plantation_3_Stars_Rum.jpg/Plantation_3_Stars_Rum.jpg" }
+    { name: "Bacardi Superior", description: "The world's best-selling white rum. Light, clean, with mild sweetness and subtle vanilla. Aged in American oak then charcoal-filtered. The standard for Mojito and Daiquiri.", related: ["Bacardi Gold", "Don Q Cristal", "Plantation 3 Stars"], image: "https://upload.wikimedia.org/wikipedia/commons/5f/Bacardi_Superior_rum_bottle.jpg" },
+    { name: "Plantation 3 Stars", description: "Premium Trinidadian white rum. Smooth, soft, with notes of vanilla, citrus, and tropical fruit. Ideal for Ti' Punch and mixed drinks.", related: ["Plantation 5 Year", "Bacardi Superior", "Don Q Cristal"], image: "https://upload.wikimedia.org/wikipedia/commons/40/Plantation_3_Stars_Rum.jpg" }
   ] },
   { name: "Light rum", category: "Rums", description: "Same as white rum — light-bodied, clear or pale gold, mild flavor.", brands: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars"], notes: "Deduplicated with White rum.",
   bottles: [
-    { name: "Bacardi Superior", description: "The world's best-selling white rum. Light, clean, with mild sweetness and subtle vanilla.", related: ["Bacardi Gold", "Don Q Cristal", "Plantation 3 Stars"], image: "https://upload.wikimedia.org/wikipedia/commons5/5f/Bacardi_Superior_rum_bottle.jpg/Bacardi_Superior_rum_bottle.jpg" },
+    { name: "Bacardi Superior", description: "The world's best-selling white rum. Light, clean, with mild sweetness and subtle vanilla.", related: ["Bacardi Gold", "Don Q Cristal", "Plantation 3 Stars"], image: "https://upload.wikimedia.org/wikipedia/commons/5f/Bacardi_Superior_rum_bottle.jpg" },
     { name: "Don Q Cristal", description: "Puerto Rican light rum. Smooth, clean, with mild sweetness and vanilla.", related: ["Bacardi Superior", "Don Q Gold", "Don Q Añejo"] },
     { name: "Mount Gay Eclipse", description: "Barbadian white rum from the world's oldest rum distillery (founded 1703). Light, clean, with vanilla and tropical fruit notes. 40% ABV.", related: ["Mount Gay XO", "Bacardi Superior", "Don Q Cristal"], image: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Mount_Gay_Eclipse_Cocktails.JPG" },
     { name: "Havana Club Añejo Especial", description: "Cuban light rum aged in oak barrels. Smooth, sweet, with vanilla, caramel, and subtle spice. 40% ABV. Essential for Mojito and Cuba Libre.", related: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars"], image: "https://upload.wikimedia.org/wikipedia/commons/2/22/2023_Havana_Club_A%C3%B1ejo_Especial_%283%29.jpg" },
@@ -135,18 +135,18 @@ export const ingredients: Ingredient[] = [
   ]
 },
   { name: "Dark rum", category: "Rums", description: "Rich, full-bodied rum aged longer in heavily charred barrels. Notes of molasses, caramel, toffee, and spice.", brands: ["Gosling's Black Seal", "Myers's Original Dark", "Plantation XO", "Flor de Caña 7", "Diplomático Reserva"], notes: "Dark 'n' Stormy, Mai Tai, Jungle Bird.", bottles: [
-    { name: "Gosling's Black Seal", description: "Bermudan dark rum. Rich, full-bodied, with molasses, caramel, and spice. The essential ingredient for a Dark 'n' Stormy.", related: ["Gosling's Gold", "Myers's Original Dark", "Plantation XO"], image: "https://upload.wikimedia.org/wikipedia/commons4/40/Goslings_Black_Seal_Rum.jpg/Goslings_Black_Seal_Rum.jpg" },
-    { name: "Myers's Original Dark", description: "Jamaican dark rum. Intensely dark, full-bodied, with heavy molasses, chocolate, and spice. Bold choice for Tiki and tropical drinks.", related: ["Gosling's Black Seal", "Plantation XO", "Flor de Caña 7"], image: "https://upload.wikimedia.org/wikipedia/commons7/7f/Myers%27s_Original_Dark_Rum.jpg/Myers%27s_Original_Dark_Rum.jpg" }
+    { name: "Gosling's Black Seal", description: "Bermudan dark rum. Rich, full-bodied, with molasses, caramel, and spice. The essential ingredient for a Dark 'n' Stormy.", related: ["Gosling's Gold", "Myers's Original Dark", "Plantation XO"], image: "https://upload.wikimedia.org/wikipedia/commons/40/Goslings_Black_Seal_Rum.jpg" },
+    { name: "Myers's Original Dark", description: "Jamaican dark rum. Intensely dark, full-bodied, with heavy molasses, chocolate, and spice. Bold choice for Tiki and tropical drinks.", related: ["Gosling's Black Seal", "Plantation XO", "Flor de Caña 7"], image: "https://upload.wikimedia.org/wikipedia/commons/7f/Myers%27s_Original_Dark_Rum.jpg" }
   ] },
   { name: "Aged rum", category: "Rums", description: "Rum aged in oak barrels for 3+ years. Complex with vanilla, oak, dried fruit, and spice notes.", brands: ["Flor de Caña 7", "Diplomático Reserva", "Plantation 5 Year", "Mount Gay XO", "Zacapa 23"], notes: "Ti' Punch, Rum Old Fashioned.",
   bottles: [
-        { name: "Diplomático Reserva Exclusiva", description: "Venezuelan aged rum from Diplomático. Blended from rums aged up to 8 years. Rich molasses, caramel, and vanilla with dried fruit. Smooth enough for sipping; complex enough for cocktails.", related: ["Diplomático Mantuano", "Diplomático Planas", "Ron Zacapa 23"], image: "https://upload.wikimedia.org/wikipedia/commons1/18/Diplomatico_Reserva_Exclusiva.jpg/Diplomatico_Reserva_Exclusiva.jpg" },
+        { name: "Diplomático Reserva Exclusiva", description: "Venezuelan aged rum from Diplomático. Blended from rums aged up to 8 years. Rich molasses, caramel, and vanilla with dried fruit. Smooth enough for sipping; complex enough for cocktails.", related: ["Diplomático Mantuano", "Diplomático Planas", "Ron Zacapa 23"], image: "https://upload.wikimedia.org/wikipedia/commons/18/Diplomatico_Reserva_Exclusiva.jpg" },
         { name: "Flor de Caña 7", description: "Nicaraguan aged rum from the Flor de Caña distillery. 7-year-old, smooth, with caramel, vanilla, and oak. Widely available and versatile.", related: ["Flor de Caña 12", "Diplomático Reserva Exclusiva", "Mount Gay XO"] },
         { name: "Mount Gay XO", description: "Barbadian aged rum from the world's oldest rum distillery. Blend of rums aged 8–15 years. Rich toffee, vanilla, spice, and banana. Complex for aged rum cocktails.", related: ["Mount Gay Eclipse", "Diplomático Reserva Exclusiva", "Flor de Caña 7"] }
   ]
 },
   { name: "Overproof rum", category: "Rums", description: "High-ABV rum (57%+ / 114 proof+). Intense, fiery, used in small dashes in Tiki and flaming cocktails.", brands: ["Wray & Nephew Overproof", "Lemon Hart 151", "Plantation O.F.T.D.", "Hamilton 151"], notes: "Use ¼–½ oz dashes. Flaming Dr. Pepper, Zombie.", bottles: [
-    { name: "Wray & Nephew Overproof", description: "Jamaican white overproof rum at 63% ABV. Intense, fiery, with funky Jamaican ester character. A single dash transforms Tiki drinks.", related: ["Wray & Nephew White", "Plantation O.F.T.D.", "Hamilton 151"], image: "https://upload.wikimedia.org/wikipedia/commons4/4a/Wray_and_Nephew_Overproof_Rum.jpg/Wray_and_Nephew_Overproof_Rum.jpg" }
+    { name: "Wray & Nephew Overproof", description: "Jamaican white overproof rum at 63% ABV. Intense, fiery, with funky Jamaican ester character. A single dash transforms Tiki drinks.", related: ["Wray & Nephew White", "Plantation O.F.T.D.", "Hamilton 151"], image: "https://upload.wikimedia.org/wikipedia/commons/4a/Wray_and_Nephew_Overproof_Rum.jpg" }
   ,
     { name: "Plantation O.F.T.D. (Overproof)", description: "Overproof rum from Plantation. Bold, intense, with deep molasses and spice. 69% ABV. The Barbados overproof standard for Tiki.", related: ["Wray & Nephew Overproof", "Hamilton 151", "Lemon Hart 151"] }
   ] },
@@ -154,7 +154,7 @@ export const ingredients: Ingredient[] = [
   // GINS
   { name: "Gin", category: "Gins", description: "Juniper-flavored spirit. Can range from crisp and citrusy (London dry) to floral and herbal (Plymouth) to bold and experimental (new Western).", brands: ["Beefeater", "Tanqueray", "Bombay Sapphire", "Plymouth", "Hendrick's", "Monkey 47"], notes: "Gin is a category — use specific type when a recipe calls for it.",
   bottles: [
-        { name: "Hendrick's Gin", description: "Scottish gin from William Grant & Sons. Infused with rose and cucumber. Silky, floral, and unusual. 41.4% ABV.", related: ["Hendrick's Orbium", "Hendrick's Lunar", "Hendrick's Midsummer Solstice"], image: "https://upload.wikimedia.org/wikipedia/commons8/86/Hendricks_Gin_2010.jpg/Hendricks_Gin_2010.jpg" },
+        { name: "Hendrick's Gin", description: "Scottish gin from William Grant & Sons. Infused with rose and cucumber. Silky, floral, and unusual. 41.4% ABV.", related: ["Hendrick's Orbium", "Hendrick's Lunar", "Hendrick's Midsummer Solstice"], image: "https://upload.wikimedia.org/wikipedia/commons/86/Hendricks_Gin_2010.jpg" },
         { name: "Beefeater London Dry", description: "London dry gin from Beefeater. Classic juniper-forward profile with citrus and spice. 40% ABV. The benchmark affordable gin for Martinis and G&Ts.", related: ["Tanqueray London Dry", "Bombay Sapphire", "Plymouth Gin"] },
         { name: "Bombay Sapphire", description: "London dry gin with a lighter, floral character. 10 botanicals including juniper, coriander, and lemon peel. 40% ABV.", related: ["Beefeater London Dry", "Tanqueray London Dry", "Hendrick's Gin"] },
         { name: "Tanqueray London Dry", description: "London dry gin from Charles Tanqueray & Co. Four-time distilled with juniper, coriander, angelica root, and liquorice. Crisp, juniper-forward, 43.1% ABV.", related: ["Tanqueray No. Ten", "Tanqueray Rangpur", "Beefeater London Dry"], image: "https://upload.wikimedia.org/wikipedia/commonsb/b5/Tanqueray_gin_bottle.jpg/Tanqueray_gin_bottle.jpg" }
@@ -192,7 +192,7 @@ export const ingredients: Ingredient[] = [
   // VODKA
   { name: "Vodka", category: "Vodka", description: "Neutral, unaged spirit distilled from grains, potatoes, or grapes. Clean, versatile base for flavored and mixed drinks.", brands: ["Grey Goose", "Ketel One", "Belvedere", "Tito's", "Stolichnaya", "Cîroc", "Absolut"], notes: "Vodka Martini, Cosmopolitan, Screwdriver, Moscow Mule.",
   bottles: [
-        { name: "Belvedere Vodka", description: "Polish rye vodka from Belvedere. Quadruple distilled from Dankowskie rye. Creamy texture with white pepper, vanilla, and almond. 40% ABV.", related: ["Grey Goose", "Ketel One", "Chopin Rye"], image: "https://upload.wikimedia.org/wikipedia/commons5/5a/Belvedere_Vodka.jpg/Belvedere_Vodka.jpg" },
+        { name: "Belvedere Vodka", description: "Polish rye vodka from Belvedere. Quadruple distilled from Dankowskie rye. Creamy texture with white pepper, vanilla, and almond. 40% ABV.", related: ["Grey Goose", "Ketel One", "Chopin Rye"], image: "https://upload.wikimedia.org/wikipedia/commons/5a/Belvedere_Vodka.jpg" },
         { name: "Grey Goose", description: "French vodka from the Cognac region. Made from soft winter wheat and spring water. Smooth, clean, with a hint of pepper and anise. 40% ABV.", related: ["Belvedere Vodka", "Ketel One", "Cîroc"] },
         { name: "Absolut Vodka", description: "Swedish vodka from Åhus. Made from winter wheat and pure water. Clean, smooth, with a hint of vanilla and pepper. The most widely distributed vodka in the world.", related: ["Grey Goose", "Ketel One", "Belvedere Vodka"] },
         { name: "Tito's Handmade Vodka", description: "American corn-based vodka from Texas. Smooth, clean, with a mild sweetness. 40% ABV. A cult favorite for Moscow Mules.", related: ["Grey Goose", "Ketel One", "Stolichnaya"] }
@@ -201,7 +201,7 @@ export const ingredients: Ingredient[] = [
   // LIQUEURS
   { name: "Amaretto", category: "Liqueurs", description: "Italian almond-flavored liqueur, sweet and nutty with notes of apricot kernel. ~28% ABV.", brands: ["Disaronno", "Lazzaroni", "DeKuyper", "Bardinet"], notes: "Amaretto Sour, Godmother, Nutcracker.",
   bottles: [
-        { name: "Disaronno Amaretto", description: "Italian amaretto liqueur from Saronno. Apricot kernel and almond character with sweet vanilla and cherry notes. 28% ABV.", related: ["Lazzaroni Amaretto", "DeKuyper Amaretto", "Bardinet Amaretto"], image: "https://upload.wikimedia.org/wikipedia/commons5/56/Disaronno_Originale.jpg/Disaronno_Originale.jpg" }
+        { name: "Disaronno Amaretto", description: "Italian amaretto liqueur from Saronno. Apricot kernel and almond character with sweet vanilla and cherry notes. 28% ABV.", related: ["Lazzaroni Amaretto", "DeKuyper Amaretto", "Bardinet Amaretto"], image: "https://upload.wikimedia.org/wikipedia/commons/56/Disaronno_Originale.jpg" }
   ,
     { name: "Lazzaroni Amaretto", description: "Italian amaretto made with drupe kernels from the Lazzaroni family recipe. Sweet, nutty, with almond and marzipan notes. 28% ABV.", related: ["Disaronno Amaretto", "DeKuyper Amaretto", "Bardinet Amaretto"] },
     { name: "DeKuyper Amaretto", description: "Dutch-made amaretto from DeKuyper. Smooth almond and apricot kernel character with sweet vanilla. A reliable mixer for Amaretto Sour and Godmother. 24% ABV.", related: ["Disaronno Amaretto", "Lazzaroni Amaretto", "Bardinet Amaretto"] },
@@ -209,7 +209,7 @@ export const ingredients: Ingredient[] = [
   ]
 },
   { name: "Aperol", category: "Liqueurs", description: "Italian bitter-orange aperitif. Bright orange, bittersweet, 11% ABV. Lighter than Campari.", brands: ["Aperol ( Campari Group )"], notes: "Aperol Spritz, Aperol Sour, Paper Plane.", bottles: [
-    { name: "Aperol", description: "Iconic Italian bitter-orange aperitif from the Campari Group. Bright orange, bittersweet, with rhubarb and orange peel. 11% ABV. Lighter than Campari; the standard for Aperol Spritz.", related: ["Campari", "Select Aperitivo", "Cynar"], image: "https://upload.wikimedia.org/wikipedia/commons7/7e/Aperol_bottle.jpg/Aperol_bottle.jpg" }
+    { name: "Aperol", description: "Iconic Italian bitter-orange aperitif from the Campari Group. Bright orange, bittersweet, with rhubarb and orange peel. 11% ABV. Lighter than Campari; the standard for Aperol Spritz.", related: ["Campari", "Select Aperitivo", "Cynar"], image: "https://upload.wikimedia.org/wikipedia/commons/7e/Aperol_bottle.jpg" }
   ,
     { name: "Select Aperitivo", description: "Venetian bitter aperitif. Similar to Aperol but with more herbal complexity and a hint of rhubarb. 17.5% ABV. The classic Venetian spritz alternative.", related: ["Aperol", "Cynar", "Campari"] }
   ] },
@@ -219,7 +219,7 @@ export const ingredients: Ingredient[] = [
     { name: "B&B Liqueur", description: "Equal parts Bénédictine D.O.M. and brandy. Smoother, richer, and slightly lower ABV than straight Bénédictine. The classic digestif.", related: ["B\u00e9n\u00e9dictine D.O.M.", "Drambuie", "Chartreuse Green"] }
   ] },
   { name: "Campari", category: "Liqueurs", description: "Italian bitter aperitif. Intensely red, bitter, herbal — notes of rhubarb, cherry, cinnamon, and citrus peel. 20.5% ABV.", brands: ["Campari"], notes: "Negroni, Boulevardier, Americano, Jungle Bird.", bottles: [
-    { name: "Campari", description: "The iconic Italian bitter aperitif. Bright red, intensely herbal and bitter with rhubarb, cherry, and citrus peel. 20.5% ABV. Essential for Negroni and Americano.", related: ["Aperol", "Cynar", "Select Aperitivo"], image: "https://upload.wikimedia.org/wikipedia/commons6/66/Campari_bottle.jpg/Campari_bottle.jpg" }
+    { name: "Campari", description: "The iconic Italian bitter aperitif. Bright red, intensely herbal and bitter with rhubarb, cherry, and citrus peel. 20.5% ABV. Essential for Negroni and Americano.", related: ["Aperol", "Cynar", "Select Aperitivo"], image: "https://upload.wikimedia.org/wikipedia/commons/66/Campari_bottle.jpg" }
   ,
     { name: "Select Aperitivo", description: "Venetian bitter aperitif. Similar to Campari but with more herbal complexity. 17.5% ABV. The classic Venetian spritz bitter.", related: ["Campari", "Aperol", "Cynar"] }
   ] },
@@ -229,7 +229,7 @@ export const ingredients: Ingredient[] = [
     { name: "Bols Cherry Liqueur", description: "Dutch cherry liqueur from Bols. Sweet, bright red, with natural cherry flavor. 24% ABV. The budget-friendly option for Singapore Sling.", related: ["Luxardo Maraschino", "Maraska Maraschino", "Luxardo Amaretto"] }
   ] },
   { name: "Cointreau", category: "Liqueurs", description: "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish. The standard for classic cocktails.", brands: ["Cointreau"], notes: "Margarita, Cosmopolitan, Sidecar, White Lady.", bottles: [
-    { name: "Cointreau", description: "Premium French triple sec from the Cointreau family. Distilled from sweet and bitter orange peels. Crisp, clean, dry orange flavor at 40% ABV. The gold standard for Margarita and Sidecar.", related: ["Pierre Ferrand Dry Curaçao", "Combier", "Marie Brizard Triple Sec"], image: "https://upload.wikimedia.org/wikipedia/commons4/4c/Cointreau_bottle.jpg/Cointreau_bottle.jpg" }
+    { name: "Cointreau", description: "Premium French triple sec from the Cointreau family. Distilled from sweet and bitter orange peels. Crisp, clean, dry orange flavor at 40% ABV. The gold standard for Margarita and Sidecar.", related: ["Pierre Ferrand Dry Curaçao", "Combier", "Marie Brizard Triple Sec"], image: "https://upload.wikimedia.org/wikipedia/commons/4c/Cointreau_bottle.jpg" }
   ,
     { name: "Pierre Ferrand Dry Curaçao", description: "Dry orange curaçao from Pierre Ferrand. Made from dried curaçao orange peels. 40% ABV. The premium orange liqueur for Margarita.", related: ["Cointreau", "Combier", "Marie Brizard Orange Cura\u00e7ao"] }
   ] },
@@ -269,7 +269,7 @@ export const ingredients: Ingredient[] = [
     { name: "Glayva", description: "Scottish honey-herbal liqueur. Similar to Drambuie but with more citrus and spice notes. Made with Scotch whisky and heather honey.", related: ["Drambuie", "B\u00e9n\u00e9dictine", "Liqueur 44"] }
   ] },
   { name: "Elderflower liqueur", category: "Liqueurs", description: "Fragrant elderflower blossom liqueur. Floral, sweet, honeyed, with pear and lychee undertones. 20% ABV.", brands: ["St-Germain"], notes: "St-Germain Spritz, Elderflower Collins, Hugo.", bottles: [
-    { name: "St-Germain", description: "French elderflower liqueur. Each bottle contains up to 1,000 elderflower blossoms hand-harvested in the French Alps. Floral, sweet, honeyed, with lychee undertones. 20% ABV.", related: ["Elderflower cordials", "Monin Elderflower Syrup"], image: "https://upload.wikimedia.org/wikipedia/commons6/6c/St-Germain_elderflower_liqueur.jpg/St-Germain_elderflower_liqueur.jpg" }
+    { name: "St-Germain", description: "French elderflower liqueur. Each bottle contains up to 1,000 elderflower blossoms hand-harvested in the French Alps. Floral, sweet, honeyed, with lychee undertones. 20% ABV.", related: ["Elderflower cordials", "Monin Elderflower Syrup"], image: "https://upload.wikimedia.org/wikipedia/commons/6c/St-Germain_elderflower_liqueur.jpg" }
   ,
     { name: "Monin Elderflower Liqueur", description: "Elderflower liqueur from Monin. Floral, sweet, honeyed. 20% ABV. A more affordable alternative to St-Germain.", related: ["St-Germain", "Elderflower cordials", "Monin Elderflower Syrup"] }
   ] },
@@ -281,14 +281,14 @@ export const ingredients: Ingredient[] = [
 },
   { name: "Green crème de menthe", category: "Liqueurs", description: "Bright green mint crème liqueur. Sweet, minty, artificial-bright green color.", brands: ["Marie Brizard", "Bols", "DeKuyper"], notes: "Grasshopper, Stinger variation, certain Shooters.",
   bottles: [
-        { name: "Marie Brizard Green Crème de Menthe", description: "Bright green mint crème liqueur. Sweet, minty, artificial-bright green color.", related: ["Bols Pepermunt", "DeKuyper Peppermint"], image: "https://upload.wikimedia.org/wikipedia/commons6/66/Marie_Brizard_Cr%C3%A8me_de_Menthe.jpg/Marie_Brizard_Cr%C3%A8me_de_Menthe.jpg" }
+        { name: "Marie Brizard Green Crème de Menthe", description: "Bright green mint crème liqueur. Sweet, minty, artificial-bright green color.", related: ["Bols Pepermunt", "DeKuyper Peppermint"], image: "https://upload.wikimedia.org/wikipedia/commons/66/Marie_Brizard_Cr%C3%A8me_de_Menthe.jpg" }
   ,
     { name: "Bols Pepermunt", description: "Dutch green crème de menthe from Bols. Bright green, sweet, minty. 24% ABV. The classic for Grasshopper and Stinger.", related: ["Marie Brizard Green Cr\u00e8me de Menthe", "DeKuyper Peppermint"] }
   ]
 },
   { name: "Grenadine", category: "Liqueurs", description: "Pomegranate syrup-liqueur. Deep red, sweet-tart. Modern grenadine is often just pomegranate juice + sugar; some have a hint of orange.", brands: ["Monin Grenadine", "Fee Brothers", "Roses", "Small Hand Foods Pomegranate Molasses (mix with water)"], notes: "Tequila Sunrise, Shirley Temple, Planter's Punch.",
   bottles: [
-        { name: "Fee Brothers Grenadine", description: "American grenadine from Fee Brothers. Deep red, sweet-tart pomegranate syrup-liqueur.", related: ["Monin Grenadine", "Roses Grenadine", "Small Hand Foods"], image: "https://upload.wikimedia.org/wikipedia/commons4/41/Fee_Brothers_Grenadine.jpg/Fee_Brothers_Grenadine.jpg" }
+        { name: "Fee Brothers Grenadine", description: "American grenadine from Fee Brothers. Deep red, sweet-tart pomegranate syrup-liqueur.", related: ["Monin Grenadine", "Roses Grenadine", "Small Hand Foods"], image: "https://upload.wikimedia.org/wikipedia/commons/41/Fee_Brothers_Grenadine.jpg" }
   ,
     { name: "Monin Grenadine", description: "French grenadine from Monin. Deep red, sweet-tart pomegranate syrup. Premium alternative to Fee Brothers.", related: ["Fee Brothers Grenadine", "Roses Grenadine", "Small Hand Foods"] }
   ]
@@ -313,7 +313,7 @@ export const ingredients: Ingredient[] = [
 },
   { name: "Orange liqueur", category: "Liqueurs", description: "General term for orange-flavored liqueurs including triple sec, curaçao, and Cointreau.", brands: ["Cointreau", "Pierre Ferrand Dry Curaçao", "Combier", "Marie Brizard"], notes: "Encompasses Triple sec, Cointreau, and Orange curaçao.",
   bottles: [
-    { name: "Cointreau", description: "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish.", related: ["Pierre Ferrand Dry Curaçao", "Combier", "Marie Brizard Triple Sec"], image: "https://upload.wikimedia.org/wikipedia/commons4/4c/Cointreau_bottle.jpg/Cointreau_bottle.jpg" },
+    { name: "Cointreau", description: "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish.", related: ["Pierre Ferrand Dry Curaçao", "Combier", "Marie Brizard Triple Sec"], image: "https://upload.wikimedia.org/wikipedia/commons/4c/Cointreau_bottle.jpg" },
     { name: "Pierre Ferrand Dry Curaçao", description: "Dry orange curaçao from Pierre Ferrand. 40% ABV.", related: ["Cointreau", "Bols Orange Curaçao", "Marie Brizard"] }
   ]
 },
@@ -324,25 +324,25 @@ export const ingredients: Ingredient[] = [
   ]
 },
   { name: "St-Germain elderflower liqueur", category: "Liqueurs", description: "Premium elderflower liqueur. Each bottle contains up to 1,000 elderflower blossoms hand-harvested in France.", brands: ["St-Germain"], notes: "St-Germain Spritz, Elderflower Collins, Hugo.", bottles: [
-    { name: "St-Germain", description: "French elderflower liqueur. Each bottle contains up to 1,000 elderflower blossoms hand-harvested in the French Alps. Floral, sweet, honeyed, with lychee undertones. 20% ABV.", related: ["Elderflower cordials", "Monin Elderflower Syrup"], image: "https://upload.wikimedia.org/wikipedia/commons6/6c/St-Germain_elderflower_liqueur.jpg/St-Germain_elderflower_liqueur.jpg" }
+    { name: "St-Germain", description: "French elderflower liqueur. Each bottle contains up to 1,000 elderflower blossoms hand-harvested in the French Alps. Floral, sweet, honeyed, with lychee undertones. 20% ABV.", related: ["Elderflower cordials", "Monin Elderflower Syrup"], image: "https://upload.wikimedia.org/wikipedia/commons/6c/St-Germain_elderflower_liqueur.jpg" }
   ,
     { name: "Monin Elderflower Liqueur", description: "Elderflower liqueur from Monin. Floral, sweet, honeyed. 20% ABV. A more affordable alternative to St-Germain.", related: ["St-Germain", "Elderflower cordials", "Monin Elderflower Syrup"] }
   ] },
   { name: "Triple sec", category: "Liqueurs", description: "Generic orange-flavored liqueur. Usually 15–40% ABV, sweeter than curaçao. Cointreau is the premium triple sec.", brands: ["Cointreau", "Combier", "Marie Brizard", "Bols", "DeKuyper"], notes: "Margarita, Cosmopolitan, Long Island Iced Tea.",
   bottles: [
-        { name: "Cointreau", description: "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish. The standard for classic cocktails.", related: ["Combier", "Marie Brizard Triple Sec", "Bols Triple Sec"], image: "https://upload.wikimedia.org/wikipedia/commons9/9f/Cointreau_bottle.jpg/Cointreau_bottle.jpg" },
+        { name: "Cointreau", description: "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish. The standard for classic cocktails.", related: ["Combier", "Marie Brizard Triple Sec", "Bols Triple Sec"], image: "https://upload.wikimedia.org/wikipedia/commons/9f/Cointreau_bottle.jpg" },
     { name: "Combier Triple Sec", description: "French triple sec from Combier, made since 1834. 40% ABV.", related: ["Cointreau", "Marie Brizard Triple Sec", "Bols Triple Sec"] }
   ]
 },
   { name: "Triple sec or Cointreau", category: "Liqueurs", description: "Same as Triple sec — just specifying Cointreau as the premium option.", brands: ["Cointreau"], notes: "Deduplicated with Triple sec.",
   bottles: [
-    { name: "Cointreau", description: "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish.", related: ["Pierre Ferrand Dry Curaçao", "Combier", "Marie Brizard Triple Sec"], image: "https://upload.wikimedia.org/wikipedia/commons4/4c/Cointreau_bottle.jpg/Cointreau_bottle.jpg" },
+    { name: "Cointreau", description: "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish.", related: ["Pierre Ferrand Dry Curaçao", "Combier", "Marie Brizard Triple Sec"], image: "https://upload.wikimedia.org/wikipedia/commons/4c/Cointreau_bottle.jpg" },
     { name: "Combier Triple Sec", description: "French triple sec from Combier, made since 1834. 40% ABV.", related: ["Cointreau", "Marie Brizard Triple Sec", "Bols Triple Sec"] }
   ]
 },
   { name: "White crème de menthe", category: "Liqueurs", description: "Clear/white mint crème liqueur. Same mint flavor as green but without artificial coloring. Useful in shaken cocktails.", brands: ["Marie Brizard", "Bols", "DeKuyper"], notes: "Stinger, Grasshopper (white version).",
   bottles: [
-        { name: "Marie Brizard White Crème de Menthe", description: "Clear white mint crème liqueur. Same mint flavor as green but without artificial coloring.", related: ["Bols White Pepermunt", "DeKuyper White Peppermint"], image: "https://upload.wikimedia.org/wikipedia/commons9/91/White_Cr%C3%A8me_de_Menthe_Marie_Brizard.jpg/White_Cr%C3%A8me_de_Menthe_Marie_Brizard.jpg" }
+        { name: "Marie Brizard White Crème de Menthe", description: "Clear white mint crème liqueur. Same mint flavor as green but without artificial coloring.", related: ["Bols White Pepermunt", "DeKuyper White Peppermint"], image: "https://upload.wikimedia.org/wikipedia/commons/91/White_Cr%C3%A8me_de_Menthe_Marie_Brizard.jpg" }
   ,
     { name: "Bols White Pepermunt", description: "Dutch white crème de menthe from Bols. Clear, minty, sweet. 24% ABV. The classic for Stinger.", related: ["Marie Brizard White Cr\u00e8me de Menthe", "DeKuyper White Peppermint"] }
   ]
@@ -358,7 +358,7 @@ export const ingredients: Ingredient[] = [
 },
   { name: "Angostura bitters", category: "Bitters & Aperitifs", description: "The iconic dash of bitters. Concentrated herbal extract with gentian root, spices, and herbs. Over 150 years old. 44.7% ABV.", brands: ["Angostura (the standard — no alternatives needed)"], notes: "In virtually every stirred cocktail. Old Fashioned, Manhattan, Martini garnish.",
   bottles: [
-        { name: "Angostura Aromatic Bitters", description: "The iconic dash of bitters. Concentrated herbal extract with gentian root, spices, and herbs. Over 150 years old. 44.7% ABV.", related: ["Fee Brothers Aromatic Bitters", "Bitter Truth Aromatic"], image: "https://upload.wikimedia.org/wikipedia/commons4/46/Angostura_bitters.jpg/Angostura_bitters.jpg" }
+        { name: "Angostura Aromatic Bitters", description: "The iconic dash of bitters. Concentrated herbal extract with gentian root, spices, and herbs. Over 150 years old. 44.7% ABV.", related: ["Fee Brothers Aromatic Bitters", "Bitter Truth Aromatic"], image: "https://upload.wikimedia.org/wikipedia/commons/46/Angostura_bitters.jpg" }
   ,
     { name: "Fee Brothers Aromatic Bitters", description: "American aromatic bitters from Fee Brothers. Concentrated herbal extract with gentian root, spices, and herbs. A classic alternative to Angostura.", related: ["Angostura Aromatic Bitters", "Bitter Truth Aromatic"] }
   ]
@@ -392,7 +392,7 @@ export const ingredients: Ingredient[] = [
 },
   { name: "Peychaud's bitters", category: "Bitters & Aperitifs", description: "Aromatic bitters from New Orleans. Anise, gentian, cherry. Distinctive red color. 35% ABV.", brands: ["Peychaud's Bitters"], notes: "Sazerac — essential. Manhattan variation.",
   bottles: [
-        { name: "Peychaud's Aromatic Bitters", description: "New Orleans aromatic bitters. Anise, gentian, cherry. Distinctive red color. 35% ABV.", related: ["Angostura Bitters", "Fee Brothers Bitters"], image: "https://upload.wikimedia.org/wikipedia/commons5/52/Peychauds_Bitters.jpg/Peychauds_Bitters.jpg" }
+        { name: "Peychaud's Aromatic Bitters", description: "New Orleans aromatic bitters. Anise, gentian, cherry. Distinctive red color. 35% ABV.", related: ["Angostura Bitters", "Fee Brothers Bitters"], image: "https://upload.wikimedia.org/wikipedia/commons/52/Peychauds_Bitters.jpg" }
   ,
     { name: "Fee Brothers Bitters", description: "American aromatic bitters from Fee Brothers. A versatile all-purpose bitter for Old Fashioned and Manhattan when Peychaud's isn't specified.", related: ["Peychaud's Aromatic Bitters", "Angostura Bitters"] }
   ]
@@ -435,7 +435,7 @@ export const ingredients: Ingredient[] = [
 },
   { name: "Sweet vermouth", category: "Sherries & Vermouths", description: "Sweet, rich aromatised wine. Caramel, vanilla, herbs, citrus. ~16% ABV. Keep refrigerated.", brands: ["Carpano Antica", "Dolin Sweet", "Martini & Rossi Rosso", "Cinzano Rosso"], notes: "Negroni, Manhattan, Boulevardier, Americano, Rob Roy.",
   bottles: [
-        { name: "Carpano Antica Formula", description: "Premium Italian sweet vermouth from Fratelli Branca. First vermouth created by Antonio Carpano in 1786. Intensely herbal, vanilla-forward, with dried fruit and toffee. 23% ABV.", related: ["Carpano Punt e Mes", "Dolin Sweet", "Martini & Rossi Rosso"], image: "https://upload.wikimedia.org/wikipedia/commons5/5f/Carpano_Antica_Formula_Verouth.jpg/Carpano_Antica_Formula_Verouth.jpg" }
+        { name: "Carpano Antica Formula", description: "Premium Italian sweet vermouth from Fratelli Branca. First vermouth created by Antonio Carpano in 1786. Intensely herbal, vanilla-forward, with dried fruit and toffee. 23% ABV.", related: ["Carpano Punt e Mes", "Dolin Sweet", "Martini & Rossi Rosso"], image: "https://upload.wikimedia.org/wikipedia/commons/5f/Carpano_Antica_Formula_Verouth.jpg" }
   ,
     { name: "Carpano Antica Formula", description: "Premium sweet vermouth from Carpano. Rich vanilla, caramel, dried fruit, and baking spices. 16% ABV. The benchmark for Manhattan.", related: ["Dolin Sweet Vermouth", "Martini & Rossi Rosso", "Cinzano Rosso"] }
   ]
@@ -444,14 +444,14 @@ export const ingredients: Ingredient[] = [
   // WINES & SPARKLING
   { name: "Champagne", category: "Wines & Sparkling", description: "Sparkling wine from Champagne region of France. Méthode Champenoise. Fine bubbles, toasty, complex.", brands: ["Moët & Chandon", "Veuve Clicquot", "Ruinart", "Krug", "Bollinger"], notes: "French 75, Champagne Cocktail, Champagne Sour.",
   bottles: [
-        { name: "Moët & Chandon Brut Impérial", description: "Iconic Champagne from Moët & Chandon. Bright, lively, with green apple, citrus, and brioche. The standard for celebrations and French 75.", related: ["Veuve Clicquot Yellow Label", "Ruinart Blanc de Blancs", "Bollinger Special Cuvée"], image: "https://upload.wikimedia.org/wikipedia/commons6/68/Mo%C3%ABt_%26_Chandon_2010.jpg/Mo%C3%ABt_%26_Chandon_2010.jpg" }
+        { name: "Moët & Chandon Brut Impérial", description: "Iconic Champagne from Moët & Chandon. Bright, lively, with green apple, citrus, and brioche. The standard for celebrations and French 75.", related: ["Veuve Clicquot Yellow Label", "Ruinart Blanc de Blancs", "Bollinger Special Cuvée"], image: "https://upload.wikimedia.org/wikipedia/commons/68/Mo%C3%ABt_%26_Chandon_2010.jpg" }
   ,
     { name: "Ruinart Blanc de Blancs", description: "Champagne from Ruinart. 100% Chardonnay. Light, elegant, with citrus, white flowers, and brioche. The refined alternative to Moët for French 75.", related: ["Mo\u00ebt & Chandon Brut Imp\u00e9rial", "Veuve Clicquot Yellow Label", "Bollinger Special Cuv\u00e9e"] }
   ]
 },
   { name: "Champagne or sparkling wine", category: "Wines & Sparkling", description: "Either Champagne or a quality sparkling wine (Cava, Prosecco, Crémant).", brands: ["Moët & Chandon", "Veuve Clicquot", "Prosecco brands"], notes: "Use for top-ups in French 75, Champagne cocktails.",
   bottles: [
-    { name: "Moët & Chandon Brut Impérial", description: "Iconic Champagne. Bright, lively, with green apple, citrus, and brioche.", related: ["Veuve Clicquot Yellow Label", "Ruinart Blanc de Blancs"], image: "https://upload.wikimedia.org/wikipedia/commons6/68/Mo%C3%ABt_%26_Chandon_2010.jpg/Mo%C3%ABt_%26_Chandon_2010.jpg" },
+    { name: "Moët & Chandon Brut Impérial", description: "Iconic Champagne. Bright, lively, with green apple, citrus, and brioche.", related: ["Veuve Clicquot Yellow Label", "Ruinart Blanc de Blancs"], image: "https://upload.wikimedia.org/wikipedia/commons/68/Mo%C3%ABt_%26_Chandon_2010.jpg" },
     { name: "Veuve Clicquot Yellow Label", description: "Brut Champagne. Bright, balanced, with brioche and citrus.", related: ["Moët & Chandon Brut", "Ruinart Blanc de Blancs", "Bollinger Special Cuvée"] }
   ]
 },
