@@ -1,11 +1,11 @@
 import { query } from '@/lib/db';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from 'next-auth/next';
-import { auth } from '../auth/[...nextauth]';
+import { authOptions } from '../auth/[...nextauth]';
 
 export default async function handler(_: NextApiRequest, res: NextApiResponse) {
   const lang = (_.query.lang as string) === 'hr' ? 'hr' : 'en';
-  const session: any = await getServerSession(_, res, auth);
+  const session: any = await getServerSession(_, res, authOptions);
   const userId = session?.user?.id;
 
   const categories: any[] = await query(`

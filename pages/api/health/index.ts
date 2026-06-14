@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from 'next-auth/next';
-import { auth } from '../auth/[...nextauth]';
+import { authOptions } from '../auth/[...nextauth]';
 import { Pool } from 'pg';
 
 const pool = new Pool({
@@ -20,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
   // 1. Auth config check
   try {
-    const session = await getServerSession(req, res, auth);
+    const session = await getServerSession(req, res, authOptions);
     checks.auth = { status: 'ok', detail: session ? 'session-ok' : 'no-session' };
   } catch (e: any) {
     checks.auth = { status: 'error', detail: e.message };

@@ -1,11 +1,11 @@
 import { query } from '@/lib/db';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { getServerSession } from 'next-auth/next';
-import { auth } from '../../auth/[...nextauth]';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '../../auth/[...nextauth]';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   // TypeScript: session typing depends on module augmentation in [...nextauth].ts
-  const session = await getServerSession(req, res, auth);
+  const session = await getServerSession(req, res, authOptions);
   const userId = (session as any)?.user?.id;
 
   if (!userId) return res.status(401).json({ error: 'Not authenticated' });
