@@ -260,7 +260,8 @@ export const ingredients: Ingredient[] = [
   { name: "Crème de violette", category: "Liqueurs", description: "Violet flower crème liqueur. Floral, sweet, perfumed. 20–25% ABV. Rare and expensive.", brands: ["Giffard Crème de Violette", "Briottet", "Rothman & Winter"], notes: "Aviation — ¼ oz is enough. Violet Fizz.",
   bottles: [
     { name: "Giffard Crème de Violette", description: "French violet flower crème liqueur. Floral, sweet, perfumed. 20% ABV.", related: ["Briottet Crème de Violette", "Rothman & Winter Violet"] },
-    { name: "Briottet Crème de Violette", description: "French violet liqueur from Savoie. Fragrant, sweet, perfumed.", related: ["Giffard Crème de Violette", "Rothman & Winter"] }
+    { name: "Briottet Crème de Violette", description: "French violet liqueur from Savoie. Fragrant, sweet, perfumed.", related: ["Giffard Crème de Violette", "Rothman & Winter"] },
+    { name: "Rothman & Winter Violet", description: "Austrian violet crème liqueur. Made with natural violet petals. Floral, sweet, perfumed. 20% ABV. Classic Aviation ingredient.", related: ["Giffard Crème de Violette", "Briottet Crème de Violette"], image: "https://upload.wikimedia.org/wikipedia/commons/1/14/Creme_de_violette.jpg" }
   ]
 },
   { name: "Drambuie", category: "Liqueurs", description: "Scottish honey-herbal liqueur. Scotch whisky base with heather honey, herbs, and spices. 40% ABV.", brands: ["Drambuie"], notes: "Rusty Nail, Civil Service, Godfather variation.", bottles: [
