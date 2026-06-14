@@ -359,7 +359,8 @@ export const ingredients: Ingredient[] = [
   { name: "Angostura bitters", category: "Bitters & Aperitifs", description: "The iconic dash of bitters. Concentrated herbal extract with gentian root, spices, and herbs. Over 150 years old. 44.7% ABV.", brands: ["Angostura (the standard — no alternatives needed)"], notes: "In virtually every stirred cocktail. Old Fashioned, Manhattan, Martini garnish.",
   bottles: [
         { name: "Angostura Aromatic Bitters", description: "The iconic dash of bitters. Concentrated herbal extract with gentian root, spices, and herbs. Over 150 years old. 44.7% ABV.", related: ["Fee Brothers Aromatic Bitters", "Bitter Truth Aromatic"] },
-    { name: "Fee Brothers Aromatic Bitters", description: "American aromatic bitters from Fee Brothers. Concentrated herbal extract with gentian root, spices, and herbs. A classic alternative to Angostura.", related: ["Angostura Aromatic Bitters", "Bitter Truth Aromatic"] }
+    { name: "Fee Brothers Aromatic Bitters", description: "American aromatic bitters from Fee Brothers. Concentrated herbal extract with gentian root, spices, and herbs. A classic alternative to Angostura.", related: ["Angostura Aromatic Bitters", "Bitter Truth Aromatic"] },
+    { name: "Bitter Truth Aromatic Bitters", description: "German-made aromatic bitters. Similar herbal profile to Angostura with gentian root, spices, and herbs. 39% ABV. A quality alternative for Old Fashioneds and Manhattans.", related: ["Angostura Aromatic Bitters", "Fee Brothers Aromatic Bitters"] }
   ]
 },
   { name: "Fernet-Branca", category: "Bitters & Aperitifs", description: "Italian amaro bitter digestif. Intensely bitter, minty, menthol, eucalyptus, and herbaceous. 39% ABV.", brands: ["Fernet-Branca"], notes: "Toronto, Hanky Panky, Fernet & Coke (Argentina).",
