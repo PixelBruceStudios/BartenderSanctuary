@@ -79,7 +79,8 @@ export const ingredients: Ingredient[] = [
   ]
 },
   { name: "Apple brandy", category: "Whiskies", description: "Brandy distilled from apples, also called applejack when American. Clear or lightly aged. Apple-forward with warm spice.", brands: ["Calvados Boulard", "Laird's Applejack", "Clear Creek Apple Brandy", "St-Germain (not apple — Calvados)"], notes: "Jack Rose, Applejack Rabbit.", bottles: [
-    { name: "Laird's Applejack", description: "America's oldest apple brandy, dating to 1780. Made from blended apple cider and neutral spirits. Apple-forward, warm, and versatile for Jack Rose and Applejack Rabbit.", related: ["Laird's 100 Proof", "Clear Creek Apple Brandy", "Calvados Boulard"] }
+    { name: "Laird's Applejack", description: "America's oldest apple brandy, dating to 1780. Made from blended apple cider and neutral spirits. Apple-forward, warm, and versatile for Jack Rose and Applejack Rabbit.", related: ["Laird's 100 Proof", "Clear Creek Apple Brandy", "Calvados Boulard"] },
+    { name: "Clear Creek Apple Brandy", description: "Oregon-made apple brandy from Clear Creek Distillery. Distilled from whole apples. Clean, bright apple character. A classic American alternative to Calvados.", related: ["Laird's Applejack", "Calvados Boulard", "Laird's 100 Proof"] }
   ] },
   { name: "Apricot brandy", category: "Whiskies", description: "Brandy infused with or distilled from apricots. Sweet, fruity, golden-amber.", brands: ["Marie Brizard Apricot Brandy", "Bols Apricot Brandy", "Rothman & Winter"], notes: "B&B, Apricot Sour.",
   bottles: [
@@ -446,7 +447,10 @@ export const ingredients: Ingredient[] = [
   { name: "Heavy cream", category: "Dairy & Cream", description: "High-fat dairy cream (36–40% fat). Used for body and richness in shaken cocktails.", brands: ["Any heavy cream brand"], notes: "Brandy Alexander, White Russian, Ramos Gin Fizz." },
 
   // OTHER SPIRITS & INGREDIENTS
-  { name: "Falernum", category: "Other Spirits", description: "Caribbean syrup-spice liqueur. Almond, ginger, clove, allspice. Sweet, warm, 11% ABV.", brands: ["Fee Brothers Falernum", "Old Professor Falernum", "Romilly's"], notes: "Tiki Punch, Scorpion, certain Mai Tai recipes." },
+  { name: "Falernum", category: "Other Spirits", description: "Caribbean syrup-spice liqueur. Almond, ginger, clove, allspice. Sweet, warm, 11% ABV.", brands: ["Fee Brothers Falernum", "Old Professor Falernum", "Romilly's"], notes: "Tiki Punch, Scorpion, certain Mai Tai recipes.", bottles: [
+    { name: "Fee Brothers Falernum", description: "Caribbean falernum liqueur from Fee Brothers. Almond, ginger, clove, allspice. Sweet, warm, 11% ABV. The classic choice for Tiki drinks.", related: ["Old Professor Falernum", "Romilly's Falernum"] },
+    { name: "Romilly's Falernum", description: "Jamaican falernum liqueur. Traditional recipe with almond, ginger, and spices. Sweet, warm.", related: ["Fee Brothers Falernum", "Old Professor Falernum"] }
+  ] },
   { name: "Applejack", category: "Other Spirits", description: "American apple brandy made from hard cider. Strong apple character, warm spirit.", brands: ["Laird's Applejack (100 proof or 80 proof)"], notes: "Jack Rose, Applejack Rabbit." },
   { name: "Cachaça", category: "Other Spirits", description: "Brazilian spirit from fermented sugarcane juice. Funky, grassy, herbaceous. Unlike rum (molasses).", brands: ["Leblon", "Avuá", "Novo Fogo", "Ypióca"], notes: "Caipirinha, Caipiroska, Batida." },
   { name: "White peach purée", category: "Other Spirits", description: "Puréed white peach, strained. Sweet, floral, velvety.", brands: ["Bardezzo, Boiron, or fresh purée"], notes: "Bellini (with Prosecco), Peach Sour." },
