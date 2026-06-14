@@ -41,7 +41,7 @@ export const ingredients: Ingredient[] = [
     { name: "Laphroaig 10", description: "Iconic Islay single malt. Intense peat smoke, seaweed, and medicinal iodine. Love it or hate it — unforgettable.", related: ["Laphroaig Quarter Cask", "Laphroaig 18", "Laphroaig Lore"], },
     { name: "Lagavulin 16", description: "The king of Islay. Deep peat smoke, dried fruit, and maritime salt. The definitive smoky whisky.", related: ["Lagavulin 12", "Lagavulin 25", "Lagavulin Distillers Edition"], },
     { name: "Ardbeg 10", description: "Peaty Islay single malt with surprising sweetness. Tar, smoked fish, and citrus. The balanced Islay experience.", related: ["Ardbeg Uigeadail", "Ardbeg Corryvreckan", "Ardbeg 10"], },
-    { name: "Bowmore 12", description: "Islay single malt with balanced peat smoke, heather honey, and citrus. Less aggressive than Laphroaig or Lagavulin — a gentler introduction to Islay.", related: ["Bowmore 15", "Caol Ila 12", "Laphroaig 10"], image: "https://upload.wikimedia.org/wikipedia/commons/4a/Bowmore_12_Year_Old.jpg" },
+    { name: "Bowmore 12", description: "Islay single malt with balanced peat smoke, heather honey, and citrus. Less aggressive than Laphroaig or Lagavulin — a gentler introduction to Islay.", related: ["Bowmore 15", "Caol Ila 12", "Laphroaig 10"] },
     { name: "Johnnie Walker Black Label", description: "The world's most recognized blended Scotch. 12-year-old, rich and smooth with vanilla, honey, and dried fruit. The workhorse for Rusty Nail, Blood and Sand, and Rob Roy.", related: ["Johnnie Walker Red Label", "Johnnie Walker Gold Label", "Johnnie Walker Blue Label"], }
   ] },
   { name: "Irish whiskey", category: "Whiskies", description: "Triple-distilled Irish whiskey, typically lighter and smoother than Scotch with notes of honey, vanilla, and green apple.", brands: ["Jameson", "Bushmills Original", "Redbreast 12", "Tullamore D.E.W.", "Green Spot"], notes: "Key for Irish Coffee, Tipperary, Forty-Three.", bottles: [
@@ -123,7 +123,7 @@ export const ingredients: Ingredient[] = [
   // RUMS
   { name: "White rum", category: "Rums", description: "Light, clean rum aged briefly (often 1 year) and filtered to remove color. Mild sweetness, subtle vanilla.", brands: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars", "Cruzan Aged Light", "Havana Club 3"], notes: "Mojito, Daiquiri, Cuba Libre.", bottles: [
     { name: "Bacardi Superior", description: "The world's best-selling white rum. Light, clean, with mild sweetness and subtle vanilla. Aged in American oak then charcoal-filtered. The standard for Mojito and Daiquiri.", related: ["Bacardi Gold", "Don Q Cristal", "Plantation 3 Stars"], },
-    { name: "Plantation 3 Stars", description: "Premium Trinidadian white rum. Smooth, soft, with notes of vanilla, citrus, and tropical fruit. Ideal for Ti' Punch and mixed drinks.", related: ["Plantation 5 Year", "Bacardi Superior", "Don Q Cristal"], image: "https://upload.wikimedia.org/wikipedia/commons/40/Plantation_3_Stars_Rum.jpg" }
+    { name: "Plantation 3 Stars", description: "Premium Trinidadian white rum. Smooth, soft, with notes of vanilla, citrus, and tropical fruit. Ideal for Ti' Punch and mixed drinks.", related: ["Plantation 5 Year", "Bacardi Superior", "Don Q Cristal"] }
   ] },
   { name: "Light rum", category: "Rums", description: "Same as white rum — light-bodied, clear or pale gold, mild flavor.", brands: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars"], notes: "Deduplicated with White rum.",
   bottles: [
@@ -135,26 +135,25 @@ export const ingredients: Ingredient[] = [
   ]
 },
   { name: "Dark rum", category: "Rums", description: "Rich, full-bodied rum aged longer in heavily charred barrels. Notes of molasses, caramel, toffee, and spice.", brands: ["Gosling's Black Seal", "Myers's Original Dark", "Plantation XO", "Flor de Caña 7", "Diplomático Reserva"], notes: "Dark 'n' Stormy, Mai Tai, Jungle Bird.", bottles: [
-    { name: "Gosling's Black Seal", description: "Bermudan dark rum. Rich, full-bodied, with molasses, caramel, and spice. The essential ingredient for a Dark 'n' Stormy.", related: ["Gosling's Gold", "Myers's Original Dark", "Plantation XO"], image: "https://upload.wikimedia.org/wikipedia/commons/40/Goslings_Black_Seal_Rum.jpg" },
-    { name: "Myers's Original Dark", description: "Jamaican dark rum. Intensely dark, full-bodied, with heavy molasses, chocolate, and spice. Bold choice for Tiki and tropical drinks.", related: ["Gosling's Black Seal", "Plantation XO", "Flor de Caña 7"], image: "https://upload.wikimedia.org/wikipedia/commons/7f/Myers%27s_Original_Dark_Rum.jpg" }
+    { name: "Gosling's Black Seal", description: "Bermudan dark rum. Rich, full-bodied, with molasses, caramel, and spice. The essential ingredient for a Dark 'n' Stormy.", related: ["Gosling's Gold", "Myers's Original Dark", "Plantation XO"] },
+    { name: "Myers's Original Dark", description: "Jamaican dark rum. Intensely dark, full-bodied, with heavy molasses, chocolate, and spice. Bold choice for Tiki and tropical drinks.", related: ["Gosling's Black Seal", "Plantation XO", "Flor de Caña 7"] },
   ] },
   { name: "Aged rum", category: "Rums", description: "Rum aged in oak barrels for 3+ years. Complex with vanilla, oak, dried fruit, and spice notes.", brands: ["Flor de Caña 7", "Diplomático Reserva", "Plantation 5 Year", "Mount Gay XO", "Zacapa 23"], notes: "Ti' Punch, Rum Old Fashioned.",
   bottles: [
-        { name: "Diplomático Reserva Exclusiva", description: "Venezuelan aged rum from Diplomático. Blended from rums aged up to 8 years. Rich molasses, caramel, and vanilla with dried fruit. Smooth enough for sipping; complex enough for cocktails.", related: ["Diplomático Mantuano", "Diplomático Planas", "Ron Zacapa 23"], image: "https://upload.wikimedia.org/wikipedia/commons/18/Diplomatico_Reserva_Exclusiva.jpg" },
+        { name: "Diplomático Reserva Exclusiva", description: "Venezuelan aged rum from Diplomático. Blended from rums aged up to 8 years. Rich molasses, caramel, and vanilla with dried fruit. Smooth enough for sipping; complex enough for cocktails.", related: ["Diplomático Mantuano", "Diplomático Planas", "Ron Zacapa 23"] },
         { name: "Flor de Caña 7", description: "Nicaraguan aged rum from the Flor de Caña distillery. 7-year-old, smooth, with caramel, vanilla, and oak. Widely available and versatile.", related: ["Flor de Caña 12", "Diplomático Reserva Exclusiva", "Mount Gay XO"] },
         { name: "Mount Gay XO", description: "Barbadian aged rum from the world's oldest rum distillery. Blend of rums aged 8–15 years. Rich toffee, vanilla, spice, and banana. Complex for aged rum cocktails.", related: ["Mount Gay Eclipse", "Diplomático Reserva Exclusiva", "Flor de Caña 7"] }
   ]
 },
   { name: "Overproof rum", category: "Rums", description: "High-ABV rum (57%+ / 114 proof+). Intense, fiery, used in small dashes in Tiki and flaming cocktails.", brands: ["Wray & Nephew Overproof", "Lemon Hart 151", "Plantation O.F.T.D.", "Hamilton 151"], notes: "Use ¼–½ oz dashes. Flaming Dr. Pepper, Zombie.", bottles: [
-    { name: "Wray & Nephew Overproof", description: "Jamaican white overproof rum at 63% ABV. Intense, fiery, with funky Jamaican ester character. A single dash transforms Tiki drinks.", related: ["Wray & Nephew White", "Plantation O.F.T.D.", "Hamilton 151"], image: "https://upload.wikimedia.org/wikipedia/commons/4a/Wray_and_Nephew_Overproof_Rum.jpg" }
-  ,
+    { name: "Wray & Nephew Overproof", description: "Jamaican white overproof rum at 63% ABV. Intense, fiery, with funky Jamaican ester character. A single dash transforms Tiki drinks.", related: ["Wray & Nephew White", "Plantation O.F.T.D.", "Hamilton 151"] },
     { name: "Plantation O.F.T.D. (Overproof)", description: "Overproof rum from Plantation. Bold, intense, with deep molasses and spice. 69% ABV. The Barbados overproof standard for Tiki.", related: ["Wray & Nephew Overproof", "Hamilton 151", "Lemon Hart 151"] }
   ] },
 
   // GINS
   { name: "Gin", category: "Gins", description: "Juniper-flavored spirit. Can range from crisp and citrusy (London dry) to floral and herbal (Plymouth) to bold and experimental (new Western).", brands: ["Beefeater", "Tanqueray", "Bombay Sapphire", "Plymouth", "Hendrick's", "Monkey 47"], notes: "Gin is a category — use specific type when a recipe calls for it.",
   bottles: [
-        { name: "Hendrick's Gin", description: "Scottish gin from William Grant & Sons. Infused with rose and cucumber. Silky, floral, and unusual. 41.4% ABV.", related: ["Hendrick's Orbium", "Hendrick's Lunar", "Hendrick's Midsummer Solstice"], image: "https://upload.wikimedia.org/wikipedia/commons/86/Hendricks_Gin_2010.jpg" },
+        { name: "Hendrick's Gin", description: "Scottish gin from William Grant & Sons. Infused with rose and cucumber. Silky, floral, and unusual. 41.4% ABV.", related: ["Hendrick's Orbium", "Hendrick's Lunar", "Hendrick's Midsummer Solstice"] },
         { name: "Beefeater London Dry", description: "London dry gin from Beefeater. Classic juniper-forward profile with citrus and spice. 40% ABV. The benchmark affordable gin for Martinis and G&Ts.", related: ["Tanqueray London Dry", "Bombay Sapphire", "Plymouth Gin"] },
         { name: "Bombay Sapphire", description: "London dry gin with a lighter, floral character. 10 botanicals including juniper, coriander, and lemon peel. 40% ABV.", related: ["Beefeater London Dry", "Tanqueray London Dry", "Hendrick's Gin"] },
         { name: "Tanqueray London Dry", description: "London dry gin from Charles Tanqueray & Co. Four-time distilled with juniper, coriander, angelica root, and liquorice. Crisp, juniper-forward, 43.1% ABV.", related: ["Tanqueray No. Ten", "Tanqueray Rangpur", "Beefeater London Dry"] },
