@@ -397,63 +397,206 @@ export const ingredients: Ingredient[] = [
 },
 
   // JUICES & MIXERS
-  { name: "Cranberry juice", category: "Juices & Mixers", description: "Tart-sweet juice from cranberries. Mix with soda or use as a mixer. Often sweetened.", brands: ["Ocean Spray", "Lakewood", "R.W. Knudsen"], notes: "Cape Codder, Cosmopolitan, Woo Woo." },
-  { name: "Grapefruit juice", category: "Juices & Mixers", description: "Bitter-sweet juice from grapefruit. Can be white (blond) or ruby (red). Freshest when juiced.", brands: ["Fresh"], notes: "Greyhound, Paloma, Hemingway Daiquiri." },
-  { name: "Fresh grapefruit juice", category: "Juices & Mixers", description: "Same as grapefruit juice — fresh-squeezed for better flavor and no added sugar.", brands: ["Fresh"], notes: "Deduplicated with Grapefruit juice; fresh preferred." },
-  { name: "Lemon juice", category: "Juices & Mixers", description: "Fresh lemon juice is essential for cocktails. Bottled lacks brightness. Always use fresh.", brands: ["Fresh lemons"], notes: "Whiskey Sour, Tom Collins, Gimlet, 90% of sour cocktails." },
-  { name: "Fresh lemon juice", category: "Juices & Mixers", description: "Same as lemon juice — specifying fresh-squeezed as the standard.", brands: ["Fresh lemons"], notes: "Deduplicated with Lemon juice." },
-  { name: "Lime juice", category: "Juices & Mixers", description: "Persian lime juice, fresh-squeezed. Bright, sharp acidity. Key for Tiki and tropical drinks.", brands: ["Fresh limes"], notes: "Daiquiri, Mojito, Margarita, Gimlet (traditional)." },
-  { name: "Fresh lime", category: "Juices & Mixers", description: "Whole fresh lime — juiced as needed.", brands: ["Fresh limes"], notes: "Same as Lime juice." },
-  { name: "Fresh lime juice", category: "Juices & Mixers", description: "Freshly squeezed lime juice. The standard for all Tiki and tropical drinks.", brands: ["Fresh limes"], notes: "Deduplicated with Lime juice." },
-  { name: "Orange juice", category: "Juices & Mixers", description: "Fresh orange juice for cocktails. Sweet, fruity, bright.", brands: ["Fresh oranges"], notes: "Screwdriver, Mimosa, Brass Monkey." },
-  { name: "Fresh orange juice", category: "Juices & Mixers", description: "Fresh-squeezed orange juice. Superior to carton for cocktails.", brands: ["Fresh oranges"], notes: "Deduplicated with Orange juice." },
-  { name: "Papaya juice", category: "Juices & Mixers", description: "Tropical juice from papaya. Sweet, mild, creamy texture. Rare in classic cocktails.", brands: ["Fresh or canned"], notes: "Tiki drinks, tropical variations." },
-  { name: "Passion fruit juice", category: "Juices & Mixers", description: "Tart, aromatic juice from passion fruit pulp. Intensely tropical.", brands: ["Fresh or frozen puree"], notes: "Passion fruit Daiquiri, certain Tiki drinks." },
-  { name: "Pineapple juice", category: "Juices & Mixers", description: "Sweet, tropical juice. Best when fresh, acceptable from can for mixing.", brands: ["Dole, fresh"], notes: "Piña Colada, Jungle Bird, Hawaii Five-O." },
-  { name: "Clamato juice", category: "Juices & Mixers", description: "Tomato juice + clam broth blend. Savory, briny. Used in savory cocktails.", brands: ["Clamato ( Mott's )"], notes: "Michelada, Caesar (Canadian Bloody Mary)." },
-  { name: "Tomato juice", category: "Juices & Mixers", description: "Savory juice from tomatoes. Base for Bloody Mary and savory cocktails.", brands: ["Campbell's, fresh"], notes: "Bloody Mary, Bloody Caesar." },
-  { name: "Cola", category: "Juices & Mixers", description: "Carbonated cola drink. Used as a mixer in highball-style cocktails.", brands: ["Coca-Cola", "Pepsi", "Mexican Coke (real sugar)"], notes: "Cuba Libre, Long Island Iced Tea." },
-  { name: "Soda water", category: "Juices & Mixers", description: "Carbonated water with no added flavor. Essential for highballs, Tom Collins, Tom Collins.", brands: ["Schweppes, Pellegrino, Topo Chico"], notes: "Tom Collins, Mojito top-up, Americano top-up, Rickey." },
-  { name: "Sparkling water", category: "Juices & Mixers", description: "Same as soda water — may include mineral/sparkling waters like Topo Chico or Perrier.", brands: ["Topo Chico", "Perrier", "Pellegrino", "Schweppes"], notes: "Deduplicated with Soda water." },
-  { name: "Ginger beer", category: "Juices & Mixers", description: "Spicy, sweet ginger-flavored carbonated drink. Non-alcoholic (unlike ginger ale). Stronger ginger kick.", brands: ["Fever-Tree Ginger Beer", "Bundaberg", "Gosling's Stormy", "Q Tonic Ginger Beer"], notes: "Dark 'n' Stormy, Moscow Mule." },
-  { name: "Lemonade", category: "Juices & Mixers", description: "Sweetened lemon drink. Often used in British/Irish cocktails.", brands: ["Fresh or commercial"], notes: "Lemonade & Gin, certain Collins variations." },
-  { name: "Hot coffee", category: "Juices & Mixers", description: "Freshly brewed hot coffee. Used as a base or addition in coffee cocktails.", brands: ["Fresh brew"], notes: "Irish Coffee, Espresso Martini." },
-  { name: "Hot sauce", category: "Juices & Mixers", description: "Spicy condiment sauce. Used in small quantities for heat in savory cocktails.", brands: ["Tabasco", "Cholula", "Sriracha", "Valentina"], notes: "Michelada, Bloody Maria, Bloody Caesar." },
-  { name: "Worcestershire sauce", category: "Juices & Mixers", description: "Fermented savory condiment. Umami, vinegar, anchovy. Used in Bloody Mary-style drinks.", brands: ["Lea & Perrins"], notes: "Bloody Mary, Bloody Caesar — 2–3 dashes." },
+  { name: "Cranberry juice", category: "Juices & Mixers", description: "Tart-sweet juice from cranberries. Mix with soda or use as a mixer. Often sweetened.", brands: ["Ocean Spray", "Lakewood", "R.W. Knudsen"], notes: "Cape Codder, Cosmopolitan, Woo Woo.",
+  bottles: [
+    { name: "Ocean Spray Cranberry Juice Cocktail", description: "Classic cranberry juice cocktail. Tart-sweet, widely available. The standard for Cape Codder and Cosmopolitan.", related: ["Lakewood Organic Cranberry", "R.W. Knudsen Cranberry"] }
+  ] },
+  { name: "Grapefruit juice", category: "Juices & Mixers", description: "Bitter-sweet juice from grapefruit. Can be white (blond) or ruby (red). Freshest when juiced.", brands: ["Fresh"], notes: "Greyhound, Paloma, Hemingway Daiquiri.",
+  bottles: [
+    { name: "Fresh Ruby Red Grapefruit Juice", description: "Fresh-squeezed ruby red grapefruit juice. Bitter-sweet, bright. Perfect for Greyhound and Paloma.", related: ["Fresh White Grapefruit Juice", "Bottled Grapefruit Juice"] }
+  ] },
+  { name: "Fresh grapefruit juice", category: "Juices & Mixers", description: "Same as grapefruit juice — fresh-squeezed for better flavor and no added sugar.", brands: ["Fresh"], notes: "Deduplicated with Grapefruit juice; fresh preferred.",
+  bottles: [
+    { name: "Fresh Ruby Red Grapefruit Juice", description: "Fresh-squeezed ruby red grapefruit juice. Bitter-sweet, bright. No added sugar — the preferred version.", related: ["Fresh White Grapefruit Juice", "Bottled Grapefruit Juice"] }
+  ] },
+  { name: "Lemon juice", category: "Juices & Mixers", description: "Fresh lemon juice is essential for cocktails. Bottled lacks brightness. Always use fresh.", brands: ["Fresh lemons"], notes: "Whiskey Sour, Tom Collins, Gimlet, 90% of sour cocktails.",
+  bottles: [
+    { name: "Fresh Lemon Juice", description: "Always use fresh-squeezed lemon juice for cocktails. Bottled lacks brightness and acidity.", related: ["Bottled Lemon Juice", "Lemon concentrate"] }
+  ] },
+  { name: "Fresh lemon juice", category: "Juices & Mixers", description: "Same as lemon juice — specifying fresh-squeezed as the standard.", brands: ["Fresh lemons"], notes: "Deduplicated with Lemon juice.",
+  bottles: [
+    { name: "Fresh Lemon Juice", description: "Fresh-squeezed lemon juice. Essential for 90% of sour cocktails.", related: ["Bottled Lemon Juice", "Lemon concentrate"] }
+  ] },
+  { name: "Lime juice", category: "Juices & Mixers", description: "Persian lime juice, fresh-squeezed. Bright, sharp acidity. Key for Tiki and tropical drinks.", brands: ["Fresh limes"], notes: "Daiquiri, Mojito, Margarita, Gimlet (traditional).",
+  bottles: [
+    { name: "Fresh Persian Lime Juice", description: "Fresh-squeezed Persian lime juice. Bright, sharp acidity. Key for Daiquiri, Mojito, and Margarita.", related: ["Bottled Lime Juice", "Lime concentrate", "Key lime juice"] }
+  ] },
+  { name: "Fresh lime", category: "Juices & Mixers", description: "Whole fresh lime — juiced as needed.", brands: ["Fresh limes"], notes: "Same as Lime juice.",
+  bottles: [
+    { name: "Fresh Persian Limes", description: "Whole fresh limes, juiced as needed. Bright, sharp citrus.", related: ["Key limes", "Bottled lime juice"] }
+  ] },
+  { name: "Fresh lime juice", category: "Juices & Mixers", description: "Freshly squeezed lime juice. The standard for all Tiki and tropical drinks.", brands: ["Fresh limes"], notes: "Deduplicated with Lime juice.",
+  bottles: [
+    { name: "Fresh Persian Lime Juice", description: "Freshly squeezed lime juice. The standard for Tiki and tropical drinks.", related: ["Key lime juice", "Bottled lime juice"] }
+  ] },
+  { name: "Orange juice", category: "Juices & Mixers", description: "Fresh orange juice for cocktails. Sweet, fruity, bright.", brands: ["Fresh oranges"], notes: "Screwdriver, Mimosa, Brass Monkey.",
+  bottles: [
+    { name: "Fresh Orange Juice", description: "Fresh-squeezed orange juice. Sweet, fruity, bright. Far superior to carton for cocktails.", related: ["Bottled orange juice", "NFC orange juice"] }
+  ] },
+  { name: "Fresh orange juice", category: "Juices & Mixers", description: "Fresh-squeezed orange juice. Superior to carton for cocktails.", brands: ["Fresh oranges"], notes: "Deduplicated with Orange juice.",
+  bottles: [
+    { name: "Fresh Orange Juice", description: "Fresh-squeezed orange juice. The preferred version for Mimosa and Screwdriver.", related: ["Bottled orange juice", "NFC orange juice"] }
+  ] },
+  { name: "Papaya juice", category: "Juices & Mixers", description: "Tropical juice from papaya. Sweet, mild, creamy texture. Rare in classic cocktails.", brands: ["Fresh or canned"], notes: "Tiki drinks, tropical variations.",
+  bottles: [
+    { name: "Fresh Papaya Juice", description: "Fresh papaya juice. Sweet, mild, creamy tropical flavor. Best fresh or frozen.", related: ["Canned papaya nectar", "Papaya puree"] }
+  ] },
+  { name: "Passion fruit juice", category: "Juices & Mixers", description: "Tart, aromatic juice from passion fruit pulp. Intensely tropical.", brands: ["Fresh or frozen puree"], notes: "Passion fruit Daiquiri, certain Tiki drinks.",
+  bottles: [
+    { name: "Fresh Passion Fruit Purée", description: "Fresh passion fruit pulp. Tart, aromatic, intensely tropical. Use frozen purée when fresh is unavailable.", related: ["Frozen passion fruit puree", "Passion fruit juice"] }
+  ] },
+  { name: "Pineapple juice", category: "Juices & Mixers", description: "Sweet, tropical juice. Best when fresh, acceptable from can for mixing.", brands: ["Dole, fresh"], notes: "Piña Colada, Jungle Bird, Hawaii Five-O.",
+  bottles: [
+    { name: "Dole Pineapple Juice", description: "Classic canned pineapple juice. Sweet, tropical, widely available. Good for mixing.", related: ["Fresh pineapple juice", "Pineapple nectar"] }
+  ] },
+  { name: "Clamato juice", category: "Juices & Mixers", description: "Tomato juice + clam broth blend. Savory, briny. Used in savory cocktails.", brands: ["Clamato ( Mott's )"], notes: "Michelada, Caesar (Canadian Bloody Mary).",
+  bottles: [
+    { name: "Clamato Tomato Juice Cocktail", description: "Tomato juice blended with clam broth. Savory, briny. The essential base for Caesar and Michelada.", related: ["Mott's Clamato", "Tomato juice"] }
+  ] },
+  { name: "Tomato juice", category: "Juices & Mixers", description: "Savory juice from tomatoes. Base for Bloody Mary and savory cocktails.", brands: ["Campbell's, fresh"], notes: "Bloody Mary, Bloody Caesar.",
+  bottles: [
+    { name: "Campbell's Tomato Juice", description: "Classic tomato juice. Savory, smooth. The standard base for Bloody Mary.", related: ["Fresh tomato juice", "Low-sodium tomato juice"] }
+  ] },
+  { name: "Cola", category: "Juices & Mixers", description: "Carbonated cola drink. Used as a mixer in highball-style cocktails.", brands: ["Coca-Cola", "Pepsi", "Mexican Coke (real sugar)"], notes: "Cuba Libre, Long Island Iced Tea.",
+  bottles: [
+    { name: "Mexican Coca-Cola", description: "Coca-Cola made with real sugar (sucrose). Richer, more complex than HFCS versions. Essential for authentic Cuba Libre.", related: ["Coca-Cola", "Pepsi", "Coca-Cola Zero Sugar"] },
+    { name: "Coca-Cola", description: "The world's most popular cola. Classic caramel, vanilla, and spice notes.", related: ["Mexican Coca-Cola", "Pepsi", "Diet Coke"] },
+    { name: "Pepsi", description: "Classic cola. Slightly sweeter than Coca-Cola. Fine for Long Island Iced Tea.", related: ["Coca-Cola", "Diet Pepsi"] }
+  ] },
+  { name: "Soda water", category: "Juices & Mixers", description: "Carbonated water with no added flavor. Essential for highballs, Tom Collins, Tom Collins.", brands: ["Schweppes, Pellegrino, Topo Chico"], notes: "Tom Collins, Mojito top-up, Americano top-up, Rickey.",
+  bottles: [
+    { name: "Topo Chico Sparkling Water", description: "Mexican mineral water. Naturally sparkling, clean, crisp. Perfect for highballs and Palomas.", related: ["Perrier", "Pellegrino", "Schweppes Soda Water"] },
+    { name: "Schweppes Soda Water", description: "Classic soda water. Carbonated, neutral. Essential for Tom Collins and Americano.", related: ["Topo Chico", "Pellegrino", "Club Soda"] }
+  ] },
+  { name: "Sparkling water", category: "Juices & Mixers", description: "Same as soda water — may include mineral/sparkling waters like Topo Chico or Perrier.", brands: ["Topo Chico", "Perrier", "Pellegrino", "Schweppes"], notes: "Deduplicated with Soda water.",
+  bottles: [
+    { name: "Perrier Sparkling Water", description: "French natural mineral water. Lightly carbonated, crisp, with mineral notes.", related: ["Pellegrino", "Topo Chico", "LaCroix"] },
+    { name: "Topo Chico Sparkling Water", description: "Mexican mineral water. Strong bubbles, clean taste. Great for Palomas.", related: ["Perrier", "Pellegrino", "Schweppes"] }
+  ] },
+  { name: "Ginger beer", category: "Juices & Mixers", description: "Spicy, sweet ginger-flavored carbonated drink. Non-alcoholic (unlike ginger ale). Stronger ginger kick.", brands: ["Fever-Tree Ginger Beer", "Bundaberg", "Gosling's Stormy", "Q Tonic Ginger Beer"], notes: "Dark 'n' Stormy, Moscow Mule.",
+  bottles: [
+    { name: "Fever-Tree Ginger Beer", description: "Premium British ginger beer. Made from three types of ginger. Spicy, intense ginger kick. The standard for Moscow Mule.", related: ["Bundaberg Ginger Beer", "Gosling's Stormy Ginger Beer", "Q Tonic Ginger Beer"] },
+    { name: "Bundaberg Ginger Beer", description: "Australian ginger beer brewed from real ginger. Spicy, sweet, strong ginger finish.", related: ["Fever-Tree Ginger Beer", "Gosling's Stormy", "Q Tonic"] }
+  ] },
+  { name: "Lemonade", category: "Juices & Mixers", description: "Sweetened lemon drink. Often used in British/Irish cocktails.", brands: ["Fresh or commercial"], notes: "Lemonade & Gin, certain Collins variations.",
+  bottles: [
+    { name: "Fresh Lemonade", description: "Fresh-squeezed lemonade. Sweet, bright, tart. Mix with gin or sparkling water.", related: ["Store-bought lemonade", "Frozen lemonade concentrate"] }
+  ] },
+  { name: "Hot coffee", category: "Juices & Mixers", description: "Freshly brewed hot coffee. Used as a base or addition in coffee cocktails.", brands: ["Fresh brew"], notes: "Irish Coffee, Espresso Martini.",
+  bottles: [
+    { name: "Freshly Brewed Espresso", description: "Fresh espresso shot. Concentrated coffee flavor for Espresso Martini and Irish Coffee.", related: ["Cold brew concentrate", "Strong brewed coffee"] }
+  ] },
+  { name: "Hot sauce", category: "Juices & Mixers", description: "Spicy condiment sauce. Used in small quantities for heat in savory cocktails.", brands: ["Tabasco", "Cholula", "Sriracha", "Valentina"], notes: "Michelada, Bloody Maria, Bloody Caesar.",
+  bottles: [
+    { name: "Tabasco Original Red Sauce", description: "The classic Louisiana hot sauce. Vinegar-forward, spicy. 2–3 dashes for Bloody Mary.", related: ["Cholula", "Sriracha", "Valentina"] },
+    { name: "Cholula Hot Sauce", description: "Mexican hot sauce with peppers and spices. Medium heat, rich flavor.", related: ["Tabasco", "Sriracha", "Valentina"] }
+  ] },
+  { name: "Worcestershire sauce", category: "Juices & Mixers", description: "Fermented savory condiment. Umami, vinegar, anchovy. Used in Bloody Mary-style drinks.", brands: ["Lea & Perrins"], notes: "Bloody Mary, Bloody Caesar — 2–3 dashes.",
+  bottles: [
+    { name: "Lea & Perrins Worcestershire Sauce", description: "The original Worcestershire sauce. Umami, vinegar, anchovy, tamarind. Essential for Bloody Mary — 2–3 dashes.", related: ["Wizard Worcestershire", "Annie's Naturals"] }
+  ] },
 
   // SYRUPS & SWEETENERS
-  { name: "Cinnamon syrup", category: "Syrups & Sweeteners", description: "Simple syrup infused with cinnamon sticks. Warm, spicy sweetener.", brands: ["Homemade (1:1 sugar:water + cinnamon sticks)"], notes: "Hot Toddies, certain Fall/Winter cocktails." },
-  { name: "Honey syrup", category: "Syrups & Sweeteners", description: "Honey thinned with hot water (usually 2:1 honey:water) for pourability. Floral, rich sweetness.", brands: ["Homemade"], notes: "Bee's Knees, Gold Rush, Penicillin." },
-  { name: "Honey-ginger syrup", category: "Syrups & Sweeteners", description: "Honey syrup infused with fresh ginger. Spicy, warming sweetener.", brands: ["Homemade"], notes: "Penicillin, Dark 'n' Stormy variation." },
-  { name: "Orgeat syrup", category: "Syrups & Sweeteners", description: "Almond-orange blossom water syrup. Nutty, floral, essential in Tiki drinks.", brands: ["Monin Orgeat", "Fee Brothers", "Small Hand Foods"], notes: "Maï Taï, Scorpion, Saturn." },
-  { name: "Raspberry syrup", category: "Syrups & Sweeteners", description: "Syrup made from raspberries. Tart-sweet, deep pink-red.", brands: ["Monin", "Fee Brothers", "Homemade"], notes: "Raspberry Collins, certain Sours." },
-  { name: "Simple syrup", category: "Syrups & Sweeteners", description: "Equal parts sugar and water, dissolved. The standard neutral sweetener for cocktails. 1:1 ratio.", brands: ["Homemade", "Monin Simple Syrup"], notes: "Almost every cocktail that needs sweetness. ¾ oz per sour cocktail." },
-  { name: "Sugar", category: "Syrups & Sweeteners", description: "Granulated white sugar. Used for Old Fashioned muddling, sugar rims, or making simple syrup.", brands: ["Any white granulated sugar"], notes: "Old Fashioned (muddled with bitters), rimming glasses." },
-  { name: "Sugar cube", category: "Syrups & Sweeteners", description: "Compressed sugar cubes. Traditional for Old Fashioned — muddled with bitters.", brands: ["Any sugar cube brand"], notes: "Old Fashioned — standard presentation." },
+  { name: "Cinnamon syrup", category: "Syrups & Sweeteners", description: "Simple syrup infused with cinnamon sticks. Warm, spicy sweetener.", brands: ["Homemade (1:1 sugar:water + cinnamon sticks)"], notes: "Hot Toddies, certain Fall/Winter cocktails.",
+  bottles: [
+    { name: "Homemade Cinnamon Syrup", description: "Simple syrup infused with cinnamon sticks. Warm, spicy sweetener for Hot Toddies.", related: ["Monin Cinnamon Syrup", "Fee Brothers Cinnamon"] }
+  ] },
+  { name: "Honey syrup", category: "Syrups & Sweeteners", description: "Honey thinned with hot water (usually 2:1 honey:water) for pourability. Floral, rich sweetness.", brands: ["Homemade"], notes: "Bee's Knees, Gold Rush, Penicillin.",
+  bottles: [
+    { name: "Homemade Honey Syrup", description: "Honey thinned with hot water (usually 2:1 honey:water). Floral, rich sweetness for Bee's Knees and Penicillin.", related: ["Monin Honey Syrup", "Small Hand Foods Honey Syrup"] }
+  ] },
+  { name: "Honey-ginger syrup", category: "Syrups & Sweeteners", description: "Honey syrup infused with fresh ginger. Spicy, warming sweetener.", brands: ["Homemade"], notes: "Penicillin, Dark 'n' Stormy variation.",
+  bottles: [
+    { name: "Homemade Honey-Ginger Syrup", description: "Honey syrup infused with fresh ginger. Spicy, warming sweetener for Penicillin.", related: ["Honey syrup", "Ginger syrup"] }
+  ] },
+  { name: "Orgeat syrup", category: "Syrups & Sweeteners", description: "Almond-orange blossom water syrup. Nutty, floral, essential in Tiki drinks.", brands: ["Monin Orgeat", "Fee Brothers", "Small Hand Foods"], notes: "Maï Taï, Scorpion, Saturn.",
+  bottles: [
+    { name: "Monin Orgeat Syrup", description: "Premium almond-orange blossom syrup. Nutty, floral. Essential for Mai Tai and Scorpion.", related: ["Fee Brothers Orgeat", "Small Hand Foods Orgeat"] },
+    { name: "Small Hand Foods Orgeat", description: "Craft orgeat syrup. Made with California almonds and orange blossom water.", related: ["Monin Orgeat", "Fee Brothers"] }
+  ] },
+  { name: "Raspberry syrup", category: "Syrups & Sweeteners", description: "Syrup made from raspberries. Tart-sweet, deep pink-red.", brands: ["Monin", "Fee Brothers", "Homemade"], notes: "Raspberry Collins, certain Sours.",
+  bottles: [
+    { name: "Monin Raspberry Syrup", description: "French raspberry syrup. Tart-sweet, deep pink. Great for Raspberry Collins.", related: ["Fee Brothers Raspberry", "Homemade raspberry syrup"] }
+  ] },
+  { name: "Simple syrup", category: "Syrups & Sweeteners", description: "Equal parts sugar and water, dissolved. The standard neutral sweetener for cocktails. 1:1 ratio.", brands: ["Homemade", "Monin Simple Syrup"], notes: "Almost every cocktail that needs sweetness. ¾ oz per sour cocktail.",
+  bottles: [
+    { name: "Monin Simple Syrup", description: "Neutral 1:1 sugar syrup. Standard sweetener for cocktails.", related: ["Homemade simple syrup", "Rich simple syrup"] },
+    { name: "Homemade Simple Syrup", description: "Equal parts sugar and water, dissolved. The standard neutral sweetener.", related: ["Monin Simple Syrup", "Simple Syrup Concentrate"] }
+  ] },
+  { name: "Sugar", category: "Syrups & Sweeteners", description: "Granulated white sugar. Used for Old Fashioned muddling, sugar rims, or making simple syrup.", brands: ["Any white granulated sugar"], notes: "Old Fashioned (muddled with bitters), rimming glasses.",
+  bottles: [
+    { name: "White Granulated Sugar", description: "Standard white sugar. Used for Old Fashioned muddling and simple syrup.", related: ["Demerara sugar", "Raw sugar"] }
+  ] },
+  { name: "Sugar cube", category: "Syrups & Sweeteners", description: "Compressed sugar cubes. Traditional for Old Fashioned — muddled with bitters.", brands: ["Any sugar cube brand"], notes: "Old Fashioned — standard presentation.",
+  bottles: [
+    { name: "Classic Sugar Cubes", description: "Compressed white sugar cubes. Traditional for Old Fashioned — muddled with bitters.", related: ["Demerara sugar cubes", "Large sugar cubes"] }
+  ] },
 
   // FRESH & GARNISH
-  { name: "Celery salt", category: "Fresh & Garnish", description: "Coarse salt blended with ground celery seeds. Savory, briny rim salt.", brands: ["McCormick", "Diamond Crystal"], notes: "Bloody Caesar rim, Bloody Mary rim." },
-  { name: "Cucumber slices", category: "Fresh & Garnish", description: "Fresh cucumber, thinly sliced. Cool, watery, mild flavor for garnish or muddling.", brands: ["Fresh"], notes: "Hendrick's garnish, Pimm's Cup garnish." },
-  { name: "Egg white", category: "Fresh & Garnish", description: "Fresh egg white for foaming cocktails. Dry shake (no ice) to emulsify, then add ice and shake again.", brands: ["Fresh eggs"], notes: "Whiskey Sour, Gin Sour, Clover Club — ¾–1 egg white per cocktail." },
-  { name: "Fresh blackberries", category: "Fresh & Garnish", description: "Fresh blackberries for muddling, garnish, or as a flavor component.", brands: ["Fresh seasonal"], notes: "Bramble garnish, muddled in Berry Sours." },
-  { name: "Fresh espresso", category: "Fresh & Garnish", description: "Freshly brewed espresso shot. Concentrated coffee flavor for coffee cocktails.", brands: ["Fresh brew"], notes: "Espresso Martini." },
-  { name: "Fresh mint", category: "Fresh & Garnish", description: "Fresh mint sprigs. Muddled gently for flavor or used as a garnish slap.", brands: ["Fresh spearmint"], notes: "Mojito, Mint Julep, Southside." },
-  { name: "Fresh mint leaves", category: "Fresh & Garnish", description: "Same as Fresh mint — individual leaves for muddling or garnish.", brands: ["Fresh spearmint"], notes: "Deduplicated with Fresh mint." },
-  { name: "Nutmeg", category: "Fresh & Garnish", description: "Freshly grated nutmeg. Warm, nutty, aromatic spice for garnish.", brands: ["Whole nutmeg + grater"], notes: "Brandy Alexander garnish, Eggnog, certain punches." },
-  { name: "Orange blossom water", category: "Fresh & Garnish", description: "Distilled water with orange blossom essence. Highly concentrated — use drops. Floral, perfumed.", brands: ["Cortas", "Moussel", "Food-grade"], notes: "Bee's Knees, certain Ramos Fizz, Arabic cocktails." },
+  { name: "Celery salt", category: "Fresh & Garnish", description: "Coarse salt blended with ground celery seeds. Savory, briny rim salt.", brands: ["McCormick", "Diamond Crystal"], notes: "Bloody Caesar rim, Bloody Mary rim.",
+  bottles: [
+    { name: "McCormick Celery Salt", description: "Coarse salt blended with ground celery seeds. Savory, briny. Perfect for Bloody Caesar rim.", related: ["Diamond Crystal Celery Salt", "Frontier Celery Salt"] }
+  ] },
+  { name: "Cucumber slices", category: "Fresh & Garnish", description: "Fresh cucumber, thinly sliced. Cool, watery, mild flavor for garnish or muddling.", brands: ["Fresh"], notes: "Hendrick's garnish, Pimm's Cup garnish.",
+  bottles: [
+    { name: "Fresh Cucumber", description: "Fresh cucumber, thinly sliced. Cool, watery, mild. Classic Hendrick's and Pimm's garnish.", related: ["English cucumber", "Persian cucumber"] }
+  ] },
+  { name: "Egg white", category: "Fresh & Garnish", description: "Fresh egg white for foaming cocktails. Dry shake (no ice) to emulsify, then add ice and shake again.", brands: ["Fresh eggs"], notes: "Whiskey Sour, Gin Sour, Clover Club — ¾–1 egg white per cocktail.",
+  bottles: [
+    { name: "Fresh Egg White", description: "Fresh egg white for foaming cocktails. Dry shake (no ice) to emulsify, then add ice and shake again.", related: ["Aquafaba (vegan alternative)", "Pasteurized egg whites"] }
+  ] },
+  { name: "Fresh blackberries", category: "Fresh & Garnish", description: "Fresh blackberries for muddling, garnish, or as a flavor component.", brands: ["Fresh seasonal"], notes: "Bramble garnish, muddled in Berry Sours.",
+  bottles: [
+    { name: "Fresh Blackberries", description: "Fresh blackberries for muddling or garnish in Bramble and berry sours.", related: ["Frozen blackberries", "Blackberry puree"] }
+  ] },
+  { name: "Fresh espresso", category: "Fresh & Garnish", description: "Freshly brewed espresso shot. Concentrated coffee flavor for coffee cocktails.", brands: ["Fresh brew"], notes: "Espresso Martini.",
+  bottles: [
+    { name: "Freshly Brewed Espresso", description: "Fresh espresso shot. Concentrated coffee flavor for Espresso Martini.", related: ["Cold brew concentrate", "Strong coffee"] }
+  ] },
+  { name: "Fresh mint", category: "Fresh & Garnish", description: "Fresh mint sprigs. Muddled gently for flavor or used as a garnish slap.", brands: ["Fresh spearmint"], notes: "Mojito, Mint Julep, Southside.",
+  bottles: [
+    { name: "Fresh Spearmint", description: "Fresh mint sprigs. Gently muddled for Mojito and Mint Julep, or slapped for garnish.", related: ["Peppermint", "Chocolate mint"] }
+  ] },
+  { name: "Fresh mint leaves", category: "Fresh & Garnish", description: "Same as Fresh mint — individual leaves for muddling or garnish.", brands: ["Fresh spearmint"], notes: "Deduplicated with Fresh mint.",
+  bottles: [
+    { name: "Fresh Spearmint Leaves", description: "Fresh mint leaves for muddling or garnish.", related: ["Fresh mint sprigs", "Peppermint leaves"] }
+  ] },
+  { name: "Nutmeg", category: "Fresh & Garnish", description: "Freshly grated nutmeg. Warm, nutty, aromatic spice for garnish.", brands: ["Whole nutmeg + grater"], notes: "Brandy Alexander garnish, Eggnog, certain punches.",
+  bottles: [
+    { name: "Whole Nutmeg", description: "Whole nutmeg freshly grated. Warm, nutty, aromatic garnish for Brandy Alexander and Eggnog.", related: ["Ground nutmeg", "Nutmeg grater"] }
+  ] },
+  { name: "Orange blossom water", category: "Fresh & Garnish", description: "Distilled water with orange blossom essence. Highly concentrated — use drops. Floral, perfumed.", brands: ["Cortas", "Moussel", "Food-grade"], notes: "Bee's Knees, certain Ramos Fizz, Arabic cocktails.",
+  bottles: [
+    { name: "Cortas Orange Blossom Water", description: "Distilled water with orange blossom essence. Highly concentrated — use drops. Floral, perfumed.", related: ["Moussel Orange Blossom Water", "Food-grade orange blossom water"] }
+  ] },
 
   // DAIRY & CREAM
-  { name: "Coconut cream", category: "Dairy & Cream", description: "Thick, rich cream from coconut meat. Not coconut milk — higher fat content. Separates when chilled.", brands: ["Chaokoh", "Aroy-D", "Savoy"], notes: "Piña Colada, Blue Hawaii." },
-  { name: "Heavy cream", category: "Dairy & Cream", description: "High-fat dairy cream (36–40% fat). Used for body and richness in shaken cocktails.", brands: ["Any heavy cream brand"], notes: "Brandy Alexander, White Russian, Ramos Gin Fizz." },
+  { name: "Coconut cream", category: "Dairy & Cream", description: "Thick, rich cream from coconut meat. Not coconut milk — higher fat content. Separates when chilled.", brands: ["Chaokoh", "Aroy-D", "Savoy"], notes: "Piña Colada, Blue Hawaii.",
+  bottles: [
+    { name: "Chaokoh Coconut Cream", description: "Thai coconut cream. Thick, rich, high-fat. Not coconut milk — separates when chilled.", related: ["Aroy-D Coconut Cream", "Savoy Coconut Cream"] }
+  ] },
+  { name: "Heavy cream", category: "Dairy & Cream", description: "High-fat dairy cream (36–40% fat). Used for body and richness in shaken cocktails.", brands: ["Any heavy cream brand"], notes: "Brandy Alexander, White Russian, Ramos Gin Fizz.",
+  bottles: [
+    { name: "Heavy Cream (36-40% fat)", description: "High-fat dairy cream. Used for body in Brandy Alexander, White Russian, Ramos Gin Fizz.", related: ["Half-and-half", "Heavy whipping cream"] }
+  ] },
 
   // OTHER SPIRITS & INGREDIENTS
   { name: "Falernum", category: "Other Spirits", description: "Caribbean syrup-spice liqueur. Almond, ginger, clove, allspice. Sweet, warm, 11% ABV.", brands: ["Fee Brothers Falernum", "Old Professor Falernum", "Romilly's"], notes: "Tiki Punch, Scorpion, certain Mai Tai recipes.", bottles: [
     { name: "Fee Brothers Falernum", description: "Caribbean falernum liqueur from Fee Brothers. Almond, ginger, clove, allspice. Sweet, warm, 11% ABV. The classic choice for Tiki drinks.", related: ["Old Professor Falernum", "Romilly's Falernum"] },
     { name: "Romilly's Falernum", description: "Jamaican falernum liqueur. Traditional recipe with almond, ginger, and spices. Sweet, warm.", related: ["Fee Brothers Falernum", "Old Professor Falernum"] }
   ] },
-  { name: "Applejack", category: "Other Spirits", description: "American apple brandy made from hard cider. Strong apple character, warm spirit.", brands: ["Laird's Applejack (100 proof or 80 proof)"], notes: "Jack Rose, Applejack Rabbit." },
-  { name: "Cachaça", category: "Other Spirits", description: "Brazilian spirit from fermented sugarcane juice. Funky, grassy, herbaceous. Unlike rum (molasses).", brands: ["Leblon", "Avuá", "Novo Fogo", "Ypióca"], notes: "Caipirinha, Caipiroska, Batida." },
-  { name: "White peach purée", category: "Other Spirits", description: "Puréed white peach, strained. Sweet, floral, velvety.", brands: ["Bardezzo, Boiron, or fresh purée"], notes: "Bellini (with Prosecco), Peach Sour." },
+  { name: "Applejack", category: "Other Spirits", description: "American apple brandy made from hard cider. Strong apple character, warm spirit.", brands: ["Laird's Applejack (100 proof or 80 proof)"], notes: "Jack Rose, Applejack Rabbit.",
+  bottles: [
+    { name: "Laird's Applejack", description: "America's oldest apple brandy (since 1780). Made from blended apple cider and neutral spirits. Apple-forward, warm. Essential for Jack Rose.", related: ["Laird's 100 Proof", "Clear Creek Apple Brandy"] }
+  ] },
+  { name: "Cachaça", category: "Other Spirits", description: "Brazilian spirit from fermented sugarcane juice. Funky, grassy, herbaceous. Unlike rum (molasses).", brands: ["Leblon", "Avuá", "Novo Fogo", "Ypióca"], notes: "Caipirinha, Caipiroska, Batida.",
+  bottles: [
+    { name: "Leblon Cachaça", description: "Premium Brazilian cachaça from Minas Gerais. Distilled from fresh sugarcane juice. Smooth, grassy. The standard for Caipirinha.", related: ["Avuá Cachaça", "Novo Fogo", "Ypióca"] }
+  ] },
+  { name: "White peach purée", category: "Other Spirits", description: "Puréed white peach, strained. Sweet, floral, velvety.", brands: ["Bardezzo, Boiron, or fresh purée"], notes: "Bellini (with Prosecco), Peach Sour.",
+  bottles: [
+    { name: "Bardezzo White Peach Purée", description: "Smooth white peach purée. Sweet, floral, velvety. Ideal for Bellini and Peach Sour.", related: ["Boiron White Peach Puree", "Fresh white peach puree"] }
+  ] },
 ];
 
 export function getIngredientByName(name: string): Ingredient | undefined {
