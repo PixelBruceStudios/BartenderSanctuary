@@ -191,7 +191,7 @@ export const ingredients: Ingredient[] = [
   // VODKA
   { name: "Vodka", category: "Vodka", description: "Neutral, unaged spirit distilled from grains, potatoes, or grapes. Clean, versatile base for flavored and mixed drinks.", brands: ["Grey Goose", "Ketel One", "Belvedere", "Tito's", "Stolichnaya", "Cîroc", "Absolut"], notes: "Vodka Martini, Cosmopolitan, Screwdriver, Moscow Mule.",
   bottles: [
-        { name: "Belvedere Vodka", description: "Polish rye vodka from Belvedere. Quadruple distilled from Dankowskie rye. Creamy texture with white pepper, vanilla, and almond. 40% ABV.", related: ["Grey Goose", "Ketel One", "Chopin Rye"], image: "https://upload.wikimedia.org/wikipedia/commons/5a/Belvedere_Vodka.jpg" },
+        { name: "Belvedere Vodka", description: "Polish rye vodka from Belvedere. Quadruple distilled from Dankowskie rye. Creamy texture with white pepper, vanilla, and almond. 40% ABV.", related: ["Grey Goose", "Ketel One", "Chopin Rye"], },
         { name: "Grey Goose", description: "French vodka from the Cognac region. Made from soft winter wheat and spring water. Smooth, clean, with a hint of pepper and anise. 40% ABV.", related: ["Belvedere Vodka", "Ketel One", "Cîroc"] },
         { name: "Absolut Vodka", description: "Swedish vodka from Åhus. Made from winter wheat and pure water. Clean, smooth, with a hint of vanilla and pepper. The most widely distributed vodka in the world.", related: ["Grey Goose", "Ketel One", "Belvedere Vodka"] },
         { name: "Tito's Handmade Vodka", description: "American corn-based vodka from Texas. Smooth, clean, with a mild sweetness. 40% ABV. A cult favorite for Moscow Mules.", related: ["Grey Goose", "Ketel One", "Stolichnaya"] }
@@ -200,7 +200,7 @@ export const ingredients: Ingredient[] = [
   // LIQUEURS
   { name: "Amaretto", category: "Liqueurs", description: "Italian almond-flavored liqueur, sweet and nutty with notes of apricot kernel. ~28% ABV.", brands: ["Disaronno", "Lazzaroni", "DeKuyper", "Bardinet"], notes: "Amaretto Sour, Godmother, Nutcracker.",
   bottles: [
-        { name: "Disaronno Amaretto", description: "Italian amaretto liqueur from Saronno. Apricot kernel and almond character with sweet vanilla and cherry notes. 28% ABV.", related: ["Lazzaroni Amaretto", "DeKuyper Amaretto", "Bardinet Amaretto"], image: "https://upload.wikimedia.org/wikipedia/commons/56/Disaronno_Originale.jpg" }
+        { name: "Disaronno Amaretto", description: "Italian amaretto liqueur from Saronno. Apricot kernel and almond character with sweet vanilla and cherry notes. 28% ABV.", related: ["Lazzaroni Amaretto", "DeKuyper Amaretto", "Bardinet Amaretto"], }
   ,
     { name: "Lazzaroni Amaretto", description: "Italian amaretto made with drupe kernels from the Lazzaroni family recipe. Sweet, nutty, with almond and marzipan notes. 28% ABV.", related: ["Disaronno Amaretto", "DeKuyper Amaretto", "Bardinet Amaretto"] },
     { name: "DeKuyper Amaretto", description: "Dutch-made amaretto from DeKuyper. Smooth almond and apricot kernel character with sweet vanilla. A reliable mixer for Amaretto Sour and Godmother. 24% ABV.", related: ["Disaronno Amaretto", "Lazzaroni Amaretto", "Bardinet Amaretto"] },
@@ -208,7 +208,7 @@ export const ingredients: Ingredient[] = [
   ]
 },
   { name: "Aperol", category: "Liqueurs", description: "Italian bitter-orange aperitif. Bright orange, bittersweet, 11% ABV. Lighter than Campari.", brands: ["Aperol ( Campari Group )"], notes: "Aperol Spritz, Aperol Sour, Paper Plane.", bottles: [
-    { name: "Aperol", description: "Iconic Italian bitter-orange aperitif from the Campari Group. Bright orange, bittersweet, with rhubarb and orange peel. 11% ABV. Lighter than Campari; the standard for Aperol Spritz.", related: ["Campari", "Select Aperitivo", "Cynar"], image: "https://upload.wikimedia.org/wikipedia/commons/7e/Aperol_bottle.jpg" }
+    { name: "Aperol", description: "Iconic Italian bitter-orange aperitif from the Campari Group. Bright orange, bittersweet, with rhubarb and orange peel. 11% ABV. Lighter than Campari; the standard for Aperol Spritz.", related: ["Campari", "Select Aperitivo", "Cynar"], }
   ,
     { name: "Select Aperitivo", description: "Venetian bitter aperitif. Similar to Aperol but with more herbal complexity and a hint of rhubarb. 17.5% ABV. The classic Venetian spritz alternative.", related: ["Aperol", "Cynar", "Campari"] }
   ] },
@@ -218,7 +218,7 @@ export const ingredients: Ingredient[] = [
     { name: "B&B Liqueur", description: "Equal parts Bénédictine D.O.M. and brandy. Smoother, richer, and slightly lower ABV than straight Bénédictine. The classic digestif.", related: ["B\u00e9n\u00e9dictine D.O.M.", "Drambuie", "Chartreuse Green"] }
   ] },
   { name: "Campari", category: "Liqueurs", description: "Italian bitter aperitif. Intensely red, bitter, herbal — notes of rhubarb, cherry, cinnamon, and citrus peel. 20.5% ABV.", brands: ["Campari"], notes: "Negroni, Boulevardier, Americano, Jungle Bird.", bottles: [
-    { name: "Campari", description: "The iconic Italian bitter aperitif. Bright red, intensely herbal and bitter with rhubarb, cherry, and citrus peel. 20.5% ABV. Essential for Negroni and Americano.", related: ["Aperol", "Cynar", "Select Aperitivo"], image: "https://upload.wikimedia.org/wikipedia/commons/66/Campari_bottle.jpg" }
+    { name: "Campari", description: "The iconic Italian bitter aperitif. Bright red, intensely herbal and bitter with rhubarb, cherry, and citrus peel. 20.5% ABV. Essential for Negroni and Americano.", related: ["Aperol", "Cynar", "Select Aperitivo"], }
   ,
     { name: "Select Aperitivo", description: "Venetian bitter aperitif. Similar to Campari but with more herbal complexity. 17.5% ABV. The classic Venetian spritz bitter.", related: ["Campari", "Aperol", "Cynar"] }
   ] },
@@ -228,7 +228,7 @@ export const ingredients: Ingredient[] = [
     { name: "Bols Cherry Liqueur", description: "Dutch cherry liqueur from Bols. Sweet, bright red, with natural cherry flavor. 24% ABV. The budget-friendly option for Singapore Sling.", related: ["Luxardo Maraschino", "Maraska Maraschino", "Luxardo Amaretto"] }
   ] },
   { name: "Cointreau", category: "Liqueurs", description: "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish. The standard for classic cocktails.", brands: ["Cointreau"], notes: "Margarita, Cosmopolitan, Sidecar, White Lady.", bottles: [
-    { name: "Cointreau", description: "Premium French triple sec from the Cointreau family. Distilled from sweet and bitter orange peels. Crisp, clean, dry orange flavor at 40% ABV. The gold standard for Margarita and Sidecar.", related: ["Pierre Ferrand Dry Curaçao", "Combier", "Marie Brizard Triple Sec"], image: "https://upload.wikimedia.org/wikipedia/commons/4c/Cointreau_bottle.jpg" }
+    { name: "Cointreau", description: "Premium French triple sec from the Cointreau family. Distilled from sweet and bitter orange peels. Crisp, clean, dry orange flavor at 40% ABV. The gold standard for Margarita and Sidecar.", related: ["Pierre Ferrand Dry Curaçao", "Combier", "Marie Brizard Triple Sec"], }
   ,
     { name: "Pierre Ferrand Dry Curaçao", description: "Dry orange curaçao from Pierre Ferrand. Made from dried curaçao orange peels. 40% ABV. The premium orange liqueur for Margarita.", related: ["Cointreau", "Combier", "Marie Brizard Orange Cura\u00e7ao"] }
   ] },
@@ -268,7 +268,7 @@ export const ingredients: Ingredient[] = [
     { name: "Glayva", description: "Scottish honey-herbal liqueur. Similar to Drambuie but with more citrus and spice notes. Made with Scotch whisky and heather honey.", related: ["Drambuie", "B\u00e9n\u00e9dictine", "Liqueur 44"] }
   ] },
   { name: "Elderflower liqueur", category: "Liqueurs", description: "Fragrant elderflower blossom liqueur. Floral, sweet, honeyed, with pear and lychee undertones. 20% ABV.", brands: ["St-Germain"], notes: "St-Germain Spritz, Elderflower Collins, Hugo.", bottles: [
-    { name: "St-Germain", description: "French elderflower liqueur. Each bottle contains up to 1,000 elderflower blossoms hand-harvested in the French Alps. Floral, sweet, honeyed, with lychee undertones. 20% ABV.", related: ["Elderflower cordials", "Monin Elderflower Syrup"], image: "https://upload.wikimedia.org/wikipedia/commons/6c/St-Germain_elderflower_liqueur.jpg" }
+    { name: "St-Germain", description: "French elderflower liqueur. Each bottle contains up to 1,000 elderflower blossoms hand-harvested in the French Alps. Floral, sweet, honeyed, with lychee undertones. 20% ABV.", related: ["Elderflower cordials", "Monin Elderflower Syrup"], }
   ,
     { name: "Monin Elderflower Liqueur", description: "Elderflower liqueur from Monin. Floral, sweet, honeyed. 20% ABV. A more affordable alternative to St-Germain.", related: ["St-Germain", "Elderflower cordials", "Monin Elderflower Syrup"] }
   ] },
@@ -313,7 +313,7 @@ export const ingredients: Ingredient[] = [
 },
   { name: "Orange liqueur", category: "Liqueurs", description: "General term for orange-flavored liqueurs including triple sec, curaçao, and Cointreau.", brands: ["Cointreau", "Pierre Ferrand Dry Curaçao", "Combier", "Marie Brizard"], notes: "Encompasses Triple sec, Cointreau, and Orange curaçao.",
   bottles: [
-    { name: "Cointreau", description: "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish.", related: ["Pierre Ferrand Dry Curaçao", "Combier", "Marie Brizard Triple Sec"], image: "https://upload.wikimedia.org/wikipedia/commons/4c/Cointreau_bottle.jpg" },
+    { name: "Cointreau", description: "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish.", related: ["Pierre Ferrand Dry Curaçao", "Combier", "Marie Brizard Triple Sec"], },
     { name: "Pierre Ferrand Dry Curaçao", description: "Dry orange curaçao from Pierre Ferrand. 40% ABV.", related: ["Cointreau", "Bols Orange Curaçao", "Marie Brizard"] }
   ]
 },
@@ -324,7 +324,7 @@ export const ingredients: Ingredient[] = [
   ]
 },
   { name: "St-Germain elderflower liqueur", category: "Liqueurs", description: "Premium elderflower liqueur. Each bottle contains up to 1,000 elderflower blossoms hand-harvested in France.", brands: ["St-Germain"], notes: "St-Germain Spritz, Elderflower Collins, Hugo.", bottles: [
-    { name: "St-Germain", description: "French elderflower liqueur. Each bottle contains up to 1,000 elderflower blossoms hand-harvested in the French Alps. Floral, sweet, honeyed, with lychee undertones. 20% ABV.", related: ["Elderflower cordials", "Monin Elderflower Syrup"], image: "https://upload.wikimedia.org/wikipedia/commons/6c/St-Germain_elderflower_liqueur.jpg" }
+    { name: "St-Germain", description: "French elderflower liqueur. Each bottle contains up to 1,000 elderflower blossoms hand-harvested in the French Alps. Floral, sweet, honeyed, with lychee undertones. 20% ABV.", related: ["Elderflower cordials", "Monin Elderflower Syrup"], }
   ,
     { name: "Monin Elderflower Liqueur", description: "Elderflower liqueur from Monin. Floral, sweet, honeyed. 20% ABV. A more affordable alternative to St-Germain.", related: ["St-Germain", "Elderflower cordials", "Monin Elderflower Syrup"] }
   ] },
@@ -336,7 +336,7 @@ export const ingredients: Ingredient[] = [
 },
   { name: "Triple sec or Cointreau", category: "Liqueurs", description: "Same as Triple sec — just specifying Cointreau as the premium option.", brands: ["Cointreau"], notes: "Deduplicated with Triple sec.",
   bottles: [
-    { name: "Cointreau", description: "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish.", related: ["Pierre Ferrand Dry Curaçao", "Combier", "Marie Brizard Triple Sec"], image: "https://upload.wikimedia.org/wikipedia/commons/4c/Cointreau_bottle.jpg" },
+    { name: "Cointreau", description: "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish.", related: ["Pierre Ferrand Dry Curaçao", "Combier", "Marie Brizard Triple Sec"], },
     { name: "Combier Triple Sec", description: "French triple sec from Combier, made since 1834. 40% ABV.", related: ["Cointreau", "Marie Brizard Triple Sec", "Bols Triple Sec"] }
   ]
 },
