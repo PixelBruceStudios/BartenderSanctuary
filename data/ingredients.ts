@@ -288,15 +288,15 @@ export const ingredients: Ingredient[] = [
 },
   { name: "Grenadine", category: "Liqueurs", description: "Pomegranate syrup-liqueur. Deep red, sweet-tart. Modern grenadine is often just pomegranate juice + sugar; some have a hint of orange.", brands: ["Monin Grenadine", "Fee Brothers", "Roses", "Small Hand Foods Pomegranate Molasses (mix with water)"], notes: "Tequila Sunrise, Shirley Temple, Planter's Punch.",
   bottles: [
-        { name: "Fee Brothers Grenadine", description: "American grenadine from Fee Brothers. Deep red, sweet-tart pomegranate syrup-liqueur.", related: ["Monin Grenadine", "Roses Grenadine", "Small Hand Foods"], image: "https://upload.wikimedia.org/wikipedia/commons/41/Fee_Brothers_Grenadine.jpg" }
-  ,
-    { name: "Monin Grenadine", description: "French grenadine from Monin. Deep red, sweet-tart pomegranate syrup. Premium alternative to Fee Brothers.", related: ["Fee Brothers Grenadine", "Roses Grenadine", "Small Hand Foods"] }
+    { name: "Monin Grenadine", description: "French grenadine from Monin. Deep red, sweet-tart pomegranate syrup. Premium alternative to Fee Brothers.", related: ["Fee Brothers Grenadine", "Roses Grenadine", "Small Hand Foods"] },
+    { name: "Roses Grenadine", description: "Classic American grenadine from Roses. Deep red, sweet-tart pomegranate syrup. The original mixer for Tequila Sunrise.", related: ["Fee Brothers Grenadine", "Monin Grenadine", "Small Hand Foods"] }
   ]
 },
   { name: "Irish cream", category: "Liqueurs", description: "Cream liqueur with Irish whiskey, cream, and chocolate/coffee. Smooth, sweet, 17% ABV.", brands: ["Baileys Irish Cream", "Ryan's", "Saint Brendan's"], notes: "B-52, Irish Car Bomb, White Russian variation.",
   bottles: [
     { name: "Baileys Irish Cream", description: "The original Irish cream liqueur. Irish whiskey, cream, and chocolate. 17% ABV.", related: ["Ryan's Irish Cream", "Saint Brendan's"] },
-    { name: "Saint Brendan's Irish Cream", description: "Irish cream liqueur from Ireland. Smooth, rich, with Irish whiskey and cream.", related: ["Baileys Irish Cream", "Ryan's"] }
+    { name: "Saint Brendan's Irish Cream", description: "Irish cream liqueur from Ireland. Smooth, rich, with Irish whiskey and cream.", related: ["Baileys Irish Cream", "Ryan's Irish Cream"] },
+    { name: "Ryan's Irish Cream", description: "Irish cream liqueur with Irish whiskey and cream. Smooth, sweet, more affordable alternative to Baileys.", related: ["Baileys Irish Cream", "Saint Brendan's Irish Cream"] }
   ]
 },
   { name: "Maraschino liqueur", category: "Liqueurs", description: "Luxardo-style cherry liqueur from Marasca cherry pits. Complex: cherry, almond, spice. 32% ABV.", brands: ["Luxardo Maraschino", "Maraska"], notes: "Aviation, Hemingway Daiquiri, Martinez.",
