@@ -645,12 +645,12 @@ export default function IngredientLibrary() {
         <title>Ingredient Library — Bartender Sanctuary</title>
         <meta
           name="description"
-          content="Explore every ingredient used across our cocktail collection: whiskies, rums, gins, liqueurs, bitters, juices, syrups, and more."
+          content="Explore Bartender Sanctuary's ingredient library: whiskies, rums, gins, liqueurs, bitters, juices, syrups, and more. Discover pairing suggestions, cocktail uses, and flavor profiles for every spirit and mixer."
         />
       </Head>
       <SEO
         title="Ingredient Library"
-        description="Explore every ingredient used across our cocktail collection."
+        description="Explore Bartender Sanctuary's ingredient library: whiskies, rums, gins, liqueurs, bitters, juices, syrups, and more. Discover pairing suggestions, cocktail uses, and flavor profiles for every spirit and mixer."
         path="/ingredients"
       />
 

@@ -406,7 +406,7 @@ export default function SchoolPage() {
     <>
       <SEO
         title={`Bartender School — ${t("heroTitlePrefix")} ${t("heroTitleAccent")}`}
-        description={t("schoolDescription")}
+        description="Bartender School features structured cocktail courses, technique lessons, and practical training modules covering classic drinks, modern craft cocktails, and bartending fundamentals. Learn recipes, methods, and bar skills with guided lessons."
         path="/school"
       />
 
