@@ -29,9 +29,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }
 
         const rows = await query<any[]>(
-          `SELECT user_id, lesson_id, all_subtests_passed, full_test_passed, overall_progress, updated_at
-           FROM user_lesson_progress
-           WHERE user_id = $1 AND lesson_id = $2`,
+          `SELECT ul.user_id, ul.lesson_id, ul.all_subtests_passed, ul.full_test_passed, ul.overall_progress, ul.updated_at,
+                  l.title AS lesson_title
+           FROM user_lesson_progress ul
+           JOIN lessons l ON l.id = ul.lesson_id
+           WHERE ul.user_id = $1 AND ul.lesson_id = $2`,
           [userId, lessonUuid]
         );
         if (rows.length > 0) {
@@ -67,10 +69,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       if (userId) {
         const rows = await query<any[]>(
-          `SELECT user_id, lesson_id, all_subtests_passed, full_test_passed, overall_progress, updated_at
-           FROM user_lesson_progress
-           WHERE user_id = $1
-           ORDER BY updated_at DESC`,
+          `SELECT ul.user_id, ul.lesson_id, ul.all_subtests_passed, ul.full_test_passed, ul.overall_progress, ul.updated_at,
+                  l.title AS lesson_title
+           FROM user_lesson_progress ul
+           JOIN lessons l ON l.id = ul.lesson_id
+           WHERE ul.user_id = $1
+           ORDER BY ul.updated_at DESC`,
           [userId]
         );
         return res.status(200).json(rows);
