@@ -126,7 +126,10 @@ export const ingredients: Ingredient[] = [
   { name: "Light rum", category: "Rums", description: "Same as white rum — light-bodied, clear or pale gold, mild flavor.", brands: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars"], notes: "Deduplicated with White rum.",
   bottles: [
     { name: "Bacardi Superior", description: "The world's best-selling white rum. Light, clean, with mild sweetness and subtle vanilla.", related: ["Bacardi Gold", "Don Q Cristal", "Plantation 3 Stars"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Bacardi_Superior_rum_bottle.jpg/320px-Bacardi_Superior_rum_bottle.jpg" },
-    { name: "Don Q Cristal", description: "Puerto Rican light rum. Smooth, clean, with mild sweetness and vanilla.", related: ["Bacardi Superior", "Don Q Gold", "Don Q Añejo"] }
+    { name: "Don Q Cristal", description: "Puerto Rican light rum. Smooth, clean, with mild sweetness and vanilla.", related: ["Bacardi Superior", "Don Q Gold", "Don Q Añejo"] },
+    { name: "Mount Gay Eclipse", description: "Barbadian white rum from the world's oldest rum distillery (founded 1703). Light, clean, with vanilla and tropical fruit notes. 40% ABV.", related: ["Mount Gay XO", "Bacardi Superior", "Don Q Cristal"], image: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Mount_Gay_Eclipse_Cocktails.JPG" },
+    { name: "Havana Club Añejo Especial", description: "Cuban light rum aged in oak barrels. Smooth, sweet, with vanilla, caramel, and subtle spice. 40% ABV. Essential for Mojito and Cuba Libre.", related: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars"], image: "https://upload.wikimedia.org/wikipedia/commons/2/22/2023_Havana_Club_A%C3%B1ejo_Especial_%283%29.jpg" },
+    { name: "Appleton Estate Signature", description: "Jamaican white rum. Light, smooth, with tropical fruit and vanilla notes. 40% ABV. A cornerstone of Jamaican rum production.", related: ["Appleton Estate rums", "Mount Gay Eclipse", "Bacardi Superior"] }
   ]
 },
   { name: "Dark rum", category: "Rums", description: "Rich, full-bodied rum aged longer in heavily charred barrels. Notes of molasses, caramel, toffee, and spice.", brands: ["Gosling's Black Seal", "Myers's Original Dark", "Plantation XO", "Flor de Caña 7", "Diplomático Reserva"], notes: "Dark 'n' Stormy, Mai Tai, Jungle Bird.", bottles: [
