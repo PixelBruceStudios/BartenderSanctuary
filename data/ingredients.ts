@@ -244,7 +244,8 @@ export const ingredients: Ingredient[] = [
   { name: "Crème de cassis", category: "Liqueurs", description: "Blackcurrant crème liqueur from France. Deep purple, tart-sweet, 15–20% ABV.", brands: ["Joseph Cartron", "Briottet", "Giffard", "Marie Brizard"], notes: "Kir, Kir Royal, Cassis Spritz.",
   bottles: [
     { name: "Joseph Cartron Crème de Cassis", description: "French blackcurrant crème liqueur. Deep purple, tart-sweet, 15% ABV.", related: ["Giffard Crème de Cassis", "Briottet Crème de Cassis"] },
-    { name: "Giffard Crème de Cassis", description: "Premium French blackcurrant crème liqueur. Rich, dark, balanced sweet-tart.", related: ["Joseph Cartron", "Briottet"] }
+    { name: "Giffard Crème de Cassis", description: "Premium French blackcurrant crème liqueur. Rich, dark, balanced sweet-tart.", related: ["Joseph Cartron", "Briottet"] },
+    { name: "Briottet Crème de Cassis", description: "Savoyard blackcurrant crème liqueur. Intense, authentic Burgundian cassis character. 15% ABV.", related: ["Joseph Cartron Crème de Cassis", "Giffard Crème de Cassis"], image: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Creme_de_Cassis.jpg" }
   ]
 },
   { name: "Crème de mûre", category: "Liqueurs", description: "Blackberry crème liqueur. Rich, dark, sweet-tart blackberry flavor.", brands: ["Joseph Cartron", "Giffard", "Briottet", "Bols"], notes: "Bramble, French 75 variation.",
