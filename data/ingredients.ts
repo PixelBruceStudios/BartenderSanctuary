@@ -109,7 +109,8 @@ export const ingredients: Ingredient[] = [
   { name: "Kirsch", category: "Whiskies", description: "Clear, dry cherry brandy from Germany/France. Unaged, eau-de-vie style. Pure cherry with no added sugar.", brands: ["G.E. Massenez Kirsch", "Clear Creek Kirschwasser", "Distillerie de Neuchâtel"], notes: "White Lady, Kirsch Royal, Tiki drinks.",
   bottles: [
     { name: "G.E. Massenez Kirsch", description: "French kirsch from Alsace. Distilled from Griotte cherries. Dry, clear, pure cherry flavor.", related: ["Clear Creek Kirschwasser", "Distillerie de Neuchâtel"] },
-    { name: "Clear Creek Kirschwasser", description: "Oregon-made kirschwasser. Dry, clear cherry eau-de-vie. Unaged, no sugar.", related: ["G.E. Massenez Kirsch", "Luxardo Maraschino"] }
+    { name: "Clear Creek Kirschwasser", description: "Oregon-made kirschwasser. Dry, clear cherry eau-de-vie. Unaged, no sugar.", related: ["G.E. Massenez Kirsch", "Luxardo Maraschino"] },
+    { name: "Distillerie de Neuchâtel Kirsch", description: "Swiss kirschwasser from the Neuchâtel region. Clear, dry, refined cherry eau-de-vie with crisp mineral notes. Traditionally paired with Swiss fondue.", related: ["G.E. Massenez Kirsch", "Clear Creek Kirschwasser"] }
   ]
 },
   { name: "Pisco", category: "Whiskies", description: "Un-aged or lightly aged grape brandy from Peru or Chile. Fragrant, floral, with citrus and stone fruit notes.", brands: ["Macchu Pisco (Peru)", "Campo de Encanto (Peru)", "Alto del Carmen (Chile)", "La Botija (Peru)"], notes: "Pisco Sour, Chilcano.", bottles: [
