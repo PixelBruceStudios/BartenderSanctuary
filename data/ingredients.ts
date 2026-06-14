@@ -194,7 +194,9 @@ export const ingredients: Ingredient[] = [
   bottles: [
         { name: "Disaronno Amaretto", description: "Italian amaretto liqueur from Saronno. Apricot kernel and almond character with sweet vanilla and cherry notes. 28% ABV.", related: ["Lazzaroni Amaretto", "DeKuyper Amaretto", "Bardinet Amaretto"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Disaronno_Originale.jpg/320px-Disaronno_Originale.jpg" }
   ,
-    { name: "Lazzaroni Amaretto", description: "Italian amaretto made with drupe kernels from the Lazzaroni family recipe. Sweet, nutty, with almond and marzipan notes. 28% ABV.", related: ["Disaronno Amaretto", "DeKuyper Amaretto", "Bardinet Amaretto"] }
+    { name: "Lazzaroni Amaretto", description: "Italian amaretto made with drupe kernels from the Lazzaroni family recipe. Sweet, nutty, with almond and marzipan notes. 28% ABV.", related: ["Disaronno Amaretto", "DeKuyper Amaretto", "Bardinet Amaretto"] },
+    { name: "DeKuyper Amaretto", description: "Dutch-made amaretto from DeKuyper. Smooth almond and apricot kernel character with sweet vanilla. A reliable mixer for Amaretto Sour and Godmother. 24% ABV.", related: ["Disaronno Amaretto", "Lazzaroni Amaretto", "Bardinet Amaretto"] },
+    { name: "Bardinet Amaretto", description: "French amaretto liqueur from Bardinet. Sweet almond and marzipan notes with a hint of apricot. An affordable alternative to Disaronno for mixing. 25% ABV.", related: ["Disaronno Amaretto", "Lazzaroni Amaretto", "DeKuyper Amaretto"] }
   ]
 },
   { name: "Aperol", category: "Liqueurs", description: "Italian bitter-orange aperitif. Bright orange, bittersweet, 11% ABV. Lighter than Campari.", brands: ["Aperol ( Campari Group )"], notes: "Aperol Spritz, Aperol Sour, Paper Plane.", bottles: [
