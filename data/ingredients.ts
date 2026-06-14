@@ -44,7 +44,8 @@ export const ingredients: Ingredient[] = [
   ] },
   { name: "Irish whiskey", category: "Whiskies", description: "Triple-distilled Irish whiskey, typically lighter and smoother than Scotch with notes of honey, vanilla, and green apple.", brands: ["Jameson", "Bushmills Original", "Redbreast 12", "Tullamore D.E.W.", "Green Spot"], notes: "Key for Irish Coffee, Tipperary, Forty-Three.", bottles: [
     { name: "Jameson", description: "Ireland's best-selling whiskey. Triple-distilled, smooth, with honey, vanilla, and green apple. The standard for Irish Coffee and mixers.", related: ["Jameson Black Barrel", "Jameson Caskmates", "Bushmills Original"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Jameson_whiskey_bottle.jpg/320px-Jameson_whiskey_bottle.jpg" },
-    { name: "Bushmills Original", description: "Smooth Irish whiskey from the Old Bushmills Distillery. Triple-distilled, light, with vanilla and oak. A classic alternative to Jameson.", related: ["Bushmills 10", "Bushmills 16", "Jameson"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Jameson_whiskey_bottle.jpg/320px-Jameson_whiskey_bottle.jpg" }
+    { name: "Bushmills Original", description: "Smooth Irish whiskey from the Old Bushmills Distillery. Triple-distilled, light, with vanilla and oak. A classic alternative to Jameson.", related: ["Bushmills 10", "Bushmills 16", "Jameson"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Jameson_whiskey_bottle.jpg/320px-Jameson_whiskey_bottle.jpg" },
+    { name: "Redbreast 12", description: "Single pot still Irish whiskey from Midleton Distillery. Rich, full, with dried fruit, spice, and toasted oak. The premium choice for Irish Coffee or neat sipping.", related: ["Jameson", "Bushmills Original", "Redbreast 15"] }
   ] },
   { name: "Rye whiskey", category: "Whiskies", description: "American whiskey made with at least 51% rye grain. Spicy, herbal, and drier than bourbon with a peppery finish.", brands: ["Rittenhouse Rye", "Bulleit Rye", "Sazerac Rye", "Wild Turkey Rye", "WhistlePig 10"], notes: "Essential for Manhattan, Sazerac, Boulevardier.", bottles: [
     { name: "Rittenhouse Rye", description: "100-proof bonded rye whiskey from Heaven Hill. Bold, spicy, with pepper, clove, and cinnamon. The standard for classic Manhattans and Sazeracs.", related: ["Bulleit Rye", "Sazerac Rye", "Wild Turkey Rye"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Rittenhouse_Rye.jpg/320px-Rittenhouse_Rye.jpg" },
@@ -52,7 +53,8 @@ export const ingredients: Ingredient[] = [
   ] },
   { name: "Bourbon", category: "Whiskies", description: "American whiskey made with at least 51% corn, aged in new charred American oak. Sweet vanilla, caramel, and oak notes.", brands: ["Buffalo Trace", "Maker's Mark", "Woodford Reserve", "Bulleit Bourbon", "Wild Turkey 101", "Four Roses Small Batch"], notes: "Versatile: Mint Julep, Old Fashioned, Whiskey Sour, Boulevardier.", bottles: [
     { name: "Buffalo Trace", description: "Kentucky straight bourbon from Buffalo Trace Distillery. Rich vanilla, caramel, and mint with a smooth finish. The benchmark affordable bourbon.", related: ["Buffalo Trace Eagle Rare", "Wild Turkey 101", "Maker's Mark"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Buffalo_Trace_Bourbon.jpg/320px-Buffalo_Trace_Bourbon.jpg" },
-    { name: "Wild Turkey 101", description: "High-rye Kentucky bourbon. Bold, spicy, with caramel, vanilla, and a peppery finish. 101 proof for extra kick.", related: ["Wild Turkey 81", "Wild Turkey Rare Breed", "Buffalo Trace"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Wild_Turkey_101_Bourbon.jpg/320px-Wild_Turkey_101_Bourbon.jpg" }
+    { name: "Wild Turkey 101", description: "High-rye Kentucky bourbon. Bold, spicy, with caramel, vanilla, and a peppery finish. 101 proof for extra kick.", related: ["Wild Turkey 81", "Wild Turkey Rare Breed", "Buffalo Trace"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Wild_Turkey_101_Bourbon.jpg/320px-Wild_Turkey_101_Bourbon.jpg" },
+    { name: "Maker's Mark", description: "Kentucky straight bourbon with a distinctive red wax seal. Made with winter wheat for a soft, sweet profile of caramel, vanilla, and oak. Widely available and approachable.", related: ["Buffalo Trace", "Wild Turkey 101", "Bulleit Bourbon"] }
   ] },
   { name: "Bourbon or rye", category: "Whiskies", description: "Either bourbon or rye whiskey depending on preference. Bourbon = sweeter; rye = spicier/drier.", brands: ["Buffalo Trace", "Rittenhouse Rye"], notes: "Manhattan flexibility.", bottles: [
     { name: "Buffalo Trace", description: "Kentucky straight bourbon. Rich vanilla, caramel, and mint. Widely available and affordable — the go-to when a recipe just says bourbon.", related: ["Wild Turkey 101", "Maker's Mark", "Rittenhouse Rye"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Buffalo_Trace_Bourbon.jpg/320px-Buffalo_Trace_Bourbon.jpg" },
@@ -119,7 +121,9 @@ export const ingredients: Ingredient[] = [
   ] },
   { name: "Aged rum", category: "Rums", description: "Rum aged in oak barrels for 3+ years. Complex with vanilla, oak, dried fruit, and spice notes.", brands: ["Flor de Caña 7", "Diplomático Reserva", "Plantation 5 Year", "Mount Gay XO", "Zacapa 23"], notes: "Ti' Punch, Rum Old Fashioned.",
   bottles: [
-        { name: "Diplomático Reserva Exclusiva", description: "Venezuelan aged rum from Diplomático. Blended from rums aged up to 8 years. Rich molasses, caramel, and vanilla with dried fruit. Smooth enough for sipping; complex enough for cocktails.", related: ["Diplomático Mantuano", "Diplomático Planas", "Ron Zacapa 23"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Diplomatico_Reserva_Exclusiva.jpg/320px-Diplomatico_Reserva_Exclusiva.jpg" }
+        { name: "Diplomático Reserva Exclusiva", description: "Venezuelan aged rum from Diplomático. Blended from rums aged up to 8 years. Rich molasses, caramel, and vanilla with dried fruit. Smooth enough for sipping; complex enough for cocktails.", related: ["Diplomático Mantuano", "Diplomático Planas", "Ron Zacapa 23"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Diplomatico_Reserva_Exclusiva.jpg/320px-Diplomatico_Reserva_Exclusiva.jpg" },
+        { name: "Flor de Caña 7", description: "Nicaraguan aged rum from the Flor de Caña distillery. 7-year-old, smooth, with caramel, vanilla, and oak. Widely available and versatile.", related: ["Flor de Caña 12", "Diplomático Reserva Exclusiva", "Mount Gay XO"] },
+        { name: "Mount Gay XO", description: "Barbadian aged rum from the world's oldest rum distillery. Blend of rums aged 8–15 years. Rich toffee, vanilla, spice, and banana. Complex for aged rum cocktails.", related: ["Mount Gay Eclipse", "Diplomático Reserva Exclusiva", "Flor de Caña 7"] }
   ]
 },
   { name: "Overproof rum", category: "Rums", description: "High-ABV rum (57%+ / 114 proof+). Intense, fiery, used in small dashes in Tiki and flaming cocktails.", brands: ["Wray & Nephew Overproof", "Lemon Hart 151", "Plantation O.F.T.D.", "Hamilton 151"], notes: "Use ¼–½ oz dashes. Flaming Dr. Pepper, Zombie.", bottles: [
@@ -129,12 +133,16 @@ export const ingredients: Ingredient[] = [
   // GINS
   { name: "Gin", category: "Gins", description: "Juniper-flavored spirit. Can range from crisp and citrusy (London dry) to floral and herbal (Plymouth) to bold and experimental (new Western).", brands: ["Beefeater", "Tanqueray", "Bombay Sapphire", "Plymouth", "Hendrick's", "Monkey 47"], notes: "Gin is a category — use specific type when a recipe calls for it.",
   bottles: [
-        { name: "Hendrick's Gin", description: "Scottish gin from William Grant & Sons. Infused with rose and cucumber. Silky, floral, and unusual. 41.4% ABV.", related: ["Hendrick's Orbium", "Hendrick's Lunar", "Hendrick's Midsummer Solstice"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Hendricks_Gin_2010.jpg/320px-Hendricks_Gin_2010.jpg" }
+        { name: "Hendrick's Gin", description: "Scottish gin from William Grant & Sons. Infused with rose and cucumber. Silky, floral, and unusual. 41.4% ABV.", related: ["Hendrick's Orbium", "Hendrick's Lunar", "Hendrick's Midsummer Solstice"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Hendricks_Gin_2010.jpg/320px-Hendricks_Gin_2010.jpg" },
+        { name: "Beefeater London Dry", description: "London dry gin from Beefeater. Classic juniper-forward profile with citrus and spice. 40% ABV. The benchmark affordable gin for Martinis and G&Ts.", related: ["Tanqueray London Dry", "Bombay Sapphire", "Plymouth Gin"] },
+        { name: "Bombay Sapphire", description: "London dry gin with a lighter, floral character. 10 botanicals including juniper, coriander, and lemon peel. 40% ABV.", related: ["Beefeater London Dry", "Tanqueray London Dry", "Hendrick's Gin"] }
   ]
 },
   { name: "London dry gin", category: "Gins", description: "The strictest gin style. Juniper-forward with citrus peel and coriander. No added flavoring after distillation.", brands: ["Beefeater", "Tanqueray", "Bombay Sapphire", "Plymouth (also qualifies)", "Sipsmith VJS"], notes: "Martini, Negroni, Gin & Tonic, Tom Collins.",
   bottles: [
-        { name: "Tanqueray London Dry", description: "London dry gin from Charles Tanqueray & Co. Distilled with juniper, coriander, angelica root, and liquorice. Four-time distilled. Crisp juniper-forward profile with citrus and spice. 43.1% ABV.", related: ["Tanqueray No. Ten", "Tanqueray Rangpur", "Beefeater London Dry"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Tanqueray_gin_bottle.jpg/320px-Tanqueray_gin_bottle.jpg" }
+        { name: "Tanqueray London Dry", description: "London dry gin from Charles Tanqueray & Co. Distilled with juniper, coriander, angelica root, and liquorice. Four-time distilled. Crisp juniper-forward profile with citrus and spice. 43.1% ABV.", related: ["Tanqueray No. Ten", "Tanqueray Rangpur", "Beefeater London Dry"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Tanqueray_gin_bottle.jpg/320px-Tanqueray_gin_bottle.jpg" },
+        { name: "Beefeater London Dry", description: "Classic London dry gin from Beefeater. Juniper-forward with citrus and spice. 40% ABV. The benchmark affordable gin for Martinis and G&Ts.", related: ["Tanqueray London Dry", "Bombay Sapphire", "Plymouth Gin"] },
+        { name: "Bombay Sapphire", description: "London dry gin with a lighter, floral character. 10 botanicals including juniper, coriander, and lemon peel. 40% ABV.", related: ["Beefeater London Dry", "Tanqueray London Dry", "Hendrick's Gin"] }
   ]
 },
   { name: "Geneva gin", category: "Gins", description: "Also known as Holland gin or genever. Malty, fuller-bodied, less juniper-forward than London dry. Can be aged (oude) or younger (jonge).", brands: ["Bols Genever", "Rutte Genever", "Hooghoudt", "Filliers Dry Gin 28"], notes: "Dutch Courage, Martinez (traditional), Corpse Reviver #2 variation.", bottles: [
@@ -144,7 +152,9 @@ export const ingredients: Ingredient[] = [
   // TEQUILA & MEZCAL
   { name: "Tequila", category: "Tequila & Mezcal", description: "Mexican spirit made from blue agave in designated regions. Blanco (unaged), Reposado (rested 2–12 months), Añejo (aged 1–3+ years).", brands: ["Patrón Silver", "Don Julio 1942", "Casamigos Reposado", "Espolòn Blanco", "Casa Noble Reposado", "Fortaleza"], notes: "Margarita, Paloma, Tequila Sunrise.",
   bottles: [
-        { name: "Fortaleza Blanco", description: "100% blue agave tequila from the Fortaleza distillery in Jalisco. Stone ovens and tahona wheel. Bright agave with pepper, citrus, and earth. Unaged, pure expression.", related: ["Fortaleza Reposado", "Fortaleza Añejo", "Patrón Silver"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Fortaleza_Blanco_tequila.jpg/320px-Fortaleza_Blanco_tequila.jpg" }
+        { name: "Fortaleza Blanco", description: "100% blue agave tequila from the Fortaleza distillery in Jalisco. Stone ovens and tahona wheel. Bright agave with pepper, citrus, and earth. Unaged, pure expression.", related: ["Fortaleza Reposado", "Fortaleza Añejo", "Patrón Silver"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Fortaleza_Blanco_tequila.jpg/320px-Fortaleza_Blanco_tequila.jpg" },
+        { name: "Patrón Silver", description: "Premium 100% blue agave blanco. Smooth, crisp, with sweet agave, citrus, and pepper. The recognizable choice for Margaritas and shots.", related: ["Patrón Reposado", "Patrón Añejo", "Fortaleza Blanco"] },
+        { name: "Espolòn Blanco", description: "100% blue agave blanco from Jalisco. Bright agave, pepper, citrus. Great value and widely available.", related: ["Espolòn Reposado", "Fortaleza Blanco", "Patrón Silver"] }
   ]
 },
   { name: "Blanco tequila", category: "Tequila & Mezcal", description: "Unaged or aged <60 days tequila. Bright, crisp, pure agave flavor with pepper and citrus.", brands: ["Patrón Silver", "Espolòn Blanco", "Fortaleza Blanco", "Casamigos Blanco", "Don Julio Blanco"], notes: "Required when a recipe specifies Blanco — reposado would be too oaky.",
@@ -157,7 +167,9 @@ export const ingredients: Ingredient[] = [
   // VODKA
   { name: "Vodka", category: "Vodka", description: "Neutral, unaged spirit distilled from grains, potatoes, or grapes. Clean, versatile base for flavored and mixed drinks.", brands: ["Grey Goose", "Ketel One", "Belvedere", "Tito's", "Stolichnaya", "Cîroc", "Absolut"], notes: "Vodka Martini, Cosmopolitan, Screwdriver, Moscow Mule.",
   bottles: [
-        { name: "Belvedere Vodka", description: "Polish rye vodka from Belvedere. Quadruple distilled from Dankowskie rye. Creamy texture with white pepper, vanilla, and almond. 40% ABV.", related: ["Grey Goose", "Ketel One", "Chopin Rye"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Belvedere_Vodka.jpg/320px-Belvedere_Vodka.jpg" }
+        { name: "Belvedere Vodka", description: "Polish rye vodka from Belvedere. Quadruple distilled from Dankowskie rye. Creamy texture with white pepper, vanilla, and almond. 40% ABV.", related: ["Grey Goose", "Ketel One", "Chopin Rye"], image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Belvedere_Vodka.jpg/320px-Belvedere_Vodka.jpg" },
+        { name: "Grey Goose", description: "French vodka from the Cognac region. Made from soft winter wheat and spring water. Smooth, clean, with a hint of pepper and anise. 40% ABV.", related: ["Belvedere Vodka", "Ketel One", "Cîroc"] },
+        { name: "Tito's Handmade Vodka", description: "American corn-based vodka from Texas. Smooth, clean, with a mild sweetness. 40% ABV. A cult favorite for Moscow Mules.", related: ["Grey Goose", "Ketel One", "Stolichnaya"] }
   ]
 },
 
@@ -283,7 +295,8 @@ export const ingredients: Ingredient[] = [
   { name: "Absinthe", category: "Bitters & Aperitifs", description: "High-proof anise-flavored spirit (45–74% ABV). Wormwood, anise, fennel. Turns cloudy when water is added (louche).", brands: ["Pernod Absinthe", "Absinthe Original", "La Fee", "Lucid Absinthe Supérieure"], notes: "Sazerac rinse, Corpse Reviver #2, Death in the Afternoon.",
   bottles: [
     { name: "Pernod Absinthe", description: "French absinthe from Pernod. Anise, wormwood, fennel. 68% ABV.", related: ["Lucid Absinthe Supérieure", "La Fee Absinthe"] },
-    { name: "Lucid Absinthe Supérieure", description: "First legally imported absinthe to the US. 62.5% ABV.", related: ["Pernod Absinthe", "La Fee Absinthe"] }
+    { name: "Lucid Absinthe Supérieure", description: "First legally imported absinthe to the US. 62.5% ABV.", related: ["Pernod Absinthe", "La Fee Absinthe"] },
+    { name: "La Fee Absinthe Supérieure", description: "Swiss-French absinthe. Traditional recipe with grande wormwood, anise, and fennel. 68% ABV. The classic for Sazerac rinse and Corpse Reviver #2.", related: ["Pernod Absinthe", "Lucid Absinthe Supérieure"] }
   ]
 },
   { name: "Angostura bitters", category: "Bitters & Aperitifs", description: "The iconic dash of bitters. Concentrated herbal extract with gentian root, spices, and herbs. Over 150 years old. 44.7% ABV.", brands: ["Angostura (the standard — no alternatives needed)"], notes: "In virtually every stirred cocktail. Old Fashioned, Manhattan, Martini garnish.",
@@ -322,8 +335,8 @@ export const ingredients: Ingredient[] = [
 },
   { name: "Pimm's No. 1", category: "Bitters & Aperitifs", description: "British summer cup. Gin-based fruit liqueur with herbal and citrus notes. 25% ABV.", brands: ["Pimm's No. 1"], notes: "Pimm's Cup — mix with lemonade, mint, cucumber, fruit.",
   bottles: [
-    { name: "Pimm's No. 1", description: "British summer cup. Gin-based fruit liqueur. 25% ABV. Pimm's Cup.", related: ["Plymouth Gin", "Lemonade", "Cucumber"] },
-    { name: "Plymouth Gin", description: "English gin from Plymouth. Slightly drier, earthier. 41.2% ABV.", related: ["Pimm's No. 1", "Beefeater", "Tanqueray"] }
+    { name: "Pimm's No. 1", description: "British summer cup. Gin-based fruit liqueur with herbal and citrus notes. 25% ABV. The essential for a Pimm's Cup.", related: ["Plymouth Gin", "Lemonade", "Cucumber"] },
+    { name: "Plymouth Gin", description: "English gin from Plymouth. Slightly drier, earthier. 41.2% ABV. The historic gin base for Pimm's No. 1.", related: ["Pimm's No. 1", "Beefeater", "Tanqueray"] }
   ]
 },
   { name: "Amaro Nonino", category: "Bitters & Aperitifs", description: "Premium Italian amaro. Made from grappa macerated with herbs, roots, and alpine flowers. Bitter-sweet, 35% ABV.", brands: ["Amaro Nonino Quintessentia"], notes: "Paper Plane, Boulevardier variation, Paper Plane.",
