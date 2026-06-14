@@ -1,6 +1,7 @@
 import { query } from '@/lib/db';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { auth } from '../../auth/[...nextauth]';
+import { getServerSession } from 'next-auth/next';
+import { authOptions } from '../../auth/[...nextauth]';
 
 async function resolveLessonId(slug: string): Promise<string | null> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -13,7 +14,7 @@ async function resolveLessonId(slug: string): Promise<string | null> {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
-    const session = await auth(req, res);
+    const session: any = await getServerSession(req, res, authOptions);
     const userId = session?.user?.id;
 
     if (req.method === 'GET') {
