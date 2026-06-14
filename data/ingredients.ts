@@ -371,7 +371,10 @@ export const ingredients: Ingredient[] = [
   { name: "Lillet Blanc", category: "Bitters & Aperitifs", description: "French aromatised wine. Citrus, honey, and quinine. 17% ABV. Similar to dry vermouth but with more citrus.", brands: ["Lillet Blanc"], notes: "Vesper, 20th Century, Corpse Reviver #2.",
   bottles: [
     { name: "Lillet Blanc", description: "French aromatised wine. Citrus, honey, and quinine. 17% ABV.", related: ["Lillet Rosé", "Lillet Rouge", "Dolin Dry"] },
-    { name: "Lillet Rosé", description: "Rosé version of Lillet. Fruity, red-berry, and citrus notes. 17% ABV.", related: ["Lillet Blanc", "Lillet Rouge"] }
+    { name: "Lillet Dry", description: "Dry version of Lillet. Less sweet than Blanc, with more botanical and quinine-driven finish. 17% ABV. Preferred in classic Vesper recipes.", related: ["Lillet Blanc", "Lillet Rosé", "Dolin Dry Vermouth"] },
+    { name: "Lillet Rosé", description: "Rosé version of Lillet. Fruity, red-berry, and citrus notes. 17% ABV.", related: ["Lillet Blanc", "Lillet Rouge"] },
+    { name: "Lillet Rouge", description: "Red, tannic version of Lillet. Cocoa, red fruit, and spice notes. 17% ABV.", related: ["Lillet Blanc", "Lillet Rosé"], image: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Lillet_Blanc_Aperitif_01.jpg" },
+    { name: "Dolin Dry Vermouth", description: "French dry vermouth from Dolin. Lighter and more delicate than Noilly Prat. Herbal with chamomile, orange peel, and coriander. 17.5% ABV.", related: ["Lillet Blanc", "Lillet Rosé", "Lillet Rouge"], image: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Dolin%27s_Vermouth_%28Dry%29_01.jpg" }
   ]
 },
   { name: "Orange bitters", category: "Bitters & Aperitifs", description: "Citrusy bitters made from dried orange peel. Lighter and more aromatic than Angostura.", brands: ["Regans' Orange Bitters No. 6", "Fee Brothers Orange Bitters", "Bitter Truth Orange"], notes: "Martini, Old Fashioned, Manhattan.",
