@@ -251,7 +251,8 @@ export const ingredients: Ingredient[] = [
   { name: "Crème de mûre", category: "Liqueurs", description: "Blackberry crème liqueur. Rich, dark, sweet-tart blackberry flavor.", brands: ["Joseph Cartron", "Giffard", "Briottet", "Bols"], notes: "Bramble, French 75 variation.",
   bottles: [
     { name: "Giffard Crème de Mûre", description: "French blackberry crème liqueur. Rich, dark, sweet-tart blackberry flavor.", related: ["Joseph Cartron Crème de Mûre", "Briottet"] },
-    { name: "Briottet Crème de Mûre", description: "Savoyard blackberry crème liqueur. Deep purple, intense blackberry character.", related: ["Giffard Crème de Mûre", "Bols Blackberry"] }
+    { name: "Briottet Crème de Mûre", description: "Savoyard blackberry crème liqueur. Deep purple, intense blackberry character.", related: ["Giffard Crème de Mûre", "Bols Blackberry"] },
+    { name: "Bols Blackberry Crème de Mûre", description: "Dutch blackberry crème liqueur. Sweet, dark, versatile cocktail ingredient. 17% ABV.", related: ["Giffard Crème de Mûre", "Briottet Crème de Mûre"] }
   ]
 },
   { name: "Crème de violette", category: "Liqueurs", description: "Violet flower crème liqueur. Floral, sweet, perfumed. 20–25% ABV. Rare and expensive.", brands: ["Giffard Crème de Violette", "Briottet", "Rothman & Winter"], notes: "Aviation — ¼ oz is enough. Violet Fizz.",
