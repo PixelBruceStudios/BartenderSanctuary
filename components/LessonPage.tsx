@@ -1073,10 +1073,31 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
 export default function LessonPage({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
   return (
     <>
-      <Head>
-        <title>Lesson — Bartender Sanctuary</title>
-      </Head>
+      <LessonHead lessonId={lessonId} />
       <LessonContent categorySlug={categorySlug} techniqueSlug={techniqueSlug} lessonId={lessonId} />
     </>
+  );
+}
+
+function LessonHead({ lessonId }: { lessonId: string }) {
+  const [title, setTitle] = useState('Bartender Sanctuary — Lesson');
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch(`/api/lessons/${lessonId}`)
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => {
+        if (cancelled || !data?.title) return;
+        setTitle(`${data.title} | Bartender School`);
+      })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, [lessonId]);
+
+  return (
+    <Head>
+      <title>{title}</title>
+      <meta name="robots" content="index, follow" />
+    </Head>
   );
 }

@@ -8,7 +8,7 @@ interface SEOProps {
   type?: 'website' | 'article';
 }
 
-const BASE_URL = 'https://bartender-sanctuary.pages.dev';
+const BASE_URL = 'https://bartender-sanctuary-app.vercel.app';
 const DEFAULT_IMAGE = `${BASE_URL}/og-image.png`;
 
 export default function SEO({ title, description, path = '', image = DEFAULT_IMAGE, type = 'website' }: SEOProps) {

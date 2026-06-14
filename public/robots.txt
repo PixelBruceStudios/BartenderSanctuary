@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /_next/
 
-Sitemap: https://bartender-sanctuary.pages.dev/sitemap.xml
+Sitemap: https://bartender-sanctuary-app.vercel.app/sitemap.xml

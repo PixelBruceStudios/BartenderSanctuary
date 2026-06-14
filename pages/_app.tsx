@@ -4,6 +4,8 @@ import { TranslationProvider } from '@/lib/contexts';
 import { ThemeProvider } from '@/lib/theme';
 import { SessionProvider } from 'next-auth/react';
 import LanguageThemeToggle from '@/components/LanguageThemeToggle';
+import AgeGate from '@/components/AgeGate';
+import BugReportButton from '@/components/BugReportButton';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -11,7 +13,10 @@ export default function App({ Component, pageProps }: AppProps) {
       <TranslationProvider>
         <ThemeProvider>
           <LanguageThemeToggle />
-          <Component {...pageProps} />
+          <AgeGate>
+            <Component {...pageProps} />
+            <BugReportButton />
+          </AgeGate>
         </ThemeProvider>
       </TranslationProvider>
     </SessionProvider>
