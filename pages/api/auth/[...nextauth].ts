@@ -20,12 +20,12 @@ declare module "next-auth" {
 const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({ connectionString, ssl: { rejectUnauthorized: false } });
 
-const _nextAuth = NextAuth({
+const authOptions = {
   pages: {
     signIn: "/auth/signin",
     verifyRequest: "/auth/verify-request",
   },
-  session: { strategy: "jwt" },
+  session: { strategy: "jwt" as const },
   providers: [
     Credentials({
       name: "Email and password",
@@ -33,7 +33,7 @@ const _nextAuth = NextAuth({
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
-      authorize: async (credentials) => {
+      authorize: async (credentials: any) => {
         if (!credentials?.email || !credentials?.password) return null;
 
         const trimmed = String(credentials.email).trim().toLowerCase();
@@ -66,22 +66,24 @@ const _nextAuth = NextAuth({
     }),
   ],
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user }: any) {
       if (user) {
         token.sub = user.id;
       }
       return token;
     },
-    async session({ session, token }) {
+    async session({ session, token }: any) {
       if (session.user) {
         session.user.id = token.sub ?? "";
       }
       return session;
     },
   },
-});
+};
 
-export const authOptions = _nextAuth as any;
+const _nextAuth = NextAuth(authOptions);
+
+export { authOptions };
 export const auth = _nextAuth;
 export const handlers = _nextAuth.handlers;
 export const signIn = _nextAuth.signIn;
