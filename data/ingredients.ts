@@ -93,13 +93,17 @@ export const ingredients: Ingredient[] = [
   { name: "Apricot brandy", category: "Whiskies", description: "Brandy infused with or distilled from apricots. Sweet, fruity, golden-amber.", brands: ["Marie Brizard Apricot Brandy", "Bols Apricot Brandy", "Rothman & Winter"], notes: "B&B, Apricot Sour.",
   bottles: [
     { name: "Marie Brizard Apricot Brandy", description: "Sweet apricot brandy. Golden-amber, fruity, with warm stone-fruit character.", related: ["Bols Apricot Brandy", "Rothman & Winter"] },
-    { name: "Bols Apricot Brandy", description: "Dutch apricot brandy. Sweet, smooth, with natural apricot flavor.", related: ["Marie Brizard Apricot Brandy", "Rothman & Winter"] }
+    { name: "Bols Apricot Brandy", description: "Dutch apricot brandy. Sweet, smooth, with natural apricot flavor.", related: ["Marie Brizard Apricot Brandy", "Rothman & Winter"] },
+    { name: "Rothman & Winter Apricot Brandy", description: "Austrian apricot brandy from Rothman & Winter. Made from ripe apricots. Sweet, rich, with authentic stone-fruit character.", related: ["Marie Brizard Apricot Brandy", "Bols Apricot Brandy"] },
+    { name: "DeKuyper Apricot Brandy", description: "American apricot brandy from DeKuyper. Sweet, smooth, with natural apricot flavor. Widely available.", related: ["Marie Brizard Apricot Brandy", "Bols Apricot Brandy"] },
+    { name: "Bardinet Apricot Brandy", description: "French apricot brandy from Bardinet. Sweet, fruity, with warm stone-fruit notes. Versatile for cocktails.", related: ["Marie Brizard Apricot Brandy", "Bols Apricot Brandy"] }
   ]
 },
   { name: "Cherry brandy", category: "Whiskies", description: "Fruit brandy made from cherries, distinct from cherry liqueur which is sweeter and red. More spirit-forward.", brands: ["Clear Creek Kirschwasser", "Luxardo Maraschino (semi-related)", "G.E. Massenez Kirsch"], notes: "Japanese Cocktail, certain Boulevardier variations.",
   bottles: [
-    { name: "Clear Creek Kirschwasser", description: "Oregon-made kirschwasser. Dry, clear cherry eau-de-vie.", related: ["G.E. Massenez Kirsch", "Luxardo Maraschino"] },
-    { name: "G.E. Massenez Kirsch", description: "French kirsch from Alsace. Dry, clean, aromatic cherry spirit.", related: ["Clear Creek Kirschwasser", "Distillerie de Neuchâtel"] }
+    { name: "Clear Creek Kirschwasser", description: "Oregon-made kirschwasser. Dry, clear cherry eau-de-vie.", related: ["G.E. Massenez Kirsch", "Luxardo Maraschino Liqueur"] },
+    { name: "G.E. Massenez Kirsch", description: "French kirsch from Alsace. Dry, clean, aromatic cherry spirit.", related: ["Clear Creek Kirschwasser", "Luxardo Maraschino Liqueur"] },
+    { name: "Luxardo Maraschino Liqueur", description: "Italian cherry liqueur from Luxardo. Made from sour Marasca cherries. Sweet, complex, with cherry and almond notes. The standard for Aviation and Last Word cocktails.", related: ["Clear Creek Kirschwasser", "G.E. Massenez Kirsch", "Luxardo Amaro"] }
   ]
 },
   { name: "Kirsch", category: "Whiskies", description: "Clear, dry cherry brandy from Germany/France. Unaged, eau-de-vie style. Pure cherry with no added sugar.", brands: ["G.E. Massenez Kirsch", "Clear Creek Kirschwasser", "Distillerie de Neuchâtel"], notes: "White Lady, Kirsch Royal, Tiki drinks.",
