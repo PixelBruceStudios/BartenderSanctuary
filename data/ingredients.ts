@@ -679,9 +679,10 @@ export const ingredients: Ingredient[] = [
   ] },
 
   // DAIRY & CREAM
-  { name: "Coconut cream", category: "Dairy & Cream", description: "Thick, rich cream from coconut meat. Not coconut milk — higher fat content. Separates when chilled.", brands: ["Chaokoh", "Aroy-D", "Savoy"], notes: "Piña Colada, Blue Hawaii.",
-  bottles: [
-    { name: "Chaokoh Coconut Cream", description: "Thai coconut cream. Thick, rich, high-fat. Not coconut milk — separates when chilled.", related: ["Aroy-D Coconut Cream", "Savoy Coconut Cream"] }
+  { name: "Coconut cream", category: "Dairy & Cream", description: "Thick, rich cream from coconut meat. Not coconut milk — higher fat content. Separates when chilled.", brands: ["Chaokoh", "Aroy-D", "Savoy"], notes: "Piña Colada, Blue Hawaii.", bottles: [
+    { name: "Chaokoh Coconut Cream", description: "Thai coconut cream. Thick, rich, high-fat. Not coconut milk — separates when chilled.", related: ["Aroy-D Coconut Cream", "Savoy Coconut Cream"] },
+    { name: "Aroy-D Coconut Cream", description: "Thai coconut cream from Aroy-D. Thick, rich, high-fat. Widely available and reliable for Piña Colada and Tiki drinks.", related: ["Chaokoh Coconut Cream", "Savoy Coconut Cream"] },
+    { name: "Savoy Coconut Cream", description: "Thai coconut cream from Savoy. Thick, rich, high-fat. Another widely available option for Piña Colada.", related: ["Chaokoh Coconut Cream", "Aroy-D Coconut Cream"] }
   ] },
   { name: "Heavy cream", category: "Dairy & Cream", description: "High-fat dairy cream (36–40% fat). Used for body and richness in shaken cocktails.", brands: ["Any heavy cream brand"], notes: "Brandy Alexander, White Russian, Ramos Gin Fizz.",
   bottles: [
