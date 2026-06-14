@@ -392,7 +392,8 @@ export const ingredients: Ingredient[] = [
   { name: "Amaro Nonino", category: "Bitters & Aperitifs", description: "Premium Italian amaro. Made from grappa macerated with herbs, roots, and alpine flowers. Bitter-sweet, 35% ABV.", brands: ["Amaro Nonino Quintessentia"], notes: "Paper Plane, Boulevardier variation, Paper Plane.",
   bottles: [
     { name: "Amaro Nonino Quintessentia", description: "Premium Italian amaro from Nonino. Bitter-sweet, 35% ABV.", related: ["Amaro Averna", "Amaro Montenegro", "Aperol"] },
-    { name: "Amaro Averna", description: "Sicilian amaro from Averna. Bitter-sweet. 29% ABV.", related: ["Amaro Nonino", "Amaro Montenegro", "Fernet-Branca"] }
+    { name: "Amaro Averna", description: "Sicilian amaro from Averna. Bitter-sweet. 29% ABV.", related: ["Amaro Nonino", "Amaro Montenegro", "Fernet-Branca"] },
+    { name: "Amaro Montenegro", description: "Italian amaro from Montenegro. Bitter-sweet with notes of orange, eucalyptus, and herbs. 23% ABV.", related: ["Amaro Nonino", "Amaro Averna", "Aperol"], image: "https://upload.wikimedia.org/wikipedia/commons/f/ff/Amaro_Montenegro.jpg" }
   ]
 },
 
