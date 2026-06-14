@@ -1,35 +1,29 @@
 #!/usr/bin/env python3
 """
 scripts/daily_email_report.py
-Daily 8 AM email report for Bartender Sanctuary.
-
-Covers:
-- Cron activity and health
-- App state and build status
-- Engagement signals from DB
-- Recent important emails
-- Actionable daily todos for monetization, reach, and automation
+Daily operational review for Bartender Sanctuary.
 """
 
 from __future__ import annotations
 
+import configparser
 import json
 import os
 import re
 import smtplib
 import subprocess
 import sys
+from collections import Counter
 from datetime import datetime, timedelta, timezone
+from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pathlib import Path
 from typing import Any
 
-import requests
-
 REPO = Path("/home/skicmi/bartender-sanctuary-app")
 BACKUP_DIR = Path("/home/skicmi/backups")
 REPORT_HOURS = 24
-LOOKBACK_HOURS = 3  # for trend-based todos
+STATE_FILE = REPO / "scripts" / ".daily_report_state.json"
 
 
 def run(cmd: str, *, timeout: int = 60, check: bool = False) -> subprocess.CompletedProcess:
@@ -44,42 +38,37 @@ def run(cmd: str, *, timeout: int = 60, check: bool = False) -> subprocess.Compl
     )
 
 
-def get_resend_api_key() -> str | None:
-    # Try env first, then common files
-    key = os.environ.get("RESEND_API_KEY")
-    if key:
-        return key.strip()
-    for candidate in [
-        REPO / ".env.vercel.prod",
-        REPO / ".env.vercel",
-        Path.home() / ".hermes" / ".env",
-    ]:
-        if candidate.exists():
-            try:
-                for line in candidate.read_text(errors="ignore").splitlines():
-                    if line.startswith("RESEND_API_KEY="):
-                        return line.split("=", 1)[1].strip().strip('"').strip("'")
-            except Exception:
-                pass
-    return None
+def load_state() -> dict:
+    try:
+        if STATE_FILE.exists():
+            return json.loads(STATE_FILE.read_text())
+    except Exception:
+        pass
+    return {}
 
 
-def get_email_from() -> str | None:
-    for candidate in [
-        REPO / ".env.vercel.prod",
-        REPO / ".env.vercel",
-        Path.home() / ".hermes" / ".env",
-    ]:
-        if candidate.exists():
-            try:
-                for line in candidate.read_text(errors="ignore").splitlines():
-                    if line.startswith("EMAIL_FROM="):
-                        val = line.split("=", 1)[1].strip().strip('"').strip("'")
-                        if val:
-                            return val
-            except Exception:
-                pass
-    return None
+def save_state(state: dict) -> None:
+    try:
+        STATE_FILE.write_text(json.dumps(state, indent=2))
+    except Exception:
+        pass
+
+
+def get_himalaya_smtp_config() -> dict:
+    cfg_path = Path.home() / ".config" / "himalaya" / "config.toml"
+    if not cfg_path.exists():
+        return {}
+    parser = configparser.ConfigParser()
+    try:
+        parser.read(cfg_path)
+        section = "accounts.personal" if parser.has_section("accounts.personal") else None
+        if not section and parser.has_section("accounts"):
+            section = "accounts"
+        if not section:
+            return {}
+        return dict(parser.items(section))
+    except Exception:
+        return {}
 
 
 def get_db():
@@ -110,25 +99,55 @@ def get_cron_status() -> dict:
     jobs: list[dict[str, Any]] = []
     errors: list[dict[str, Any]] = []
     try:
-        r = run("hermes cron list --json 2>/dev/null || true", timeout=20)
-        data = json.loads(r.stdout or "[]")
-        if isinstance(data, dict) and "jobs" in data:
-            data = data["jobs"]
-        for j in data:
-            jobs.append(
-                {
-                    "name": j.get("name"),
-                    "last_status": j.get("last_status"),
-                    "last_run_at": j.get("last_run_at"),
-                    "schedule": j.get("schedule"),
-                    "next_run_at": j.get("next_run_at"),
-                }
-            )
-            if j.get("last_status") == "error":
-                errors.append(jobs[-1])
+        jobs_path = Path.home() / ".hermes" / "cron" / "jobs.json"
+        if jobs_path.exists():
+            data = json.loads(jobs_path.read_text())
+            if isinstance(data, dict) and "jobs" in data:
+                data = data["jobs"]
+            for j in data:
+                jobs.append(
+                    {
+                        "name": j.get("name"),
+                        "last_status": j.get("last_status"),
+                        "last_run_at": j.get("last_run_at"),
+                        "schedule": j.get("schedule_display") or j.get("schedule", {}).get("display"),
+                        "next_run_at": j.get("next_run_at"),
+                    }
+                )
+                if j.get("last_status") == "error":
+                    errors.append(jobs[-1])
     except Exception:
         pass
     return {"jobs": jobs, "errors": errors, "total": len(jobs), "errored": len(errors)}
+
+
+def categorize_errors(errors: list[dict]) -> dict:
+    cats: dict[str, list[str]] = {
+        "deploy": [],
+        "publish": [],
+        "audit": [],
+        "telegram": [],
+        "translation": [],
+        "curation": [],
+        "unknown": [],
+    }
+    for e in errors:
+        name = (e.get("name") or "").lower()
+        if "deploy" in name or "vercel" in name:
+            cats["deploy"].append(e.get("name", "?"))
+        elif "publish" in name or "scheduled" in name:
+            cats["publish"].append(e.get("name", "?"))
+        elif "audit" in name or "refactor" in name or "improver" in name:
+            cats["audit"].append(e.get("name", "?"))
+        elif "telegram" in name or "reporter" in name:
+            cats["telegram"].append(e.get("name", "?"))
+        elif "translation" in name or "translate" in name:
+            cats["translation"].append(e.get("name", "?"))
+        elif "curat" in name:
+            cats["curation"].append(e.get("name", "?"))
+        else:
+            cats["unknown"].append(e.get("name", "?"))
+    return {k: v for k, v in cats.items() if v}
 
 
 def get_build_status() -> dict:
@@ -154,7 +173,6 @@ def get_db_metrics(conn) -> dict:
     metrics: dict[str, Any] = {}
     try:
         cur = conn.cursor()
-        # Content metrics
         cur.execute("SELECT COUNT(*) FROM lessons")
         row = cur.fetchone()
         metrics["lessons_total"] = row[0] if row else 0
@@ -171,7 +189,6 @@ def get_db_metrics(conn) -> dict:
         row = cur.fetchone()
         metrics["lessons_hr_filled"] = row[0] if row else 0
 
-        # Test coverage
         cur.execute("SELECT COUNT(*) FROM tests")
         row = cur.fetchone()
         metrics["tests_total"] = row[0] if row else 0
@@ -187,7 +204,6 @@ def get_db_metrics(conn) -> dict:
         row = cur.fetchone()
         metrics["lessons_without_tests"] = row[0] if row else 0
 
-        # Engagement / monetization signals
         cur.execute("SELECT COUNT(*) FROM user_lesson_progress")
         row = cur.fetchone()
         metrics["progress_rows"] = row[0] if row else 0
@@ -196,7 +212,6 @@ def get_db_metrics(conn) -> dict:
         row = cur.fetchone()
         metrics["test_attempts"] = row[0] if row else 0
 
-        # Recent activity
         cur.execute(
             """
             SELECT COUNT(*) FROM user_lesson_progress 
@@ -215,12 +230,10 @@ def get_db_metrics(conn) -> dict:
         row = cur.fetchone()
         metrics["test_attempts_last_24h"] = row[0] if row else 0
 
-        # Cocktail / affiliate signals
         cur.execute("SELECT COUNT(*) FROM cocktails")
         row = cur.fetchone()
         metrics["cocktails_total"] = row[0] if row else 0
 
-        # Users
         cur.execute("SELECT COUNT(*) FROM users")
         row = cur.fetchone()
         metrics["users_total"] = row[0] if row else 0
@@ -251,6 +264,27 @@ def get_recent_errors() -> dict:
     return {"error_outputs_24h": len(errors), "files": errors}
 
 
+def classify_email_domain(entry: dict) -> str:
+    sender = entry.get("from", "").lower()
+    subject = entry.get("subject", "").lower()
+    combined = f"{sender} {subject}"
+    if any(k in combined for k in ["vercel", "deploy", "production"]):
+        return "deploy"
+    if any(k in combined for k in ["invoice", "payment", "bill", "receipt", "transaction", "refund"]):
+        return "billing"
+    if any(k in combined for k in ["security", "alert", "warning", "suspicious", "login", "verify", "2fa"]):
+        return "security"
+    if any(k in combined for k in ["urgent", "action required", "deadline", "asap", "important"]):
+        return "important"
+    if "skicmi" in sender or "bpcm" in subject:
+        return "pipeline"
+    if any(k in combined for k in ["newsletter", "promo", "off", "unsubscribe", "marketing"]):
+        return "promo"
+    if any(k in combined for k in ["support", "ticket", "issue", "bug", "help"]):
+        return "support"
+    return "neutral"
+
+
 def get_email_digest() -> dict:
     try:
         r = run("himalaya envelope list --output plain --page-size 25 2>&1", timeout=30)
@@ -273,7 +307,6 @@ def get_email_digest() -> dict:
                         "date": parts[4] if len(parts) > 4 else "",
                     }
                 )
-        # Filter last 24h roughly
         recent: list[dict[str, str]] = []
         cutoff = datetime.now(timezone.utc) - timedelta(days=1)
         for e in entries:
@@ -288,203 +321,254 @@ def get_email_digest() -> dict:
                     recent.append(e)
             except ValueError:
                 recent.append(e)
-        # Classify
-        important = []
+
+        classified = []
+        counts = Counter()
         for e in recent:
-            text = f"{e.get('subject','')} {e.get('from','')}".lower()
-            if any(k in text for k in ["urgent", "important", "action required", "verify", "deadline", "invoice", "receipt", "payment", "bill", "transaction", "security", "alert", "warning", "hitres", "hrvatski"]):
-                important.append(e)
+            category = classify_email_domain(e)
+            counts[category] += 1
+            classified.append({"email": e, "category": category})
+
+        important = [c for c in classified if c["category"] in {"important", "billing", "security", "deploy", "pipeline"}]
         return {
             "ok": True,
             "total_scanned": len(entries),
             "recent_24h": len(recent),
             "important_count": len(important),
-            "important": important[:8],
+            "categories": dict(counts),
+            "important": [c["email"] for c in important[:8]],
             "sample": recent[:10],
         }
     except Exception as e:
         return {"ok": False, "error": str(e), "emails": []}
 
 
-def generate_todos(metrics: dict, cron: dict, health: dict, emails: dict) -> list[str]:
-    todos: list[str] = []
+def generate_todos(metrics: dict, cron: dict, health: dict, emails: dict, trends: dict) -> list[dict]:
+    todos: list[dict] = []
     now = datetime.now()
 
-    # Cron health todos
     if cron.get("errored", 0) > 0:
-        names = ", ".join(j.get("name", "?") for j in cron.get("errors", [])[:3])
-        todos.append(f"🔧 Fix failing crons today: {names}")
-    
-    if health.get("build", {}).get("ok") is False:
-        todos.append("🛠 Fix broken build — deploy is blocked until build passes")
+        cats = categorize_errors(cron.get("errors", []))
+        todo_text = "Fix failing crons"
+        if "deploy" in cats:
+            todo_text += " (deploy pipeline)"
+        elif "publish" in cats:
+            todo_text += " (publish pipeline)"
+        elif "audit" in cats:
+            todo_text += " (content audit)"
+        elif "telegram" in cats:
+            todo_text += " (telegram reporter)"
+        names = ", ".join(", ".join(cats.get(k, [])[:2]) for k in cats)[:120]
+        todos.append({"text": todo_text, "impact": "high", "effort": "medium", "detail": names})
 
-    # Content / curriculum todos
+    if health.get("build", {}).get("ok") is False:
+        todos.append({"text": "Fix broken build — deploy is blocked", "impact": "high", "effort": "high", "detail": "npm run build is failing"})
+    elif health.get("build", {}).get("ok") is None:
+        todos.append({"text": "Investigate build timeout", "impact": "high", "effort": "low", "detail": "Build check timed out"})
+
     fill_rate = 0
     if metrics.get("lessons_total", 0) > 0:
         fill_rate = metrics.get("lessons_filled", 0) / metrics["lessons_total"]
-    
     hr_fill_rate = 0
     if metrics.get("lessons_hr_total", 0) > 0:
         hr_fill_rate = metrics.get("lessons_hr_filled", 0) / metrics["lessons_hr_total"]
 
     if fill_rate < 0.9:
-        todos.append("📝 Prioritize filling remaining empty EN lessons to reach 90% completion")
+        todos.append({"text": "Finish remaining empty EN lessons", "impact": "medium", "effort": "medium", "detail": f"fill rate {fill_rate:.0%}"})
     if hr_fill_rate < 0.85:
-        todos.append("🇭🇷 Croatian lessons lagging — finish HR content before expanding other sections")
+        todos.append({"text": "Complete Croatian lessons first", "impact": "medium", "effort": "medium", "detail": f"HR fill rate {hr_fill_rate:.0%}"})
 
     untested = metrics.get("lessons_without_tests", 0)
     if untested > 0:
-        todos.append(f"📝 Generate tests for {untested} lessons still without test coverage")
+        todos.append({"text": f"Generate tests for {untested} lessons", "impact": "medium", "effort": "high", "detail": "improves completion rate"})
 
-    # Engagement / monetization todos
-    prog_24h = metrics.get("progress_last_24h", 0)
-    attempts_24h = metrics.get("test_attempts_last_24h", 0)
+    prog_delta = trends.get("progress_delta", 0)
+    attempts_delta = trends.get("attempts_delta", 0)
+    users_delta = trends.get("users_delta", 0)
     users = metrics.get("users_total", 0)
 
     if users < 50:
-        todos.append("📈 User base is small — add 1 new traffic source (Tik bartender clip, Reddit r/bartending, or Instagram reel)")
+        todos.append({"text": "Add 1 new traffic source", "impact": "high", "effort": "medium", "detail": "TikTok/Reel or Reddit bartending"})
     elif users < 200:
-        todos.append("📈 Scale acquisition: launch 1 short-form video series showing signature pours from the app")
+        todos.append({"text": "Scale acquisition with short-form video series", "impact": "high", "effort": "high", "detail": "signature pours from the app"})
 
-    if prog_24h < 5 and users > 10:
-        todos.append("📉 Engagement dip detected — add a 'daily challenge' push notification or Telegram bot reminder")
+    if prog_delta < 0 and users > 10:
+        todos.append({"text": "Engagement dip — add daily challenge reminder", "impact": "medium", "effort": "low", "detail": "Telegram bot or push notification"})
 
-    if attempts_24h < 3 and metrics.get("tests_total", 0) > 0:
-        todos.append("🎯 Test completion rate low — add achievement badges for passing modules")
+    if attempts_delta < 0 and metrics.get("tests_total", 0) > 0:
+        todos.append({"text": "Test completion dropping — add achievement badges", "impact": "medium", "effort": "medium", "detail": "gamify module completion"})
 
-    # Affiliate / monetization
     if metrics.get("cocktails_total", 0) > 0:
-        todos.append("💰 Review affiliate links on top 10 cocktail pages for stale products or better CPM deals")
+        todos.append({"text": "Review affiliate links on top 10 cocktails", "impact": "medium", "effort": "low", "detail": "stale products or better CPM deals"})
 
-    # Automation
     if cron.get("errored", 0) > 0:
-        todos.append("🤖 Automate error recovery: add auto-restart or alert escalation for the failing jobs above")
-    
-    if health.get("build", {}).get("ok") and metrics.get("progress_last_24h", 0) > 10:
-        todos.append("🤖 Automate daily content promotion: auto-post top lesson to Telegram channel")
+        todos.append({"text": "Automate error recovery / alert escalation", "impact": "high", "effort": "medium", "detail": "auto-restart or escalation for failing jobs"})
 
-    # Email todos
-    if emails.get("important_count", 0) > 0:
-        todos.append(f"📬 Respond to {emails['important_count']} important email(s) within 24h")
+    if health.get("build", {}).get("ok") and prog_delta > 0:
+        todos.append({"text": "Automate daily content promotion", "impact": "medium", "effort": "low", "detail": "auto-post top lesson to Telegram"})
 
-    # Ensure at least 3 todos
-    if len(todos) < 3:
-        todos.append("📋 Review analytics dashboard and pick 1 experiment to run this week")
-    if len(todos) < 5:
-        todos.append("🚀 Prepare 1 new lesson bundle for launch by end of week")
-    
+    imp_count = emails.get("important_count", 0)
+    if imp_count > 0:
+        todos.append({"text": f"Reply to {imp_count} important email(s)", "impact": "high", "effort": "low", "detail": "respond within 24h"})
+
+    todos.sort(key=lambda x: (0 if x["impact"] == "high" else 1, 0 if x["effort"] == "low" else 1))
     return todos[:6]
 
 
-def send_email_via_resend(to_email: str, subject: str, html: str, api_key: str, from_email: str) -> dict:
+def compute_trends(current: dict, previous: dict) -> dict:
+    trends: dict[str, Any] = {}
+    numeric_keys = [
+        "lessons_filled",
+        "lessons_hr_filled",
+        "tests_total",
+        "users_total",
+        "progress_last_24h",
+        "test_attempts_last_24h",
+        "cocktails_total",
+        "progress_rows",
+        "test_attempts",
+    ]
+    for k in numeric_keys:
+        cur = current.get(k)
+        prev = previous.get(k)
+        if isinstance(cur, (int, float)) and isinstance(prev, (int, float)):
+            trends[f"{k}_delta"] = cur - prev
+            trends[f"{k}_pct"] = ((cur - prev) / prev * 100) if prev else None
+    return trends
+
+
+def format_delta(value, prev) -> str:
+    if not isinstance(value, (int, float)) or not isinstance(prev, (int, float)):
+        return ""
+    delta = value - prev
+    if delta == 0:
+        return " (+0)"
+    if delta > 0:
+        return f" (+{delta})"
+    return f" ({delta})"
+
+
+def priority_badge(cron: dict, health: dict, users: int) -> str:
+    bad_areas = 0
+    if cron.get("errored", 0) > 0:
+        bad_areas += 1
+    if health.get("build", {}).get("ok") is False:
+        bad_areas += 1
+    if users > 10 and health.get("engagement_ok", True) is False:
+        bad_areas += 1
+    if bad_areas >= 2:
+        return "🚨"
+    if bad_areas == 1:
+        return "⚠️"
+    return "✅"
+
+
+def format_narrative(cron: dict, health: dict, metrics: dict, errors: dict, emails: dict, todos: list[dict], trends: dict) -> str:
+    now = datetime.now().strftime("%Y-%m-%d %H:%M")
+    badge = priority_badge(cron, health, metrics.get("users_total", 0))
+    lines = [f"{badge} **Bartender Sanctuary Daily Review** — {now}", ""]
+
+    lines.append("🕒 **Cron**")
+    lines.append(f"  *Total:* {cron.get('total',0)} jobs, *errored:* {cron.get('errored',0)}")
+    if cron.get("errors"):
+        cats = categorize_errors(cron.get("errors", []))
+        for cat, names in cats.items():
+            label = cat.upper()
+            lines.append(f"  • `{label}`: {', '.join(names[:3])}")
+    if trends.get("errored_delta"):
+        lines.append(f"  *Change:* {trends['errored_delta']:+d} errored jobs vs yesterday")
+
+    lines.append("")
+    lines.append("🔨 **Build**")
+    build_ok = health.get("build", {}).get("ok")
+    status = "✅ OK" if build_ok else ("⏱ TIMEOUT" if build_ok is None else "❌ FAILED")
+    lines.append(f"  {status}")
+
+    lines.append("")
+    lines.append("📚 **Content**")
+    lines.append(f"  • EN lessons: {metrics.get('lessons_filled',0)}/{metrics.get('lessons_total',0)}")
+    lines.append(f"  • HR lessons: {metrics.get('lessons_hr_filled',0)}/{metrics.get('lessons_hr_total',0)}")
+    lines.append(f"  • Tests: {metrics.get('tests_total',0)} total, {metrics.get('lessons_without_tests',0)} untested")
+    lines.append(f"  • Users: {metrics.get('users_total',0)}")
+
+    if trends:
+        lines.append("  *Trends:*")
+        if "users_total_delta" in trends:
+            lines.append(f"    • Users: {trends['users_total_delta']:+d}")
+        if "lessons_filled_delta" in trends:
+            lines.append(f"    • EN filled: {trends['lessons_filled_delta']:+d}")
+        if "lessons_hr_filled_delta" in trends:
+            lines.append(f"    • HR filled: {trends['lessons_hr_filled_delta']:+d}")
+        if "progress_last_24h_delta" in trends:
+            lines.append(f"    • Progress events: {trends['progress_last_24h_delta']:+d}")
+        if "test_attempts_last_24h_delta" in trends:
+            lines.append(f"    • Test attempts: {trends['test_attempts_last_24h_delta']:+d}")
+
+    lines.append("")
+    lines.append("📧 **Emails**")
+    email_cats = emails.get("categories", {})
+    if email_cats:
+        lines.append(f"  *Last 24h:* {', '.join(f'{k} {v}' for k, v in email_cats.items())}")
+    else:
+        lines.append(f"  • {emails.get('recent_24h','?')} recent, {emails.get('important_count',0)} important")
+
+    lines.append("")
+    lines.append("✅ **Todos**")
+    for item in todos:
+        impact_icon = {"high": "🔥", "medium": "⚡", "low": "💡"}.get(item.get("impact", "medium"), "•")
+        lines.append(f"  {impact_icon} {item.get('text','')}")
+
+    if todos:
+        lines.append("")
+        top = todos[0].get("text", "")
+        lines.append(f"*Top priority:* {top}")
+
+    return "\n".join(lines)
+
+
+def send_email_smtp(to_email: str, subject: str, html: str) -> dict:
     try:
-        resp = requests.post(
-            "https://api.resend.com/emails",
-            headers={
-                "Authorization": f"Bearer {api_key}",
-                "Content-Type": "application/json",
-            },
-            json={
-                "from": from_email,
-                "to": [to_email],
-                "subject": subject,
-                "html": html,
-            },
-            timeout=30,
-        )
-        try:
-            body = resp.json()
-        except ValueError:
-            body = {"raw": resp.text}
-        return {"status_code": resp.status_code, "body": body, "ok": resp.status_code in (200, 202)}
+        cfg = get_himalaya_smtp_config()
+        host = cfg.get("message.send.backend.host", "smtp.gmail.com")
+        port = int(cfg.get("message.send.backend.port", "465"))
+        login = cfg.get("message.send.backend.login") or cfg.get("email") or to_email
+        password = cfg.get("message.send.backend.auth.raw", "")
+        if not password:
+            return {"ok": False, "error": "missing smtp password in himalaya config"}
+
+        msg = MIMEMultipart("alternative")
+        msg["Subject"] = subject
+        msg["From"] = login
+        msg["To"] = to_email
+        msg.attach(MIMEText(html, "html", "utf-8"))
+
+        with smtplib.SMTP_SSL(host, port, timeout=20) as server:
+            server.login(login, password)
+            server.sendmail(login, [to_email], msg.as_string())
+        return {"ok": True}
     except Exception as e:
         return {"ok": False, "error": str(e)}
 
 
-def build_html_report(cron: dict, health: dict, metrics: dict, error_data: dict, emails: dict, todos: list[str]) -> str:
-    now = datetime.now().strftime("%Y-%m-%d %H:%M")
-    cron_ok = cron.get("total", 0) - cron.get("errored", 0)
-    build_icon = "✅" if health.get("build", {}).get("ok") else "❌"
-
-    def pill(status: str) -> str:
-        color = "#16a34a" if status == "ok" else "#dc2626" if status == "error" else "#d97706"
-        return f'<span style="background:{color};color:white;padding:2px 8px;border-radius:999px;font-size:12px;">{status.upper()}</span>'
-
-    rows = []
-    for j in cron.get("jobs", []):
-        status = j.get("last_status") or "unknown"
-        rows.append(
-            f"<tr><td>{j.get('name')}</td><td>{j.get('schedule')}</td>"
-            f"<td>{pill(status)}</td><td>{j.get('last_run_at') or '—'}</td></tr>"
-        )
-    cron_table = "\n".join(rows) if rows else "<tr><td colspan='4'>No cron data</td></tr>"
-
-    email_rows = []
-    for e in emails.get("important", [])[:6]:
-        email_rows.append(f"<tr><td>{e.get('subject')}</td><td>{e.get('from')}</td><td>{e.get('date','')[:10]}</td></tr>")
-    email_table = "\n".join(email_rows) if email_rows else "<tr><td colspan='3'>No important emails in last 24h</td></tr>"
-
-    todos_html = "\n".join(f"<li>{t}</li>" for t in todos)
-
-    db_section = f"""
-      <p><strong>Lessons:</strong> {metrics.get('lessons_filled',0)}/{metrics.get('lessons_total',0)} EN · {metrics.get('lessons_hr_filled',0)}/{metrics.get('lessons_hr_total',0)} HR</p>
-      <p><strong>Tests:</strong> {metrics.get('tests_total',0)} total · {metrics.get('lessons_without_tests',0)} lessons untested</p>
-      <p><strong>Engagement (24h):</strong> {metrics.get('progress_last_24h',0)} lesson progresses · {metrics.get('test_attempts_last_24h',0)} test attempts</p>
-      <p><strong>Users:</strong> {metrics.get('users_total',0)} registered</p>
-    """
-
-    return f"""
-<!DOCTYPE html>
-<html>
-<body style="font-family:Arial,sans-serif;color:#111;max-width:800px;margin:auto;padding:24px;">
-  <h1>🍸 Bartender Sanctuary — Daily Review</h1>
-  <p style="color:#555;">{now}</p>
-
-  <h2>🤖 Cron Activity</h2>
-  <p>{cron_ok}/{cron.get('total',0)} jobs last OK · {cron.get('errored',0)} errored</p>
-  <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;">
-    <thead><tr><th>Job</th><th>Schedule</th><th>Status</th><th>Last run</th></tr></thead>
-    <tbody>{cron_table}</tbody>
-  </table>
-  {"<p style='color:#b45309;'>⚠ Recent error outputs: " + str(error_data.get('error_outputs_24h',0)) + " files with error markers</p>" if error_data.get('error_outputs_24h',0) else ""}
-
-  <h2>🏥 App Health</h2>
-  <p>Build: {build_icon} {"OK" if health.get('build',{}).get('ok') else "FAILED"}</p>
-  {db_section}
-
-  <h2>📬 Important Emails (24h)</h2>
-  <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;">
-    <thead><tr><th>Subject</th><th>From</th><th>Date</th></tr></thead>
-    <tbody>{email_table}</tbody>
-  </table>
-
-  <h2>✅ Daily Todos</h2>
-  <ol>{todos_html}</ol>
-
-  <p style="color:#888;font-size:12px;">Generated automatically by Hermes cron.</p>
-</body>
-</html>
-"""
-
-
 def main() -> int:
     now = datetime.now()
-    print(f"[{now:%Y-%m-%d %H:%M}] Starting daily email report...")
+    print(f"[{now:%Y-%m-%d %H:%M}] Starting daily review...")
 
-    # 1. Cron status
     cron = get_cron_status()
     print(f"  Cron: {cron['total']} jobs, {cron['errored']} errors")
 
-    # 2. Build
-    health: dict[str, Any] = {"build": get_build_status()}
-    print(f"  Build: {'ok' if health['build']['ok'] else 'FAILED'}")
-
-    # 3. DB metrics
+    build_status = get_build_status()
+    prog_delta = 0
+    attempts_delta = 0
     conn = get_db()
     metrics: dict[str, Any] = {}
     if conn:
         try:
             metrics = get_db_metrics(conn)
+            previous_state = load_state()
+            prev_metrics = previous_state.get("metrics", {})
+            prog_delta = metrics.get("progress_last_24h", 0) - prev_metrics.get("progress_last_24h", metrics.get("progress_last_24h", 0))
+            attempts_delta = metrics.get("test_attempts_last_24h", 0) - prev_metrics.get("test_attempts_last_24h", metrics.get("test_attempts_last_24h", 0))
         finally:
             try:
                 conn.close()
@@ -492,43 +576,49 @@ def main() -> int:
                 pass
     else:
         metrics = {"db_error": "unreachable"}
+
+    users = metrics.get("users_total", 0)
+    engagement_ok = not (users > 10 and prog_delta < 0 and attempts_delta < 0)
+    health: dict[str, Any] = {"build": build_status, "engagement_ok": engagement_ok}
+    print(f"  Build: {'ok' if build_status['ok'] else 'FAILED'}")
+
     print(f"  DB: lessons_filled={metrics.get('lessons_filled','?')}")
 
-    # 4. Recent errors
     errors = get_recent_errors()
     if errors.get("error_outputs_24h"):
         print(f"  Recent error outputs: {errors['error_outputs_24h']}")
 
-    # 5. Email digest
     emails = get_email_digest()
     print(f"  Emails: {emails.get('recent_24h','?')} recent, {emails.get('important_count',0)} important")
 
-    # 6. Todos
-    todos = generate_todos(metrics, cron, health, emails)
+    previous_state = load_state()
+    trends = compute_trends(metrics, previous_state.get("metrics", {}))
+    trends["errored_delta"] = cron.get("errored", 0) - (previous_state.get("cron", {}).get("errored", 0) if previous_state.get("cron") else 0)
+    trends["progress_delta"] = prog_delta
+    trends["attempts_delta"] = attempts_delta
+    trends["users_delta"] = metrics.get("users_total", 0) - previous_state.get("metrics", {}).get("users_total", metrics.get("users_total", 0))
+
+    save_state({"cron": {"errored": cron.get("errored", 0)}, "metrics": {k: metrics.get(k) for k in [
+        "lessons_filled", "lessons_hr_filled", "tests_total", "users_total",
+        "progress_last_24h", "test_attempts_last_24h", "cocktails_total", "progress_rows", "test_attempts"
+    ] if k in metrics}})
+
+    todos = generate_todos(metrics, cron, health, emails, trends)
     print(f"  Todos generated: {len(todos)}")
 
-    # 7. Compose email
-    to_email = os.environ.get("DAILY_REPORT_TO") or os.environ.get("EMAIL_HOME_ADDRESS") or os.environ.get("EMAIL_ADDRESS")
-    api_key = get_resend_api_key()
-    from_email = get_email_from() or "Bartender Sanctuary <noreply@yourdomain.com>"
+    narrative = format_narrative(cron, health, metrics, errors, emails, todos, trends)
+    print("\n" + narrative)
 
-    if not to_email:
-        print("ERROR: No recipient email configured (DAILY_REPORT_TO / EMAIL_HOME_ADDRESS / EMAIL_ADDRESS)", file=sys.stderr)
-        return 2
-    if not api_key:
-        print("ERROR: No Resend API key found (RESEND_API_KEY)", file=sys.stderr)
-        return 2
-
-    html = build_html_report(cron, health, metrics, errors, emails, todos)
+    to_email = os.environ.get("DAILY_REPORT_TO") or os.environ.get("EMAIL_HOME_ADDRESS") or os.environ.get("EMAIL_ADDRESS") or "danijelmiskic99@gmail.com"
     subject = f"Bartender Sanctuary Daily Review — {now:%Y-%m-%d}"
 
-    result = send_email_via_resend(to_email, subject, html, api_key, from_email)
-    if result.get("ok"):
+    send_result = send_email_smtp(to_email, subject, f"<pre>{narrative}</pre>")
+    if send_result.get("ok"):
         print(f"  Email sent to {to_email}")
-        return 0
     else:
-        print(f"  Failed to send email: {result}", file=sys.stderr)
-        return 1
+        print(f"  Email send failed: {send_result}", file=sys.stderr)
+
+    return 0
 
 
 if __name__ == "__main__":

@@ -1,0 +1,16 @@
+{
+  "cron": {
+    "errored": 1
+  },
+  "metrics": {
+    "lessons_filled": 183,
+    "lessons_hr_filled": 120,
+    "tests_total": 140,
+    "users_total": 10,
+    "progress_last_24h": 1,
+    "test_attempts_last_24h": 9,
+    "cocktails_total": 110,
+    "progress_rows": 1,
+    "test_attempts": 9
+  }
+}
