@@ -111,8 +111,9 @@ def _extract_entities(text: str):
 def _build_mc(fact: str, idx: int) -> dict:
     # Use a short, content-bearing snippet from the fact so every question text is unique.
     # Facts are already deduplicated (by lower-cased sentence), so this guarantees uniqueness.
+    # We also append the question index to guarantee uniqueness even when facts share prefixes.
     snippet = " ".join(fact.split()[:12])
-    q = f"According to the lesson, which statement about '{snippet}' is true?"
+    q = f"According to the lesson, which statement about '{snippet} (fact {idx+1})' is true?"
     opts = []
     ans = 0
     explanation = fact
@@ -121,7 +122,7 @@ def _build_mc(fact: str, idx: int) -> dict:
         m = re.search(r"([A-Za-z][^.!?]{0,80}?)(\d+[\d./]*%?)", fact)
         if m:
             target = m.group(0)
-            q = f"Which detail about '{target}' from this lesson is correct?"
+            q = f"Which detail about '{target} (fact {idx+1})' from this lesson is correct?"
             opts = [target]
     if not opts:
         ents = _extract_entities(fact)
@@ -130,7 +131,7 @@ def _build_mc(fact: str, idx: int) -> dict:
             target = f"{ent} is referenced as relevant in this context."
             # Use the first part of the fact as a unique anchor in the question.
             snippet = " ".join(fact.split()[:12])
-            q = f"Which concept from this lesson applies to '{snippet}'?"
+            q = f"Which concept from this lesson applies to '{snippet} (fact {idx+1})'?"
             opts = [target]
 
     filler = [
@@ -157,11 +158,16 @@ def create_test_and_questions(cur, lesson_id: str, lesson: dict) -> dict:
         """
         INSERT INTO tests (scope, lesson_id, technique_id, title, description, passing_score, sort_order)
         VALUES (%s, %s, %s, %s, %s, %s, %s)
+        ON CONFLICT (lesson_id, scope) DO NOTHING
         RETURNING id
         """,
         ("lesson", lesson_id, None, title, "Auto-generated lesson test", 70, 0),
     )
-    test_id = cur.fetchone()[0]
+    result = cur.fetchone()
+    if result is None:
+        # Test already exists (race or re-run); skip gracefully.
+        return {"test_id": None, "questions": 0, "skipped": True}
+    test_id = result[0]
 
     questions = derive_questions(lesson, num_q=5)
     for q in questions:
@@ -200,12 +206,16 @@ def main():
 
     cur = conn.cursor()
     created = 0
+    skipped = 0
     failed = []
     for lesson in lessons:
         try:
             info = create_test_and_questions(cur, lesson["id"], lesson)
-            created += 1
-            results.append({"lesson_id": lesson["id"], "test_id": info["test_id"], "questions": info["questions"]})
+            if info.get("skipped"):
+                skipped += 1
+            else:
+                created += 1
+                results.append({"lesson_id": lesson["id"], "test_id": info["test_id"], "questions": info["questions"]})
         except Exception as e:
             failed.append({"lesson_id": lesson["id"], "error": str(e)})
 
@@ -217,6 +227,7 @@ def main():
         "status": "ok",
         "batch": args.batch,
         "created": created,
+        "skipped": skipped,
         "failed_count": len(failed),
         "failed": failed,
         "results": results,

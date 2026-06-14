@@ -116,7 +116,7 @@ def recent_errors() -> dict:
             cutoff = datetime.now() - timedelta(hours=24)
             for p in sorted(out_dir.glob("*.txt"), key=lambda x: x.stat().st_mtime, reverse=True)[:20]:
                 try:
-                    txt = p.read_text(errors="ignore", encoding="utf-8", errors="replace")
+                    txt = p.read_text(encoding="utf-8", errors="replace")
                 except Exception:
                     continue
                 if "error" in txt.lower() or "traceback" in txt.lower() or "failed" in txt.lower():
