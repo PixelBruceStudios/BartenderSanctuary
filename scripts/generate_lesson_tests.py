@@ -109,7 +109,10 @@ def _extract_entities(text: str):
 
 
 def _build_mc(fact: str, idx: int) -> dict:
-    q = f"According to the lesson, which statement is true?"
+    # Use a short, content-bearing snippet from the fact so every question text is unique.
+    # Facts are already deduplicated (by lower-cased sentence), so this guarantees uniqueness.
+    snippet = " ".join(fact.split()[:12])
+    q = f"According to the lesson, which statement about '{snippet}' is true?"
     opts = []
     ans = 0
     explanation = fact
@@ -118,13 +121,16 @@ def _build_mc(fact: str, idx: int) -> dict:
         m = re.search(r"([A-Za-z][^.!?]{0,80}?)(\d+[\d./]*%?)", fact)
         if m:
             target = m.group(0)
-            q = f"Which detail from this lesson is correct?"
+            q = f"Which detail about '{target}' from this lesson is correct?"
             opts = [target]
     if not opts:
         ents = _extract_entities(fact)
         if ents:
-            target = f"{ents[0]} is referenced as relevant in this context."
-            q = f"Which concept is emphasized in this lesson?"
+            ent = ents[idx % len(ents)]
+            target = f"{ent} is referenced as relevant in this context."
+            # Use the first part of the fact as a unique anchor in the question.
+            snippet = " ".join(fact.split()[:12])
+            q = f"Which concept from this lesson applies to '{snippet}'?"
             opts = [target]
 
     filler = [
