@@ -402,7 +402,9 @@ export const ingredients: Ingredient[] = [
   { name: "Amontillado sherry", category: "Sherries & Vermouths", description: "Sherry style between fino and oloroso. Initially aged under flor, then exposed to air. Nutty, dry, complex.", brands: ["Lustau Amontillado", "Gonzalez Byass Amontillado"], notes: "Adonis, Bamboo, certain Manhattan variations.",
   bottles: [
     { name: "Lustau Amontillado", description: "Spanish amontillado sherry from Lustau. Nutty, dry, complex.", related: ["Lustau Fino", "Lustau Oloroso", "Gonzalez Byass"] },
-    { name: "Gonzalez Byass Amontillado", description: "Classic amontillado sherry from Jerez. Dry, nutty.", related: ["Lustau Amontillado", "Tio Pepe Fino"] }
+    { name: "Gonzalez Byass Amontillado", description: "Classic amontillado sherry from Jerez. Dry, nutty.", related: ["Lustau Amontillado", "Tio Pepe Fino"] },
+    { name: "Del Duque Amontillado Sherry", description: "VORS (Very Old Rare Sherry) amontillado from Del Duque. Rich, nutty, complex, aged for decades under solera.", related: ["Lustau Amontillado", "Gonzalez Byass Amontillado", "Tio Pepe Fino"], image: "https://upload.wikimedia.org/wikipedia/commons/f/f8/Del_Duque_Amontillado_Sherry.jpg" },
+    { name: "Sanchez Romate NPU Amontillado Sherry", description: "NPU (No Puede Ser) amontillado from Sanchez Romate. Extremely rare, aged 60+ years in solera. Intensely nutty and complex.", related: ["Lustau Amontillado", "Gonzalez Byass Amontillado", "Del Duque Amontillado Sherry"], image: "https://upload.wikimedia.org/wikipedia/commons/6/69/Sanchez_Romate_NPU_Amontillado_Sherry.jpg" }
   ]
 },
   { name: "Dry vermouth", category: "Sherries & Vermouths", description: "Fortified, aromatised wine. Dry, herbal, botanical. ~18% ABV. Keep refrigerated after opening.", brands: ["Dolin Dry", "Noilly Prat", "Martini & Rossi Dry", "Carpano Antica (sweet)"], notes: "Martini, Manhattan (dry version), Gibson.",
