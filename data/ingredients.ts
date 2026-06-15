@@ -467,7 +467,8 @@ export const ingredients: Ingredient[] = [
   { name: "Champagne or sparkling wine", category: "Wines & Sparkling", description: "Either Champagne or a quality sparkling wine (Cava, Prosecco, Crémant).", brands: ["Moët & Chandon", "Veuve Clicquot", "Prosecco brands"], notes: "Use for top-ups in French 75, Champagne cocktails.",
   bottles: [
     { name: "Moët & Chandon Brut Impérial", description: "Iconic Champagne. Bright, lively, with green apple, citrus, and brioche.", related: ["Veuve Clicquot Yellow Label", "Ruinart Blanc de Blancs"] },
-    { name: "Veuve Clicquot Yellow Label", description: "Brut Champagne. Bright, balanced, with brioche and citrus.", related: ["Moët & Chandon Brut", "Ruinart Blanc de Blancs", "Bollinger Special Cuvée"] }
+    { name: "Bollinger Special Cuvée", description: "Powerful, full-bodied Brut Champagne from Bollinger. Rich brioche, apple, and nutty notes with fine bubbles. 12% ABV.", related: ["Moët & Chandon Brut Impérial", "Veuve Clicquot Yellow Label"], image: "https://upload.wikimedia.org/wikipedia/commons/2/22/Bollinger.jpg" },
+    { name: "Veuve Clicquot Yellow Label", description: "Brut Champagne. Bright, balanced, with brioche and citrus.", related: ["Moët & Chandon Brut Impérial", "Ruinart Blanc de Blancs", "Bollinger Special Cuvée"] }
   ]
 },
   { name: "Prosecco", category: "Wines & Sparkling", description: "Italian sparkling wine from Veneto region. Light, fruity, Glera grape. 10.5–11.5% ABV.", brands: ["Nino Franco Rustico", "Bisol Jeio", "Santa Margherita", "Zonin", "La Marca"], notes: "Aperol Spritz, Bellini, Mimosa.",
