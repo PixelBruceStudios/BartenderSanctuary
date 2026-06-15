@@ -223,6 +223,28 @@ export default function Home() {
           >
             {t('tabGamesLink')}
           </a>
+          <a
+            href="/blog"
+            style={{
+              fontSize: '0.9rem',
+              color: 'var(--color-accent)',
+              textDecoration: 'none',
+              fontWeight: 500
+            }}
+          >
+            Blog
+          </a>
+          <a
+            href="/forum"
+            style={{
+              fontSize: '0.9rem',
+              color: 'var(--color-accent)',
+              textDecoration: 'none',
+              fontWeight: 500
+            }}
+          >
+            Forum
+          </a>
         </div>
 
         <FeaturedSection />
