@@ -734,7 +734,11 @@ export const ingredients: Ingredient[] = [
   bottles: [
     { name: "Leblon Cachaça", description: "Premium Brazilian cachaça from Minas Gerais. Distilled from fresh sugarcane juice. Smooth, grassy. The standard for Caipirinha.", related: ["Avuá Cachaça", "Novo Fogo", "Ypióca"] }
   ,
-    { name: "Avuá Cachaça", description: "Brazilian cachaça from Avuá. Artisanal, organic. Grassier, more complex than Leblon. Excellent for premium Caipirinha.", related: ["Leblon Cacha\u00e7a", "Novo Fogo", "Ypi\u00f3ca"] }
+    { name: "Avuá Cachaça", description: "Brazilian cachaça from Avuá. Artisanal, organic. Grassier, more complex than Leblon. Excellent for premium Caipirinha.", related: ["Leblon Cachaça", "Novo Fogo", "Ypióca"] }
+  ,
+    { name: "Novo Fogo Cachaça", description: "Brazilian cachaça from Espírito Santo. Made from organic sugarcane. Silky, tropical, with a smoky edge from eucalyptus wood-fired distillation. Premium choice for Caipirinha.", related: ["Leblon Cachaça", "Avuá Cachaça", "Ypióca"] }
+  ,
+    { name: "Ypióca Cachaça", description: "Classic Brazilian cachaça from Ceará. One of the oldest brands (founded 1846). Clean, bright sugarcane flavor. An everyday Caipirinha workhorse.", related: ["Leblon Cachaça", "Avuá Cachaça", "Novo Fogo"] }
   ] },
   { name: "White peach purée", category: "Other Spirits", description: "Puréed white peach, strained. Sweet, floral, velvety.", brands: ["Bardezzo, Boiron, or fresh purée"], notes: "Bellini (with Prosecco), Peach Sour.",
   bottles: [
