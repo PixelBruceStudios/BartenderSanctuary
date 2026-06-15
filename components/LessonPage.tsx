@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { useTranslation } from "@/lib/contexts";
+import ChemistryBackground from "@/components/ChemistryBackground";
 
 interface Lesson {
   id: string;
