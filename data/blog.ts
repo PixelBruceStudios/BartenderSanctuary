@@ -1,10 +1,10 @@
-import type { BlogPost, BlogCategory, ForumThread, ForumCategory } from '@/types/blog';
+import type { BlogCategory, BlogPost, ForumCategory, ForumThread } from '@/types/blog';
 
 export const blogCategories: BlogCategory[] = [
   { slug: 'techniques', title: 'Techniques', description: 'Bar techniques, methods, and fundamentals.', icon: '🛠️' },
   { slug: 'recipes', title: 'Recipes', description: 'Classic and modern cocktail recipes.', icon: '🍸' },
   { slug: 'ingredients', title: 'Ingredients', description: 'Spirits, mixers, and garnishes.', icon: '🧪' },
-  { slug: 'career', title: 'Career', description: 'Bartending careers and industry news.', icon: '🚀' },
+  { slug: 'career', title: 'Career', description: 'Bartending careers and industry news.', icon: '🚀' }
 ];
 
 export const blogPosts: BlogPost[] = [
@@ -25,7 +25,7 @@ export const forumCategories: ForumCategory[] = [
   { slug: 'general', title: 'General', description: 'General discussion about bartending.', icon: '💬' },
   { slug: 'recipes', title: 'Recipes', description: 'Share and discuss cocktail recipes.', icon: '🍸' },
   { slug: 'techniques', title: 'Techniques', description: 'Technique tips and questions.', icon: '🛠️' },
-  { slug: 'career', title: 'Career', description: 'Jobs, interviews, and industry topics.', icon: '🚀' },
+  { slug: 'career', title: 'Career', description: 'Jobs, interviews, and industry topics.', icon: '🚀' }
 ];
 
 export const forumThreads: ForumThread[] = [

@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { blogPosts } from '@/data/blog';
+import { blogPosts } from '@/data/blog.generated';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const { slug } = req.query;

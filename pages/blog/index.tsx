@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 import CategoryNav from '@/components/blog/CategoryNav';
 import PostCard from '@/components/blog/PostCard';
-import { blogCategories } from '@/data/blog';
+import { blogCategories } from '@/data/blog.generated';
 
 export default function BlogIndex() {
   const [posts, setPosts] = useState<any[]>([]);

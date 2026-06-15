@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import CategoryNav from '@/components/blog/CategoryNav';
 import PostCard from '@/components/blog/PostCard';
-import { blogCategories, getBlogPostsByCategory } from '@/data/blog';
+import { blogCategories, getBlogPostsByCategory } from '@/data/blog.generated';
 
 export default function BlogCategory({ categorySlug }: { categorySlug: string }) {
   const [posts, setPosts] = useState<any[]>([]);

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { getForumThread } from '@/data/blog';
+import { getForumThread } from '@/data/blog.generated';
 
 export default function ForumThreadPage({ thread }: { thread: any }) {
   if (!thread) {

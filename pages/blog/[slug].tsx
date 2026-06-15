@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { getBlogPost, blogCategories } from '@/data/blog';
+import { getBlogPost, blogCategories } from '@/data/blog.generated';
 
 export default function BlogPostPage({ post }: { post: any }) {
   if (!post) {

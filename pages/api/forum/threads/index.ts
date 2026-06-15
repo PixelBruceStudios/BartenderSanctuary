@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { forumCategories, forumThreads, getForumThreadsByCategory } from '@/data/blog';
+import { forumCategories, forumThreads, getForumThreadsByCategory } from '@/data/blog.generated';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {

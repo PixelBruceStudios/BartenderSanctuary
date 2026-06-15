@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import CategoryNav from '@/components/forum/CategoryNav';
 import ThreadList from '@/components/forum/ThreadList';
-import { forumCategories, getForumThreadsByCategory } from '@/data/blog';
+import { forumCategories, getForumThreadsByCategory } from '@/data/blog.generated';
 
 export default function ForumIndex() {
   const [threads, setThreads] = useState<any[]>([]);
