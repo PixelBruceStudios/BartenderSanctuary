@@ -71,7 +71,9 @@ export const ingredients: Ingredient[] = [
   ] },
   { name: "Bourbon or rye", category: "Whiskies", description: "Either bourbon or rye whiskey depending on preference. Bourbon = sweeter; rye = spicier/drier.", brands: ["Buffalo Trace", "Rittenhouse Rye"], notes: "Manhattan flexibility.", bottles: [
     { name: "Buffalo Trace", description: "Kentucky straight bourbon. Rich vanilla, caramel, and mint. Widely available and affordable — the go-to when a recipe just says bourbon.", related: ["Wild Turkey 101", "Maker's Mark", "Rittenhouse Rye"] },
-    { name: "Rittenhouse Rye", description: "100-proof bonded rye. Bold, spicy, with pepper and clove. The rye pick for Manhattan flexibility.", related: ["Bulleit Rye", "Buffalo Trace", "Sazerac Rye"], }
+    { name: "Rittenhouse Rye", description: "100-proof bonded rye. Bold, spicy, with pepper and clove. The rye pick for Manhattan flexibility.", related: ["Bulleit Rye", "Buffalo Trace", "Sazerac Rye"], },
+    { name: "Knob Creek 9 Year", description: "Kentucky straight bourbon from Beam Suntory. Aged 9 years in charred oak. Rich caramel, vanilla, and oak with a bold 100-proof finish. Excellent for Old Fashioneds and Manhattan flexibility.", related: ["Buffalo Trace", "Wild Turkey 101", "Maker's Mark"] },
+    { name: "Elijah Craig Small Batch", description: "Kentucky straight bourbon from Heaven Hill. Aged 4–8 years. Sweet caramel, vanilla, and toasted oak with a smooth 94-proof profile. The benchmark for small-batch bourbon cocktails.", related: ["Buffalo Trace", "Wild Turkey 101", "Maker's Mark"] }
   ] },
   { name: "Brandy", category: "Whiskies", description: "General term for spirit distilled from fermented fruit juice, most commonly grapes (cognac is the finest brandy).", brands: ["Remy Martin VSOP", "Hennessy VS", "Martell VSOP"], notes: "Covers Brandy Alexander, Sidecar, Between the Sheets.", bottles: [
     { name: "Remy Martin VSOP", description: "Premium VSOP cognac from Remy Martin. Rich, smooth, with vanilla, dried fruit, and cocoa. A step up from VS for cocktails.", related: ["Remy Martin VS", "Remy Martin XO", "Martell VSOP"], },
