@@ -47,8 +47,7 @@ export default function CocktailCard({ cocktail, onClick }: CocktailCardProps) {
       <div style={{ padding: '1.2rem' }}>
         <h3 style={{ marginBottom: '0.3rem' }}>{cocktail.name}</h3>
         <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.9rem', marginBottom: '0.4rem' }}>
-          {cocktail.origin ? cocktail.origin.split('.').slice(0, 2).join('.') : ''}
-          {cocktail.origin && cocktail.origin.split('.').length > 2 ? '...' : ''}
+          {cocktail.glass || ''}
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginTop: '0.6rem' }}>
           {(cocktail.tags || []).map((tag) => (
