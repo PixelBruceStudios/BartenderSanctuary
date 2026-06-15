@@ -8,12 +8,9 @@ const MAX_REDIRECTS_PER_MIN = 30;
 const redirectHits = new Map<string, { count: number; reset: number }>();
 
 function clientIp(req: NextApiRequest): string {
-  return (
-    (req.headers.get('x-forwarded-for')?.split(',')[0].trim() ||
-      req.socket.remoteAddress ||
-      'unknown'
-    )
-  );
+  const header = req.headers['x-forwarded-for'];
+  const first = typeof header === 'string' ? header.split(',')[0].trim() : null;
+  return first || req.socket.remoteAddress || 'unknown';
 }
 
 type RedirectResponse = { ok: true; url: string } | { ok: false; error: string };

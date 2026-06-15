@@ -1,7 +1,6 @@
-import Link from 'next/link';
 import type { ForumCategory } from '@/types/blog';
 
-export default function CategoryNav({ categories, activeSlug, onChange }: { categories: ForumCategory[]; activeSlug: string; onChange: (slug: string) => void }) {
+export default function CategoryNav({ categories, activeSlug, onChange }: { categories: ForumCategory[]; activeSlug: string; onChange: (_slug: string) => void }) {
   return (
     <div
       style={{

@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from 'next-auth/next';
-import { auth } from '../auth/[...nextauth]';
+import { auth } from './auth/[...nextauth]';
 import { resend } from '@/lib/email';
 
 const MAX_DESC = 4000;
@@ -11,12 +11,9 @@ const MAX_BUG_REPORTS_PER_MIN = 5;
 const reportHits = new Map<string, { count: number; reset: number }>();
 
 function clientIp(req: NextApiRequest): string {
-  return (
-    (req.headers.get('x-forwarded-for')?.split(',')[0].trim() ||
-      req.socket.remoteAddress ||
-      'unknown'
-    )
-  );
+  const header = req.headers['x-forwarded-for'];
+  const first = typeof header === 'string' ? header.split(',')[0].trim() : null;
+  return first || req.socket.remoteAddress || 'unknown';
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -24,7 +21,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ ok: false, error: 'Method Not Allowed' });
   }
 
-  const session = await getServerSession(req, res, auth);
+  const session = await getServerSession(req, res, auth) as any;
   if (!session?.user?.email) {
     return res.status(401).json({ ok: false, error: 'Sign in required.' });
   }
