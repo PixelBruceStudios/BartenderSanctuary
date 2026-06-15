@@ -344,7 +344,9 @@ export const ingredients: Ingredient[] = [
   { name: "Triple sec", category: "Liqueurs", description: "Generic orange-flavored liqueur. Usually 15–40% ABV, sweeter than curaçao. Cointreau is the premium triple sec.", brands: ["Cointreau", "Combier", "Marie Brizard", "Bols", "DeKuyper"], notes: "Margarita, Cosmopolitan, Long Island Iced Tea.",
   bottles: [
         { name: "Cointreau", description: "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish. The standard for classic cocktails.", related: ["Combier", "Marie Brizard Triple Sec", "Bols Triple Sec"] },
-    { name: "Combier Triple Sec", description: "French triple sec from Combier, made since 1834. 40% ABV.", related: ["Cointreau", "Marie Brizard Triple Sec", "Bols Triple Sec"] }
+    { name: "Combier Triple Sec", description: "French triple sec from Combier, made since 1834. 40% ABV.", related: ["Cointreau", "Marie Brizard Triple Sec", "Bols Triple Sec"] },
+    { name: "Marie Brizard Triple Sec", description: "French triple sec from Marie Brizard. Clean, bright orange flavor with balanced sweetness. 40% ABV. A workhorse mixer for Margarita and Sidecar when Cointreau is not specified.", related: ["Cointreau", "Combier Triple Sec", "Bols Triple Sec"] },
+    { name: "Bols Triple Sec", description: "Dutch triple sec from Bols. Bright orange flavor with medium sweetness. 38% ABV. A reliable everyday orange liqueur for high-volume cocktails.", related: ["Cointreau", "Combier Triple Sec", "Marie Brizard Triple Sec"] }
   ]
 },
   { name: "Triple sec or Cointreau", category: "Liqueurs", description: "Same as Triple sec — just specifying Cointreau as the premium option.", brands: ["Cointreau"], notes: "Deduplicated with Triple sec.",
