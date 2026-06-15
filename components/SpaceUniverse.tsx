@@ -1,8 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState, useMemo } from "react";
-import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 type Lesson = {
   id: string;
@@ -34,7 +32,7 @@ type Category = {
   techniques: Technique[];
 };
 
-interface ChemistryUniverseProps {
+interface ChemistryLabProps {
   category: Category;
   completedLessons: Set<string>;
   onSelectLesson: (categorySlug: string, techniqueSlug: string, lessonId: string) => void;
@@ -54,20 +52,13 @@ export default function SpaceUniverse({
   onSelectLesson,
   activeTechniqueSlug,
   onBack,
-}: ChemistryUniverseProps) {
+}: ChemistryLabProps) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [hoveredPlanet, setHoveredPlanet] = useState<string | null>(null);
-  const [selectedPlanet, setSelectedPlanet] = useState<string | null>(null);
+  const [hoveredNode, setHoveredNode] = useState<string | null>(null);
+  const [selectedNode, setSelectedNode] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const sceneRef = useRef<{
-    scene: THREE.Scene;
-    camera: THREE.PerspectiveCamera;
-    renderer: THREE.WebGLRenderer;
-    controls: OrbitControls;
-    planets: Map<string, THREE.Group>;
-    orbits: THREE.Line[];
-    raf: number;
-  } | null>(null);
+  const nodesRef = useRef<Map<string, { x: number; y: number; r: number; color: string; techniqueSlug: string }>>(new Map());
 
   const allLessons = useMemo(
     () =>
@@ -85,16 +76,15 @@ export default function SpaceUniverse({
   const completedCount = allLessons.filter((l) => completedLessons.has(l.id)).length;
   const progress = totalLessons > 0 ? (completedCount / totalLessons) * 100 : 0;
 
-  const categoryColors = useMemo(() => {
-    const palette = [
+  const palette = useMemo(() => {
+    const colors = [
       ["#8fbc8f", "#a8c9a8"],
       ["#5ba4a0", "#7da87a"],
       ["#f59e0b", "#b08d2e"],
       ["#10b981", "#5ba4a0"],
       ["#d4a94b", "#f59e0b"],
     ];
-    const idx = category.techniques.length % palette.length;
-    return palette[idx];
+    return colors[category.techniques.length % colors.length];
   }, [category.techniques.length]);
 
   useEffect(() => {
@@ -106,323 +96,228 @@ export default function SpaceUniverse({
   }, []);
 
   useEffect(() => {
-    if (!containerRef.current) return;
-
+    const canvas = canvasRef.current;
     const container = containerRef.current;
-    const width = container.clientWidth;
-    const height = Math.max(600, Math.min(800, window.innerHeight * 0.7));
+    if (!canvas || !container) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
-    const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x0b1210, 0.00065);
+    const resize = () => {
+      const rect = container.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = Math.max(520, Math.min(780, window.innerHeight * 0.7));
+    };
+    resize();
+    window.addEventListener("resize", resize);
 
-    const camera = new THREE.PerspectiveCamera(55, width / height, 0.1, 2000);
-    camera.position.set(0, 30, 80);
+    const nodes = new Map<string, { x: number; y: number; r: number; color: string; techniqueSlug: string }>();
+    const w = canvas.width;
+    const h = canvas.height;
+    const cx = w / 2;
+    const cy = h / 2;
+    const techniques = category.techniques;
+    const count = techniques.length;
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.2;
-    container.appendChild(renderer.domElement);
-
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.05;
-    controls.maxDistance = 250;
-    controls.minDistance = 30;
-    controls.enablePan = false;
-    controls.autoRotate = true;
-    controls.autoRotateSpeed = 0.3;
-
-    const ambient = new THREE.AmbientLight(0x506050, 0.7);
-    scene.add(ambient);
-
-    const coreLight = new THREE.PointLight(0xffcc88, 2.8, 320);
-    coreLight.position.set(0, 0, 0);
-    scene.add(coreLight);
-
-    const rimLight = new THREE.DirectionalLight(0x88ccaa, 0.5);
-    rimLight.position.set(50, 20, -50);
-    scene.add(rimLight);
-
-    const coreGeo = new THREE.SphereGeometry(4, 64, 64);
-    const coreMat = new THREE.MeshStandardMaterial({
-      color: 0xf5c86e,
-      emissive: 0xd4a94b,
-      emissiveIntensity: 1.4,
-      roughness: 0.35,
+    techniques.forEach((tech, idx) => {
+      const angle = (idx / count) * Math.PI * 2;
+      const radius = Math.min(w, h) * 0.32;
+      const x = cx + Math.cos(angle) * radius;
+      const y = cy + Math.sin(angle) * radius * 0.7;
+      const [colorA, colorB] = palette;
+      const color = idx % 2 === 0 ? colorA : colorB;
+      nodes.set(tech.slug, { x, y, r: 28 + tech.lessons.length * 4, color, techniqueSlug: tech.slug });
     });
-    const core = new THREE.Mesh(coreGeo, coreMat);
-    scene.add(core);
 
-    const glowGeo = new THREE.SphereGeometry(6, 32, 32);
-    const glowMat = new THREE.MeshBasicMaterial({
-      color: 0xd4a94b,
-      transparent: true,
-      opacity: 0.18,
-    });
-    const glow = new THREE.Mesh(glowGeo, glowMat);
-    scene.add(glow);
+    nodesRef.current = nodes;
 
-    const moleculesGeo = new THREE.BufferGeometry();
-    const moleculeCount = 900;
-    const positions = new Float32Array(moleculeCount * 3);
-    const colors = new Float32Array(moleculeCount * 3);
-    for (let i = 0; i < moleculeCount; i++) {
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos(2 * Math.random() - 1);
-      const r = 280 + Math.random() * 420;
-      positions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
-      positions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
-      positions[i * 3 + 2] = r * Math.cos(phi);
-
-      const colorChoice = Math.random();
-      if (colorChoice > 0.85) {
-        colors[i * 3] = 0.78;
-        colors[i * 3 + 1] = 0.82;
-        colors[i * 3 + 2] = 0.65;
-      } else if (colorChoice > 0.7) {
-        colors[i * 3] = 0.85;
-        colors[i * 3 + 1] = 0.78;
-        colors[i * 3 + 2] = 0.55;
-      } else {
-        colors[i * 3] = 0.85;
-        colors[i * 3 + 1] = 0.88;
-        colors[i * 3 + 2] = 0.82;
+    const drawGrid = () => {
+      ctx.strokeStyle = "rgba(143, 188, 143, 0.06)";
+      ctx.lineWidth = 1;
+      const step = 32;
+      for (let x = 0; x < canvas.width; x += step) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
       }
-    }
-    moleculesGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    moleculesGeo.setAttribute("color", new THREE.BufferAttribute(colors, 3));
-    const moleculesMat = new THREE.PointsMaterial({
-      size: 1.3,
-      vertexColors: true,
-      transparent: true,
-      opacity: 0.85,
-    });
-    const molecules = new THREE.Points(moleculesGeo, moleculesMat);
-    scene.add(molecules);
+      for (let y = 0; y < canvas.height; y += step) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+      }
+    };
 
-    const orbs = new Map<string, THREE.Group>();
-    const moleculeRings: THREE.Line[] = [];
-    const orbGroup = new THREE.Group();
-    scene.add(orbGroup);
+    const drawMolecule = (x: number, y: number, r: number, color: string, label: string, hovered: boolean, done: boolean) => {
+      // outer shell
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fillStyle = hovered ? "rgba(143, 188, 143, 0.18)" : "rgba(18, 24, 21, 0.7)";
+      ctx.fill();
+      ctx.strokeStyle = done ? "#4ade80" : color;
+      ctx.lineWidth = hovered ? 3 : 2;
+      ctx.stroke();
 
-    const techniqueCount = category.techniques.length;
-    category.techniques.forEach((technique, idx) => {
-      const angle = (idx / techniqueCount) * Math.PI * 2;
-      const orbitRadius = 25 + idx * 14;
-      const yOffset = (Math.random() - 0.5) * 16;
-      const x = Math.cos(angle) * orbitRadius;
-      const z = Math.sin(angle) * orbitRadius;
+      // inner bond rings
+      ctx.beginPath();
+      ctx.arc(x, y, r * 0.65, 0, Math.PI * 2);
+      ctx.strokeStyle = hovered ? "rgba(200, 168, 76, 0.6)" : "rgba(255,255,255,0.08)";
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
 
-      const ringGeo = new THREE.TorusGeometry(orbitRadius, 0.12, 16, 140);
-      const ringMat = new THREE.MeshBasicMaterial({
-        color: 0x6a8a7a,
-        transparent: true,
-        opacity: 0.35,
-      });
-      const ring = new THREE.Mesh(ringGeo, ringMat);
-      ring.rotation.x = Math.PI / 2;
-      ring.position.y = yOffset;
-      scene.add(ring);
-      moleculeRings.push(ring as unknown as THREE.Line);
+      ctx.beginPath();
+      ctx.arc(x, y, r * 0.35, 0, Math.PI * 2);
+      ctx.fillStyle = hovered ? "rgba(200, 168, 76, 0.35)" : "rgba(255,255,255,0.04)";
+      ctx.fill();
 
-      const orbRoot = new THREE.Group();
-      orbRoot.position.set(x, yOffset, z);
-
-      const radius = 2.5 + technique.lessons.length * 0.35;
-      const orbGeo = new THREE.SphereGeometry(radius, 48, 48);
-      const colorA = new THREE.Color(categoryColors[0]);
-      const colorB = new THREE.Color(categoryColors[1]);
-      const orbColor = colorA.clone().lerp(colorB, idx / techniqueCount);
-      const orbMat = new THREE.MeshStandardMaterial({
-        color: orbColor,
-        roughness: 0.45,
-        metalness: 0.15,
-      });
-      const orbMesh = new THREE.Mesh(orbGeo, orbMat);
-      orbRoot.add(orbMesh);
-
-      const shellGeo = new THREE.SphereGeometry(radius * 1.18, 48, 48);
-      const shellMat = new THREE.MeshBasicMaterial({
-        color: orbColor,
-        transparent: true,
-        opacity: 0.1,
-      });
-      const shell = new THREE.Mesh(shellGeo, shellMat);
-      orbRoot.add(shell);
-
-      technique.lessons.forEach((lesson, lIdx) => {
-        const moonGeo = new THREE.SphereGeometry(0.35, 24, 24);
-        const moonMat = new THREE.MeshStandardMaterial({
-          color: completedLessons.has(lesson.id) ? 0x4ade80 : 0x889988,
-          roughness: 0.55,
-          emissive: completedLessons.has(lesson.id) ? 0x22c55e : 0x000000,
-          emissiveIntensity: completedLessons.has(lesson.id) ? 0.4 : 0,
-        });
-        const moon = new THREE.Mesh(moonGeo, moonMat);
-        const moonAngle = (lIdx / technique.lessons.length) * Math.PI * 2;
-        const moonDist = radius + 1.8;
-        moon.position.set(
-          Math.cos(moonAngle) * moonDist,
-          (Math.random() - 0.5) * 1.5,
-          Math.sin(moonAngle) * moonDist
-        );
-        moon.userData = { lessonId: lesson.id, techniqueSlug: technique.slug, baseY: moon.position.y };
-        orbRoot.add(moon);
-      });
-
-      const canvas = document.createElement("canvas");
-      canvas.width = 512;
-      canvas.height = 128;
-      const ctx = canvas.getContext("2d")!;
-      ctx.fillStyle = "rgba(0,0,0,0)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.font = "bold 36px Inter, sans-serif";
+      // label
+      ctx.fillStyle = "#fff";
+      ctx.font = "bold 14px Inter, sans-serif";
       ctx.textAlign = "center";
-      ctx.fillStyle = "#ffffff";
-      ctx.fillText(technique.title, 256, 70);
-      const labelTex = new THREE.CanvasTexture(canvas);
-      const labelMat = new THREE.SpriteMaterial({ map: labelTex, transparent: true, opacity: 0.9 });
-      const label = new THREE.Sprite(labelMat);
-      label.scale.set(radius * 3.5, radius * 0.9, 1);
-      label.position.y = radius + 2.5;
-      orbRoot.add(label);
-
-      orbRoot.userData = {
-        techniqueSlug: technique.slug,
-        techniqueTitle: technique.title,
-        baseY: yOffset,
-        orbitRadius,
-        angle,
-      };
-
-      orbGroup.add(orbRoot);
-      orbs.set(technique.slug, orbRoot);
-    });
-
-    const raycaster = new THREE.Raycaster();
-    const mouse = new THREE.Vector2();
-    const orbMeshes: THREE.Mesh[] = [];
-    orbGroup.traverse((child) => {
-      if (child instanceof THREE.Mesh && child.geometry.type === "SphereGeometry" && child !== core) {
-        orbMeshes.push(child);
+      ctx.textBaseline = "middle";
+      const words = label.split(" ");
+      if (words.length <= 2) {
+        ctx.fillText(label, x, y);
+      } else {
+        ctx.fillText(words.slice(0, 2).join(" "), x, y - 8);
+        ctx.fillText(words.slice(2).join(" "), x, y + 10);
       }
-    });
+    };
+
+    const drawBond = (from: { x: number; y: number }, to: { x: number; y: number }) => {
+      ctx.beginPath();
+      ctx.moveTo(from.x, from.y);
+      ctx.lineTo(to.x, to.y);
+      ctx.strokeStyle = "rgba(143, 188, 143, 0.25)";
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      // bond nodes
+      const mx = (from.x + to.x) / 2;
+      const my = (from.y + to.y) / 2;
+      ctx.beginPath();
+      ctx.arc(mx, my, 3, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(200, 168, 76, 0.6)";
+      ctx.fill();
+    };
+
+    const drawCentralFlask = () => {
+      const flaskX = cx;
+      const flaskY = cy;
+      const flaskR = 22;
+
+      // flask body
+      ctx.beginPath();
+      ctx.arc(flaskX, flaskY + 6, flaskR, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(200, 168, 76, 0.12)";
+      ctx.fill();
+      ctx.strokeStyle = "rgba(200, 168, 76, 0.7)";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // flask neck
+      ctx.beginPath();
+      ctx.moveTo(flaskX - 8, flaskY - 2);
+      ctx.lineTo(flaskX - 6, flaskY - 16);
+      ctx.lineTo(flaskX + 6, flaskY - 16);
+      ctx.lineTo(flaskX + 8, flaskY - 2);
+      ctx.stroke();
+
+      // liquid
+      ctx.beginPath();
+      ctx.arc(flaskX, flaskY + 8, flaskR * 0.7, 0, Math.PI, false);
+      ctx.fillStyle = "rgba(91, 164, 160, 0.45)";
+      ctx.fill();
+
+      // bubbles
+      [flaskX - 6, flaskX + 4, flaskX - 2].forEach((bx, i) => {
+        ctx.beginPath();
+        ctx.arc(bx, flaskY + 4 + i * 5, 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(255,255,255,0.35)";
+        ctx.fill();
+      });
+    };
+
+    const drawReagentDots = () => {
+      for (let i = 0; i < 40; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        ctx.beginPath();
+        ctx.arc(x, y, 1.2 + Math.random() * 1.6, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(143, 188, 143, ${0.15 + Math.random() * 0.35})`;
+        ctx.fill();
+      }
+    };
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // background
+      ctx.fillStyle = "#0b1210";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      drawGrid();
+      drawReagentDots();
+
+      // bonds from central flask to each technique node
+      nodes.forEach((node) => drawBond({ x: cx, y: cy }, node));
+
+      drawCentralFlask();
+
+      // technique nodes
+      nodes.forEach((node) => {
+        const tech = techniques.find((t) => t.slug === node.techniqueSlug);
+        const done = tech ? tech.lessons.some((l) => completedLessons.has(l.id)) : false;
+        const hovered = hoveredNode === node.techniqueSlug;
+        drawMolecule(node.x, node.y, node.r, node.color, tech?.title || "", hovered, done);
+      });
+
+      requestAnimationFrame(animate);
+    };
+    const raf = requestAnimationFrame(animate);
 
     const handleClick = (event: MouseEvent) => {
-      const rect = renderer.domElement.getBoundingClientRect();
-      mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-      mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+      const rect = canvas.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
 
-      raycaster.setFromCamera(mouse, camera);
-      const intersects = raycaster.intersectObjects(orbMeshes, false);
-
-      if (intersects.length > 0) {
-        const hit = intersects[0].object;
-        const parent = hit.parent;
-        if (parent && parent.userData.techniqueSlug) {
-          const next = selectedPlanet === parent.userData.techniqueSlug ? null : parent.userData.techniqueSlug;
-          setSelectedPlanet(next);
+      nodes.forEach((node) => {
+        const dx = x - node.x;
+        const dy = y - node.y;
+        if (Math.sqrt(dx * dx + dy * dy) < node.r + 6) {
+          setSelectedNode((prev) => (prev === node.techniqueSlug ? null : node.techniqueSlug));
         }
-      }
-    };
-
-    const handleHover = (event: MouseEvent) => {
-      const rect = renderer.domElement.getBoundingClientRect();
-      mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-      mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-
-      raycaster.setFromCamera(mouse, camera);
-      const intersects = raycaster.intersectObjects(orbMeshes, false);
-
-      if (intersects.length > 0) {
-        const hit = intersects[0].object;
-        const parent = hit.parent;
-        if (parent && parent.userData.techniqueSlug) {
-          setHoveredPlanet(parent.userData.techniqueSlug);
-          container.style.cursor = "pointer";
-          return;
-        }
-      }
-      setHoveredPlanet(null);
-      container.style.cursor = "grab";
-    };
-
-    renderer.domElement.addEventListener("click", handleClick);
-    renderer.domElement.addEventListener("mousemove", handleHover);
-
-    const clock = new THREE.Clock();
-    const animate = () => {
-      const t = clock.getElapsedTime();
-
-      core.rotation.y += 0.002;
-      glow.scale.setScalar(1 + Math.sin(t * 0.8) * 0.1);
-
-      orbs.forEach((orbRoot) => {
-        const ud = orbRoot.userData;
-        const angle = ud.angle + t * 0.05;
-        orbRoot.position.x = Math.cos(angle) * ud.orbitRadius;
-        orbRoot.position.z = Math.sin(angle) * ud.orbitRadius;
-        orbRoot.position.y = ud.baseY + Math.sin(t * 0.4 + ud.angle) * 1.2;
-
-        orbRoot.rotation.y += 0.005;
-
-        orbRoot.children.forEach((child) => {
-          if (child.userData && child.userData.lessonId) {
-            const baseY = child.userData.baseY || 0;
-            child.position.y = baseY + Math.sin(t * 1.2 + orbRoot.position.x) * 0.4;
-          }
-        });
       });
-
-      molecules.rotation.y += 0.0001;
-      molecules.rotation.x += 0.00005;
-
-      controls.update();
-      renderer.render(scene, camera);
-      if (sceneRef.current) {
-        sceneRef.current.raf = requestAnimationFrame(animate);
-      }
     };
-    animate();
 
-    const handleResize = () => {
-      if (!containerRef.current) return;
-      const w = containerRef.current.clientWidth;
-      const h = Math.max(600, Math.min(800, window.innerHeight * 0.7));
-      camera.aspect = w / h;
-      camera.updateProjectionMatrix();
-      renderer.setSize(w, h);
+    const handleMove = (event: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      let found: string | null = null;
+      nodes.forEach((node) => {
+        const dx = x - node.x;
+        const dy = y - node.y;
+        if (Math.sqrt(dx * dx + dy * dy) < node.r + 6) {
+          found = node.techniqueSlug;
+        }
+      });
+      setHoveredNode(found);
+      container.style.cursor = found ? "pointer" : "default";
     };
-    window.addEventListener("resize", handleResize);
 
-    sceneRef.current = {
-      scene,
-      camera,
-      renderer,
-      controls,
-      planets: orbs,
-      orbits: moleculeRings,
-      raf: 0,
-    };
+    canvas.addEventListener("click", handleClick);
+    canvas.addEventListener("mousemove", handleMove);
 
     return () => {
-      if (sceneRef.current) {
-        cancelAnimationFrame(sceneRef.current.raf);
-      }
-      window.removeEventListener("resize", handleResize);
-      renderer.domElement.removeEventListener("click", handleClick);
-      renderer.domElement.removeEventListener("mousemove", handleHover);
-      container.removeChild(renderer.domElement);
-      renderer.dispose();
-      scene.clear();
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", resize);
+      canvas.removeEventListener("click", handleClick);
+      canvas.removeEventListener("mousemove", handleMove);
     };
-  }, [category, completedLessons, onSelectLesson]);
+  }, [category, completedLessons, palette]);
 
-  const selectedTechnique = category.techniques.find((t) => t.slug === selectedPlanet) || null;
-
-  const universeHeight = isMobile ? Math.min(520, window.innerHeight * 0.55) : Math.max(600, Math.min(800, window.innerHeight * 0.7));
+  const selectedTechnique = category.techniques.find((t) => t.slug === selectedNode) || null;
 
   return (
     <div style={{ position: "relative", width: "100%" }}>
@@ -514,18 +409,22 @@ export default function SpaceUniverse({
         </div>
       </div>
 
-      {/* 3D Canvas */}
+      {/* 2D Chemistry canvas */}
       <div
         ref={containerRef}
         style={{
           width: "100%",
-          height: universeHeight,
           position: "relative",
           background: "#0b1210",
           borderRadius: "0 0 16px 16px",
           overflow: "hidden",
         }}
-      />
+      >
+        <canvas
+          ref={canvasRef}
+          style={{ width: "100%", height: "auto", display: "block" }}
+        />
+      </div>
 
       {/* Technique panel */}
       {selectedTechnique && !activeTechniqueSlug && (() => {
@@ -612,7 +511,7 @@ export default function SpaceUniverse({
       })()}
 
       {/* Legend / hover tooltip */}
-      {hoveredPlanet && !selectedPlanet && (
+      {hoveredNode && !selectedNode && (
         <div
           style={{
             position: "fixed",
@@ -630,7 +529,7 @@ export default function SpaceUniverse({
             pointerEvents: "none",
           }}
         >
-          {category.techniques.find((t) => t.slug === hoveredPlanet)?.title}
+          {category.techniques.find((t) => t.slug === hoveredNode)?.title}
         </div>
       )}
 
@@ -643,7 +542,7 @@ export default function SpaceUniverse({
           color: "rgba(255,255,255,0.4)",
         }}
       >
-        Drag to rotate • Scroll to zoom • Click an orb to explore lessons
+        Hover a molecule • Click to explore lessons
       </div>
     </div>
   );
