@@ -727,6 +727,8 @@ export const ingredients: Ingredient[] = [
     { name: "Laird's Applejack", description: "America's oldest apple brandy (since 1780). Made from blended apple cider and neutral spirits. Apple-forward, warm. Essential for Jack Rose.", related: ["Laird's 100 Proof", "Clear Creek Apple Brandy"] }
   ,
     { name: "Laird's 100 Proof Applejack", description: "100-proof applejack from Laird's. Higher ABV version of America's oldest apple brandy. Bold apple character for Jack Rose.", related: ["Laird's Applejack", "Clear Creek Apple Brandy"] }
+  ,
+    { name: "Clear Creek Apple Brandy", description: "Oregon-made apple brandy from Clear Creek Distillery. Crafted from local Pacific Northwest apples. Clean, fruity, spirit-driven. A top-tier cocktail apple brandy.", related: ["Laird's Applejack", "Laird's 100 Proof Applejack"] }
   ] },
   { name: "Cachaça", category: "Other Spirits", description: "Brazilian spirit from fermented sugarcane juice. Funky, grassy, herbaceous. Unlike rum (molasses).", brands: ["Leblon", "Avuá", "Novo Fogo", "Ypióca"], notes: "Caipirinha, Caipiroska, Batida.",
   bottles: [
