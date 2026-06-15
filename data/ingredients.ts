@@ -372,7 +372,8 @@ export const ingredients: Ingredient[] = [
   { name: "Green Chartreuse", category: "Bitters & Aperitifs", description: "French herbal liqueur made by Carthusian monks since 1605. 130+ botanicals. Bright green, complex, 55% ABV.", brands: ["Green Chartreuse V.P. (55%)", "Green Chartreuse (41%) — 'Alpine Strength'"], notes: "Last Word, Chartreuse Swizzle, Ti' Punch variation.",
   bottles: [
     { name: "Green Chartreuse V.P.", description: "French herbal liqueur made by Carthusian monks since 1605. 130+ botanicals. 55% ABV.", related: ["Green Chartreuse (41%)", "Yellow Chartreuse", "Bénédictine"] },
-    { name: "Green Chartreuse (41%)", description: "Lower-ABV version of Green Chartreuse. 41% ABV.", related: ["Green Chartreuse V.P.", "Yellow Chartreuse"] }
+    { name: "Green Chartreuse (41%)", description: "Lower-ABV version of Green Chartreuse. 41% ABV.", related: ["Green Chartreuse V.P.", "Yellow Chartreuse"] },
+    { name: "Yellow Chartreuse", description: "Milder, sweeter sibling of Green Chartreuse. 40% ABV. Vanilla, honey, and herbal notes. Used in Last Word and Chartreuse Swizzle variations.", related: ["Green Chartreuse V.P.", "Green Chartreuse (41%)"], image: "https://upload.wikimedia.org/wikipedia/commons/b/b7/Chartreuse_jaune.JPG" }
   ]
 },
   { name: "Lillet Blanc", category: "Bitters & Aperitifs", description: "French aromatised wine. Citrus, honey, and quinine. 17% ABV. Similar to dry vermouth but with more citrus.", brands: ["Lillet Blanc"], notes: "Vesper, 20th Century, Corpse Reviver #2.",
@@ -401,7 +402,8 @@ export const ingredients: Ingredient[] = [
   { name: "Pimm's No. 1", category: "Bitters & Aperitifs", description: "British summer cup. Gin-based fruit liqueur with herbal and citrus notes. 25% ABV.", brands: ["Pimm's No. 1"], notes: "Pimm's Cup — mix with lemonade, mint, cucumber, fruit.",
   bottles: [
     { name: "Pimm's No. 1", description: "British summer cup. Gin-based fruit liqueur with herbal and citrus notes. 25% ABV. The essential for a Pimm's Cup.", related: ["Plymouth Gin", "Lemonade", "Cucumber"] },
-    { name: "Plymouth Gin", description: "English gin from Plymouth. Slightly drier, earthier. 41.2% ABV. The historic gin base for Pimm's No. 1.", related: ["Pimm's No. 1", "Beefeater", "Tanqueray"] }
+    { name: "Plymouth Gin", description: "English gin from Plymouth. Slightly drier, earthier. 41.2% ABV. The historic gin base for Pimm's No. 1.", related: ["Pimm's No. 1", "Beefeater", "Tanqueray"] },
+    { name: "Beefeater London Dry Gin", description: "Iconic London dry gin. Juniper-forward with citrus and spice notes. 40% ABV. A classic Pimm's Cup base.", related: ["Plymouth Gin", "Tanqueray", "Pimm's No. 1"] }
   ]
 },
   { name: "Amaro Nonino", category: "Bitters & Aperitifs", description: "Premium Italian amaro. Made from grappa macerated with herbs, roots, and alpine flowers. Bitter-sweet, 35% ABV.", brands: ["Amaro Nonino Quintessentia"], notes: "Paper Plane, Boulevardier variation, Paper Plane.",
