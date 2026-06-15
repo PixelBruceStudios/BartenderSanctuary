@@ -159,6 +159,7 @@ export const ingredients: Ingredient[] = [
         { name: "Beefeater London Dry", description: "London dry gin from Beefeater. Classic juniper-forward profile with citrus and spice. 40% ABV. The benchmark affordable gin for Martinis and G&Ts.", related: ["Tanqueray London Dry", "Bombay Sapphire", "Plymouth Gin"] },
         { name: "Bombay Sapphire", description: "London dry gin with a lighter, floral character. 10 botanicals including juniper, coriander, and lemon peel. 40% ABV.", related: ["Beefeater London Dry", "Tanqueray London Dry", "Hendrick's Gin"] },
         { name: "Tanqueray London Dry", description: "London dry gin from Charles Tanqueray & Co. Four-time distilled with juniper, coriander, angelica root, and liquorice. Crisp, juniper-forward, 43.1% ABV.", related: ["Tanqueray No. Ten", "Tanqueray Rangpur", "Beefeater London Dry"] },
+        { name: "Plymouth Gin", description: "English gin from Plymouth with a slightly earthier, more aromatic profile than London dry. 41.2% ABV. Protected PGI status.", related: ["Tanqueray London Dry", "Beefeater London Dry", "Bombay Sapphire"], image: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Plymouth_Gin_1793_Black_Friars_Distillery_2.jpg" }
   ]},
   { name: "London dry gin", category: "Gins", description: "The strictest gin style. Juniper-forward with citrus peel and coriander. No added flavoring after distillation.", brands: ["Beefeater", "Tanqueray", "Bombay Sapphire", "Plymouth (also qualifies)", "Sipsmith VJS"], notes: "Martini, Negroni, Gin & Tonic, Tom Collins.",
   bottles: [
