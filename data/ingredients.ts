@@ -353,7 +353,10 @@ export const ingredients: Ingredient[] = [
   bottles: [
     { name: "Pernod Absinthe", description: "French absinthe from Pernod. Anise, wormwood, fennel. 68% ABV.", related: ["Lucid Absinthe Supérieure", "La Fee Absinthe"] },
     { name: "Lucid Absinthe Supérieure", description: "First legally imported absinthe to the US. 62.5% ABV.", related: ["Pernod Absinthe", "La Fee Absinthe"] },
-    { name: "La Fee Absinthe Supérieure", description: "Swiss-French absinthe. Traditional recipe with grande wormwood, anise, and fennel. 68% ABV. The classic for Sazerac rinse and Corpse Reviver #2.", related: ["Pernod Absinthe", "Lucid Absinthe Supérieure"] }
+    { name: "La Fee Absinthe Supérieure", description: "Swiss-French absinthe. Traditional recipe with grande wormwood, anise, and fennel. 68% ABV. The classic for Sazerac rinse and Corpse Reviver #2.", related: ["Pernod Absinthe", "Lucid Absinthe Supérieure"] },
+    { name: "St. George Absinthe Verte", description: "California-made absinthe from St. George Spirits. Wormwood, anise, fennel, hyssop. Complex herbal profile with bright anise and citrus. 60% ABV.", related: ["Pernod Absinthe", "Lucid Absinthe Supérieure", "La Fee Absinthe Supérieure"], image: "https://upload.wikimedia.org/wikipedia/commons/6/65/St._George_Absinthe_Verte.jpg" },
+    { name: "Kubler Absinthe", description: "Swiss absinthe from the Val-de-Travers region. Traditional 19th-century recipe with grande wormwood, anise, and fennel. Clean, herbaceous, with balanced anise. 53% ABV.", related: ["Pernod Absinthe", "La Fee Absinthe Supérieure", "Lucid Absinthe Supérieure"] },
+    { name: "Absinthe Original", description: "Swiss-style absinthe with classic grande wormwood, anise, and fennel. Smooth, herbal, with moderate anise intensity. Versatile for rinses and Corpse Reviver #2. 55% ABV.", related: ["Pernod Absinthe", "Kubler Absinthe", "La Fee Absinthe Supérieure"] }
   ]
 },
   { name: "Angostura bitters", category: "Bitters & Aperitifs", description: "The iconic dash of bitters. Concentrated herbal extract with gentian root, spices, and herbs. Over 150 years old. 44.7% ABV.", brands: ["Angostura (the standard — no alternatives needed)"], notes: "In virtually every stirred cocktail. Old Fashioned, Manhattan, Martini garnish.",
@@ -446,7 +449,9 @@ export const ingredients: Ingredient[] = [
   { name: "Champagne", category: "Wines & Sparkling", description: "Sparkling wine from Champagne region of France. Méthode Champenoise. Fine bubbles, toasty, complex.", brands: ["Moët & Chandon", "Veuve Clicquot", "Ruinart", "Krug", "Bollinger"], notes: "French 75, Champagne Cocktail, Champagne Sour.",
   bottles: [
         { name: "Moët & Chandon Brut Impérial", description: "Iconic Champagne from Moët & Chandon. Bright, lively, with green apple, citrus, and brioche. The standard for celebrations and French 75.", related: ["Veuve Clicquot Yellow Label", "Ruinart Blanc de Blancs", "Bollinger Special Cuvée"] },
-    { name: "Ruinart Blanc de Blancs", description: "Champagne from Ruinart. 100% Chardonnay. Light, elegant, with citrus, white flowers, and brioche. The refined alternative to Moët for French 75.", related: ["Moët & Chandon Brut Impérial", "Veuve Clicquot Yellow Label", "Bollinger Special Cuvée"] }
+    { name: "Ruinart Blanc de Blancs", description: "Champagne from Ruinart. 100% Chardonnay. Light, elegant, with citrus, white flowers, and brioche. The refined alternative to Moët for French 75.", related: ["Moët & Chandon Brut Impérial", "Veuve Clicquot Yellow Label", "Bollinger Special Cuvée"] },
+    { name: "Veuve Clicquot Yellow Label", description: "Brut Champagne from Veuve Clicquot. Bright, balanced, with brioche, citrus, and red fruit. Reliable standard for toasts and French 75.", related: ["Moët & Chandon Brut Impérial", "Ruinart Blanc de Blancs", "Bollinger Special Cuvée"], image: "https://upload.wikimedia.org/wikipedia/commons/5/58/Veuve_Clicquot_-_bottle.jpg" },
+    { name: "Bollinger Special Cuvée", description: "Full-bodied Champagne from Bollinger. Rich, toasty, with brioche, red fruit, and nutty depth. A power choice for Champagne Cocktail.", related: ["Moët & Chandon Brut Impérial", "Veuve Clicquot Yellow Label", "Ruinart Blanc de Blancs"] }
   ]
 },
   { name: "Champagne or sparkling wine", category: "Wines & Sparkling", description: "Either Champagne or a quality sparkling wine (Cava, Prosecco, Crémant).", brands: ["Moët & Chandon", "Veuve Clicquot", "Prosecco brands"], notes: "Use for top-ups in French 75, Champagne cocktails.",
