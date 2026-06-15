@@ -327,8 +327,9 @@ export const ingredients: Ingredient[] = [
 },
   { name: "Peach schnapps", category: "Liqueurs", description: "Peach-flavored schnapps. Sweet, often artificially flavored, 15–20% ABV. Very 1980s-90s.", brands: ["DeKuyper Peach Schnapps", "Archers", "Hiram Walker"], notes: "Sex on the Beach, Fuzzy Navel, certain Shooters.",
   bottles: [
-    { name: "DeKuyper Peach Schnapps", description: "American peach schnapps from DeKuyper. Sweet, peach-forward, 15% ABV.", related: ["Archers Peach Schnapps", "Hiram Walker Peach"] },
-    { name: "Archers Peach Schnapps", description: "UK peach schnapps. Sweet, smooth, with ripe peach flavor.", related: ["DeKuyper Peach Schnapps", "Hiram Walker"] }
+    { name: "DeKuyper Peach Schnapps", description: "American peach schnapps from DeKuyper. Sweet, peach-forward, 15% ABV.", related: ["Archers Peach Schnapps", "Hiram Walker Peach Schnapps"] },
+    { name: "Archers Peach Schnapps", description: "UK peach schnapps. Sweet, smooth, with ripe peach flavor.", related: ["DeKuyper Peach Schnapps", "Hiram Walker Peach Schnapps"] },
+    { name: "Hiram Walker Peach Schnapps", description: "Canadian peach schnapps from Hiram Walker & Sons. Sweet, smooth peach flavor. 20% ABV. Widely available in North America for shots and mixed drinks.", related: ["DeKuyper Peach Schnapps", "Archers Peach Schnapps"] }
   ]
 },
   { name: "St-Germain elderflower liqueur", category: "Liqueurs", description: "Premium elderflower liqueur. Each bottle contains up to 1,000 elderflower blossoms hand-harvested in France.", brands: ["St-Germain"], notes: "St-Germain Spritz, Elderflower Collins, Hugo.", bottles: [
@@ -350,9 +351,9 @@ export const ingredients: Ingredient[] = [
 },
   { name: "White crème de menthe", category: "Liqueurs", description: "Clear/white mint crème liqueur. Same mint flavor as green but without artificial coloring. Useful in shaken cocktails.", brands: ["Marie Brizard", "Bols", "DeKuyper"], notes: "Stinger, Grasshopper (white version).",
   bottles: [
-        { name: "Marie Brizard White Crème de Menthe", description: "Clear white mint crème liqueur. Same mint flavor as green but without artificial coloring.", related: ["Bols White Pepermunt", "DeKuyper White Peppermint"] }
-  ,
-    { name: "Bols White Pepermunt", description: "Dutch white crème de menthe from Bols. Clear, minty, sweet. 24% ABV. The classic for Stinger.", related: ["Marie Brizard White Cr\u00e8me de Menthe", "DeKuyper White Peppermint"] }
+    { name: "Marie Brizard White Crème de Menthe", description: "Clear white mint crème liqueur. Same mint flavor as green but without artificial coloring.", related: ["Bols White Pepermunt", "DeKuyper White Peppermint"] },
+    { name: "Bols White Pepermunt", description: "Dutch white crème de menthe from Bols. Clear, minty, sweet. 24% ABV. The classic for Stinger.", related: ["Marie Brizard White Crème de Menthe", "DeKuyper White Peppermint"] },
+    { name: "DeKuyper White Peppermint", description: "Dutch white crème de menthe from DeKuyper. Clear, minty, sweet, 24% ABV. A reliable alternative to Bols for Stinger and Grasshopper.", related: ["Marie Brizard White Crème de Menthe", "Bols White Pepermunt"] }
   ]
 },
 
