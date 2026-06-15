@@ -1,0 +1,370 @@
+{
+  "people": [
+    {
+      "slug": "julie-reiner",
+      "title": "Julie Reiner",
+      "type": "person",
+      "tags": ["pioneer", "new-york", "clover-club", "flair", "hospitality"],
+      "sources": ["diffordsguide", "liquor-com", "clover-club"],
+      "relatedTopics": ["modernist-cocktails", "hospitality", "flair-bartending"],
+      "relatedBrands": ["clover-club"],
+      "relatedRegions": ["new-york"],
+      "status": "verified",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "slug": "jim-meehan",
+      "title": "Jim Meehan",
+      "type": "person",
+      "tags": ["pdt", "speakeasy", "author", "new-york"],
+      "sources": ["diffordsguide", "liquor-com", "pdt"],
+      "relatedTopics": ["speakeasy-format", "cocktail-books"],
+      "relatedBrands": ["pdt"],
+      "relatedRegions": ["new-york"],
+      "status": "verified",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "slug": "tony-conigliaro",
+      "title": "Tony Conigliaro",
+      "type": "person",
+      "tags": ["modernist", "uk", "69-colebrooke-row", "experimental"],
+      "sources": ["diffordsguide", "liquor-com", "69-colebrooke-row"],
+      "relatedTopics": ["modernist-cocktails", "experimental-cocktails"],
+      "relatedBrands": ["69-colebrooke-row"],
+      "relatedRegions": ["london"],
+      "status": "verified",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "slug": "tonia-guffey",
+      "title": "Tonia Guffey",
+      "type": "person",
+      "tags": ["attaboy", "death-co", "hospitality", "mental-health", "new-york"],
+      "sources": ["diffordsguide", "liquor-com"],
+      "relatedTopics": ["hospitality", "mental-health"],
+      "relatedBrands": ["attaboy", "death-and-co"],
+      "relatedRegions": ["new-york"],
+      "status": "verified",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "slug": "ryan-chetiyawardana",
+      "title": "Ryan Chetiyawardana",
+      "type": "person",
+      "tags": ["lyaness", "low-waste", "world-class", "london", "super-lyan"],
+      "sources": ["diffordsguide", "liquor-com", "lyaness"],
+      "relatedTopics": ["low-waste-cocktails", "modernist-cocktails"],
+      "relatedBrands": ["lyaness", "super-lyan", "dandelyan"],
+      "relatedRegions": ["london"],
+      "status": "verified",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "slug": "jacqueline-raposo",
+      "title": "Jacqueline Raposo",
+      "type": "person",
+      "tags": ["writer", "cocktail-culture", "hospitality", "journalism"],
+      "sources": ["diffordsguide", "liquor-com"],
+      "relatedTopics": ["cocktail-culture", "hospitality"],
+      "relatedBrands": [],
+      "relatedRegions": [],
+      "status": "verified",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "slug": "joaquin-simo",
+      "title": "Joaquín Simó",
+      "type": "person",
+      "tags": ["pouring-ribbons", "new-york", "hospitality", "spanish-inspired"],
+      "sources": ["diffordsguide", "liquor-com"],
+      "relatedTopics": ["hospitality", "spanish-cocktails"],
+      "relatedBrands": ["pouring-ribbons"],
+      "relatedRegions": ["new-york"],
+      "status": "verified",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "slug": "julia-momose",
+      "title": "Julia Momose",
+      "type": "person",
+      "tags": ["umeboshi", "japanese-cocktails", "educator", "new-york"],
+      "sources": ["diffordsguide", "liquor-com"],
+      "relatedTopics": ["japanese-cocktails", "bar-design"],
+      "relatedBrands": ["umeboshi"],
+      "relatedRegions": ["new-york"],
+      "status": "verified",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "slug": "ivy-mix",
+      "title": "Ivy Mix",
+      "type": "person",
+      "tags": ["leyenda", "latin-american", "new-york", "award-winning"],
+      "sources": ["diffordsguide", "liquor-com"],
+      "relatedTopics": ["latin-american-cocktails", "mezcal"],
+      "relatedBrands": ["leyenda"],
+      "relatedRegions": ["new-york"],
+      "status": "verified",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "slug": "martin-cate",
+      "title": "Martin Cate",
+      "type": "person",
+      "tags": ["smugglers-cove", "tiki", "author", "san-francisco"],
+      "sources": ["diffordsguide", "liquor-com", "smugglers-cove"],
+      "relatedTopics": ["tiki", "rum"],
+      "relatedBrands": ["smugglers-cove"],
+      "relatedRegions": ["san-francisco"],
+      "status": "verified",
+      "lastVerified": "2026-06-15"
+    }
+  ],
+  "topics": [
+    {
+      "slug": "modernist-cocktails",
+      "title": "Modernist Cocktails",
+      "type": "topic",
+      "tags": ["modernist", "experimental", "technique"],
+      "sources": [],
+      "relatedPeople": ["julie-reiner", "tony-conigliaro", "ryan-chetiyawardana"],
+      "relatedBrands": [],
+      "relatedRegions": [],
+      "status": "needs-update",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "slug": "low-waste-cocktails",
+      "title": "Low-Waste Cocktails",
+      "type": "topic",
+      "tags": ["sustainability", "waste", "environment"],
+      "sources": [],
+      "relatedPeople": ["ryan-chetiyawardana"],
+      "relatedBrands": [],
+      "relatedRegions": [],
+      "status": "needs-update",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "slug": "japanese-cocktails",
+      "title": "Japanese-Inspired Cocktails",
+      "type": "topic",
+      "tags": ["japanese", "umami", "shochu", "whisky"],
+      "sources": [],
+      "relatedPeople": ["julia-momose"],
+      "relatedBrands": [],
+      "relatedRegions": [],
+      "status": "needs-update",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "slug": "latin-american-cocktails",
+      "title": "Latin American Cocktails",
+      "type": "topic",
+      "tags": ["latin", "mezcal", "pisco", "rum"],
+      "sources": [],
+      "relatedPeople": ["ivy-mix"],
+      "relatedBrands": [],
+      "relatedRegions": [],
+      "status": "needs-update",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "slug": "tiki",
+      "title": "Tiki Culture & Drinks",
+      "type": "topic",
+      "tags": ["tiki", "rum", "trader-vic", "don-beach"],
+      "sources": [],
+      "relatedPeople": ["martin-cate"],
+      "relatedBrands": [],
+      "relatedRegions": [],
+      "status": "needs-update",
+      "lastVerified": "2026-06-15"
+    }
+  ],
+  "brands": [
+    {
+      "slug": "clover-club",
+      "title": "Clover Club",
+      "type": "brand",
+      "tags": ["bar", "new-york", "cocktail-bar"],
+      "sources": [],
+      "relatedPeople": ["julie-reiner"],
+      "relatedTopics": ["modernist-cocktails"],
+      "relatedRegions": ["new-york"],
+      "status": "verified",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "slug": "pdt",
+      "title": "PDT (Please Don’t Tell)",
+      "type": "brand",
+      "tags": ["speakeasy", "new-york", "cocktail-bar"],
+      "sources": [],
+      "relatedPeople": ["jim-meehan"],
+      "relatedTopics": ["speakeasy-format"],
+      "relatedRegions": ["new-york"],
+      "status": "verified",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "slug": "69-colebrooke-row",
+      "title": "69 Colebrooke Row",
+      "type": "brand",
+      "tags": ["bar", "london", "modernist"],
+      "sources": [],
+      "relatedPeople": ["tony-conigliaro"],
+      "relatedTopics": ["modernist-cocktails"],
+      "relatedRegions": ["london"],
+      "status": "verified",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "slug": "lyaness",
+      "title": "Lyaness",
+      "type": "brand",
+      "tags": ["bar", "london", "cocktail-bar", "low-waste"],
+      "sources": [],
+      "relatedPeople": ["ryan-chetiyawardana"],
+      "relatedTopics": ["low-waste-cocktails"],
+      "relatedRegions": ["london"],
+      "status": "verified",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "slug": "smugglers-cove",
+      "title": "Smuggler’s Cove",
+      "type": "brand",
+      "tags": ["tiki", "san-francisco", "bar", "rum"],
+      "sources": [],
+      "relatedPeople": ["martin-cate"],
+      "relatedTopics": ["tiki"],
+      "relatedRegions": ["san-francisco"],
+      "status": "verified",
+      "lastVerified": "2026-06-15"
+    }
+  ],
+  "regions": [
+    {
+      "slug": "new-york",
+      "title": "New York",
+      "type": "region",
+      "tags": ["usa", "cocktail-scene", "speakeasy"],
+      "sources": [],
+      "relatedPeople": ["julie-reiner", "jim-meehan", "tonia-guffey", "joaquin-simo", "julia-momose", "ivy-mix"],
+      "relatedTopics": ["speakeasy-format", "modernist-cocktails"],
+      "relatedBrands": ["clover-club", "pdt", "attaboy", "death-and-co", "pouring-ribbons", "umeboshi", "leyenda"],
+      "status": "needs-update",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "slug": "london",
+      "title": "London",
+      "type": "region",
+      "tags": ["uk", "modernist", "experimental"],
+      "sources": [],
+      "relatedPeople": ["tony-conigliaro", "ryan-chetiyawardana"],
+      "relatedTopics": ["modernist-cocktails", "low-waste-cocktails"],
+      "relatedBrands": ["69-colebrooke-row", "lyaness"],
+      "status": "needs-update",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "slug": "san-francisco",
+      "title": "San Francisco",
+      "type": "region",
+      "tags": ["usa", "tiki", "rum"],
+      "sources": [],
+      "relatedPeople": ["martin-cate"],
+      "relatedTopics": ["tiki"],
+      "relatedBrands": ["smugglers-cove"],
+      "status": "needs-update",
+      "lastVerified": "2026-06-15"
+    }
+  ],
+  "sources": [
+    {
+      "id": "diffordsguide",
+      "title": "Difford’s Guide",
+      "type": "source",
+      "tags": ["trade-press", "secondary"],
+      "url": "https://www.diffordsguide.com/",
+      "trustLevel": "secondary",
+      "status": "verified",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "id": "liquor-com",
+      "title": "Liquor.com",
+      "type": "source",
+      "tags": ["trade-press", "secondary"],
+      "url": "https://www.liquor.com/",
+      "trustLevel": "secondary",
+      "status": "verified",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "id": "pdt",
+      "title": "PDT Cocktails",
+      "type": "source",
+      "tags": ["bar-site", "primary"],
+      "url": "https://pdtcocktails.com/",
+      "trustLevel": "primary",
+      "status": "verified",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "id": "clover-club",
+      "title": "Clover Club",
+      "type": "source",
+      "tags": ["bar-site", "primary"],
+      "url": "https://www.cloverclubnyc.com/",
+      "trustLevel": "primary",
+      "status": "verified",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "id": "69-colebrooke-row",
+      "title": "69 Colebrooke Row",
+      "type": "source",
+      "tags": ["bar-site", "primary"],
+      "url": "https://69colebrookerow.com/",
+      "trustLevel": "primary",
+      "status": "verified",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "id": "lyaness",
+      "title": "Lyaness",
+      "type": "source",
+      "tags": ["bar-site", "primary"],
+      "url": "https://www.instagram.com/lyaness/",
+      "trustLevel": "primary",
+      "status": "verified",
+      "lastVerified": "2026-06-15"
+    },
+    {
+      "id": "smugglers-cove",
+      "title": "Smuggler’s Cove",
+      "type": "source",
+      "tags": ["bar-site", "primary"],
+      "url": "https://www.smugglerscovesf.com/",
+      "trustLevel": "primary",
+      "status": "verified",
+      "lastVerified": "2026-06-15"
+    }
+  ],
+  "posts": [
+    {
+      "slug": "welcome-to-bartender-sanctuary",
+      "title": "Welcome to Bartender Sanctuary",
+      "type": "post",
+      "tags": ["intro"],
+      "sources": [],
+      "status": "verified",
+      "lastVerified": "2026-06-15"
+    }
+  ],
+  "lastUpdated": "2026-06-15"
+}
