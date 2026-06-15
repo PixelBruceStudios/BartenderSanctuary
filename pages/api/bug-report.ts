@@ -1,21 +1,56 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { getServerSession } from 'next-auth/next';
+import { auth } from '../auth/[...nextauth]';
 import { resend } from '@/lib/email';
 
-type BugReportBody = {
-  name?: string;
-  email?: string;
-  description?: string;
-};
+const MAX_DESC = 4000;
+const MAX_NAME = 120;
+const MAX_EMAIL = 254;
+const WINDOW_MS = 60_000;
+const MAX_BUG_REPORTS_PER_MIN = 5;
+const reportHits = new Map<string, { count: number; reset: number }>();
+
+function clientIp(req: NextApiRequest): string {
+  return (
+    (req.headers.get('x-forwarded-for')?.split(',')[0].trim() ||
+      req.socket.remoteAddress ||
+      'unknown'
+    )
+  );
+}
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ ok: false, error: 'Method Not Allowed' });
   }
 
-  const { name, email, description } = req.body as BugReportBody;
-  const trimmedName = (name || '').trim();
-  const trimmedEmail = (email || '').trim();
-  const trimmedDesc = (description || '').trim();
+  const session = await getServerSession(req, res, auth);
+  if (!session?.user?.email) {
+    return res.status(401).json({ ok: false, error: 'Sign in required.' });
+  }
+
+  const ip = clientIp(req);
+  const now = Date.now();
+  const key = `${ip}:${Math.floor(now / WINDOW_MS)}`;
+  const entry = reportHits.get(key);
+  if (entry) {
+    entry.count += 1;
+    if (entry.count > MAX_BUG_REPORTS_PER_MIN) {
+      return res.status(429).json({ ok: false, error: 'Too many reports. Try again shortly.' });
+    }
+  } else {
+    reportHits.set(key, { count: 1, reset: now + WINDOW_MS });
+  }
+
+  const { name, email, description } = req.body as {
+    name?: string;
+    email?: string;
+    description?: string;
+  };
+
+  const trimmedName = (name || '').trim().slice(0, MAX_NAME);
+  const trimmedEmail = (email || '').trim().slice(0, MAX_EMAIL);
+  const trimmedDesc = (description || '').trim().slice(0, MAX_DESC);
 
   if (!trimmedDesc) {
     return res.status(400).json({ ok: false, error: 'Description is required.' });

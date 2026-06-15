@@ -19,7 +19,7 @@ export default function Hero({ t, cocktailsCount, basesCount, onFindDrink, onBro
         alignItems: 'center'
       }}
     >
-      {/* Three.js nebula background */}
+      {/* Chemistry background */}
       <HeroNebula />
 
       <div
