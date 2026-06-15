@@ -13,7 +13,7 @@ export default function Hero({ t, cocktailsCount, basesCount, onFindDrink, onBro
         position: 'relative',
         overflow: 'hidden',
         borderBottom: '1px solid var(--color-border)',
-        background: '#0a0a14',
+        background: '#0c0f0d',
         minHeight: '520px',
         display: 'flex',
         alignItems: 'center'

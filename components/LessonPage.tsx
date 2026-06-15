@@ -43,66 +43,7 @@ type Category = {
   }[];
 };
 
-function StarField() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    const resize = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-    };
-    resize();
-    window.addEventListener("resize", resize);
-
-    const stars = Array.from({ length: 60 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 1 + 0.3,
-      opacity: Math.random() * 0.4 + 0.2,
-      speed: Math.random() * 0.0004 + 0.0002,
-      phase: Math.random() * Math.PI * 2,
-    }));
-
-    let raf: number;
-    const draw = (t: number) => {
-      if (!ctx || !canvas) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      stars.forEach((s) => {
-        const alpha = s.opacity + Math.sin(t * s.speed + s.phase) * 0.12;
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255,255,255,${Math.max(0.05, Math.min(0.6, alpha))})`;
-        ctx.fill();
-      });
-      raf = requestAnimationFrame(draw);
-    };
-    raf = requestAnimationFrame(draw);
-
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("resize", resize);
-    };
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      style={{
-        position: "absolute",
-        inset: 0,
-        width: "100%",
-        height: "100%",
-        pointerEvents: "none",
-        opacity: 0.6,
-      }}
-    />
-  );
-}
+/* chemistry background handled by ChemistryBackground */
 
 /* ── Inline test widget ──────────────────────────────────────────── */
 function LessonTests({ lessonId }: { lessonId: string }) {
@@ -425,7 +366,7 @@ function LessonTests({ lessonId }: { lessonId: string }) {
               overflowY: "auto",
               background: `
                 radial-gradient(ellipse at top left, rgba(99,102,241,0.12) 0%, transparent 50%),
-                radial-gradient(ellipse at bottom right, rgba(168,85,247,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom right, rgba(200,168,76,0.06) 0%, transparent 50%),
                 #0c0c18
               `,
               borderRadius: "16px",
@@ -704,7 +645,7 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
         style={{
           position: "relative",
           minHeight: "400px",
-          background: "#07070f",
+          background: "#0c0f0d",
           borderRadius: "16px",
           border: "1px solid rgba(255,255,255,0.06)",
           display: "flex",
@@ -713,7 +654,7 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
           overflow: "hidden",
         }}
       >
-        <StarField />
+        <ChemistryBackground />
         <div style={{ color: "rgba(255,255,255,0.6)", fontSize: "1rem", position: "relative", zIndex: 2 }}>
           Loading lesson…
         </div>
@@ -727,7 +668,7 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
         style={{
           position: "relative",
           minHeight: "400px",
-          background: "#07070f",
+          background: "#0c0f0d",
           borderRadius: "16px",
           border: "1px solid rgba(255,255,255,0.06)",
           display: "flex",
@@ -753,8 +694,8 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
       style={{
         position: "relative",
         background: `
-          radial-gradient(ellipse at top left, rgba(99,102,241,0.1) 0%, transparent 50%),
-          radial-gradient(ellipse at bottom right, rgba(168,85,247,0.08) 0%, transparent 50%),
+          radial-gradient(ellipse at top left, rgba(143,188,143,0.08) 0%, transparent 50%),
+          radial-gradient(ellipse at bottom right, rgba(200,168,76,0.06) 0%, transparent 50%),
           #07070f
         `,
         borderRadius: "16px",
@@ -762,7 +703,7 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
         overflow: "hidden",
       }}
     >
-      <StarField />
+      <ChemistryBackground />
 
       {/* Reading progress bar */}
       <div

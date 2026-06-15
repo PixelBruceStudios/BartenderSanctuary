@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import ChemistryBackground from "@/components/ChemistryBackground";
 
 type Lesson = {
   id: string;
@@ -46,67 +47,6 @@ const DIFFICULTY_COLORS: Record<string, string> = {
   Advanced: "#f87171",
 };
 
-function StarField() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    const resize = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-    };
-    resize();
-    window.addEventListener("resize", resize);
-
-    const stars = Array.from({ length: 80 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 1.2 + 0.3,
-      opacity: Math.random() * 0.5 + 0.2,
-      speed: Math.random() * 0.0005 + 0.0002,
-      phase: Math.random() * Math.PI * 2,
-    }));
-
-    let raf: number;
-    const draw = (t: number) => {
-      if (!ctx || !canvas) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      stars.forEach((s) => {
-        const alpha = s.opacity + Math.sin(t * s.speed + s.phase) * 0.15;
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255,255,255,${Math.max(0.05, Math.min(0.7, alpha))})`;
-        ctx.fill();
-      });
-      raf = requestAnimationFrame(draw);
-    };
-    raf = requestAnimationFrame(draw);
-
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("resize", resize);
-    };
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      style={{
-        position: "absolute",
-        inset: 0,
-        width: "100%",
-        height: "100%",
-        pointerEvents: "none",
-        opacity: 0.7,
-      }}
-    />
-  );
-}
-
 export default function LearningPath({
   category,
   completedLessons,
@@ -130,16 +70,16 @@ export default function LearningPath({
         position: "relative",
         minHeight: "600px",
         background: `
-          radial-gradient(ellipse at top, rgba(99,102,241,0.12) 0%, transparent 55%),
-          radial-gradient(ellipse at bottom right, rgba(168,85,247,0.1) 0%, transparent 55%),
-          #07070f
+          radial-gradient(ellipse at top, rgba(143,188,143,0.1) 0%, transparent 55%),
+          radial-gradient(ellipse at bottom right, rgba(200,168,76,0.08) 0%, transparent 55%),
+          #0c0f0d
         `,
         borderRadius: "16px",
         border: "1px solid rgba(255,255,255,0.06)",
         overflow: "hidden",
       }}
     >
-      <StarField />
+      <ChemistryBackground />
 
       {/* Header */}
       <div
@@ -173,7 +113,7 @@ export default function LearningPath({
             <div style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
               Progress
             </div>
-            <div style={{ fontSize: "1.1rem", fontWeight: 600, color: "#a5b4fc" }}>
+            <div style={{ fontSize: "1.1rem", fontWeight: 600, color: "#c8a84c" }}>
               {completedCount}/{totalLessons}
             </div>
           </div>
@@ -196,7 +136,7 @@ export default function LearningPath({
                 cy="24"
                 r="20"
                 fill="none"
-                stroke="#a5b4fc"
+                stroke="#c8a84c"
                 strokeWidth="3"
                 strokeDasharray={`${progress * 1.256} 125.6`}
                 strokeLinecap="round"
@@ -250,8 +190,8 @@ export default function LearningPath({
                   cursor: "pointer",
                   padding: "0.75rem 1rem",
                   borderRadius: "10px",
-                  background: isActive ? "rgba(99,102,241,0.12)" : "transparent",
-                  border: `1px solid ${isActive ? "rgba(99,102,241,0.3)" : "rgba(255,255,255,0.04)"}`,
+                  background: isActive ? "rgba(143,188,143,0.12)" : "transparent",
+                  border: `1px solid ${isActive ? "rgba(143,188,143,0.3)" : "rgba(255,255,255,0.04)"}`,
                   transition: "all 0.2s ease",
                 }}
                 onClick={() => {
@@ -274,7 +214,7 @@ export default function LearningPath({
                     fontWeight: 700,
                     color: isActive ? "#fff" : "rgba(255,255,255,0.5)",
                     flexShrink: 0,
-                    boxShadow: isActive ? "0 0 20px rgba(99,102,241,0.4)" : "none",
+                    boxShadow: isActive ? "0 0 20px rgba(143,188,143,0.35)" : "none",
                   }}
                 >
                   {techIdx + 1}
@@ -300,7 +240,7 @@ export default function LearningPath({
                   gap: "0.75rem",
                   marginLeft: "1.5rem",
                   paddingLeft: "1.5rem",
-                  borderLeft: isActive ? "2px solid rgba(99,102,241,0.3)" : "2px solid rgba(255,255,255,0.06)",
+                  borderLeft: isActive ? "2px solid rgba(143,188,143,0.3)" : "2px solid rgba(255,255,255,0.06)",
                   transition: "border-color 0.3s",
                 }}
               >
@@ -343,7 +283,7 @@ export default function LearningPath({
                         boxShadow: isCompleted
                           ? "0 0 18px rgba(74, 222, 128, 0.12)"
                           : isHovered
-                          ? "0 0 20px rgba(99,102,241,0.15)"
+                          ? "0 0 20px rgba(143,188,143,0.18)"
                           : "none",
                       }}
                     >
@@ -371,12 +311,12 @@ export default function LearningPath({
                           background: isCompleted
                             ? "#4ade80"
                             : isHovered
-                            ? "#a5b4fc"
+                            ? "#c8a84c"
                             : "rgba(255,255,255,0.3)",
                           boxShadow: isCompleted
                             ? "0 0 6px rgba(74, 222, 128, 0.6)"
                             : isHovered
-                            ? "0 0 6px rgba(165, 180, 252, 0.5)"
+                            ? "0 0 6px rgba(200, 168, 76, 0.5)"
                             : "none",
                           flexShrink: 0,
                           transition: "all 0.2s",

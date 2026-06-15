@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef, useState, useMemo } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
@@ -10,7 +12,6 @@ type Lesson = {
   duration: string;
   difficulty: string;
   content: string;
-  sort_order: number;
   sources: any[];
 };
 
@@ -33,7 +34,7 @@ type Category = {
   techniques: Technique[];
 };
 
-interface SpaceUniverseProps {
+interface ChemistryUniverseProps {
   category: Category;
   completedLessons: Set<string>;
   onSelectLesson: (categorySlug: string, techniqueSlug: string, lessonId: string) => void;
@@ -53,7 +54,7 @@ export default function SpaceUniverse({
   onSelectLesson,
   activeTechniqueSlug,
   onBack,
-}: SpaceUniverseProps) {
+}: ChemistryUniverseProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [hoveredPlanet, setHoveredPlanet] = useState<string | null>(null);
   const [selectedPlanet, setSelectedPlanet] = useState<string | null>(null);
@@ -112,7 +113,7 @@ export default function SpaceUniverse({
     const height = Math.max(600, Math.min(800, window.innerHeight * 0.7));
 
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x020208, 0.0008);
+    scene.fog = new THREE.FogExp2(0x0b1210, 0.00065);
 
     const camera = new THREE.PerspectiveCamera(55, width / height, 0.1, 2000);
     camera.position.set(0, 30, 80);
@@ -133,73 +134,78 @@ export default function SpaceUniverse({
     controls.autoRotate = true;
     controls.autoRotateSpeed = 0.3;
 
-    const ambient = new THREE.AmbientLight(0x404060, 0.6);
+    const ambient = new THREE.AmbientLight(0x506050, 0.7);
     scene.add(ambient);
 
-    const sunLight = new THREE.PointLight(0xffeedd, 2.5, 300);
-    sunLight.position.set(0, 0, 0);
-    scene.add(sunLight);
+    const coreLight = new THREE.PointLight(0xffcc88, 2.8, 320);
+    coreLight.position.set(0, 0, 0);
+    scene.add(coreLight);
 
-    const rimLight = new THREE.DirectionalLight(0x8888ff, 0.4);
+    const rimLight = new THREE.DirectionalLight(0x88ccaa, 0.5);
     rimLight.position.set(50, 20, -50);
     scene.add(rimLight);
 
-    const sunGeo = new THREE.SphereGeometry(4, 64, 64);
-    const sunMat = new THREE.MeshStandardMaterial({
-      color: 0xffaa44,
-      emissive: 0xff8800,
-      emissiveIntensity: 1.5,
-      roughness: 0.3,
+    const coreGeo = new THREE.SphereGeometry(4, 64, 64);
+    const coreMat = new THREE.MeshStandardMaterial({
+      color: 0xf5c86e,
+      emissive: 0xd4a94b,
+      emissiveIntensity: 1.4,
+      roughness: 0.35,
     });
-    const sun = new THREE.Mesh(sunGeo, sunMat);
-    scene.add(sun);
+    const core = new THREE.Mesh(coreGeo, coreMat);
+    scene.add(core);
 
     const glowGeo = new THREE.SphereGeometry(6, 32, 32);
     const glowMat = new THREE.MeshBasicMaterial({
-      color: 0xffaa44,
+      color: 0xd4a94b,
       transparent: true,
-      opacity: 0.15,
+      opacity: 0.18,
     });
     const glow = new THREE.Mesh(glowGeo, glowMat);
     scene.add(glow);
 
-    const starsGeo = new THREE.BufferGeometry();
-    const starCount = 1200;
-    const positions = new Float32Array(starCount * 3);
-    const colors = new Float32Array(starCount * 3);
-    for (let i = 0; i < starCount; i++) {
+    const moleculesGeo = new THREE.BufferGeometry();
+    const moleculeCount = 900;
+    const positions = new Float32Array(moleculeCount * 3);
+    const colors = new Float32Array(moleculeCount * 3);
+    for (let i = 0; i < moleculeCount; i++) {
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(2 * Math.random() - 1);
-      const r = 300 + Math.random() * 400;
+      const r = 280 + Math.random() * 420;
       positions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
       positions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
       positions[i * 3 + 2] = r * Math.cos(phi);
 
       const colorChoice = Math.random();
-      if (colorChoice > 0.9) {
-        colors[i * 3] = 0.8;
-        colors[i * 3 + 1] = 0.85;
-        colors[i * 3 + 2] = 1;
-      } else if (colorChoice > 0.8) {
-        colors[i * 3] = 1;
-        colors[i * 3 + 1] = 0.9;
-        colors[i * 3 + 2] = 0.7;
+      if (colorChoice > 0.85) {
+        colors[i * 3] = 0.78;
+        colors[i * 3 + 1] = 0.82;
+        colors[i * 3 + 2] = 0.65;
+      } else if (colorChoice > 0.7) {
+        colors[i * 3] = 0.85;
+        colors[i * 3 + 1] = 0.78;
+        colors[i * 3 + 2] = 0.55;
       } else {
-        colors[i * 3] = 1;
-        colors[i * 3 + 1] = 1;
-        colors[i * 3 + 2] = 1;
+        colors[i * 3] = 0.85;
+        colors[i * 3 + 1] = 0.88;
+        colors[i * 3 + 2] = 0.82;
       }
     }
-    starsGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    starsGeo.setAttribute("color", new THREE.BufferAttribute(colors, 3));
-    const starsMat = new THREE.PointsMaterial({ size: 1.2, vertexColors: true, transparent: true, opacity: 0.9 });
-    const stars = new THREE.Points(starsGeo, starsMat);
-    scene.add(stars);
+    moleculesGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+    moleculesGeo.setAttribute("color", new THREE.BufferAttribute(colors, 3));
+    const moleculesMat = new THREE.PointsMaterial({
+      size: 1.3,
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.85,
+    });
+    const molecules = new THREE.Points(moleculesGeo, moleculesMat);
+    scene.add(molecules);
 
-    const planets = new Map<string, THREE.Group>();
-    const orbits: THREE.Line[] = [];
-    const planetGroup = new THREE.Group();
-    scene.add(planetGroup);
+    const orbs = new Map<string, THREE.Group>();
+    const moleculeRings: THREE.Line[] = [];
+    const orbGroup = new THREE.Group();
+    scene.add(orbGroup);
 
     const techniqueCount = category.techniques.length;
     category.techniques.forEach((technique, idx) => {
@@ -209,49 +215,48 @@ export default function SpaceUniverse({
       const x = Math.cos(angle) * orbitRadius;
       const z = Math.sin(angle) * orbitRadius;
 
-      const orbitGeo = new THREE.RingGeometry(orbitRadius - 0.15, orbitRadius + 0.15, 128);
-      const orbitMat = new THREE.MeshBasicMaterial({
-        color: 0x444466,
-        side: THREE.DoubleSide,
+      const ringGeo = new THREE.TorusGeometry(orbitRadius, 0.12, 16, 140);
+      const ringMat = new THREE.MeshBasicMaterial({
+        color: 0x6a8a7a,
         transparent: true,
-        opacity: 0.25,
+        opacity: 0.35,
       });
-      const orbit = new THREE.Mesh(orbitGeo, orbitMat);
-      orbit.rotation.x = Math.PI / 2;
-      orbit.position.y = yOffset;
-      scene.add(orbit);
-      orbits.push(orbit as unknown as THREE.Line);
+      const ring = new THREE.Mesh(ringGeo, ringMat);
+      ring.rotation.x = Math.PI / 2;
+      ring.position.y = yOffset;
+      scene.add(ring);
+      moleculeRings.push(ring as unknown as THREE.Line);
 
-      const planetRoot = new THREE.Group();
-      planetRoot.position.set(x, yOffset, z);
+      const orbRoot = new THREE.Group();
+      orbRoot.position.set(x, yOffset, z);
 
       const radius = 2.5 + technique.lessons.length * 0.35;
-      const planetGeo = new THREE.SphereGeometry(radius, 48, 48);
+      const orbGeo = new THREE.SphereGeometry(radius, 48, 48);
       const colorA = new THREE.Color(categoryColors[0]);
       const colorB = new THREE.Color(categoryColors[1]);
-      const planetColor = colorA.clone().lerp(colorB, idx / techniqueCount);
-      const planetMat = new THREE.MeshStandardMaterial({
-        color: planetColor,
-        roughness: 0.5,
-        metalness: 0.2,
+      const orbColor = colorA.clone().lerp(colorB, idx / techniqueCount);
+      const orbMat = new THREE.MeshStandardMaterial({
+        color: orbColor,
+        roughness: 0.45,
+        metalness: 0.15,
       });
-      const planetMesh = new THREE.Mesh(planetGeo, planetMat);
-      planetRoot.add(planetMesh);
+      const orbMesh = new THREE.Mesh(orbGeo, orbMat);
+      orbRoot.add(orbMesh);
 
-      const atmoGeo = new THREE.SphereGeometry(radius * 1.15, 48, 48);
-      const atmoMat = new THREE.MeshBasicMaterial({
-        color: planetColor,
+      const shellGeo = new THREE.SphereGeometry(radius * 1.18, 48, 48);
+      const shellMat = new THREE.MeshBasicMaterial({
+        color: orbColor,
         transparent: true,
-        opacity: 0.12,
+        opacity: 0.1,
       });
-      const atmo = new THREE.Mesh(atmoGeo, atmoMat);
-      planetRoot.add(atmo);
+      const shell = new THREE.Mesh(shellGeo, shellMat);
+      orbRoot.add(shell);
 
       technique.lessons.forEach((lesson, lIdx) => {
         const moonGeo = new THREE.SphereGeometry(0.35, 24, 24);
         const moonMat = new THREE.MeshStandardMaterial({
-          color: completedLessons.has(lesson.id) ? 0x4ade80 : 0x888899,
-          roughness: 0.6,
+          color: completedLessons.has(lesson.id) ? 0x4ade80 : 0x889988,
+          roughness: 0.55,
           emissive: completedLessons.has(lesson.id) ? 0x22c55e : 0x000000,
           emissiveIntensity: completedLessons.has(lesson.id) ? 0.4 : 0,
         });
@@ -264,7 +269,7 @@ export default function SpaceUniverse({
           Math.sin(moonAngle) * moonDist
         );
         moon.userData = { lessonId: lesson.id, techniqueSlug: technique.slug, baseY: moon.position.y };
-        planetRoot.add(moon);
+        orbRoot.add(moon);
       });
 
       const canvas = document.createElement("canvas");
@@ -278,13 +283,13 @@ export default function SpaceUniverse({
       ctx.fillStyle = "#ffffff";
       ctx.fillText(technique.title, 256, 70);
       const labelTex = new THREE.CanvasTexture(canvas);
-      const labelMat = new THREE.SpriteMaterial({ map: labelTex, transparent: true, opacity: 0.85 });
+      const labelMat = new THREE.SpriteMaterial({ map: labelTex, transparent: true, opacity: 0.9 });
       const label = new THREE.Sprite(labelMat);
       label.scale.set(radius * 3.5, radius * 0.9, 1);
       label.position.y = radius + 2.5;
-      planetRoot.add(label);
+      orbRoot.add(label);
 
-      planetRoot.userData = {
+      orbRoot.userData = {
         techniqueSlug: technique.slug,
         techniqueTitle: technique.title,
         baseY: yOffset,
@@ -292,16 +297,16 @@ export default function SpaceUniverse({
         angle,
       };
 
-      planetGroup.add(planetRoot);
-      planets.set(technique.slug, planetRoot);
+      orbGroup.add(orbRoot);
+      orbs.set(technique.slug, orbRoot);
     });
 
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
-    const planetMeshes: THREE.Mesh[] = [];
-    planetGroup.traverse((child) => {
-      if (child instanceof THREE.Mesh && child.geometry.type === "SphereGeometry" && child !== sun) {
-        planetMeshes.push(child);
+    const orbMeshes: THREE.Mesh[] = [];
+    orbGroup.traverse((child) => {
+      if (child instanceof THREE.Mesh && child.geometry.type === "SphereGeometry" && child !== core) {
+        orbMeshes.push(child);
       }
     });
 
@@ -311,16 +316,13 @@ export default function SpaceUniverse({
       mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
       raycaster.setFromCamera(mouse, camera);
-      const intersects = raycaster.intersectObjects(planetMeshes, false);
+      const intersects = raycaster.intersectObjects(orbMeshes, false);
 
       if (intersects.length > 0) {
         const hit = intersects[0].object;
         const parent = hit.parent;
         if (parent && parent.userData.techniqueSlug) {
-          const next =
-            selectedPlanet === parent.userData.techniqueSlug
-              ? null
-              : parent.userData.techniqueSlug;
+          const next = selectedPlanet === parent.userData.techniqueSlug ? null : parent.userData.techniqueSlug;
           setSelectedPlanet(next);
         }
       }
@@ -332,7 +334,7 @@ export default function SpaceUniverse({
       mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
       raycaster.setFromCamera(mouse, camera);
-      const intersects = raycaster.intersectObjects(planetMeshes, false);
+      const intersects = raycaster.intersectObjects(orbMeshes, false);
 
       if (intersects.length > 0) {
         const hit = intersects[0].object;
@@ -354,28 +356,28 @@ export default function SpaceUniverse({
     const animate = () => {
       const t = clock.getElapsedTime();
 
-      sun.rotation.y += 0.002;
+      core.rotation.y += 0.002;
       glow.scale.setScalar(1 + Math.sin(t * 0.8) * 0.1);
 
-      planets.forEach((planetRoot) => {
-        const ud = planetRoot.userData;
+      orbs.forEach((orbRoot) => {
+        const ud = orbRoot.userData;
         const angle = ud.angle + t * 0.05;
-        planetRoot.position.x = Math.cos(angle) * ud.orbitRadius;
-        planetRoot.position.z = Math.sin(angle) * ud.orbitRadius;
-        planetRoot.position.y = ud.baseY + Math.sin(t * 0.4 + ud.angle) * 1.2;
+        orbRoot.position.x = Math.cos(angle) * ud.orbitRadius;
+        orbRoot.position.z = Math.sin(angle) * ud.orbitRadius;
+        orbRoot.position.y = ud.baseY + Math.sin(t * 0.4 + ud.angle) * 1.2;
 
-        planetRoot.rotation.y += 0.005;
+        orbRoot.rotation.y += 0.005;
 
-        planetRoot.children.forEach((child) => {
+        orbRoot.children.forEach((child) => {
           if (child.userData && child.userData.lessonId) {
             const baseY = child.userData.baseY || 0;
-            child.position.y = baseY + Math.sin(t * 1.2 + planetRoot.position.x) * 0.4;
+            child.position.y = baseY + Math.sin(t * 1.2 + orbRoot.position.x) * 0.4;
           }
         });
       });
 
-      stars.rotation.y += 0.0001;
-      stars.rotation.x += 0.00005;
+      molecules.rotation.y += 0.0001;
+      molecules.rotation.x += 0.00005;
 
       controls.update();
       renderer.render(scene, camera);
@@ -400,8 +402,8 @@ export default function SpaceUniverse({
       camera,
       renderer,
       controls,
-      planets,
-      orbits,
+      planets: orbs,
+      orbits: moleculeRings,
       raf: 0,
     };
 
@@ -436,13 +438,13 @@ export default function SpaceUniverse({
           alignItems: "center",
           flexWrap: "wrap",
           gap: "1rem",
-          background: "rgba(7,7,15,0.8)",
+          background: "rgba(12, 15, 13, 0.85)",
           backdropFilter: "blur(12px)",
         }}
       >
         <div>
           <div style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.5)", marginBottom: "0.25rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-            Learning Universe
+            Chemistry Lab
           </div>
           <div style={{ fontSize: isMobile ? "1.25rem" : "1.6rem", fontWeight: 700, display: "flex", alignItems: "center", gap: "0.6rem", color: "#fff" }}>
             <span>{category.icon}</span>
@@ -458,7 +460,7 @@ export default function SpaceUniverse({
             <div style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
               Progress
             </div>
-            <div style={{ fontSize: "1.1rem", fontWeight: 600, color: "#a5b4fc" }}>
+            <div style={{ fontSize: "1.1rem", fontWeight: 600, color: "#c8a84c" }}>
               {completedCount}/{totalLessons}
             </div>
           </div>
@@ -481,7 +483,7 @@ export default function SpaceUniverse({
                 cy="20"
                 r="16"
                 fill="none"
-                stroke="#a5b4fc"
+                stroke="#c8a84c"
                 strokeWidth="3"
                 strokeDasharray={`${progress * 1.005} 100.5`}
                 strokeLinecap="round"
@@ -519,7 +521,7 @@ export default function SpaceUniverse({
           width: "100%",
           height: universeHeight,
           position: "relative",
-          background: "#020208",
+          background: "#0b1210",
           borderRadius: "0 0 16px 16px",
           overflow: "hidden",
         }}
@@ -536,7 +538,7 @@ export default function SpaceUniverse({
               bottom: isMobile ? "1rem" : "2rem",
               transform: "translateX(-50%)",
               width: "min(920px, calc(100% - 1.5rem))",
-              background: "rgba(7,7,15,0.92)",
+              background: "rgba(12, 15, 13, 0.92)",
               backdropFilter: "blur(14px)",
               border: "1px solid rgba(255,255,255,0.12)",
               borderRadius: "18px",
@@ -617,7 +619,7 @@ export default function SpaceUniverse({
             bottom: isMobile ? "1rem" : "2rem",
             left: "50%",
             transform: "translateX(-50%)",
-            background: "rgba(7,7,15,0.9)",
+            background: "rgba(12, 15, 13, 0.9)",
             backdropFilter: "blur(12px)",
             border: "1px solid rgba(255,255,255,0.1)",
             borderRadius: "12px",
@@ -641,7 +643,7 @@ export default function SpaceUniverse({
           color: "rgba(255,255,255,0.4)",
         }}
       >
-        Drag to rotate • Scroll to zoom • Click a planet to explore lessons
+        Drag to rotate • Scroll to zoom • Click an orb to explore lessons
       </div>
     </div>
   );
