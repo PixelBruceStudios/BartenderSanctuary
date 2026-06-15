@@ -671,6 +671,8 @@ export const ingredients: Ingredient[] = [
     { name: "McCormick Celery Salt", description: "Coarse salt blended with ground celery seeds. Savory, briny. Perfect for Bloody Caesar rim.", related: ["Diamond Crystal Celery Salt", "Frontier Celery Salt"] }
   ,
     { name: "Frontier Celery Salt", description: "Celery salt from Frontier. Coarse salt with ground celery seeds. Organic option for Bloody Caesar rim.", related: ["McCormick Celery Salt", "Diamond Crystal Celery Salt"] }
+  ,
+    { name: "Diamond Crystal Celery Salt", description: "Celery salt from Diamond Crystal. Coarse salt with ground celery seeds. Classic choice for Bloody Caesar rim.", related: ["McCormick Celery Salt", "Frontier Celery Salt"] }
   ] },
   { name: "Cucumber slices", category: "Fresh & Garnish", description: "Fresh cucumber, thinly sliced. Cool, watery, mild flavor for garnish or muddling.", brands: ["Fresh"], notes: "Hendrick's garnish, Pimm's Cup garnish.",
   bottles: [
