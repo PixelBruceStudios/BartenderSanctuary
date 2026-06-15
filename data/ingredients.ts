@@ -309,7 +309,8 @@ export const ingredients: Ingredient[] = [
   { name: "Maraschino liqueur", category: "Liqueurs", description: "Luxardo-style cherry liqueur from Marasca cherry pits. Complex: cherry, almond, spice. 32% ABV.", brands: ["Luxardo Maraschino", "Maraska"], notes: "Aviation, Hemingway Daiquiri, Martinez.",
   bottles: [
     { name: "Luxardo Maraschino", description: "Premium Italian maraschino liqueur from Marasca cherry pits. 32% ABV.", related: ["Maraska Maraschino", "Luxardo Amaretto"] },
-    { name: "Maraska Maraschino", description: "Croatian maraschino liqueur from Zadar. Dry, complex, made from Marasca cherries.", related: ["Luxardo Maraschino", "Bols Cherry Brandy"] }
+    { name: "Maraska Maraschino", description: "Croatian maraschino liqueur from Zadar. Dry, complex, made from Marasca cherries.", related: ["Luxardo Maraschino", "Bols Cherry Brandy"] },
+    { name: "Bols Maraschino", description: "Dutch maraschino liqueur from Bols. Cherry and almond notes with a hint of spice. 24% ABV.", related: ["Luxardo Maraschino", "Maraska Maraschino"] }
   ]
 },
   { name: "Orange curaçao", category: "Liqueurs", description: "Orange-flavored liqueur made from dried curaçao orange peels (from Caribbean island). Dry, bitter-orange, 40% ABV.", brands: ["Pierre Ferrand Dry Curaçao", "Bols Orange Curaçao", "Marie Brizard"], notes: "Margarita (when not using triple sec), Sidecar.",
