@@ -594,7 +594,9 @@ export const ingredients: Ingredient[] = [
   { name: "Ginger beer", category: "Juices & Mixers", description: "Spicy, sweet ginger-flavored carbonated drink. Non-alcoholic (unlike ginger ale). Stronger ginger kick.", brands: ["Fever-Tree Ginger Beer", "Bundaberg", "Gosling's Stormy", "Q Tonic Ginger Beer"], notes: "Dark 'n' Stormy, Moscow Mule.",
   bottles: [
     { name: "Fever-Tree Ginger Beer", description: "Premium British ginger beer. Made from three types of ginger. Spicy, intense ginger kick. The standard for Moscow Mule.", related: ["Bundaberg Ginger Beer", "Gosling's Stormy Ginger Beer", "Q Tonic Ginger Beer"] },
-    { name: "Bundaberg Ginger Beer", description: "Australian ginger beer brewed from real ginger. Spicy, sweet, strong ginger finish.", related: ["Fever-Tree Ginger Beer", "Gosling's Stormy", "Q Tonic"] }
+    { name: "Bundaberg Ginger Beer", description: "Australian ginger beer brewed from real ginger. Spicy, sweet, strong ginger finish. Wikimedia image: https://upload.wikimedia.org/wikipedia/commons/5/5f/Bundaberg%2C_ginger_beer.jpg", related: ["Fever-Tree Ginger Beer", "Gosling's Stormy Ginger Beer", "Q Tonic Ginger Beer"] },
+    { name: "Q Tonic Ginger Beer", description: "Dutch-made ginger beer from Q Tonic. Sharp, clean ginger spice with a dry finish. Used in craft cocktails and premium mixers.", related: ["Fever-Tree Ginger Beer", "Bundaberg Ginger Beer"] },
+    { name: "Gosling's Stormy Ginger Beer", description: "Bermuda-made ginger beer from the Gosling's rum family. Bold, spicy ginger character. Essential for the Dark 'n' Stormy.", related: ["Fever-Tree Ginger Beer", "Bundaberg Ginger Beer"] }
   ] },
   { name: "Lemonade", category: "Juices & Mixers", description: "Sweetened lemon drink. Often used in British/Irish cocktails.", brands: ["Fresh or commercial"], notes: "Lemonade & Gin, certain Collins variations.",
   bottles: [
