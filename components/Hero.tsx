@@ -57,7 +57,7 @@ export default function Hero({ t, cocktailsCount, basesCount, onFindDrink, onBro
                 height: '7px',
                 borderRadius: '50%',
                 background: 'var(--color-accent)',
-                boxShadow: '0 0 10px var(--color-accent), 0 0 20px rgba(99, 102, 241, 0.4)'
+                boxShadow: '0 0 10px var(--color-accent), 0 0 20px rgba(143, 188, 143, 0.4)'
               }}
             />
             {t('heroCocktailChemistry')}
@@ -72,17 +72,17 @@ export default function Hero({ t, cocktailsCount, basesCount, onFindDrink, onBro
             lineHeight: 1.05,
             marginBottom: '1.4rem',
             letterSpacing: '-0.035em',
-            textShadow: '0 0 60px rgba(99, 102, 241, 0.25)'
+            textShadow: '0 0 60px rgba(143, 188, 143, 0.35)'
           }}
         >
           {t('heroTitlePrefix')}{' '}
           <span
             className="gradient-text"
             style={{
-              background: 'linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #6366f1 100%)',
+              background: 'linear-gradient(135deg, #8fbc8f 0%, #c8a84c 50%, #5ba4a0 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              filter: 'drop-shadow(0 0 20px rgba(99, 102, 241, 0.3))'
+              filter: 'drop-shadow(0 0 22px rgba(143, 188, 143, 0.35))'
             }}
           >
             {t('heroTitleAccent')}
@@ -120,7 +120,7 @@ export default function Hero({ t, cocktailsCount, basesCount, onFindDrink, onBro
               padding: '0.85rem 2rem',
               fontSize: '1rem',
               borderRadius: '12px',
-              boxShadow: '0 8px 32px rgba(99, 102, 241, 0.35)',
+              boxShadow: '0 8px 32px rgba(143, 188, 143, 0.35)',
               position: 'relative',
               overflow: 'hidden'
             }}

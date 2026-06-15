@@ -22,7 +22,7 @@ export default function FeaturedSection() {
           gradient: 'linear-gradient(135deg, rgba(99,102,241,0.12) 0%, rgba(99,102,241,0.03) 100%)',
           border: 'rgba(99,102,241,0.25)',
           hoverBorder: 'rgba(99,102,241,0.5)',
-          accent: '#818cf8'
+          accent: '#8fbc8f'
         },
         {
           badge: '🕹️',

@@ -167,12 +167,12 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 .glass-card:hover {
   border-color: var(--color-accent);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.12);
+  box-shadow: 0 8px 32px rgba(143, 188, 143, 0.18);
 }
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #6366f1 0%, #a78bfa 50%, #6366f1 100%);
+  background: linear-gradient(135deg, #8fbc8f 0%, #c8a84c 50%, #5ba4a0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -202,7 +202,7 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 }
 
 .photo-placeholder {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  background: linear-gradient(135deg, #19231f 0%, #121916 100%);
 }
 
 /* Button styles */
@@ -226,7 +226,7 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 .btn-primary:hover {
   background: var(--color-accent-hover);
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 4px 18px rgba(200, 168, 76, 0.35);
 }
 
 .btn-primary:active {
@@ -283,7 +283,7 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   border-color: var(--color-accent);
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.25);
+  box-shadow: 0 12px 32px rgba(143, 188, 143, 0.25);
 }
 
 .bug-report-trigger:active {
@@ -334,7 +334,7 @@ input[type="checkbox"]:hover {
 .search-input:focus {
   outline: none;
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  box-shadow: 0 0 0 3px rgba(143, 188, 143, 0.15);
 }
 
 .search-input::placeholder {
@@ -384,7 +384,7 @@ input[type="checkbox"]:hover {
 
 /* Recipe block */
 .recipe-block {
-  background: rgba(99, 102, 241, 0.06);
+  background: rgba(143, 188, 143, 0.06);
   border-left: 3px solid var(--color-accent);
   padding: 1rem 1.25rem;
   border-radius: 0 8px 8px 0;

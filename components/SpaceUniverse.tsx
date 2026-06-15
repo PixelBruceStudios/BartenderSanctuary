@@ -86,11 +86,11 @@ export default function SpaceUniverse({
 
   const categoryColors = useMemo(() => {
     const palette = [
-      ["#6366f1", "#8b5cf6"],
-      ["#3b82f6", "#06b6d4"],
-      ["#f59e0b", "#ef4444"],
-      ["#10b981", "#3b82f6"],
-      ["#ec4899", "#f59e0b"],
+      ["#8fbc8f", "#a8c9a8"],
+      ["#5ba4a0", "#7da87a"],
+      ["#f59e0b", "#b08d2e"],
+      ["#10b981", "#5ba4a0"],
+      ["#d4a94b", "#f59e0b"],
     ];
     const idx = category.techniques.length % palette.length;
     return palette[idx];

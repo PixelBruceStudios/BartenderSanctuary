@@ -185,8 +185,8 @@ function IngredientCard({ ingredient, onOpenBottles }: { ingredient: typeof ingr
                 className="tag"
                 style={{
                   fontSize: '0.72rem',
-                  background: 'rgba(99, 102, 241, 0.08)',
-                  border: '1px solid rgba(99, 102, 241, 0.18)',
+                  background: 'rgba(143, 188, 143, 0.08)',
+                  border: '1px solid rgba(143, 188, 143, 0.18)',
                   color: 'var(--color-info)',
                 }}
               >

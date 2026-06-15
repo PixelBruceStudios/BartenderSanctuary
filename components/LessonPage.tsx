@@ -454,7 +454,7 @@ function LessonTests({ lessonId }: { lessonId: string }) {
                   <span>{Object.keys(selected).length}/{questions.length} answered</span>
                 </div>
                 <div style={{ height: "4px", background: "rgba(255,255,255,0.08)", borderRadius: "2px", overflow: "hidden" }}>
-                  <div style={{ height: "100%", width: `${(Object.keys(selected).length / Math.max(1, questions.length)) * 100}%`, background: "linear-gradient(90deg, #6366f1, #a855f7)", borderRadius: "2px", transition: "width 0.2s ease" }} />
+                  <div style={{ height: "100%", width: `${(Object.keys(selected).length / Math.max(1, questions.length)) * 100}%`, background: "linear-gradient(90deg, #8fbc8f, #c8a84c)", borderRadius: "2px", transition: "width 0.2s ease" }} />
                 </div>
               </div>
             )}
@@ -772,7 +772,7 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
           left: 0,
           height: "2px",
           width: `${readProgress}%`,
-          background: "linear-gradient(90deg, #6366f1, #a855f7, #ec4899)",
+          background: "linear-gradient(90deg, #8fbc8f, #c8a84c, #d4a94b)",
           zIndex: 10,
           transition: "width 0.1s linear",
           boxShadow: "0 0 10px rgba(99,102,241,0.6)",

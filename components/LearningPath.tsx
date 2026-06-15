@@ -266,7 +266,7 @@ export default function LearningPath({
                     width: "36px",
                     height: "36px",
                     borderRadius: "50%",
-                    background: isActive ? "linear-gradient(135deg, #6366f1, #8b5cf6)" : "rgba(255,255,255,0.06)",
+                    background: isActive ? "linear-gradient(135deg, #8fbc8f, #a8c9a8)" : "rgba(255,255,255,0.06)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",

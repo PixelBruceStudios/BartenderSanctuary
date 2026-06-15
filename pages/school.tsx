@@ -202,7 +202,7 @@ function LessonList({
             textTransform: "uppercase",
             letterSpacing: "0.08em",
             color: "var(--color-accent)",
-            background: "rgba(99, 102, 241, 0.1)",
+            background: "rgba(143, 188, 143, 0.1)",
             padding: "0.25rem 0.6rem",
             borderRadius: "6px",
           }}
@@ -472,7 +472,7 @@ export default function SchoolPage() {
                   borderRadius: "12px",
                   border: "none",
                   background:
-                    "linear-gradient(135deg, #f59e0b, #ef4444)",
+                    "linear-gradient(135deg, #f59e0b, #b08d2e)",
                   color: "#fff",
                   fontSize: "0.9rem",
                   fontWeight: 600,

@@ -134,7 +134,7 @@ export default function Dashboard({ initialSession }: DashboardProps) {
               width: 48,
               height: 48,
               borderRadius: 999,
-              background: "linear-gradient(135deg, #f59e0b, #ef4444, #8b5cf6)",
+              background: "linear-gradient(135deg, #f59e0b, #b08d2e, #a8c9a8)",
               color: "#fff",
               display: "flex",
               alignItems: "center",
@@ -229,7 +229,7 @@ export default function Dashboard({ initialSession }: DashboardProps) {
                   height: "100%",
                   width: `${overallProgress}%`,
                   borderRadius: 999,
-                  background: "linear-gradient(90deg, #f59e0b, #ef4444)",
+                  background: "linear-gradient(90deg, #f59e0b, #b08d2e)",
                   transition: "width 0.4s ease",
                 }}
               />
@@ -330,7 +330,7 @@ export default function Dashboard({ initialSession }: DashboardProps) {
                         background: p.full_test_passed
                           ? "linear-gradient(90deg, #4ade80, #22c55e)"
                           : p.all_subtests_passed
-                          ? "linear-gradient(90deg, #6366f1, #a855f7)"
+                          ? "linear-gradient(90deg, #8fbc8f, #c8a84c)"
                           : "rgba(255,255,255,0.2)",
                         transition: "width 0.3s ease",
                       }}
