@@ -10,3 +10,6 @@ out/
 # Added by refactorer
 .env.vercel.prod
 scripts/__pycache__/\nscripts/backfill_bottle_images.py
+.env
+.env.local
+.env.production
