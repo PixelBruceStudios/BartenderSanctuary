@@ -394,7 +394,8 @@ export const ingredients: Ingredient[] = [
   { name: "Peychaud's bitters", category: "Bitters & Aperitifs", description: "Aromatic bitters from New Orleans. Anise, gentian, cherry. Distinctive red color. 35% ABV.", brands: ["Peychaud's Bitters"], notes: "Sazerac — essential. Manhattan variation.",
   bottles: [
         { name: "Peychaud's Aromatic Bitters", description: "New Orleans aromatic bitters. Anise, gentian, cherry. Distinctive red color. 35% ABV.", related: ["Angostura Bitters", "Fee Brothers Bitters"] },
-    { name: "Fee Brothers Bitters", description: "American aromatic bitters from Fee Brothers. A versatile all-purpose bitter for Old Fashioned and Manhattan when Peychaud's isn't specified.", related: ["Peychaud's Aromatic Bitters", "Angostura Bitters"] }
+    { name: "Fee Brothers Bitters", description: "American aromatic bitters from Fee Brothers. A versatile all-purpose bitter for Old Fashioned and Manhattan when Peychaud's isn't specified.", related: ["Peychaud's Aromatic Bitters", "Angostura Bitters"] },
+    { name: "Bittermens Boston Bitters", description: "Small-batch aromatic bitters from Bittermens. Baking spice, dried citrus, and tea-like tannins. A versatile modifier for stirred cocktails and spirit-forward drinks.", related: ["Peychaud's Aromatic Bitters", "Fee Brothers Bitters", "Angostura Bitters"] }
   ]
 },
   { name: "Pimm's No. 1", category: "Bitters & Aperitifs", description: "British summer cup. Gin-based fruit liqueur with herbal and citrus notes. 25% ABV.", brands: ["Pimm's No. 1"], notes: "Pimm's Cup — mix with lemonade, mint, cucumber, fruit.",
