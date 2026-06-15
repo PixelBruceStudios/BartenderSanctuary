@@ -387,7 +387,8 @@ export const ingredients: Ingredient[] = [
   { name: "Orange bitters", category: "Bitters & Aperitifs", description: "Citrusy bitters made from dried orange peel. Lighter and more aromatic than Angostura.", brands: ["Regans' Orange Bitters No. 6", "Fee Brothers Orange Bitters", "Bitter Truth Orange"], notes: "Martini, Old Fashioned, Manhattan.",
   bottles: [
     { name: "Regans' Orange Bitters No. 6", description: "Citrusy bitters from dried orange peel by Gary Regan.", related: ["Fee Brothers Orange Bitters", "Bitter Truth Orange"] },
-    { name: "Fee Brothers Orange Bitters", description: "American orange bitters. Bright orange peel flavor.", related: ["Regans' Orange Bitters No. 6", "Bitter Truth Orange"] }
+    { name: "Fee Brothers Orange Bitters", description: "American orange bitters. Bright orange peel flavor.", related: ["Regans' Orange Bitters No. 6", "Bitter Truth Orange"] },
+    { name: "Bitter Truth Orange Bitters", description: "Premium German orange bitters. Made from sun-dried Valencia orange peel. Bright, aromatic, with floral citrus notes. 39% ABV.", related: ["Regans' Orange Bitters No. 6", "Fee Brothers Orange Bitters"] }
   ]
 },
   { name: "Peychaud's bitters", category: "Bitters & Aperitifs", description: "Aromatic bitters from New Orleans. Anise, gentian, cherry. Distinctive red color. 35% ABV.", brands: ["Peychaud's Bitters"], notes: "Sazerac — essential. Manhattan variation.",
