@@ -310,8 +310,11 @@ export const ingredients: Ingredient[] = [
   bottles: [
     { name: "Galliano L'Autentico", description: "Iconic Italian vanilla-herbal liqueur. Bright yellow, complex. 42.3% ABV.", related: ["Galliano Vanilla", "Galliano Ristretto"] },
     { name: "Galliano Vanilla", description: "Smooth vanilla liqueur from Galliano. Rich vanilla with hints of herbs and spice.", related: ["Galliano L'Autentico", "Galliano Ristretto"] },
-    { name: "Galliano Ristretto", description: "Coffee-flavored variant of Galliano liqueur. 30% ABV. Combines vanilla-herbal Galliano with roasted coffee notes. Used in coffee cocktails.", related: ["Galliano L'Autentico", "Galliano Vanilla"] }
-  ]
+    { name: "Galliano Ristretto", description: "Coffee-flavored variant of Galliano liqueur. 30% ABV. Combines vanilla-herbal Galliano with roasted coffee notes. Used in coffee cocktails.", related: ["Galliano L'Autentico", "Galliano Vanilla"] },
+    { name: "Galliano Amaro", description: "Herbal bitter amaro variant from Galliano. Vanilla and herb base with a pronounced bitter finish. 30% ABV. The darker, more bitter expression from the Galliano lineup.", related: ["Galliano L'Autentico", "Amaro Montenegro", "Amaro Averna"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Galliano_l%27autentico.jpg" },
+    { name: "Amaro Montenegro", description: "Classic Italian amaro from Bologna, produced since 1885. Balanced bitter-sweet profile with vanilla, citrus, and 40 botanicals. 23% ABV. A cornerstone amaro for Boulevardier and digestif service.", related: ["Galliano Amaro", "Amaro Averna", "Amaro Nonino"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Amaro_Montenegro.jpg" },
+    { name: "Amaro Averna", description: "Sicilian amaro from Caltanissetta, produced by the Averna family since 1868. Bitter, sweet, with citrus, dried fruit, and Mediterranean herbs. 29% ABV. The benchmark for amaro-forward cocktails and neat digestif.", related: ["Galliano Amaro", "Amaro Montenegro", "Amaro Nonino"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Amaro_averna.jpg" }
+  ] 
 },
   { name: "Green crème de menthe", category: "Liqueurs", description: "Bright green mint crème liqueur. Sweet, minty, artificial-bright green color.", brands: ["Marie Brizard", "Bols", "DeKuyper"], notes: "Grasshopper, Stinger variation, certain Shooters.",
   bottles: [
