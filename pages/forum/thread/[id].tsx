@@ -10,6 +10,16 @@ export default function ForumThreadPage({ thread, replies: initialReplies }: { t
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [replies, setReplies] = useState<any[]>(initialReplies || []);
+  const [session, setSession] = useState<{ user?: { email?: string } }>({});
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editContent, setEditContent] = useState('');
+
+  useEffect(() => {
+    fetch('/api/auth/session')
+      .then((r) => r.json())
+      .then((s) => setSession(s || {}))
+      .catch(() => setSession({}));
+  }, []);
 
   if (!thread) {
     return (
@@ -19,6 +29,8 @@ export default function ForumThreadPage({ thread, replies: initialReplies }: { t
       </div>
     );
   }
+
+  const currentEmail = session.user?.email || '';
 
   async function submitReply(e: React.FormEvent) {
     e.preventDefault();
@@ -37,6 +49,49 @@ export default function ForumThreadPage({ thread, replies: initialReplies }: { t
     const refreshed = await fetch(`/api/forum/threads/${thread.id}`).then((r) => r.json());
     if (refreshed?.replies) setReplies(refreshed.replies);
     setSubmitting(false);
+  }
+
+  async function deleteReply(replyId: string) {
+    if (!confirm('Delete this reply?')) return;
+    const res = await fetch(`/api/forum/threads/${thread.id}/replies/${replyId}`, { method: 'DELETE' });
+    const json = await res.json();
+    if (!res.ok) return alert(json.error || 'Failed to delete.');
+    setReplies(replies.filter((r) => r.id !== replyId));
+  }
+
+  async function saveEdit(reply: any) {
+    const trimmed = editContent.trim();
+    if (!trimmed) return;
+    const res = await fetch(`/api/forum/threads/${thread.id}/replies/${reply.id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ content: trimmed }),
+    });
+    const json = await res.json();
+    if (!res.ok) return alert(json.error || 'Failed to save.');
+    setReplies(replies.map((r) => (r.id === reply.id ? { ...r, content: trimmed } : r)));
+    setEditingId(null);
+  }
+
+  async function deleteThread() {
+    if (!confirm('Delete this entire thread? This cannot be undone.')) return;
+    const res = await fetch(`/api/forum/threads/${thread.id}`, { method: 'DELETE' });
+    const json = await res.json();
+    if (!res.ok) return alert(json.error || 'Failed to delete.');
+    window.location.href = '/forum';
+  }
+
+  async function updateThread() {
+    const title = prompt('Title', thread.title);
+    if (!title) return;
+    const res = await fetch(`/api/forum/threads/${thread.id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title, categorySlug: thread.categorySlug, content: thread.content }),
+    });
+    const json = await res.json();
+    if (!res.ok) return alert(json.error || 'Failed to update.');
+    window.location.reload();
   }
 
   return (
@@ -75,6 +130,37 @@ export default function ForumThreadPage({ thread, replies: initialReplies }: { t
           <div className="blog-prose">
             <ReactMarkdown remarkPlugins={[remarkGfm]}>{thread.content}</ReactMarkdown>
           </div>
+
+          {currentEmail === thread.authorEmail && (
+            <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.75rem' }}>
+              <button
+                onClick={updateThread}
+                style={{
+                  background: 'var(--color-surface)',
+                  color: 'var(--color-text)',
+                  border: '1px solid var(--color-border)',
+                  padding: '0.4rem 0.75rem',
+                  borderRadius: '10px',
+                  cursor: 'pointer',
+                }}
+              >
+                Edit
+              </button>
+              <button
+                onClick={deleteThread}
+                style={{
+                  background: 'var(--color-surface)',
+                  color: '#e57373',
+                  border: '1px solid var(--color-border)',
+                  padding: '0.4rem 0.75rem',
+                  borderRadius: '10px',
+                  cursor: 'pointer',
+                }}
+              >
+                Delete
+              </button>
+            </div>
+          )}
         </div>
 
         <section style={{ marginBottom: '2.5rem' }}>
@@ -99,6 +185,86 @@ export default function ForumThreadPage({ thread, replies: initialReplies }: { t
                   <div className="blog-prose">
                     <ReactMarkdown remarkPlugins={[remarkGfm]}>{reply.content}</ReactMarkdown>
                   </div>
+
+                  {currentEmail === reply.authorEmail && (
+                    <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.5rem' }}>
+                      <button
+                        onClick={() => { setEditingId(reply.id); setEditContent(reply.content); }}
+                        style={{
+                          background: 'var(--color-surface)',
+                          color: 'var(--color-text)',
+                          border: '1px solid var(--color-border)',
+                          padding: '0.35rem 0.7rem',
+                          borderRadius: '10px',
+                          cursor: 'pointer',
+                          fontSize: '0.82rem',
+                        }}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        onClick={() => deleteReply(reply.id)}
+                        style={{
+                          background: 'var(--color-surface)',
+                          color: '#e57373',
+                          border: '1px solid var(--color-border)',
+                          padding: '0.35rem 0.7rem',
+                          borderRadius: '10px',
+                          cursor: 'pointer',
+                          fontSize: '0.82rem',
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  )}
+
+                  {editingId === reply.id && (
+                    <div style={{ marginTop: '0.75rem' }}>
+                      <textarea
+                        value={editContent}
+                        onChange={(e) => setEditContent(e.target.value)}
+                        rows={4}
+                        style={{
+                          width: '100%',
+                          background: 'var(--color-bg)',
+                          color: 'var(--color-text)',
+                          border: '1px solid var(--color-border)',
+                          borderRadius: '10px',
+                          padding: '0.75rem',
+                          fontSize: '0.95rem',
+                        }}
+                      />
+                      <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.5rem' }}>
+                        <button
+                          onClick={() => saveEdit(reply)}
+                          style={{
+                            background: 'var(--color-accent)',
+                            color: '#fff',
+                            border: 'none',
+                            padding: '0.45rem 0.85rem',
+                            borderRadius: '10px',
+                            cursor: 'pointer',
+                          }}
+                        >
+                          Save
+                        </button>
+                        <button
+                          onClick={() => setEditingId(null)}
+                          style={{
+                            background: 'var(--color-surface)',
+                            color: 'var(--color-text)',
+                            border: '1px solid var(--color-border)',
+                            padding: '0.45rem 0.85rem',
+                            borderRadius: '10px',
+                            cursor: 'pointer',
+                          }}
+                        >
+                          Cancel
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -133,24 +299,57 @@ export default function ForumThreadPage({ thread, replies: initialReplies }: { t
                 resize: 'vertical',
               }}
             />
+            <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.75rem', alignItems: 'center' }}>
+              <button
+                type="button"
+                onClick={async () => {
+                  const input = document.createElement('input');
+                  input.type = 'file';
+                  input.accept = 'image/*';
+                  input.onchange = async () => {
+                    const file = input.files?.[0];
+                    if (!file) return;
+                    const form = new FormData();
+                    form.append('file', file);
+                    const res = await fetch('/api/forum/upload', { method: 'POST', body: form });
+                    const json = await res.json();
+                    if (res.ok && json.url) {
+                      setContent((c) => `${c}\n\n![image](${json.url})\n`);
+                    } else {
+                      alert(json.error || 'Upload failed.');
+                    }
+                  };
+                  input.click();
+                }}
+                style={{
+                  background: 'var(--color-surface)',
+                  color: 'var(--color-text)',
+                  border: '1px solid var(--color-border)',
+                  padding: '0.5rem 0.85rem',
+                  borderRadius: '10px',
+                  cursor: 'pointer',
+                }}
+              >
+                Add image
+              </button>
+              <button
+                type="submit"
+                disabled={submitting}
+                style={{
+                  background: 'var(--color-accent)',
+                  color: '#fff',
+                  border: 'none',
+                  padding: '0.65rem 1rem',
+                  borderRadius: '10px',
+                  fontWeight: 600,
+                  cursor: submitting ? 'not-allowed' : 'pointer',
+                  opacity: submitting ? 0.7 : 1,
+                }}
+              >
+                {submitting ? 'Posting...' : 'Post reply'}
+              </button>
+            </div>
             {error && <p style={{ color: '#e57373', fontSize: '0.9rem', marginTop: '0.5rem' }}>{error}</p>}
-            <button
-              type="submit"
-              disabled={submitting}
-              style={{
-                marginTop: '0.75rem',
-                background: 'var(--color-accent)',
-                color: '#fff',
-                border: 'none',
-                padding: '0.65rem 1rem',
-                borderRadius: '10px',
-                fontWeight: 600,
-                cursor: submitting ? 'not-allowed' : 'pointer',
-                opacity: submitting ? 0.7 : 1,
-              }}
-            >
-              {submitting ? 'Posting...' : 'Post reply'}
-            </button>
           </form>
         </section>
       </article>
