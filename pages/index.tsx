@@ -125,7 +125,7 @@ export default function Home() {
 
   if (error) {
     return (
-      <div style={{ maxWidth: '600px', margin: '4rem auto', padding: '2rem', textAlign: 'center' }}>
+      <div className="container-narrow" style={{ paddingTop: '4rem', paddingBottom: '2rem', textAlign: 'center' }}>
         <SEO title="Bartender Sanctuary" description={t('heroDescription')} path="/" />
         <h1 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Unable to load</h1>
         <p style={{ color: 'var(--color-text-secondary)', marginBottom: '1.5rem' }}>{error}</p>
@@ -154,7 +154,7 @@ export default function Home() {
         onBrowse={() => setActiveTab('browse')}
       />
 
-      <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1.5rem' }}>
+      <main className="container">
         <div
           style={{
             display: 'flex',
@@ -163,7 +163,8 @@ export default function Home() {
             borderBottom: '1px solid var(--color-border)',
             paddingBottom: '0.5rem',
             alignItems: 'center',
-            flexWrap: 'wrap'
+            flexWrap: 'wrap',
+            rowGap: '0.6rem'
           }}
         >
           {(['browse', 'tool'] as const).map((tab) => (
@@ -185,75 +186,82 @@ export default function Home() {
               {tab === 'browse' ? t('tabBrowse') : t('tabTool')}
             </button>
           ))}
-          <a
-            href="/school"
+          <div
             style={{
               marginLeft: 'auto',
-              marginRight: '1rem',
-              fontSize: '0.9rem',
-              color: 'var(--color-accent)',
-              textDecoration: 'none',
-              fontWeight: 500
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '1rem',
+              alignItems: 'center'
             }}
           >
-            {t('tabSchoolLink')}
-          </a>
-          <a
-            href="/ingredients"
-            style={{
-              marginRight: '1rem',
-              fontSize: '0.9rem',
-              color: 'var(--color-accent)',
-              textDecoration: 'none',
-              fontWeight: 500
-            }}
-          >
-            Ingredient Library
-          </a>
-          <a
-            href="/games"
-            style={{
-              fontSize: '0.9rem',
-              color: 'var(--color-accent)',
-              textDecoration: 'none',
-              fontWeight: 500
-            }}
-          >
-            {t('tabGamesLink')}
-          </a>
-          <a
-            href="/blog"
-            style={{
-              fontSize: '0.9rem',
-              color: 'var(--color-accent)',
-              textDecoration: 'none',
-              fontWeight: 500
-            }}
-          >
-            Blog
-          </a>
-          <a
-            href="/forum"
-            style={{
-              fontSize: '0.9rem',
-              color: 'var(--color-accent)',
-              textDecoration: 'none',
-              fontWeight: 500
-            }}
-          >
-            Forum
-          </a>
-          <Link
-            href="/search"
-            style={{
-              fontSize: '0.9rem',
-              color: 'var(--color-accent)',
-              textDecoration: 'none',
-              fontWeight: 500
-            }}
-          >
-            Search
-          </Link>
+            <a
+              href="/school"
+              style={{
+                fontSize: '0.9rem',
+                color: 'var(--color-accent)',
+                textDecoration: 'none',
+                fontWeight: 500
+              }}
+            >
+              {t('tabSchoolLink')}
+            </a>
+            <a
+              href="/ingredients"
+              style={{
+                fontSize: '0.9rem',
+                color: 'var(--color-accent)',
+                textDecoration: 'none',
+                fontWeight: 500
+              }}
+            >
+              Ingredient Library
+            </a>
+            <a
+              href="/games"
+              style={{
+                fontSize: '0.9rem',
+                color: 'var(--color-accent)',
+                textDecoration: 'none',
+                fontWeight: 500
+              }}
+            >
+              {t('tabGamesLink')}
+            </a>
+            <a
+              href="/blog"
+              style={{
+                fontSize: '0.9rem',
+                color: 'var(--color-accent)',
+                textDecoration: 'none',
+                fontWeight: 500
+              }}
+            >
+              Blog
+            </a>
+            <a
+              href="/forum"
+              style={{
+                fontSize: '0.9rem',
+                color: 'var(--color-accent)',
+                textDecoration: 'none',
+                fontWeight: 500
+              }}
+            >
+              Forum
+            </a>
+            <Link
+              href="/search"
+              style={{
+                fontSize: '0.9rem',
+                color: 'var(--color-accent)',
+                textDecoration: 'none',
+                fontWeight: 500
+              }}
+            >
+              Search
+            </Link>
+          </div>
         </div>
 
         <FeaturedSection />

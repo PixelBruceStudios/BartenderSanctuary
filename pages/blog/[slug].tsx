@@ -24,7 +24,7 @@ export default function BlogPostPage({ post }: { post: any }) {
         path={`/blog/${post.slug}`}
         type="article"
       />
-      <article style={{ maxWidth: '760px', margin: '0 auto', padding: '2.5rem 1.5rem 4rem' }}>
+      <article className="container-narrow" style={{ padding: '2.5rem 1.5rem 4rem' }}>
         <div style={{ marginBottom: '1rem' }}>
           <Link href="/blog" style={{ color: 'var(--color-accent)', textDecoration: 'none', fontSize: '0.9rem' }}>
             ← Back to blog

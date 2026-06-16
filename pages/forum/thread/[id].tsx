@@ -101,7 +101,7 @@ export default function ForumThreadPage({ thread, replies: initialReplies }: { t
         <meta name="description" content={thread.title} />
       </Head>
 
-      <article style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1.5rem' }}>
+      <article className="container-narrow" style={{ padding: '2rem 1.5rem' }}>
         <div style={{ marginBottom: '1rem' }}>
           <Link href="/forum" style={{ color: 'var(--color-accent)', textDecoration: 'none' }}>
             ← Back to forum
