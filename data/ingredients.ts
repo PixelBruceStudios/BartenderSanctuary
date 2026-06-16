@@ -219,7 +219,8 @@ export const ingredients: Ingredient[] = [
   bottles: [
         { name: "Fortaleza Blanco", description: "100% blue agave tequila from the Fortaleza distillery in Jalisco. Stone ovens and tahona wheel. Bright agave with pepper, citrus, and earth. Unaged, pure expression.", related: ["Fortaleza Reposado", "Fortaleza Añejo", "Patrón Silver"] },
         { name: "Patrón Silver", description: "Premium 100% blue agave blanco. Smooth, crisp, with sweet agave, citrus, and pepper. The recognizable choice for Margaritas and shots.", related: ["Patrón Reposado", "Patrón Añejo", "Fortaleza Blanco"] },
-        { name: "Espolòn Blanco", description: "100% blue agave blanco from Jalisco. Bright agave, pepper, citrus. Great value and widely available.", related: ["Espolòn Reposado", "Fortaleza Blanco", "Patrón Silver"] }
+        { name: "Espolòn Blanco", description: "100% blue agave blanco from Jalisco. Bright agave, pepper, citrus. Great value and widely available.", related: ["Espolòn Reposado", "Fortaleza Blanco", "Patrón Silver"] },
+        { name: "Don Julio 1942", description: "Premium 100% blue agave añejo tequila from the Casa Don Julio distillery in Jalisco. Aged at least 2.5 years in American oak ex-bourbon barrels. Rich cooked agave with vanilla, caramel, and toasted oak. The benchmark luxury tequila for sipping or premium cocktails like the Añejo Old Fashioned.", related: ["Don Julio Blanco", "Patrón Añejo", "Fortaleza Añejo"] }
   ]
 },
   { name: "Blanco tequila", category: "Tequila & Mezcal", description: "Unaged or aged <60 days tequila. Bright, crisp, pure agave flavor with pepper and citrus.", brands: ["Patrón Silver", "Espolòn Blanco", "Fortaleza Blanco", "Casamigos Blanco", "Don Julio Blanco"], notes: "Required when a recipe specifies Blanco — reposado would be too oaky.",
