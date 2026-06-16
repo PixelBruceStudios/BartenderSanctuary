@@ -23,7 +23,7 @@ export default function ForumThreadPage({ thread, replies: initialReplies }: { t
 
   if (!thread) {
     return (
-      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1.5rem' }}>
+      <div className="container-narrow" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
         <h1>Thread not found</h1>
         <Link href="/forum" style={{ color: 'var(--color-accent)' }}>← Back to forum</Link>
       </div>

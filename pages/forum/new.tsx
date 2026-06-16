@@ -34,7 +34,7 @@ export default function NewTopicPage() {
         <meta name="description" content="Start a new forum discussion." />
       </Head>
 
-      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem 1.5rem' }}>
+      <div className="container-form" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
         <div style={{ marginBottom: '1rem' }}>
           <Link href="/forum" style={{ color: 'var(--color-accent)', textDecoration: 'none' }}>
             ← Back to forum

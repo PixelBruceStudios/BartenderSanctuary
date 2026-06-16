@@ -36,7 +36,7 @@ export default function ForumCategory({ categorySlug }: { categorySlug: string }
         path={`/forum/category/${categorySlug}`}
       />
 
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '2rem 1.5rem' }}>
+      <div className="container" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
         <div style={{ marginBottom: '1rem' }}>
           <Link href="/forum" style={{ color: 'var(--color-accent)', textDecoration: 'none' }}>← All threads</Link>
         </div>

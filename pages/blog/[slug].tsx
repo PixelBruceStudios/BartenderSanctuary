@@ -8,7 +8,7 @@ import { getBlogPost, blogCategories } from '@/data/blog.generated';
 export default function BlogPostPage({ post }: { post: any }) {
   if (!post) {
     return (
-      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1.5rem' }}>
+      <div className="container-narrow" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
         <SEO title="Blog Post Not Found" description="The requested blog post could not be found." path="/blog" />
         <h1>Post not found</h1>
         <Link href="/blog" style={{ color: 'var(--color-accent)' }}>← Back to blog</Link>

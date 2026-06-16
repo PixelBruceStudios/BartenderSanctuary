@@ -27,7 +27,7 @@ export default function BlogIndex() {
         path="/blog"
       />
 
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '2rem 1.5rem' }}>
+      <div className="container" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
         <h1 style={{ marginBottom: '1.5rem' }}>Blog</h1>
 
         <CategoryNav categories={blogCategories} activeSlug="all" onChange={() => {}} />

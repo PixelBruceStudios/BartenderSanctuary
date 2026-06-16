@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import { useTranslation } from '@/lib/contexts';
 import { matchCocktails, getMissingIngredients, getMissingIngredientGroups } from '@/lib/matching';
 import CocktailCard from '@/components/CocktailCard';
@@ -242,6 +243,17 @@ export default function Home() {
           >
             Forum
           </a>
+          <Link
+            href="/search"
+            style={{
+              fontSize: '0.9rem',
+              color: 'var(--color-accent)',
+              textDecoration: 'none',
+              fontWeight: 500
+            }}
+          >
+            Search
+          </Link>
         </div>
 
         <FeaturedSection />

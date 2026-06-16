@@ -290,6 +290,40 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   transform: translateY(0);
 }
 
+/* Responsive containers */
+.container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.container-narrow {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.container-form {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .container,
+  .container-narrow,
+  .container-form {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
 /* Age gate light-mode button fix */
 [data-theme='light'] .btn-primary {
   color: #fff;

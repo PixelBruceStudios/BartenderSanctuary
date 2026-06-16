@@ -34,7 +34,7 @@ export default function ForumIndex() {
         path="/forum"
       />
 
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '2rem 1.5rem' }}>
+      <div className="container" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', gap: '1rem', flexWrap: 'wrap' }}>
           <h1 style={{ margin: 0 }}>Forum</h1>
           <Link
