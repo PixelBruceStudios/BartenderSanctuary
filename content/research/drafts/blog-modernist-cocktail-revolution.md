@@ -1,12 +1,19 @@
 ---
 title: "The Modernist Cocktail Revolution: How Science Changed the Bar"
 excerpt: "From clarification to spherification, modernist techniques have transformed cocktail craft. Meet the pioneers redefining what a drink can be."
-coverImage: "/photos/placeholder.jpg"
+coverImage: "/photos/modernist-cocktails-hero.svg"
 categorySlug: "techniques"
 tags: ["modernist", "experimental", "science", "technique"]
 publishedAt: "2026-06-15T00:00:00Z"
 authorName: "Bartender Sanctuary"
 sources: ["diffordsguide", "liquor-com", "clover-club", "69-colebrooke-row", "lyaness"]
+images:
+  - path: /photos/modernist-cocktails-hero.svg
+    alt: Modernist cocktail revolution hero with flask and molecule network
+    usage: cover
+  - path: /photos/modernist-molecule-diagram.svg
+    alt: Modernist molecule network diagram
+    usage: inline
 ---
 
 # The Modernist Cocktail Revolution: How Science Changed the Bar
@@ -26,6 +33,8 @@ Modernist cocktails apply scientific techniques to drink-making. The goal isn’
 - **Rotary evaporation** — distilling aromatics at low temperatures for purity
 
 The result: drinks that taste cleaner, feel stranger, and linger longer on the palate.
+
+![Modernist molecule network](/photos/modernist-molecule-diagram.svg)
 
 ## Julie Reiner: The Clover Club Pioneer
 
