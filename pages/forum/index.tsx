@@ -35,7 +35,23 @@ export default function ForumIndex() {
       />
 
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '2rem 1.5rem' }}>
-        <h1 style={{ marginBottom: '1.5rem' }}>Forum</h1>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', gap: '1rem', flexWrap: 'wrap' }}>
+          <h1 style={{ margin: 0 }}>Forum</h1>
+          <Link
+            href="/forum/new"
+            style={{
+              background: 'var(--color-accent)',
+              color: '#fff',
+              border: 'none',
+              padding: '0.65rem 1rem',
+              borderRadius: '10px',
+              fontWeight: 600,
+              textDecoration: 'none',
+            }}
+          >
+            New Topic
+          </Link>
+        </div>
 
         <CategoryNav categories={forumCategories} activeSlug={activeSlug} onChange={load} />
 
