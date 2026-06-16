@@ -183,7 +183,9 @@ export const ingredients: Ingredient[] = [
 },
   { name: "Overproof rum", category: "Rums", description: "High-ABV rum (57%+ / 114 proof+). Intense, fiery, used in small dashes in Tiki and flaming cocktails.", brands: ["Wray & Nephew Overproof", "Lemon Hart 151", "Plantation O.F.T.D.", "Hamilton 151"], notes: "Use ¼–½ oz dashes. Flaming Dr. Pepper, Zombie.", bottles: [
     { name: "Wray & Nephew Overproof", description: "Jamaican white overproof rum at 63% ABV. Intense, fiery, with funky Jamaican ester character. A single dash transforms Tiki drinks.", related: ["Wray & Nephew White", "Plantation O.F.T.D.", "Hamilton 151"] },
-    { name: "Plantation O.F.T.D. (Overproof)", description: "Overproof rum from Plantation. Bold, intense, with deep molasses and spice. 69% ABV. The Barbados overproof standard for Tiki.", related: ["Wray & Nephew Overproof", "Hamilton 151", "Lemon Hart 151"] }
+    { name: "Plantation O.F.T.D. (Overproof)", description: "Overproof rum from Plantation. Bold, intense, with deep molasses and spice. 69% ABV. The Barbados overproof standard for Tiki.", related: ["Wray & Nephew Overproof", "Hamilton 151", "Lemon Hart 151"] },
+    { name: "Lemon Hart 151", description: "Bermudan overproof rum at 75.5% ABV (151 proof). Intense, rich, with deep molasses, tropical fruit, and spice. A long-standing Navy Rum staple for flaming cocktails and Tiki.", related: ["Wray & Nephew Overproof", "Plantation O.F.T.D. (Overproof)", "Hamilton 151"] },
+    { name: "Hamilton 151", description: "Demerara rum from Guyana bottled at 75.5% ABV (151 proof). Rich, bold, with deep molasses, oak, and tropical fruit. The overproof Demerara backbone for flaming cocktails and Jungle Bird variations.", related: ["Wray & Nephew Overproof", "Plantation O.F.T.D. (Overproof)", "Lemon Hart 151"] }
   ] },
 
   // GINS
