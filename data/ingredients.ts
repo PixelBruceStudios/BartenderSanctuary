@@ -239,7 +239,10 @@ export const ingredients: Ingredient[] = [
         { name: "Belvedere Vodka", description: "Polish rye vodka from Belvedere. Quadruple distilled from Dankowskie rye. Creamy texture with white pepper, vanilla, and almond. 40% ABV.", related: ["Grey Goose", "Ketel One", "Chopin Rye"], },
         { name: "Grey Goose", description: "French vodka from the Cognac region. Made from soft winter wheat and spring water. Smooth, clean, with a hint of pepper and anise. 40% ABV.", related: ["Belvedere Vodka", "Ketel One", "Cîroc"] },
         { name: "Absolut Vodka", description: "Swedish vodka from Åhus. Made from winter wheat and pure water. Clean, smooth, with a hint of vanilla and pepper. The most widely distributed vodka in the world.", related: ["Grey Goose", "Ketel One", "Belvedere Vodka"] },
-        { name: "Tito's Handmade Vodka", description: "American corn-based vodka from Texas. Smooth, clean, with a mild sweetness. 40% ABV. A cult favorite for Moscow Mules.", related: ["Grey Goose", "Ketel One", "Stolichnaya"] }
+    { name: "Tito's Handmade Vodka", description: "American corn-based vodka from Texas. Smooth, clean, with a mild sweetness. 40% ABV. A cult favorite for Moscow Mules.", related: ["Grey Goose", "Ketel One", "Stolichnaya"] },
+    { name: "Ketel One Vodka", description: "Dutch vodka from the Nolet Family distillery, founded 1691. Distilled in copper pot stills from 100% wheat. Smooth, crisp, with subtle citrus and pepper. 40% ABV.", related: ["Grey Goose", "Belvedere Vodka", "Absolut Vodka"] },
+    { name: "Stolichnaya Vodka", description: "Russian vodka from the Stolichnaya brand. Triple distilled from winter wheat and rye grains. Clean, smooth, with a hint of pepper and sweetness. 40% ABV.", related: ["Absolut Vodka", "Grey Goose", "Ketel One"] },
+    { name: "Cîroc Vodka", description: "French vodka from the Cognac region, made from cold-pressed grapes. Smooth, fresh, with distinctive fruity and floral notes. 40% ABV.", related: ["Grey Goose", "Belvedere Vodka", "Absolut Vodka"] },
   ] },
 
   // LIQUEURS
