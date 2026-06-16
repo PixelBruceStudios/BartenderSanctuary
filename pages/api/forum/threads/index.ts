@@ -27,7 +27,7 @@ function slugify(value: string): string {
     .replace(/^-+|-+$/g, '');
 }
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default withAsyncSafety(async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ ok: false, error: 'Method Not Allowed' });
   }

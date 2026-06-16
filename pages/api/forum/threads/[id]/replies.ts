@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from 'next-auth/next';
-import { auth } from '../auth/[...nextauth]';
+import { auth } from '../../../auth/[...nextauth]';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -19,7 +19,7 @@ function sanitize(str: string, max = 4000): string {
   return str.replace(/[<>]/g, '').slice(0, max);
 }
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default withAsyncSafety(async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { threadId } = req.query;
   if (typeof threadId !== 'string') {
     return res.status(400).json({ ok: false, error: 'Invalid thread id.' });

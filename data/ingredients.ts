@@ -474,7 +474,9 @@ export const ingredients: Ingredient[] = [
   { name: "Dry vermouth", category: "Sherries & Vermouths", description: "Fortified, aromatised wine. Dry, herbal, botanical. ~18% ABV. Keep refrigerated after opening.", brands: ["Dolin Dry", "Noilly Prat", "Martini & Rossi Dry", "Carpano Antica (sweet)"], notes: "Martini, Manhattan (dry version), Gibson.",
   bottles: [
     { name: "Noilly Prat Original French Dry", description: "Classic French dry vermouth from Noilly Prat in Marseillan. Macerated with herbs and spices from the Languedoc region. Herbal, bright, with chamomile and orange peel.", related: ["Dolin Dry", "Martini & Rossi Dry", "Carpano Antica Formula"] },
-    { name: "Dolin Dry Vermouth", description: "French dry vermouth from Dolin. Lighter and more delicate than Noilly Prat. Herbal with chamomile, orange peel, and coriander. 17.5% ABV.", related: ["Noilly Prat Original French Dry", "Martini & Rossi Dry", "Carpano Antica Formula"] }
+    { name: "Dolin Dry Vermouth", description: "French dry vermouth from Dolin. Lighter and more delicate than Noilly Prat. Herbal with chamomile, orange peel, and coriander. 17.5% ABV.", related: ["Noilly Prat Original French Dry", "Martini & Rossi Dry", "Carpano Antica Formula"] },
+    { name: "Carpano Dry Vermouth", description: "Italian dry vermouth from Carpano. Bold, complex, with aromatic herbs and citrus. A versatile dry mixer for Martinis and Manhattans.", related: ["Noilly Prat Original French Dry", "Martini & Rossi Dry Vermouth", "Dolin Dry Vermouth"] },
+    { name: "Martini & Rossi Dry Vermouth", description: "Classic Italian dry vermouth. Aromatic, crisp, with light herbal and citrus character. The standard dry vermouth for Martinis and Americanos.", related: ["Dolin Dry Vermouth", "Noilly Prat Original French Dry", "Carpano Dry Vermouth"] }
   ]
 },
   { name: "Fino sherry", category: "Sherries & Vermouths", description: "Lightest, driest sherry style. Aged under flor (yeast film). Pale, saline, almond, and green apple.", brands: ["Tio Pepe Fino", "Lustau Fino", "Gonzalez Byass Fino"], notes: "Adonis, Bamboo, Sherry Cobbler.",
