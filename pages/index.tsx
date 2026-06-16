@@ -170,7 +170,13 @@ export default function Home() {
           {(['browse', 'tool'] as const).map((tab) => (
             <button
               key={tab}
-              onClick={() => setActiveTab(tab)}
+              onClick={() => {
+                setActiveTab(tab);
+                setTimeout(() => {
+                  const el = document.getElementById(tab === 'browse' ? 'browse-section' : 'tool-section');
+                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 0);
+              }}
               style={{
                 background: 'none',
                 border: 'none',
@@ -267,7 +273,7 @@ export default function Home() {
         <FeaturedSection />
 
         {activeTab === 'browse' && (
-          <div className="animate-fade-in">
+          <div id="browse-section" className="animate-fade-in">
             <div style={{ position: 'relative', marginBottom: '1.5rem' }}>
               <svg
                 style={{
@@ -321,7 +327,7 @@ export default function Home() {
           </div>
         )}
 
-        {activeTab === 'tool' && <PantryTool cocktails={cocktails} />}
+        {activeTab === 'tool' && <div id="tool-section"><PantryTool cocktails={cocktails} /></div>}
       </main>
 
       <footer

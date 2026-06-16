@@ -647,7 +647,7 @@ export default function IngredientLibrary() {
         path="/ingredients"
       />
 
-      <main style={{ maxWidth: '1100px', margin: '0 auto', padding: '2rem 1.5rem 4rem' }}>
+      <main className="container" style={{ padding: '2rem 1.5rem 4rem' }}>
         {/* Header */}
         <div style={{ marginBottom: '2rem' }}>
           <h1 style={{

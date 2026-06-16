@@ -55,6 +55,9 @@ export default function ForumIndex() {
 
         <CategoryNav categories={forumCategories} activeSlug={activeSlug} onChange={load} />
 
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '1rem' }}>
+          <Link href="/search" style={{ fontSize: '0.9rem', color: 'var(--color-accent)', textDecoration: 'none', fontWeight: 500 }}>Search</Link>
+        </div>
         {loading ? (
           <p style={{ color: 'var(--color-text-muted)' }}>Loading threads…</p>
         ) : (
