@@ -15,6 +15,7 @@
     "@react-three/drei": "^9.96.1",
     "@react-three/fiber": "^8.15.14",
     "bcryptjs": "^3.0.3",
+    "formidable": "^3.5.4",
     "gray-matter": "^4.0.3",
     "next": "^13.5.6",
     "next-auth": "^4.24.14",
@@ -27,6 +28,7 @@
     "three": "^0.184.0"
   },
   "devDependencies": {
+    "@types/formidable": "^3.5.1",
     "@types/node": "^22.10.0",
     "@types/pg": "^8.20.0",
     "@types/react": "^19.2.17",
