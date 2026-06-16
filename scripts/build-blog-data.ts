@@ -39,8 +39,17 @@ interface ForumThread {
   categorySlug: string;
   authorName: string;
   createdAt: string;
-  replyCount?: number;
+  replyCount: number;
   lastReplyAt?: string;
+  content: string;
+}
+
+interface ForumReply {
+  id: string;
+  threadId: string;
+  authorName: string;
+  authorEmail?: string;
+  createdAt: string;
   content: string;
 }
 
@@ -91,14 +100,33 @@ function readForumThreads(forumDir: string): ForumThread[] {
     const raw = fs.readFileSync(indexFile, 'utf-8');
     const { data, content } = matter(raw);
 
+    const repliesDir = path.join(forumDir, entry.name, 'replies');
+    let replyCount = 0;
+    let lastReplyAt: string | undefined;
+    if (fs.existsSync(repliesDir)) {
+      const replyEntries = fs.readdirSync(repliesDir, { withFileTypes: true });
+      replyCount = replyEntries.filter((e) => e.isFile() && e.name.endsWith('.md')).length;
+      const replyDates = replyEntries
+        .filter((e) => e.isFile() && e.name.endsWith('.md'))
+        .map((e) => {
+          const rRaw = fs.readFileSync(path.join(repliesDir, e.name), 'utf-8');
+          const rData = matter(rRaw).data;
+          return (rData.createdAt as string) || '';
+        })
+        .filter(Boolean);
+      if (replyDates.length > 0) {
+        lastReplyAt = replyDates.sort().pop()!;
+      }
+    }
+
     threads.push({
       id: entry.name,
       title: (data.title as string) || entry.name,
       categorySlug: (data.categorySlug as string) || '',
       authorName: (data.authorName as string) || 'Unknown',
       createdAt: (data.createdAt as string) || new Date().toISOString(),
-      replyCount: (data.replyCount as number) || 0,
-      lastReplyAt: data.lastReplyAt as string | undefined,
+      replyCount,
+      lastReplyAt,
       content,
     });
   }
@@ -106,11 +134,45 @@ function readForumThreads(forumDir: string): ForumThread[] {
   return threads.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 }
 
+function readForumReplies(forumDir: string): ForumReply[] {
+  if (!fs.existsSync(forumDir)) return [];
+  const replies: ForumReply[] = [];
+  const threadDirs = fs.readdirSync(forumDir, { withFileTypes: true });
+
+  for (const threadEntry of threadDirs) {
+    if (!threadEntry.isDirectory()) continue;
+    const repliesDir = path.join(forumDir, threadEntry.name, 'replies');
+    if (!fs.existsSync(repliesDir)) continue;
+
+    const replyFiles = fs.readdirSync(repliesDir, { withFileTypes: true });
+    for (const replyEntry of replyFiles) {
+      if (!replyEntry.isFile() || !replyEntry.name.endsWith('.md')) continue;
+      const raw = fs.readFileSync(path.join(repliesDir, replyEntry.name), 'utf-8');
+      const { data, content } = matter(raw);
+      replies.push({
+        id: replyEntry.name.replace(/\.md$/, ''),
+        threadId: threadEntry.name,
+        authorName: (data.authorName as string) || 'Unknown',
+        authorEmail: data.authorEmail as string | undefined,
+        createdAt: (data.createdAt as string) || new Date().toISOString(),
+        content,
+      });
+    }
+  }
+
+  return replies;
+}
+
 function escape(str: string): string {
   return JSON.stringify(str);
 }
 
-function generateTS(categories: Categories, posts: BlogPost[], threads: ForumThread[]): string {
+function generateTS(
+  categories: Categories,
+  posts: BlogPost[],
+  threads: ForumThread[],
+  replies: ForumReply[]
+): string {
   const lines: string[] = [
     '// AUTO-GENERATED — do not edit directly. Run `npm run build:blog` to regenerate.',
     '',
@@ -139,7 +201,7 @@ function generateTS(categories: Categories, posts: BlogPost[], threads: ForumThr
     '  categorySlug: string;',
     '  authorName: string;',
     '  createdAt: string;',
-    '  replyCount?: number;',
+    '  replyCount: number;',
     '  lastReplyAt?: string;',
     '  content: string;',
     '}',
@@ -149,6 +211,15 @@ function generateTS(categories: Categories, posts: BlogPost[], threads: ForumThr
     '  title: string;',
     '  description: string;',
     '  icon?: string;',
+    '}',
+    '',
+    'export interface ForumReply {',
+    '  id: string;',
+    '  threadId: string;',
+    '  authorName: string;',
+    '  authorEmail?: string;',
+    '  createdAt: string;',
+    '  content: string;',
     '}',
     '',
   ];
@@ -192,9 +263,23 @@ function generateTS(categories: Categories, posts: BlogPost[], threads: ForumThr
     lines.push(`    categorySlug: ${escape(thread.categorySlug)},`);
     lines.push(`    authorName: ${escape(thread.authorName)},`);
     lines.push(`    createdAt: ${escape(thread.createdAt)},`);
-    if (thread.replyCount !== undefined) lines.push(`    replyCount: ${thread.replyCount},`);
+    lines.push(`    replyCount: ${thread.replyCount},`);
     if (thread.lastReplyAt) lines.push(`    lastReplyAt: ${escape(thread.lastReplyAt)},`);
     lines.push(`    content: ${escape(thread.content)},`);
+    lines.push(`  },`);
+  }
+  lines.push('];');
+  lines.push('');
+
+  lines.push('export const forumReplies: ForumReply[] = [');
+  for (const reply of replies) {
+    lines.push(`  {`);
+    lines.push(`    id: ${escape(reply.id)},`);
+    lines.push(`    threadId: ${escape(reply.threadId)},`);
+    lines.push(`    authorName: ${escape(reply.authorName)},`);
+    if (reply.authorEmail) lines.push(`    authorEmail: ${escape(reply.authorEmail)},`);
+    lines.push(`    createdAt: ${escape(reply.createdAt)},`);
+    lines.push(`    content: ${escape(reply.content)},`);
     lines.push(`  },`);
   }
   lines.push('];');
@@ -216,6 +301,10 @@ function generateTS(categories: Categories, posts: BlogPost[], threads: ForumThr
   lines.push('  return forumThreads.filter((thread) => thread.categorySlug === categorySlug);');
   lines.push('}');
   lines.push('');
+  lines.push('export function getForumReplies(threadId: string): ForumReply[] {');
+  lines.push('  return forumReplies.filter((reply) => reply.threadId === threadId);');
+  lines.push('}');
+  lines.push('');
 
   return lines.join('\n');
 }
@@ -227,6 +316,7 @@ async function main() {
 
   let posts = readBlogPosts(blogDir);
   let threads = readForumThreads(forumDir);
+  let replies = readForumReplies(forumDir);
 
   if (posts.length === 0 && fs.existsSync(seedFile)) {
     const seedModule = (await import(seedFile)) as any;
@@ -237,13 +327,14 @@ async function main() {
     threads = seedModule.forumThreads || [];
   }
 
-  const ts = generateTS(categories, posts, threads);
+  const ts = generateTS(categories, posts, threads, replies);
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
   fs.writeFileSync(outFile, ts, 'utf-8');
 
   console.log(`Generated ${outFile}`);
   console.log(`  ${posts.length} blog posts`);
   console.log(`  ${threads.length} forum threads`);
+  console.log(`  ${replies.length} forum replies`);
 }
 
 main();

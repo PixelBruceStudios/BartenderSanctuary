@@ -25,7 +25,7 @@ export interface ForumThread {
   categorySlug: string;
   authorName: string;
   createdAt: string;
-  replyCount?: number;
+  replyCount: number;
   lastReplyAt?: string;
   content: string;
 }
@@ -35,6 +35,15 @@ export interface ForumCategory {
   title: string;
   description: string;
   icon?: string;
+}
+
+export interface ForumReply {
+  id: string;
+  threadId: string;
+  authorName: string;
+  authorEmail?: string;
+  createdAt: string;
+  content: string;
 }
 
 export const blogCategories: BlogCategory[] = [
@@ -88,6 +97,9 @@ export const forumThreads: ForumThread[] = [
   },
 ];
 
+export const forumReplies: ForumReply[] = [
+];
+
 export function getBlogPost(slug: string): BlogPost | undefined {
   return blogPosts.find((post) => post.slug === slug);
 }
@@ -102,4 +114,8 @@ export function getForumThread(id: string): ForumThread | undefined {
 
 export function getForumThreadsByCategory(categorySlug: string): ForumThread[] {
   return forumThreads.filter((thread) => thread.categorySlug === categorySlug);
+}
+
+export function getForumReplies(threadId: string): ForumReply[] {
+  return forumReplies.filter((reply) => reply.threadId === threadId);
 }

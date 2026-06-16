@@ -25,6 +25,7 @@ export interface ForumThread {
   createdAt: string;
   replyCount: number;
   lastReplyAt?: string;
+  content: string;
 }
 
 export interface ForumCategory {
@@ -32,4 +33,13 @@ export interface ForumCategory {
   title: string;
   description: string;
   icon?: string;
+}
+
+export interface ForumReply {
+  id: string;
+  threadId: string;
+  authorName: string;
+  authorEmail?: string;
+  createdAt: string;
+  content: string;
 }
