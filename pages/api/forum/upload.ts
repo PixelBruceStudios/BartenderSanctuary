@@ -37,7 +37,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const file = Array.isArray(files.file) ? files.file[0] : files.file;
     if (!file) return bad(res, 400, 'File is required.');
 
-    const safeName = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}${path.extname(file.originalFilename || '')}`;
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+    const allowedExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.gif'];
+    const maxSize = 2 * 1024 * 1024; // 2MB
+
+    const mime = (file.mimetype || '').toLowerCase();
+    const ext = (path.extname(file.originalFilename || '') || '').toLowerCase();
+
+    if (!allowedTypes.includes(mime) || !allowedExtensions.includes(ext)) {
+      return bad(res, 400, 'Unsupported file type. Use JPG, PNG, WebP, or GIF.');
+    }
+    if ((file.size || 0) > maxSize) {
+      return bad(res, 400, 'File too large. Maximum size is 2MB.');
+    }
+
+    const safeName = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}${ext}`;
     const dest = path.join(uploadDir, safeName);
 
     fs.mkdirSync(uploadDir, { recursive: true });

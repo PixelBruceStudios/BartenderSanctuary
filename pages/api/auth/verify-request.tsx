@@ -7,6 +7,16 @@ function bad(res: NextApiResponse, status: number, message: string) {
   return res.status(status).json({ ok: false, error: message });
 }
 
+const WINDOW_MS = 60_000;
+const MAX_VERIFY_REQUESTS_PER_WINDOW = 5;
+const verifyRequestHits = new Map<string, { count: number; reset: number }>();
+
+function verifyRequestClientIp(req: NextApiRequest): string {
+  const header = req.headers['x-forwarded-for'];
+  const first = typeof header === 'string' ? header.split(',')[0].trim() : null;
+  return first || req.socket.remoteAddress || 'unknown';
+}
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") return bad(res, 405, "Method Not Allowed");
 
@@ -15,6 +25,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   if (!trimmed || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) {
     return bad(res, 400, "Enter a valid email.");
+  }
+
+  const ip = verifyRequestClientIp(req);
+  const now = Date.now();
+  const windowKey = Math.floor(now / WINDOW_MS);
+  const key = `${ip}:${windowKey}`;
+  const entry = verifyRequestHits.get(key);
+  if (entry) {
+    entry.count += 1;
+    if (entry.count > MAX_VERIFY_REQUESTS_PER_WINDOW) {
+      return bad(res, 429, "Too many verification requests. Try again later.");
+    }
+  } else {
+    verifyRequestHits.set(key, { count: 1, reset: now + WINDOW_MS });
   }
 
   const token = crypto.randomBytes(32).toString("hex");

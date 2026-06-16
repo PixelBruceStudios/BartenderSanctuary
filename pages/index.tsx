@@ -150,8 +150,20 @@ export default function Home() {
         t={t}
         cocktailsCount={cocktails.length}
         basesCount={new Set(allBases).size}
-        onFindDrink={() => setActiveTab('tool')}
-        onBrowse={() => setActiveTab('browse')}
+        onFindDrink={() => {
+          setActiveTab('tool');
+          setTimeout(() => {
+            const el = document.getElementById('tool-section');
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 0);
+        }}
+        onBrowse={() => {
+          setActiveTab('browse');
+          setTimeout(() => {
+            const el = document.getElementById('browse-section');
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 0);
+        }}
       />
 
       <main className="container">
