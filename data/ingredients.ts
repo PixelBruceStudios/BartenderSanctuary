@@ -141,9 +141,12 @@ export const ingredients: Ingredient[] = [
 },
   { name: "Pisco", category: "Whiskies", description: "Un-aged or lightly aged grape brandy from Peru or Chile. Fragrant, floral, with citrus and stone fruit notes.", brands: ["Macchu Pisco (Peru)", "Campo de Encanto (Peru)", "Alto del Carmen (Chile)", "La Botija (Peru)"], notes: "Pisco Sour, Chilcano.", bottles: [
     { name: "Campo de Encanto Pisco", description: "Peruvian pisco from the Ica Valley. Distilled from Quebranta grapes. Smooth, aromatic, with citrus and stone fruit. The standard for Pisco Sour.", related: ["Macchu Pisco", "La Botija", "Alto del Carmen"], },
-    { name: "Macchu Pisco", description: "Peruvian pisco from the valleys of Ica. Aromatic, floral, with grape and citrus notes. Smooth and versatile.", related: ["Campo de Encanto", "La Botija", "Alto del Carmen"] }
-  ] },
-
+    { name: "Macchu Pisco", description: "Peruvian pisco from the valleys of Ica. Aromatic, floral, with grape and citrus notes. Smooth and versatile.", related: ["Campo de Encanto", "La Botija", "Alto del Carmen"] },
+    { name: "La Botija Pisco", description: "Peruvian pisco from the Ica Valley. Distilled from Quebranta grapes. Smooth, aromatic, with citrus and stone fruit notes. A well-regarded boutique pisco.", related: ["Campo de Encanto Pisco", "Macchu Pisco", "Alto del Carmen"] },
+    { name: "Alto del Carmen Pisco", description: "Chilean pisco from the Huasco Valley in the Atacama region. Distilled from Pedro Jiménez and Muscat grapes. Bright, aromatic, with citrus, tropical fruit, and floral notes.", related: ["Campo de Encanto Pisco", "Macchu Pisco", "La Botija"] },
+    { name: "Montelongo Pisco", description: "Peruvian pisco from the Ica Valley. Distilled from Quebranta grapes in small batches. Smooth, balanced, with citrus, stone fruit, and gentle floral notes. A craft expression ideal for Pisco Sour.", related: ["Campo de Encanto Pisco", "Macchu Pisco", "La Botija"] }
+  ]
+},
   // RUMS
   { name: "White rum", category: "Rums", description: "Light, clean rum aged briefly (often 1 year) and filtered to remove color. Mild sweetness, subtle vanilla.", brands: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars", "Cruzan Aged Light", "Havana Club 3"], notes: "Mojito, Daiquiri, Cuba Libre.", bottles: [
     { name: "Bacardi Superior", description: "The world's best-selling white rum. Light, clean, with mild sweetness and subtle vanilla. Aged in American oak then charcoal-filtered. The standard for Mojito and Daiquiri.", related: ["Bacardi Gold", "Don Q Cristal", "Plantation 3 Stars"], },
