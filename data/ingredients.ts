@@ -206,10 +206,13 @@ export const ingredients: Ingredient[] = [
         { name: "Plymouth Gin", description: "English gin from Plymouth with a slightly earthier, more aromatic profile than London dry. 41.2% ABV. Protected PGI status.", related: ["Tanqueray London Dry", "Beefeater London Dry", "Bombay Sapphire"] }
   ] },
   { name: "Geneva gin", category: "Gins", description: "Also known as Holland gin or genever. Malty, fuller-bodied, less juniper-forward than London dry. Can be aged (oude) or younger (jonge).", brands: ["Bols Genever", "Rutte Genever", "Hooghoudt", "Filliers Dry Gin 28"], notes: "Dutch Courage, Martinez (traditional), Corpse Reviver #2 variation.", bottles: [
-    { name: "Bols Genever", description: "Dutch genever from the Bols distillery, dating to 1575. Malt wine base gives a mellow, slightly sweet, malty character with a hint of juniper. Less assertive than London dry.", related: ["Rutte Genever", "Filliers Dry Gin 28", "Hooghoudt"] }
-  ,
-    { name: "Rutte Genever", description: "Craft Dutch genever from Rutte Distillery. Malted barley and juniper-forward. Smooth, malty, and complex. A modern classic for Martinez.", related: ["Bols Genever", "Filliers Dry Gin 28", "Hooghoudt"] }
-  ] },
+   { name: "Bols Genever", description: "Dutch genever from the Bols distillery, dating to 1575. Malt wine base gives a mellow, slightly sweet, malty character with a hint of juniper. Less assertive than London dry.", related: ["Rutte Genever", "Filliers Dry Gin 28", "Hooghoudt"] }
+ ,
+   { name: "Rutte Genever", description: "Craft Dutch genever from Rutte Distillery. Malted barley and juniper-forward. Smooth, malty, and complex. A modern classic for Martinez.", related: ["Bols Genever", "Filliers Dry Gin 28", "Hooghoudt"] },
+   { name: "Filliers Dry Gin 28", description: "Belgian genever from Filliers Distillery. Malt wine base with juniper and herbal complexity. Smooth, malty, with a hint of spice. 28% ABV. A classic Belgian genever for Martinez and Dutch Courage.", related: ["Bols Genever", "Rutte Genever", "Hooghoudt Oude Genever"] },
+   { name: "Hooghoudt Oude Genever", description: "Dutch genever from Hooghoudt Distillery in Groningen. Traditional malt wine base with juniper and herbs. Mellow, slightly sweet, with a long history dating back to 1751. A classic oude genever for sipping or mixing.", related: ["Bols Genever", "Rutte Genever", "Filliers Dry Gin 28"] },
+   { name: "Zuidam Oude Genever", description: "Dutch genever from Zuidam Distillery in the Netherlands. Traditional malt wine base with juniper-forward character. Smooth, malty, with a clean herbal finish. A well-regarded craft genever for Martinez and Negroni variations.", related: ["Bols Genever", "Rutte Genever", "Filliers Dry Gin 28"] }
+ ]},
 
   // TEQUILA & MEZCAL
   { name: "Tequila", category: "Tequila & Mezcal", description: "Mexican spirit made from blue agave in designated regions. Blanco (unaged), Reposado (rested 2–12 months), Añejo (aged 1–3+ years).", brands: ["Patrón Silver", "Don Julio 1942", "Casamigos Reposado", "Espolòn Blanco", "Casa Noble Reposado", "Fortaleza"], notes: "Margarita, Paloma, Tequila Sunrise.",
