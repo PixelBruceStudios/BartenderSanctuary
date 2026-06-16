@@ -14,7 +14,7 @@ export interface BlogCategory {
   slug: string;
   title: string;
   description: string;
-  icon: string;
+  icon?: string;
 }
 
 export interface ForumThread {
@@ -31,5 +31,5 @@ export interface ForumCategory {
   slug: string;
   title: string;
   description: string;
-  icon: string;
+  icon?: string;
 }

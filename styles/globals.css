@@ -477,3 +477,93 @@ input[type="checkbox"]:hover {
 .accordion.open .accordion-icon {
   transform: rotate(180deg);
 }
+
+/* Blog prose */
+.blog-prose h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.blog-prose h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
+  color: var(--color-text);
+}
+
+.blog-prose p {
+  margin-bottom: 1.25rem;
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+  font-size: 1.05rem;
+}
+
+.blog-prose ul,
+.blog-prose ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.4rem;
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+}
+
+.blog-prose li {
+  margin-bottom: 0.35rem;
+}
+
+.blog-prose li::marker {
+  color: var(--color-accent);
+}
+
+.blog-prose blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding: 0.6rem 1rem;
+  margin: 1.5rem 0;
+  color: var(--color-text-secondary);
+  font-style: italic;
+  background: rgba(200, 168, 76, 0.06);
+  border-radius: 0 8px 8px 0;
+}
+
+.blog-prose code {
+  background: var(--color-surface);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.92em;
+  border: 1px solid var(--color-border-subtle);
+}
+
+.blog-prose pre {
+  background: var(--color-surface);
+  padding: 1rem;
+  border-radius: 10px;
+  overflow-x: auto;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--color-border-subtle);
+}
+
+.blog-prose a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.blog-prose a:hover {
+  color: var(--color-accent-hover);
+}
+
+.blog-prose img {
+  border-radius: 12px;
+  margin: 1.5rem 0;
+  max-width: 100%;
+}
+
+.blog-prose hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 2.5rem 0;
+}
