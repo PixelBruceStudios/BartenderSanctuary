@@ -24,6 +24,10 @@ function buildIngredientUrls(): string[] {
 }
 
 export default function Sitemap() {
+  return null;
+}
+
+export async function getServerSideProps({ res }: any) {
   const cocktailUrls = cocktails.map((c) => `${BASE_URL}/cocktails/${c.slug}`);
   const lessonUrls = buildLessonUrls();
   const ingredientUrls = buildIngredientUrls();
@@ -51,9 +55,9 @@ export default function Sitemap() {
     .join('\n')}
 </urlset>`;
 
-  return new Response(xml, {
-    headers: {
-      'Content-Type': 'application/xml',
-    },
-  });
+  res.setHeader('Content-Type', 'application/xml');
+  res.write(xml);
+  res.end();
+
+  return { props: {} };
 }

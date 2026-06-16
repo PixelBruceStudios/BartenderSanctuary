@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
+import SEO from '@/components/SEO';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { getBlogPost, blogCategories } from '@/data/blog.generated';
@@ -9,6 +9,7 @@ export default function BlogPostPage({ post }: { post: any }) {
   if (!post) {
     return (
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1.5rem' }}>
+        <SEO title="Blog Post Not Found" description="The requested blog post could not be found." path="/blog" />
         <h1>Post not found</h1>
         <Link href="/blog" style={{ color: 'var(--color-accent)' }}>← Back to blog</Link>
       </div>
@@ -17,11 +18,12 @@ export default function BlogPostPage({ post }: { post: any }) {
 
   return (
     <>
-      <Head>
-        <title>{post.title} — Blog — Bartender Sanctuary</title>
-        <meta name="description" content={post.excerpt} />
-      </Head>
-
+      <SEO
+        title={post.title}
+        description={post.excerpt}
+        path={`/blog/${post.slug}`}
+        type="article"
+      />
       <article style={{ maxWidth: '760px', margin: '0 auto', padding: '2.5rem 1.5rem 4rem' }}>
         <div style={{ marginBottom: '1rem' }}>
           <Link href="/blog" style={{ color: 'var(--color-accent)', textDecoration: 'none', fontSize: '0.9rem' }}>

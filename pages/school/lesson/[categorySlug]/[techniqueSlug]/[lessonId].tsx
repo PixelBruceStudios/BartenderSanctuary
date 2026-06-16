@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Link from 'next/link';
 import LessonPage from '@/components/LessonPage';
 
@@ -10,13 +9,7 @@ interface LessonParams {
 
 export default function DynamicLesson({ categorySlug, techniqueSlug, lessonId }: LessonParams) {
   return (
-    <>
-      <Head>
-        <title>{`Lesson ${lessonId} | Bartender School`}</title>
-        <meta name="description" content="" />
-      </Head>
-      <LessonPage categorySlug={categorySlug} techniqueSlug={techniqueSlug} lessonId={lessonId} />
-    </>
+    <LessonPage categorySlug={categorySlug} techniqueSlug={techniqueSlug} lessonId={lessonId} />
   );
 }
 

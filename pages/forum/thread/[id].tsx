@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
+import SEO from '@/components/SEO';
 import { getForumThread } from '@/data/blog.generated';
 
 export default function ForumThreadPage({ thread }: { thread: any }) {
   if (!thread) {
     return (
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1.5rem' }}>
+        <SEO title="Thread Not Found" description="The requested forum thread could not be found." path="/forum" />
         <h1>Thread not found</h1>
         <Link href="/forum" style={{ color: 'var(--color-accent)' }}>← Back to forum</Link>
       </div>
@@ -15,10 +16,12 @@ export default function ForumThreadPage({ thread }: { thread: any }) {
 
   return (
     <>
-      <Head>
-        <title>{thread.title} — Forum — Bartender Sanctuary</title>
-        <meta name="description" content={thread.title} />
-      </Head>
+      <SEO
+        title={thread.title}
+        description={thread.title}
+        path={`/forum/thread/${thread.id}`}
+        type="article"
+      />
 
       <article style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1.5rem' }}>
         <div style={{ marginBottom: '1rem' }}>

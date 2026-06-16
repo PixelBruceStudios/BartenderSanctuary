@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
+import SEO from '@/components/SEO';
 import CategoryNav from '@/components/blog/CategoryNav';
 import PostCard from '@/components/blog/PostCard';
 import { blogCategories, getBlogPostsByCategory } from '@/data/blog.generated';
@@ -23,10 +23,11 @@ export default function BlogCategory({ categorySlug }: { categorySlug: string })
 
   return (
     <>
-      <Head>
-        <title>{active ? `${active.title} — Blog` : 'Blog'} — Bartender Sanctuary</title>
-        <meta name="description" content={active?.description || 'Blog posts.'} />
-      </Head>
+      <SEO
+        title={active ? `${active.title} — Blog` : 'Blog'}
+        description={active?.description || 'Blog posts.'}
+        path={`/blog/category/${categorySlug}`}
+      />
 
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '2rem 1.5rem' }}>
         <div style={{ marginBottom: '1rem' }}>

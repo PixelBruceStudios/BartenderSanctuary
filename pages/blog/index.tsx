@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Head from 'next/head';
+import SEO from '@/components/SEO';
 import CategoryNav from '@/components/blog/CategoryNav';
 import PostCard from '@/components/blog/PostCard';
 import { blogCategories } from '@/data/blog.generated';
@@ -21,10 +21,11 @@ export default function BlogIndex() {
 
   return (
     <>
-      <Head>
-        <title>Blog — Bartender Sanctuary</title>
-        <meta name="description" content="Bartending guides, recipes, techniques, and industry news." />
-      </Head>
+      <SEO
+        title="Blog"
+        description="Bartending guides, recipes, techniques, and industry news."
+        path="/blog"
+      />
 
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '2rem 1.5rem' }}>
         <h1 style={{ marginBottom: '1.5rem' }}>Blog</h1>

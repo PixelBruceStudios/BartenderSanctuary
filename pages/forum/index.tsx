@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
+import SEO from '@/components/SEO';
 import CategoryNav from '@/components/forum/CategoryNav';
 import ThreadList from '@/components/forum/ThreadList';
 import { forumCategories, getForumThreadsByCategory } from '@/data/blog.generated';
@@ -28,10 +28,11 @@ export default function ForumIndex() {
 
   return (
     <>
-      <Head>
-        <title>Forum — Bartender Sanctuary</title>
-        <meta name="description" content="Community forum for bartenders and enthusiasts." />
-      </Head>
+      <SEO
+        title="Forum"
+        description="Community forum for bartenders and enthusiasts."
+        path="/forum"
+      />
 
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '2rem 1.5rem' }}>
         <h1 style={{ marginBottom: '1.5rem' }}>Forum</h1>

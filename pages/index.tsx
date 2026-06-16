@@ -135,18 +135,15 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>{`Bartender Sanctuary — ${t('heroTitlePrefix')} ${t('heroTitleAccent')}`}</title>
-        <meta name="description" content="Explore Bartender Sanctuary's complete cocktail recipe collection. From timeless classics to modern craft cocktails, find step-by-step instructions, bartending techniques, and the rich history behind every drink." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <SEO
         title={`Bartender Sanctuary — ${t('heroTitlePrefix')} ${t('heroTitleAccent')}`}
         description="Explore Bartender Sanctuary's complete cocktail recipe collection. From timeless classics to modern craft cocktails, find step-by-step instructions, bartending techniques, and the rich history behind every drink."
         path="/"
       />
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
       <Hero
         t={t}

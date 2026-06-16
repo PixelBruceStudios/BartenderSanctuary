@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
+import SEO from '@/components/SEO';
 import CategoryNav from '@/components/forum/CategoryNav';
 import ThreadList from '@/components/forum/ThreadList';
 import { forumCategories, getForumThreadsByCategory } from '@/data/blog.generated';
@@ -17,6 +17,7 @@ export default function ForumCategory({ categorySlug }: { categorySlug: string }
   };
 
   useEffect(() => {
+    setLoading(true);
     fetch('/api/forum/threads')
       .then((r) => r.json())
       .then((data) => {
@@ -25,14 +26,15 @@ export default function ForumCategory({ categorySlug }: { categorySlug: string }
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, [activeSlug]);
+  }, [categorySlug]);
 
   return (
     <>
-      <Head>
-        <title>{active ? `${active.title} — Forum` : 'Forum'} — Bartender Sanctuary</title>
-        <meta name="description" content={active?.description || 'Forum threads.'} />
-      </Head>
+      <SEO
+        title={active ? `${active.title} — Forum` : 'Forum'}
+        description={active?.description || 'Forum threads.'}
+        path={`/forum/category/${categorySlug}`}
+      />
 
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '2rem 1.5rem' }}>
         <div style={{ marginBottom: '1rem' }}>

@@ -27,8 +27,8 @@ export default function SEO({ title, description, path = '', image = DEFAULT_IMA
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
-
-      {/* Twitter */}
+      <meta property="og:image:alt" content={title} />
+      <meta property="og:site_name" content="Bartender Sanctuary" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
