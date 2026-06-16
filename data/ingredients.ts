@@ -285,7 +285,13 @@ export const ingredients: Ingredient[] = [
   { name: "Cointreau", category: "Liqueurs", description: "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish. The standard for classic cocktails.", brands: ["Cointreau"], notes: "Margarita, Cosmopolitan, Sidecar, White Lady.", bottles: [
     { name: "Cointreau", description: "Premium French triple sec from the Cointreau family. Distilled from sweet and bitter orange peels. Crisp, clean, dry orange flavor at 40% ABV. The gold standard for Margarita and Sidecar.", related: ["Pierre Ferrand Dry Curaçao", "Combier", "Marie Brizard Triple Sec"], }
   ,
-    { name: "Pierre Ferrand Dry Curaçao", description: "Dry orange curaçao from Pierre Ferrand. Made from dried curaçao orange peels. 40% ABV. The premium orange liqueur for Margarita.", related: ["Cointreau", "Combier", "Marie Brizard Orange Cura\u00e7ao"] }
+    { name: "Pierre Ferrand Dry Curaçao", description: "Dry orange curaçao from Pierre Ferrand. Made from dried curaçao orange peels. 40% ABV. The premium orange liqueur for Margarita.", related: ["Cointreau", "Combier", "Marie Brizard Orange Curaçao"] }
+  ,
+    { name: "Combier Triple Sec", description: "French triple sec from Combier, made since 1834 in the Loire Valley. 40% ABV. A historic alternative to Cointreau with a clean, bright orange character.", related: ["Cointreau", "Marie Brizard Triple Sec", "Bols Triple Sec"] }
+  ,
+    { name: "Marie Brizard Triple Sec", description: "French triple sec from Marie Brizard. Clean, bright orange flavor with balanced sweetness. 40% ABV. A reliable everyday mixer for Margarita and Sidecar.", related: ["Cointreau", "Combier Triple Sec", "Bols Triple Sec"] }
+  ,
+    { name: "Bols Triple Sec", description: "Dutch triple sec from Bols. Bright orange flavor with medium sweetness. 38% ABV. A versatile high-volume mixer for Cosmopolitan and Long Island Iced Tea.", related: ["Cointreau", "Combier Triple Sec", "Marie Brizard Triple Sec"] }
   ] },
   { name: "Coffee liqueur", category: "Liqueurs", description: "Coffee-flavored liqueur, typically 20–25% ABV. Sweet, dark, with strong coffee notes.", brands: ["Kahlúa", "Tia Maria", "Mr Black", "St- Brendan's", "Licor 43 (not coffee)"], notes: "Espresso Martini, White Russian, Black Russian.", bottles: [
     { name: "Kahlúa", description: "The world's most popular coffee liqueur from Mexico. Made from Arabica coffee, sugarcane spirit, and vanilla. Sweet, rich, dark. Essential for Espresso Martini and White Russian.", related: ["Tia Maria", "Mr Black Cold Brew", "St Brendan's Irish Coffee Liqueur"] },
