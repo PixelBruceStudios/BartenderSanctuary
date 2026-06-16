@@ -276,6 +276,8 @@ export const ingredients: Ingredient[] = [
     { name: "Luxardo Maraschino", description: "Premium Italian cherry liqueur from Marasca cherry pits. Complex cherry, almond, and spice notes. 32% ABV. The standard for Singapore Sling and Aviation.", related: ["Maraska Maraschino", "Bols Cherry", "Luxardo Amaretto"] }
   ,
     { name: "Bols Cherry Liqueur", description: "Dutch cherry liqueur from Bols. Sweet, bright red, with natural cherry flavor. 24% ABV. The budget-friendly option for Singapore Sling.", related: ["Luxardo Maraschino", "Maraska Maraschino", "Luxardo Amaretto"] }
+  ,
+    { name: "Maraska Maraschino", description: "Croatian cherry liqueur from the Maraska distillery in Zadar. Made from Marasca cherries. Rich, aromatic, with deep cherry and almond character. 28% ABV. A premium alternative to Luxardo for Aviation and Last Word.", related: ["Luxardo Maraschino", "Bols Cherry Liqueur", "Clear Creek Kirschwasser"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Maraschino_Maraska_Bottle.jpg" }
   ] },
   { name: "Cointreau", category: "Liqueurs", description: "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish. The standard for classic cocktails.", brands: ["Cointreau"], notes: "Margarita, Cosmopolitan, Sidecar, White Lady.", bottles: [
     { name: "Cointreau", description: "Premium French triple sec from the Cointreau family. Distilled from sweet and bitter orange peels. Crisp, clean, dry orange flavor at 40% ABV. The gold standard for Margarita and Sidecar.", related: ["Pierre Ferrand Dry Curaçao", "Combier", "Marie Brizard Triple Sec"], }
