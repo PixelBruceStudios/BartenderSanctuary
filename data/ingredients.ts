@@ -329,7 +329,8 @@ export const ingredients: Ingredient[] = [
   { name: "Drambuie", category: "Liqueurs", description: "Scottish honey-herbal liqueur. Scotch whisky base with heather honey, herbs, and spices. 40% ABV.", brands: ["Drambuie"], notes: "Rusty Nail, Civil Service, Godfather variation.", bottles: [
     { name: "Drambuie", description: "Scottish honey-herbal liqueur. Scotch whisky base infused with heather honey, herbs, and spices. 40% ABV. The classic finish for Rusty Nail.", related: ["Bénédictine", "Glayva", "Liqueur 44"] }
   ,
-    { name: "Glayva", description: "Scottish honey-herbal liqueur. Similar to Drambuie but with more citrus and spice notes. Made with Scotch whisky and heather honey.", related: ["Drambuie", "B\u00e9n\u00e9dictine", "Liqueur 44"] }
+    { name: "Glayva", description: "Scottish honey-herbal liqueur. Similar to Drambuie but with more citrus and spice notes. Made with Scotch whisky and heather honey.", related: ["Drambuie", "Bénédictine", "Liqueur 44"] }
+  , { name: "Liqueur 44", description: "Swiss herbal liqueur with a honey-herbal profile similar to Drambuie. Made with 44 herbs and botanicals. Complex, bittersweet, with orange and spice notes. The Swiss cousin to Drambuie, used in Rusty Nail and Godfather variations.", related: ["Drambuie", "Glayva", "Bénédictine D.O.M."] }
   ] },
   { name: "Elderflower liqueur", category: "Liqueurs", description: "Fragrant elderflower blossom liqueur. Floral, sweet, honeyed, with pear and lychee undertones. 20% ABV.", brands: ["St-Germain"], notes: "St-Germain Spritz, Elderflower Collins, Hugo.", bottles: [
     { name: "St-Germain", description: "French elderflower liqueur. Each bottle contains up to 1,000 elderflower blossoms hand-harvested in the French Alps. Floral, sweet, honeyed, with lychee undertones. 20% ABV.", related: ["Elderflower cordials", "Monin Elderflower Syrup"], }
@@ -635,6 +636,8 @@ export const ingredients: Ingredient[] = [
     { name: "Clamato Tomato Juice Cocktail", description: "Tomato juice blended with clam broth. Savory, briny. The essential base for Caesar and Michelada.", related: ["Mott's Clamato", "Tomato juice"] }
   ,
     { name: "Mott's Clamato", description: "Clamato from Mott's. Tomato juice blended with clam broth. Savory, briny. The essential base for Caesar.", related: ["Clamato Tomato Juice Cocktail", "Tomato juice"] }
+  , { name: "Clamato Original", description: "The classic tomato juice + clam broth blend from Mott's. Savory, briny, with a hint of sea salt. The original Caesar mixer.", related: ["Mott's Clamato", "Clamato Tomato Juice Cocktail"] }
+  , { name: "Clamato The Works", description: "Spicy Clamato variant with lime and hot sauce already blended. Savory, briny, with a kick. The all-in-one Caesar mixer.", related: ["Mott's Clamato", "Clamato Original"] }
   ] },
   { name: "Tomato juice", category: "Juices & Mixers", description: "Savory juice from tomatoes. Base for Bloody Mary and savory cocktails.", brands: ["Campbell's, fresh"], notes: "Bloody Mary, Bloody Caesar.",
   bottles: [
@@ -699,6 +702,7 @@ export const ingredients: Ingredient[] = [
     { name: "Homemade Cinnamon Syrup", description: "Simple syrup infused with cinnamon sticks. Warm, spicy sweetener for Hot Toddies.", related: ["Monin Cinnamon Syrup", "Fee Brothers Cinnamon"] }
   ,
     { name: "Monin Cinnamon Syrup", description: "Premium cinnamon syrup from Monin. Warm, spicy sweetener for Hot Toddies and Fall cocktails.", related: ["Homemade Cinnamon Syrup", "Fee Brothers Cinnamon"] }
+  , { name: "Fee Brothers Cinnamon Syrup", description: "American cinnamon syrup from Fee Brothers. Warm, spicy cinnamon sweetener. A classic alternative to Monin for Hot Toddies and Fall cocktails.", related: ["Homemade Cinnamon Syrup", "Monin Cinnamon Syrup"] }
   ] },
   { name: "Honey syrup", category: "Syrups & Sweeteners", description: "Honey thinned with hot water (usually 2:1 honey:water) for pourability. Floral, rich sweetness.", brands: ["Homemade"], notes: "Bee's Knees, Gold Rush, Penicillin.",
   bottles: [
