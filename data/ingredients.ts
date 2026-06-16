@@ -617,6 +617,10 @@ export const ingredients: Ingredient[] = [
     { name: "Bundaberg Ginger Beer", description: "Australian ginger beer brewed from real ginger. Spicy, sweet, strong ginger finish. Wikimedia image: https://upload.wikimedia.org/wikipedia/commons/5/5f/Bundaberg%2C_ginger_beer.jpg", related: ["Fever-Tree Ginger Beer", "Gosling's Stormy Ginger Beer", "Q Tonic Ginger Beer"] },
     { name: "Q Tonic Ginger Beer", description: "Dutch-made ginger beer from Q Tonic. Sharp, clean ginger spice with a dry finish. Used in craft cocktails and premium mixers.", related: ["Fever-Tree Ginger Beer", "Bundaberg Ginger Beer"] },
     { name: "Gosling's Stormy Ginger Beer", description: "Bermuda-made ginger beer from the Gosling's rum family. Bold, spicy ginger character. Essential for the Dark 'n' Stormy.", related: ["Fever-Tree Ginger Beer", "Bundaberg Ginger Beer"] }
+    ,
+    { name: "Barritt's Bermuda Ginger Beer", description: "Bermudan ginger beer from Barritt's. Bold, spicy, with a strong ginger kick. The authentic ginger beer for a Dark 'n' Stormy when you want the local pairing.", related: ["Gosling's Stormy Ginger Beer", "Fever-Tree Ginger Beer", "Bundaberg Ginger Beer"] }
+    ,
+    { name: "Reed's Extra Ginger Brew Ginger Beer", description: "American ginger beer from Reed's. Extra spicy ginger brew made with fresh ginger root. Intense ginger heat for Moscow Mules.", related: ["Fever-Tree Ginger Beer", "Bundaberg Ginger Beer", "Gosling's Stormy Ginger Beer"] }
   ] },
   { name: "Lemonade", category: "Juices & Mixers", description: "Sweetened lemon drink. Often used in British/Irish cocktails.", brands: ["Fresh or commercial"], notes: "Lemonade & Gin, certain Collins variations.",
   bottles: [
