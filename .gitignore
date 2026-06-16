@@ -8,8 +8,10 @@ out/
 .vercel/
 
 # Added by refactorer
-.env.vercel.prod
-scripts/__pycache__/\nscripts/backfill_bottle_images.py
 .env
 .env.local
 .env.production
+.env.vercel
+.env.vercel.*
+scripts/__pycache__/\
+scripts/backfill_bottle_images.py

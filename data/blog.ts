@@ -35,8 +35,9 @@ export const forumThreads: ForumThread[] = [
     categorySlug: 'techniques',
     authorName: 'Mixologist101',
     createdAt: '2026-06-10T00:00:00Z',
-    replyCount: 3,
-    lastReplyAt: '2026-06-12T00:00:00Z',
+    replyCount: 0,
+    lastReplyAt: undefined,
+    content: 'When should you stir and when should you shake? Let\'s discuss the fundamentals.',
   },
 ];
 
