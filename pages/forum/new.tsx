@@ -123,22 +123,56 @@ export default function NewTopicPage() {
 
           {error && <p style={{ color: '#e57373', fontSize: '0.9rem', marginBottom: '0.75rem' }}>{error}</p>}
 
-          <button
-            type="submit"
-            disabled={submitting}
-            style={{
-              background: 'var(--color-accent)',
-              color: '#fff',
-              border: 'none',
-              padding: '0.7rem 1.1rem',
-              borderRadius: '10px',
-              fontWeight: 600,
-              cursor: submitting ? 'not-allowed' : 'pointer',
-              opacity: submitting ? 0.7 : 1,
-            }}
-          >
-            {submitting ? 'Creating...' : 'Create topic'}
-          </button>
+          <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+            <button
+              type="button"
+              onClick={async () => {
+                const input = document.createElement('input');
+                input.type = 'file';
+                input.accept = 'image/*';
+                input.onchange = async () => {
+                  const file = input.files?.[0];
+                  if (!file) return;
+                  const form = new FormData();
+                  form.append('file', file);
+                  const res = await fetch('/api/forum/upload', { method: 'POST', body: form });
+                  const json = await res.json();
+                  if (res.ok && json.url) {
+                    setContent((c) => `${c}\n\n![image](${json.url})\n`);
+                  } else {
+                    alert(json.error || 'Upload failed.');
+                  }
+                };
+                input.click();
+              }}
+              style={{
+                background: 'var(--color-surface)',
+                color: 'var(--color-text)',
+                border: '1px solid var(--color-border)',
+                padding: '0.65rem 1rem',
+                borderRadius: '10px',
+                cursor: 'pointer',
+              }}
+            >
+              Add image
+            </button>
+            <button
+              type="submit"
+              disabled={submitting}
+              style={{
+                background: 'var(--color-accent)',
+                color: '#fff',
+                border: 'none',
+                padding: '0.7rem 1.1rem',
+                borderRadius: '10px',
+                fontWeight: 600,
+                cursor: submitting ? 'not-allowed' : 'pointer',
+                opacity: submitting ? 0.7 : 1,
+              }}
+            >
+              {submitting ? 'Creating...' : 'Create topic'}
+            </button>
+          </div>
         </form>
       </div>
     </>
