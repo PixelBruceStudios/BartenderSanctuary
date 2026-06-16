@@ -25,7 +25,7 @@ TABLES = [
     'tests',
     'test_questions',
     'test_attempts',
-    'user_progress',
+    'user_lesson_progress',
     'users',
 ]
 

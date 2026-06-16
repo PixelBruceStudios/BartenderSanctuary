@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
+const ALLOWED_ORIGINS = ['https://bartender-sanctuary-app.vercel.app'];
+
 // In-memory rate limit store (per-instance; acceptable for single-region Vercel deploys)
 const hits = new Map<string, { count: number; reset: number }>();
 const WINDOW_MS = 60_000;
@@ -12,6 +14,11 @@ function clientIp(req: NextRequest): string {
       .split(',')[0]
       .trim() || req.ip || 'unknown'
   );
+}
+
+function resolveCorsOrigin(reqOrigin: string): string | null {
+  if (!reqOrigin) return null;
+  return ALLOWED_ORIGINS.find((o) => o === reqOrigin) || null;
 }
 
 export function middleware(req: NextRequest) {
@@ -39,7 +46,33 @@ export function middleware(req: NextRequest) {
     }
   }
 
-  return NextResponse.next();
+  // CORS preflight
+  if (req.method === 'OPTIONS') {
+    const origin = req.headers.get('origin') || '';
+    const allowedOrigin = resolveCorsOrigin(origin);
+    const headers: Record<string, string> = {
+      'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type,Authorization',
+      'Access-Control-Max-Age': '86400',
+    };
+    if (allowedOrigin) {
+      headers['Access-Control-Allow-Origin'] = allowedOrigin;
+      headers['Vary'] = 'Origin';
+    }
+    return new NextResponse(null, { status: 204, headers });
+  }
+
+  const response = NextResponse.next();
+  const origin = req.headers.get('origin') || '';
+  const allowedOrigin = resolveCorsOrigin(origin);
+  if (allowedOrigin) {
+    response.headers.set('Access-Control-Allow-Origin', allowedOrigin);
+    response.headers.set('Vary', 'Origin');
+  }
+  response.headers.set('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
+  response.headers.set('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+
+  return response;
 }
 
 export const config = {
