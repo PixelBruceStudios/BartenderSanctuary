@@ -1,0 +1,4 @@
+# Ingredient Librarian Cron — Processed Set
+# One ingredient per line. Skip these on subsequent ticks until cleared.
+
+Tequila
