@@ -78,6 +78,12 @@ export const ingredients: Ingredient[] = [
   { name: "Brandy", category: "Whiskies", description: "General term for spirit distilled from fermented fruit juice, most commonly grapes (cognac is the finest brandy).", brands: ["Remy Martin VSOP", "Hennessy VS", "Martell VSOP"], notes: "Covers Brandy Alexander, Sidecar, Between the Sheets.", bottles: [
     { name: "Remy Martin VSOP", description: "Premium VSOP cognac from Remy Martin. Rich, smooth, with vanilla, dried fruit, and cocoa. A step up from VS for cocktails.", related: ["Remy Martin VS", "Remy Martin XO", "Martell VSOP"], },
     { name: "Hennessy VS", description: "World's most popular cognac. A blend of eaux-de-vie aged at least 2 years. Bold, warm, with vanilla, spice, and toasted oak.", related: ["Hennessy VSOP", "Hennessy XO", "Remy Martin VS"], }
+  ,
+    { name: "E&J VSOP Brandy", description: "California VSOP brandy from Ernest & Julio Gallo. Aged in oak. Smooth, sweet, with vanilla, caramel, and dried fruit. An accessible mixing brandy for Sidecar and Brandy Alexander.", related: ["Remy Martin VSOP", "Hennessy VS", "Torres 10 Year Brandy"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/E%26J_VSOP_Brandy_Bottle.jpg" }
+  ,
+    { name: "Torres 10 Year Brandy", description: "Spanish brandy from Torres in Catalonia. Aged 10 years in oak. Rich, smooth, with vanilla, caramel, and dried fruit. The benchmark Spanish brandy for Sidecar.", related: ["E&J VSOP Brandy", "Hennessy VS", "Asbach Uralt Brandy"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Torres_10_Brandy.jpg" }
+  ,
+    { name: "Asbach Uralt Brandy", description: "German brandy from Asbach. Aged in small oak barrels. Smooth, warm, with vanilla, spice, and stone fruit. The classic German brandy for mixed drinks.", related: ["E&J VSOP Brandy", "Hennessy VS", "Torres 10 Year Brandy"] }
   ] },
   { name: "Brandy or Cognac", category: "Whiskies", description: "Cognac is a specific type of brandy from the Cognac region of France, always double-distilled in copper pot stills.", brands: ["Remy Martin VSOP", "Hennessy VS", "Martell Cordon Bleu", "Courvoisier VS"], notes: "Cognac gives richer fruit notes in Brandy Alexander, Sazerac variation.", bottles: [
     { name: "Remy Martin VSOP", description: "Premium VSOP cognac. Rich, smooth, with vanilla, dried fruit, and cocoa.", related: ["Remy Martin VS", "Remy Martin XO", "Martell VSOP"], },
