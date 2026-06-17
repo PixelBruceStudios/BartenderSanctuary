@@ -533,8 +533,10 @@ export const ingredients: Ingredient[] = [
 },
   { name: "Sweet vermouth", category: "Sherries & Vermouths", description: "Sweet, rich aromatised wine. Caramel, vanilla, herbs, citrus. ~16% ABV. Keep refrigerated.", brands: ["Carpano Antica", "Dolin Sweet", "Martini & Rossi Rosso", "Cinzano Rosso"], notes: "Negroni, Manhattan, Boulevardier, Americano, Rob Roy.",
   bottles: [
-        { name: "Carpano Antica Formula", description: "Premium Italian sweet vermouth from Fratelli Branca. First vermouth created by Antonio Carpano in 1786. Intensely herbal, vanilla-forward, with dried fruit and toffee. 23% ABV.", related: ["Carpano Punt e Mes", "Dolin Sweet", "Martini & Rossi Rosso"] },
-    { name: "Carpano Antica Formula", description: "Premium sweet vermouth from Carpano. Rich vanilla, caramel, dried fruit, and baking spices. 16% ABV. The benchmark for Manhattan.", related: ["Dolin Sweet Vermouth", "Martini & Rossi Rosso", "Cinzano Rosso"] }
+    { name: "Carpano Antica Formula", description: "Premium Italian sweet vermouth from Fratelli Branca. First vermouth created by Antonio Carpano in 1786. Intensely herbal, vanilla-forward, with dried fruit and toffee. 23% ABV.", related: ["Carpano Punt e Mes", "Dolin Sweet", "Martini & Rossi Rosso"] },
+    { name: "Dolin Sweet Vermouth", description: "Classic French sweet vermouth from Dolin. Lighter and more delicate than Carpano, with subtle herbal notes, vanilla, and orange peel. 16% ABV. Perfect for Manhattan and Negroni.", related: ["Carpano Antica Formula", "Martini & Rossi Rosso", "Cinzano Rosso"] },
+    { name: "Martini & Rossi Rosso", description: "Iconic Italian sweet vermouth from Martini & Rossi. Rich, fruity, with notes of vanilla, herbs, and caramel. 15% ABV. The backbone of the perfect Manhattan.", related: ["Carpano Antica Formula", "Dolin Sweet Vermouth", "Cinzano Rosso"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Vermouth_Bottles.jpg" },
+    { name: "Cinzano Rosso", description: "Traditional Italian sweet vermouth from Cinzano. Bold, aromatic, with hints of dried fruit, spices, and herbs. 15% ABV. A reliable choice for Manhattan, Negroni, and Americano.", related: ["Carpano Antica Formula", "Dolin Sweet Vermouth", "Martini & Rossi Rosso"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Vermouth_Bottles.jpg" }
   ]
 },
 
