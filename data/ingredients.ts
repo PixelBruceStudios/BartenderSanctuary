@@ -644,6 +644,10 @@ export const ingredients: Ingredient[] = [
   bottles: [
     { name: "Fresh Orange Juice", description: "Fresh-squeezed orange juice. Sweet, fruity, bright. Far superior to carton for cocktails.", related: ["Bottled orange juice", "NFC orange juice"] }
   ,
+    { name: "Minute Maid Orange Juice", description: "Popular pasteurized orange juice from The Coca-Cola Company. Consistent sweet-citrus flavor. Widely available in cartons. A reliable backup when fresh isn't practical.", related: ["Fresh Orange Juice", "Tropicana Pure Premium", "NFC orange juice"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Minute_Maid_Orange_juice.jpeg" }
+  ,
+    { name: "Tropicana Pure Premium", description: "Premium not-from-concentrate orange juice from Tropicana. Pure squeezed taste with no added sugar or preservatives. The leading premium carton OJ for Mimosa and Screwdriver.", related: ["Fresh Orange Juice", "Minute Maid Orange Juice", "NFC orange juice"] }
+  ,
     { name: "Bottled Orange Juice", description: "Bottled orange juice. Convenient but less fresh-tasting than fresh-squeezed.", related: ["Fresh Orange Juice", "NFC orange juice"] }
   ] },
   { name: "Fresh orange juice", category: "Juices & Mixers", description: "Fresh-squeezed orange juice. Superior to carton for cocktails.", brands: ["Fresh oranges"], notes: "Deduplicated with Orange juice.",
