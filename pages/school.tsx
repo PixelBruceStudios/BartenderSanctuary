@@ -369,13 +369,7 @@ export default function SchoolPage() {
 
   if (loading || sessionLoading) {
     return (
-      <div
-        style={{
-          maxWidth: "1100px",
-          margin: "0 auto",
-          padding: "2rem 1.5rem",
-        }}
-      >
+      <div className="container">
         <p style={{ color: "var(--color-text-muted)" }}>Loading school…</p>
       </div>
     );
@@ -383,13 +377,7 @@ export default function SchoolPage() {
 
   if (error) {
     return (
-      <div
-        style={{
-          maxWidth: "1100px",
-          margin: "0 auto",
-          padding: "2rem 1.5rem",
-        }}
-      >
+      <div className="container">
         <p style={{ color: "#fca5a5" }}>Error: {error}</p>
       </div>
     );
@@ -410,7 +398,7 @@ export default function SchoolPage() {
         path="/school"
       />
 
-      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "2rem 1.5rem" }}>
+      <div className="container">
         <header
           style={{
             display: "flex",

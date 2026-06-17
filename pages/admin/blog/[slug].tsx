@@ -61,7 +61,7 @@ export default function AdminBlogEdit({ slug }: { slug: string }) {
         <h1 style={{ marginBottom: '1rem' }}>Edit blog post</h1>
         {loading && <p style={{ color: 'var(--color-text-muted)' }}>Loading…</p>}
         {error && <p style={{ color: '#e57373', marginBottom: '0.75rem' }}>{error}</p>}
-        <div style={{ display: 'grid', gap: '0.75rem', maxWidth: '900px' }}>
+        <div className="container-narrow" style={{ display: 'grid', gap: '0.75rem' }}>
           <input
             value={title}
             onChange={(e) => setTitle(e.target.value)}

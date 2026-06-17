@@ -291,7 +291,6 @@ function BottleModal({ ingredientName, onClose }: { ingredientName: string; onCl
           background: 'var(--color-bg-elevated)',
           border: '1px solid var(--color-border)',
           borderRadius: '16px',
-          maxWidth: '900px',
           width: '100%',
           maxHeight: '85vh',
           overflow: 'hidden',

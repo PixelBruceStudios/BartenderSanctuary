@@ -35,7 +35,7 @@ export default function CocktailPage() {
   if (!cocktail) {
     return (
       <div className="container" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+        <div className="container-narrow">
           <SEO title="Cocktail not found" description="The requested cocktail could not be found." path="/cocktails" />
           <h1 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Cocktail not found</h1>
           <p style={{ color: 'var(--color-text-secondary)', marginBottom: '1.5rem' }}>
@@ -70,7 +70,7 @@ export default function CocktailPage() {
       )}
 
       <div className="container" style={{ padding: '2rem 1.5rem' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div className="container">
           <div style={{ marginBottom: '2rem' }}>
             <h1
               style={{

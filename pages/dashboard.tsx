@@ -76,7 +76,7 @@ export default function Dashboard({ initialSession }: DashboardProps) {
           description="Track your bartending progress, lesson completion, and test scores at Bartender Sanctuary."
           path="/dashboard"
         />
-        <div style={{ maxWidth: 980, margin: "0 auto", padding: "24px 16px 48px" }}>
+        <div className="container">
           <div style={{ marginBottom: 20, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <Link href="/" style={{ color: "#a5b4fc", fontSize: "0.9rem", textDecoration: "none" }}>← Back to library</Link>
             <button
@@ -134,7 +134,7 @@ export default function Dashboard({ initialSession }: DashboardProps) {
         description="Track your bartending progress, lesson completion, and test scores at Bartender Sanctuary."
         path="/dashboard"
       />
-      <div style={{ maxWidth: 980, margin: "0 auto", padding: "24px 16px 48px" }}>
+      <div className="container">
         <header style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 28, flexWrap: "wrap" }}>
           <div
             style={{

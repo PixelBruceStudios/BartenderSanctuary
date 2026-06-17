@@ -91,7 +91,7 @@ export default function SearchPage() {
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search cocktails, ingredients, posts, threads…"
           className="search-input"
-          style={{ maxWidth: '720px', paddingLeft: '1rem' }}
+          style={{ paddingLeft: '1rem' }}
           autoFocus
         />
 
