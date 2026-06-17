@@ -338,6 +338,8 @@ export const ingredients: Ingredient[] = [
     { name: "St-Germain", description: "French elderflower liqueur. Each bottle contains up to 1,000 elderflower blossoms hand-harvested in the French Alps. Floral, sweet, honeyed, with lychee undertones. 20% ABV.", related: ["Elderflower cordials", "Monin Elderflower Syrup"], }
   ,
     { name: "Monin Elderflower Liqueur", description: "Elderflower liqueur from Monin. Floral, sweet, honeyed. 20% ABV. A more affordable alternative to St-Germain.", related: ["St-Germain", "Elderflower cordials", "Monin Elderflower Syrup"] }
+  ,
+    { name: "Giffard Crème de Sureau", description: "French elderflower liqueur from Giffard. Made from wild elderflower blossoms. Floral, sweet, with honey and lychee notes. 20% ABV. A premium alternative to St-Germain.", related: ["St-Germain", "Monin Elderflower Liqueur", "Rothman & Winter Elderflower Liqueur"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/St_Germain_Elderflower_Liqueur_01.jpg" }
   ] },
   { name: "Galliano", category: "Liqueurs", description: "Italian vanilla-herbal liqueur. Bright yellow, complex with vanilla, anise, and 30+ botanicals. 42.3% ABV.", brands: ["Galliano L'Autentico", "Galliano Vanilla"], notes: "Harvey Wallbanger, Yellow Bird.",
   bottles: [
