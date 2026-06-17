@@ -260,6 +260,8 @@ export const ingredients: Ingredient[] = [
   ,
     { name: "Select Aperitivo", description: "Venetian bitter aperitif. Similar to Aperol but with more herbal complexity and a hint of rhubarb. 17.5% ABV. The classic Venetian spritz alternative.", related: ["Aperol", "Cynar", "Campari"] },
     { name: "Cynar", description: "Italian bitter aperitif made from artichokes. Bitter, herbal, complex. 16.5% ABV. Unique vegetal character for spritzes and Negroni variations.", related: ["Aperol", "Campari", "Select Aperitivo"], image: "https://upload.wikimedia.org/wikipedia/commons/5/55/Cynar_%280.7_l_bottle%29.jpg" }
+  ,
+    { name: "Aperol Amaro", description: "Orange-amaro variant from the Aperol family. Bitter-orange base enriched with additional herbal and amaro botanicals. 11% ABV. A complex spritz alternative bridging the Aperol and Campari profiles.", related: ["Aperol", "Select Aperitivo", "Cynar"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Aperol_001_2025_06_08.jpg" }
   ] },
   { name: "Bénédictine", category: "Liqueurs", description: "French herbal liqueur from Fécamp. Complex: honey, herbs, spices, citrus, stone fruit. 40% ABV.", brands: ["Bénédictine D.O.M.", "B&B (Bénédictine + Brandy)"], notes: "B&B, Vieux Carré, Jamaica Mule.", bottles: [
     { name: "Bénédictine D.O.M.", description: "French herbal liqueur produced by Benedictine monks since 1510. Complex layers of honey, herbs, spices, citrus, and stone fruit. 40% ABV. The base for B&B.", related: ["B&B (B&B Liqueur)", "Chartreuse Green", "Drambuie"] }
