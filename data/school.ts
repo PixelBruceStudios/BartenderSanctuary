@@ -26,15 +26,19 @@ export interface Category {
 
 export const schoolCategories: Category[] = [
   {
+    id: 'foundations',
     slug: 'foundations',
     title: 'Foundations',
     description: 'The essential building blocks of bartending: history, setup, measurements, and palate.',
     icon: '🏗️',
+    sort_order: 0,
     techniques: [
       {
+        id: 'history-of-the-bar',
         slug: 'history-of-the-bar',
         title: 'History of the Bar',
         description: 'From ancient fermentation to the craft renaissance.',
+        sort_order: 0,
         lessons: [
           {
             id: 'ancient-fermentation',
@@ -43,6 +47,7 @@ export const schoolCategories: Category[] = [
             duration: '12 min',
             difficulty: 'Beginner',
             content: `Fermentation is one of the oldest chemical processes humans have controlled. Evidence of fermented beverages dates back to 7000–6600 BCE in Jiahu, China, where residue analysis revealed a mixed fermented drink of rice, honey, and fruit. In Mesopotamia, the Sumerians brewed beer from barley by 4000 BCE — the Hymn to Ninkasi is both a prayer and a beer recipe. Distillation emerged much later, likely between 1st century CE Alexandria and 8th–9th century Arabia, where alchemists refined wine into stronger spirits for medicinal use. Monasteries became centers of distillation knowledge across Europe by the 12th century. Understanding this timeline helps bartenders explain the "why" behind the drinks they serve.`,
+            sort_order: 0,
           },
           {
             id: 'taverns-saloons-speakeasies',
@@ -51,6 +56,7 @@ export const schoolCategories: Category[] = [
             duration: '14 min',
             difficulty: 'Beginner',
             content: `Taverns were colonial America's community hubs — part inn, part court, part voting station. By the 1800s, saloons became distinctly male working-class spaces, often tied to breweries. During Prohibition (1920–1933), legal bars closed and illegal speakeasies flourished, creating cocktail culture out of necessity: poor-quality bathtub gin needed masking, and secrecy demanded speed and small pours. This era invented or popularized the Sidecar, Bee's Knees, and French 75. After repeal, tiki bars and hotel lounges carried the cocktail forward until the dark ages of the 1970s–80s.`,
+            sort_order: 1,
           },
           {
             id: 'prohibition-legacy',
