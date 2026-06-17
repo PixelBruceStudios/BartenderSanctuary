@@ -574,6 +574,8 @@ export const ingredients: Ingredient[] = [
   bottles: [
     { name: "Dry Sauvignon Blanc", description: "Crisp, dry white wine. Citrus, green apple, herbaceous.", related: ["Dry Pinot Grigio", "Dry Chardonnay"] },
     { name: "Dry Pinot Grigio", description: "Light, dry Italian white wine. Clean, citrus, mineral.", related: ["Dry Sauvignon Blanc", "Pinot Gris"] }
+  ,
+    { name: "Pinot Grigio", description: "Italian dry white wine from the Pinot Grigio grape. Light, crisp, with citrus and mineral notes. A classic mixer for wine spritzes and light cocktails.", related: ["Dry Sauvignon Blanc", "Dry Chardonnay"] }
   ]
 },
 
@@ -759,7 +761,8 @@ export const ingredients: Ingredient[] = [
   { name: "Simple syrup", category: "Syrups & Sweeteners", description: "Equal parts sugar and water, dissolved. The standard neutral sweetener for cocktails. 1:1 ratio.", brands: ["Homemade", "Monin Simple Syrup"], notes: "Almost every cocktail that needs sweetness. ¾ oz per sour cocktail.",
   bottles: [
     { name: "Monin Simple Syrup", description: "Neutral 1:1 sugar syrup. Standard sweetener for cocktails.", related: ["Homemade simple syrup", "Rich simple syrup"] },
-    { name: "Homemade Simple Syrup", description: "Equal parts sugar and water, dissolved. The standard neutral sweetener.", related: ["Monin Simple Syrup", "Simple Syrup Concentrate"] }
+    { name: "Fee Brothers Simple Syrup", description: "American 1:1 simple syrup from Fee Brothers. Neutral sugar syrup for cocktails. A reliable alternative to Monin for high-volume bars.", related: ["Monin Simple Syrup", "Homemade Simple Syrup"] },
+    { name: "Monin Rich Simple Syrup", description: "Rich 2:1 sugar-to-water syrup from Monin. Sweeter, more viscous than standard simple syrup. Used in spirit-forward cocktails that need extra sweetness.", related: ["Monin Simple Syrup", "Homemade Simple Syrup", "Demerara Syrup"] },
   ] },
   { name: "Sugar", category: "Syrups & Sweeteners", description: "Granulated white sugar. Used for Old Fashioned muddling, sugar rims, or making simple syrup.", brands: ["Any white granulated sugar"], notes: "Old Fashioned (muddled with bitters), rimming glasses.",
   bottles: [
