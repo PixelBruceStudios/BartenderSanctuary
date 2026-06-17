@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
+import SEO from '@/components/SEO';
 import { useSession } from 'next-auth/react';
 
 export default function AdminForumEdit({ id }: { id: string }) {
@@ -49,9 +49,11 @@ export default function AdminForumEdit({ id }: { id: string }) {
 
   return (
     <>
-      <Head>
-        <title>Edit thread — Admin — Bartender Sanctuary</title>
-      </Head>
+      <SEO
+        title="Edit thread"
+        description="Edit forum thread content in the Bartender Sanctuary admin CMS."
+        path={`/admin/forum/${id}`}
+      />
       <div className="container" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
         <div style={{ marginBottom: '1rem' }}>
           <Link href="/admin" style={{ color: 'var(--color-accent)', textDecoration: 'none' }}>← Admin</Link>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
+import SEO from '@/components/SEO';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { getForumThread, getForumReplies, forumCategories } from '@/data/blog.generated';
@@ -96,10 +96,11 @@ export default function ForumThreadPage({ thread, replies: initialReplies }: { t
 
   return (
     <>
-      <Head>
-        <title>{thread.title} — Forum — Bartender Sanctuary</title>
-        <meta name="description" content={thread.title} />
-      </Head>
+      <SEO
+        title={`${thread.title} — Forum`}
+        description={thread.title}
+        path={`/forum/thread/${thread.id}`}
+      />
 
       <article className="container-narrow" style={{ padding: '2rem 1.5rem' }}>
         <div style={{ marginBottom: '1rem' }}>

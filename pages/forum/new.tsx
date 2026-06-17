@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
+import SEO from '@/components/SEO';
 import { forumCategories } from '@/data/blog.generated';
 
 export default function NewTopicPage() {
@@ -29,10 +29,11 @@ export default function NewTopicPage() {
 
   return (
     <>
-      <Head>
-        <title>New Topic — Forum — Bartender Sanctuary</title>
-        <meta name="description" content="Start a new forum discussion." />
-      </Head>
+      <SEO
+        title="New Topic"
+        description="Start a new forum discussion on Bartender Sanctuary."
+        path="/forum/new"
+      />
 
       <div className="container-form" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
         <div style={{ marginBottom: '1rem' }}>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
+import SEO from '@/components/SEO';
 import { useSession } from 'next-auth/react';
 
 export default function AdminBlogEdit({ slug }: { slug: string }) {
@@ -49,9 +49,11 @@ export default function AdminBlogEdit({ slug }: { slug: string }) {
 
   return (
     <>
-      <Head>
-        <title>Edit blog post — Admin — Bartender Sanctuary</title>
-      </Head>
+      <SEO
+        title="Edit blog post"
+        description="Edit blog post content in the Bartender Sanctuary admin CMS."
+        path={`/admin/blog/${slug}`}
+      />
       <div className="container" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
         <div style={{ marginBottom: '1rem' }}>
           <Link href="/admin" style={{ color: 'var(--color-accent)', textDecoration: 'none' }}>← Admin</Link>

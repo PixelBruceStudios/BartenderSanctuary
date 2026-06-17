@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
-import Head from "next/head";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
+import SEO from "@/components/SEO";
 
 type DashboardProps = {
   initialSession?: { user?: { id: string; email: string; name?: string | null; emailVerified?: boolean } } | null;
@@ -71,7 +71,11 @@ export default function Dashboard({ initialSession }: DashboardProps) {
   if (status === "loading" || !user) {
     return (
       <div style={{ minHeight: "100vh", background: "#08080c", color: "#e5e7eb" }}>
-        <Head><title>Dashboard · Bartender Sanctuary</title></Head>
+        <SEO
+          title="Dashboard"
+          description="Track your bartending progress, lesson completion, and test scores at Bartender Sanctuary."
+          path="/dashboard"
+        />
         <div style={{ maxWidth: 980, margin: "0 auto", padding: "24px 16px 48px" }}>
           <div style={{ marginBottom: 20, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <Link href="/" style={{ color: "#a5b4fc", fontSize: "0.9rem", textDecoration: "none" }}>← Back to library</Link>
@@ -125,8 +129,11 @@ export default function Dashboard({ initialSession }: DashboardProps) {
 
   return (
     <div style={{ minHeight: "100vh", background: "#08080c", color: "#e5e7eb" }}>
-      <Head><title>Dashboard · Bartender Sanctuary</title></Head>
-
+      <SEO
+        title="Dashboard"
+        description="Track your bartending progress, lesson completion, and test scores at Bartender Sanctuary."
+        path="/dashboard"
+      />
       <div style={{ maxWidth: 980, margin: "0 auto", padding: "24px 16px 48px" }}>
         <header style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 28, flexWrap: "wrap" }}>
           <div

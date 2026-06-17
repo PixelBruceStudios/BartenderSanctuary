@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
+import SEO from '@/components/SEO';
 import { useSession } from 'next-auth/react';
 import { blogPosts, forumThreads } from '@/data/blog.generated';
 
@@ -24,9 +24,11 @@ export default function AdminPage() {
 
   return (
     <>
-      <Head>
-        <title>Admin — Bartender Sanctuary</title>
-      </Head>
+      <SEO
+        title="Admin CMS"
+        description="Admin CMS for managing Bartender Sanctuary blog and forum content."
+        path="/admin"
+      />
       <div className="container" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '0.75rem' }}>
           <h1 style={{ margin: 0 }}>Admin CMS</h1>
