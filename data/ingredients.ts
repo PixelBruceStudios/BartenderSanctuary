@@ -268,6 +268,8 @@ export const ingredients: Ingredient[] = [
   ,
     { name: "B&B Liqueur", description: "Equal parts Bénédictine D.O.M. and brandy. Smoother, richer, and slightly lower ABV than straight Bénédictine. The classic digestif.", related: ["Bénédictine D.O.M.", "Drambuie", "Chartreuse Green"] }
   ,
+    { name: "Bénédictine & Brandy", description: "Classic blend of Bénédictine D.O.M. and fine brandy. Smoother and richer than straight Bénédictine with a velvety finish. The traditional French digestif.", related: ["Bénédictine D.O.M.", "B&B Liqueur", "Drambuie"] }
+  ,
     { name: "Glayva", description: "Scottish honey-herbal liqueur. Similar to Drambuie but with more citrus and spice notes. Made with Scotch whisky and heather honey. A popular alternative in Rusty Nail and Godfather variations.", related: ["Drambuie", "Bénédictine D.O.M.", "Chartreuse Green"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Glayva.jpg" }
   ] },
   { name: "Campari", category: "Liqueurs", description: "Italian bitter aperitif. Intensely red, bitter, herbal — notes of rhubarb, cherry, cinnamon, and citrus peel. 20.5% ABV.", brands: ["Campari"], notes: "Negroni, Boulevardier, Americano, Jungle Bird.", bottles: [
