@@ -452,7 +452,10 @@ export const ingredients: Ingredient[] = [
   { name: "Fernet-Branca", category: "Bitters & Aperitifs", description: "Italian amaro bitter digestif. Intensely bitter, minty, menthol, eucalyptus, and herbaceous. 39% ABV.", brands: ["Fernet-Branca"], notes: "Toronto, Hanky Panky, Fernet & Coke (Argentina).",
   bottles: [
     { name: "Fernet-Branca", description: "Italian amaro bitter digestif. Intensely bitter, minty, menthol, eucalyptus. 39% ABV.", related: ["Fernet-Branca Menta", "Amaro Averna"] },
-    { name: "Fernet-Branca Menta", description: "Mint version of Fernet-Branca. Even more menthol and minty.", related: ["Fernet-Branca", "Amaro Montenegro"] }
+    { name: "Fernet-Branca Menta", description: "Mint version of Fernet-Branca. Even more menthol and minty.", related: ["Fernet-Branca", "Amaro Montenegro"] },
+    { name: "Amaro Averna", description: "Sicilian amaro from Caltanissetta, produced by the Averna family since 1868. Bitter, sweet, with citrus, dried fruit, and Mediterranean herbs. 29% ABV. The benchmark for amaro-forward cocktails and neat digestif.", related: ["Fernet-Branca", "Amaro Montenegro", "Aperol"] },
+    { name: "Amaro Montenegro", description: "Classic Italian amaro from Bologna, produced since 1885. Balanced bitter-sweet profile with vanilla, citrus, and 40 botanicals. 23% ABV. A cornerstone amaro for Boulevardier and digestif service.", related: ["Fernet-Branca", "Amaro Averna", "Amaro Nonino"] },
+    { name: "Ramazzotti Amaro", description: "Italian amaro from the Ramazzotti house, produced since 1815. Bitter-sweet with rhubarb, citrus, and 30 botanicals. 30% ABV. A classic digestif for sipping or stirred cocktails.", related: ["Amaro Averna", "Amaro Montenegro", "Aperol"] }
   ]
 },
   { name: "Green Chartreuse", category: "Bitters & Aperitifs", description: "French herbal liqueur made by Carthusian monks since 1605. 130+ botanicals. Bright green, complex, 55% ABV.", brands: ["Green Chartreuse V.P. (55%)", "Green Chartreuse (41%) — 'Alpine Strength'"], notes: "Last Word, Chartreuse Swizzle, Ti' Punch variation.",
