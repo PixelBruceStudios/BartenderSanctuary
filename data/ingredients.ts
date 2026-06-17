@@ -564,7 +564,10 @@ export const ingredients: Ingredient[] = [
   { name: "Prosecco", category: "Wines & Sparkling", description: "Italian sparkling wine from Veneto region. Light, fruity, Glera grape. 10.5–11.5% ABV.", brands: ["Nino Franco Rustico", "Bisol Jeio", "Santa Margherita", "Zonin", "La Marca"], notes: "Aperol Spritz, Bellini, Mimosa.",
   bottles: [
     { name: "La Marca Prosecco", description: "Italian Prosecco from Veneto. Light, fruity, Glera grape.", related: ["Nino Franco Rustico", "Bisol Jeio", "Santa Margherita"] },
-    { name: "Santa Margherita Prosecco", description: "Crisp, clean Prosecco from Valdobbiadene.", related: ["La Marca", "Zonin Prosecco", "Bisol Jeio"] }
+    { name: "Santa Margherita Prosecco", description: "Crisp, clean Prosecco from Valdobbiadene.", related: ["La Marca", "Zonin Prosecco", "Bisol Jeio"] },
+    { name: "Nino Franco Rustico Prosecco", description: "Premium Prosecco from Nino Franco. Bright, aromatic, with fine bubbles. The Rustico is their classic expression.", related: ["La Marca Prosecco", "Santa Margherita Prosecco", "Bisol Jeio"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/A_bottle_of_Prosecco.jpg" },
+    { name: "Bisol Jeio Prosecco", description: "Fresh, vibrant Prosecco from Bisol. Light, fruity, with delicate floral notes.", related: ["La Marca Prosecco", "Santa Margherita Prosecco", "Nino Franco Rustico Prosecco"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/A_bottle_of_Prosecco.jpg" },
+    { name: "Valdo Prosecco di Valdobbiadene", description: "Prosecco from Valdobbiadene DOCG region. Crisp, mineral-driven, with fine persistent bubbles.", related: ["La Marca Prosecco", "Santa Margherita Prosecco", "Nino Franco Rustico Prosecco"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/A_bottle_of_Prosecco.jpg" }
   ]
 },
   { name: "Dry white wine", category: "Wines & Sparkling", description: "Unfortified dry white wine. Sauvignon Blanc, Pinot Grigio, etc. Used in wine-based cocktails.", brands: ["House pour"], notes: "Wine Spritzer, Sangria, certain Coolers.",
