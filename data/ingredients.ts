@@ -391,7 +391,10 @@ export const ingredients: Ingredient[] = [
   { name: "Orange liqueur", category: "Liqueurs", description: "General term for orange-flavored liqueurs including triple sec, curaçao, and Cointreau.", brands: ["Cointreau", "Pierre Ferrand Dry Curaçao", "Combier", "Marie Brizard"], notes: "Encompasses Triple sec, Cointreau, and Orange curaçao.",
   bottles: [
     { name: "Cointreau", description: "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish.", related: ["Pierre Ferrand Dry Curaçao", "Combier", "Marie Brizard Triple Sec"], },
-    { name: "Pierre Ferrand Dry Curaçao", description: "Dry orange curaçao from Pierre Ferrand. 40% ABV.", related: ["Cointreau", "Bols Orange Curaçao", "Marie Brizard"] }
+    { name: "Pierre Ferrand Dry Curaçao", description: "Dry orange curaçao from Pierre Ferrand. 40% ABV.", related: ["Cointreau", "Bols Orange Curaçao", "Marie Brizard"] },
+    { name: "Combier", description: "Historic French triple sec from the Combier distillery in the Loire Valley. Bright, clean orange flavor with a hint of bitter orange peel. 40% ABV. One of the original triple sec brands, founded in 1834.", related: ["Cointreau", "Pierre Ferrand Dry Curaçao", "Marie Brizard Triple Sec"] },
+    { name: "Marie Brizard Triple Sec", description: "French triple sec liqueur from Marie Brizard. Sweet, aromatic orange flavor with a smooth finish. 25% ABV. Widely available and affordable for mixing in Sidecars and Margaritas.", related: ["Cointreau", "Pierre Ferrand Dry Curaçao", "Combier"] },
+    { name: "Bols Orange Curaçao", description: "Dutch orange curaçao from the Bols distillery. Balanced sweet-orange flavor with a hint of bitterness. 35% ABV. A versatile mixer for cocktails and a staple in many bars.", related: ["Cointreau", "Pierre Ferrand Dry Curaçao", "Marie Brizard Triple Sec"] }
   ]
 },
   { name: "Peach schnapps", category: "Liqueurs", description: "Peach-flavored schnapps. Sweet, often artificially flavored, 15–20% ABV. Very 1980s-90s.", brands: ["DeKuyper Peach Schnapps", "Archers", "Hiram Walker"], notes: "Sex on the Beach, Fuzzy Navel, certain Shooters.",
