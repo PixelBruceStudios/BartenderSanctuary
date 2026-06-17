@@ -1,10 +1,6 @@
 # Ingredient Librarian Cron — Processed Set
 # One ingredient per line. Skip these on subsequent ticks until cleared.
 
-Tequila
-Bénédictine
-Campari
-Cherry liqueur
-Vodka
-Cointreau
-Coffee liqueur
+Cinnamon syrup
+Clamato juice
+Drambuie
