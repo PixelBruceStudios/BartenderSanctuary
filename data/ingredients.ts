@@ -424,6 +424,8 @@ export const ingredients: Ingredient[] = [
   bottles: [
     { name: "Cointreau", description: "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish.", related: ["Pierre Ferrand Dry Curaçao", "Combier", "Marie Brizard Triple Sec"], },
     { name: "Combier Triple Sec", description: "French triple sec from Combier, made since 1834. 40% ABV.", related: ["Cointreau", "Marie Brizard Triple Sec", "Bols Triple Sec"] }
+  ,
+    { name: "Pierre Ferrand Dry Curaçao", description: "Dry orange curaçao from Pierre Ferrand. Made from dried curaçao orange peels. 40% ABV. A premium orange liqueur for Margarita and Sidecar.", related: ["Cointreau", "Combier Triple Sec", "Marie Brizard Triple Sec"] }
   ]
 },
   { name: "White crème de menthe", category: "Liqueurs", description: "Clear/white mint crème liqueur. Same mint flavor as green but without artificial coloring. Useful in shaken cocktails.", brands: ["Marie Brizard", "Bols", "DeKuyper"], notes: "Stinger, Grasshopper (white version).",
