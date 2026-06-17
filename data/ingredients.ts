@@ -565,6 +565,10 @@ export const ingredients: Ingredient[] = [
     { name: "Ocean Spray Cranberry Juice Cocktail", description: "Classic cranberry juice cocktail. Tart-sweet, widely available. The standard for Cape Codder and Cosmopolitan.", related: ["Lakewood Organic Cranberry", "R.W. Knudsen Cranberry"] }
   ,
     { name: "R.W. Knudsen Cranberry Juice", description: "Cranberry juice from R.W. Knudsen. Tart-sweet, natural. Premium option for Cosmopolitan.", related: ["Ocean Spray Cranberry Juice Cocktail", "Lakewood Organic Cranberry"] }
+  ,
+    { name: "Lakewood Organic Cranberry Juice", description: "Organic cranberry juice from Lakewood. Tart-sweet, made from concentrate-free whole cranberries. A natural alternative to Ocean Spray for Cape Codder and Cosmopolitan.", related: ["Ocean Spray Cranberry Juice Cocktail", "R.W. Knudsen Cranberry Juice"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/2021-04-20_19_06_46_A_bottle_of_Ocean_Spray_Cranberry_Juice_in_the_Franklin_Farm_section_of_Oak_Hill%2C_Fairfax_County%2C_Virginia.jpg" }
+  ,
+    { name: "Ocean Spray Cranberry Juice", description: "Classic Ocean Spray cranberry juice. Tart-sweet, widely available. The standard for Cape Codder and Cosmopolitan when pre-bottled cocktail juice is needed.", related: ["Ocean Spray Cranberry Juice Cocktail", "Lakewood Organic Cranberry Juice"] }
   ] },
   { name: "Grapefruit juice", category: "Juices & Mixers", description: "Bitter-sweet juice from grapefruit. Can be white (blond) or ruby (red). Freshest when juiced.", brands: ["Fresh"], notes: "Greyhound, Paloma, Hemingway Daiquiri.",
   bottles: [
