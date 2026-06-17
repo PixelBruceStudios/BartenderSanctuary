@@ -830,7 +830,10 @@ export const ingredients: Ingredient[] = [
   // OTHER SPIRITS & INGREDIENTS
   { name: "Falernum", category: "Other Spirits", description: "Caribbean syrup-spice liqueur. Almond, ginger, clove, allspice. Sweet, warm, 11% ABV.", brands: ["Fee Brothers Falernum", "Old Professor Falernum", "Romilly's"], notes: "Tiki Punch, Scorpion, certain Mai Tai recipes.", bottles: [
     { name: "Fee Brothers Falernum", description: "Caribbean falernum liqueur from Fee Brothers. Almond, ginger, clove, allspice. Sweet, warm, 11% ABV. The classic choice for Tiki drinks.", related: ["Old Professor Falernum", "Romilly's Falernum"] },
-    { name: "Romilly's Falernum", description: "Jamaican falernum liqueur. Traditional recipe with almond, ginger, and spices. Sweet, warm.", related: ["Fee Brothers Falernum", "Old Professor Falernum"] }
+    { name: "Romilly's Falernum", description: "Jamaican falernum liqueur. Traditional recipe with almond, ginger, and spices. Sweet, warm.", related: ["Fee Brothers Falernum", "Old Professor Falernum"] },
+    { name: "Old Professor Falernum", description: "California-made falernum liqueur with almond, ginger, clove, and allspice. Sweet, warm spiced profile. Popular Tiki ingredient.", related: ["Fee Brothers Falernum", "Romilly's Falernum"] },
+    { name: "Blackheart Falernum", description: "Premium falernum liqueur with authentic Caribbean spiced profile. Almond-forward with ginger and allspice warmth. Craft cocktail staple.", related: ["Fee Brothers Falernum", "Romilly's Falernum"] },
+    { name: "Martinique Spiced Falernum", description: "Martinique-produced falernum combining traditional Caribbean spices with rhum agricole notes. Almond, ginger, clove, allspice.", related: ["Fee Brothers Falernum", "Romilly's Falernum"] }
   ] },
   { name: "Applejack", category: "Other Spirits", description: "American apple brandy made from hard cider. Strong apple character, warm spirit.", brands: ["Laird's Applejack (100 proof or 80 proof)"], notes: "Jack Rose, Applejack Rabbit.",
   bottles: [
