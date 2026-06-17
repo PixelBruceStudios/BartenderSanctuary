@@ -23,10 +23,9 @@ export default function Hero({ t, cocktailsCount, basesCount, onFindDrink, onBro
       <HeroNebula />
 
       <div
+        className="container-narrow"
         style={{
           position: 'relative',
-          maxWidth: '900px',
-          margin: '0 auto',
           padding: '5rem 1.5rem 4.5rem',
           textAlign: 'center',
           width: '100%',
