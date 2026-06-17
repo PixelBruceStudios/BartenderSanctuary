@@ -15,3 +15,5 @@ out/
 .env.vercel.*
 scripts/__pycache__/\
 scripts/backfill_bottle_images.py
+ingredients-cron-processed.txt
+tsconfig.tsbuildinfo
