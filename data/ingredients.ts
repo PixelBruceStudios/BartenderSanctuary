@@ -794,6 +794,10 @@ export const ingredients: Ingredient[] = [
   ] },
   { name: "Cucumber slices", category: "Fresh & Garnish", description: "Fresh cucumber, thinly sliced. Cool, watery, mild flavor for garnish or muddling.", brands: ["Fresh"], notes: "Hendrick's garnish, Pimm's Cup garnish.",
   bottles: [
+    { name: "Persian Cucumber", description: "Small, crisp Persian cucumber with thin skin and minimal seeds. Sweet, mild, and refreshing. A reliable garnish alternative when English cucumber is unavailable.", related: ["Fresh Cucumber", "English cucumber"] }
+  ,
+    { name: "Kirby Cucumber", description: "Small, firm American pickling cucumber. Crisp texture and mild flavor. Excellent for muddling in savory cocktails.", related: ["Fresh Cucumber", "English cucumber"] }
+  ,
     { name: "Fresh Cucumber", description: "Fresh cucumber, thinly sliced. Cool, watery, mild. Classic Hendrick's and Pimm's garnish.", related: ["English cucumber", "Persian cucumber"] }
   ,
     { name: "English Cucumber", description: "English cucumber. Thin-skinned, seedless, mild. The premium choice for Hendrick's garnish.", related: ["Fresh Cucumber", "Persian cucumber"] }
