@@ -530,7 +530,10 @@ export const ingredients: Ingredient[] = [
   { name: "Fino sherry", category: "Sherries & Vermouths", description: "Lightest, driest sherry style. Aged under flor (yeast film). Pale, saline, almond, and green apple.", brands: ["Tio Pepe Fino", "Lustau Fino", "Gonzalez Byass Fino"], notes: "Adonis, Bamboo, Sherry Cobbler.",
   bottles: [
     { name: "Tio Pepe Fino", description: "Spain's most famous fino sherry. Pale, dry, saline, almond, green apple.", related: ["Lustau Fino", "Lustau Amontillado", "Gonzalez Byass Fino"] },
-    { name: "Lustau Fino", description: "Fine fino sherry from Lustau. Pale, bone-dry, saline almond and apple notes.", related: ["Tio Pepe", "Lustau Amontillado", "Lustau Palo Cortado"] }
+    { name: "Lustau Fino", description: "Fine fino sherry from Lustau. Pale, bone-dry, saline almond and apple notes.", related: ["Tio Pepe", "Lustau Amontillado", "Lustau Palo Cortado"] },
+    { name: "Gonzalez Byass Fino", description: "Fino sherry from the renowned González Byass house in Jerez. Pale, dry, saline with fresh yeast and green apple notes. A classic Tio Pepe sibling. 15% ABV.", related: ["Tio Pepe Fino", "Lustau Fino", "La Gitana Manzanilla"] },
+    { name: "La Gitana Manzanilla", description: "Manzanilla fino from Bodega Hidalgo La Gitana in Sanlúcar de Barrameda. Bone-dry, saline, with floral yeast notes and a briny Atlantic character. 15% ABV. The defining Manzanilla.", related: ["Tio Pepe Fino", "Lustau Fino", "Gonzalez Byass Fino"] },
+    { name: "Valdespino Fino", description: "Fino sherry from Valdespino, one of Jerez's oldest bodegas (founded 1430). Pale, dry, with refined saline and almond notes. A historic fino producer. 15% ABV.", related: ["Tio Pepe Fino", "Lustau Fino", "Gonzalez Byass Fino"] }
   ]
 },
   { name: "Sweet vermouth", category: "Sherries & Vermouths", description: "Sweet, rich aromatised wine. Caramel, vanilla, herbs, citrus. ~16% ABV. Keep refrigerated.", brands: ["Carpano Antica", "Dolin Sweet", "Martini & Rossi Rosso", "Cinzano Rosso"], notes: "Negroni, Manhattan, Boulevardier, Americano, Rob Roy.",
