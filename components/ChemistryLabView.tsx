@@ -46,7 +46,7 @@ const DIFFICULTY_COLORS: Record<string, string> = {
   Advanced: "#f87171",
 };
 
-export default function SpaceUniverse({
+export default function ChemistryLab({
   category,
   completedLessons,
   onSelectLesson,

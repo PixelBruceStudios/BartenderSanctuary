@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useTranslation } from "@/lib/contexts";
 import SEO from "@/components/SEO";
-import SpaceUniverse from "@/components/ChemistryLabView";
+import ChemistryLab from "@/components/ChemistryLabView";
 
 type Lesson = {
   id: string;
@@ -529,7 +529,7 @@ export default function SchoolPage() {
 
         <div style={{ display: "grid", gap: "1.5rem" }}>
           {view === "universe" ? (
-            <SpaceUniverse
+            <ChemistryLab
               category={active}
               completedLessons={completedLessonIds}
               onSelectLesson={(categorySlug, techniqueSlug, lessonId) => {
