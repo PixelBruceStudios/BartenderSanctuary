@@ -384,7 +384,9 @@ export const ingredients: Ingredient[] = [
   bottles: [
     { name: "Luxardo Maraschino", description: "Premium Italian maraschino liqueur from Marasca cherry pits. 32% ABV.", related: ["Maraska Maraschino", "Luxardo Amaretto"] },
     { name: "Maraska Maraschino", description: "Croatian maraschino liqueur from Zadar. Dry, complex, made from Marasca cherries.", related: ["Luxardo Maraschino", "Bols Cherry Brandy"] },
-    { name: "Bols Maraschino", description: "Dutch maraschino liqueur from Bols. Cherry and almond notes with a hint of spice. 24% ABV.", related: ["Luxardo Maraschino", "Maraska Maraschino"] }
+    { name: "Bols Maraschino", description: "Dutch maraschino liqueur from Bols. Cherry and almond notes with a hint of spice. 24% ABV.", related: ["Luxardo Maraschino", "Maraska Maraschino"] },
+    { name: "Cherry Heering Liqueur", description: "Danish cherry liqueur produced since 1818. Made from steeping sour cherries in spirits and aging in oak. Rich, full-bodied cherry character with nutty and spicy undertones. 24% ABV. A classic ingredient for Singapore Sling and Blood and Sand.", related: ["Luxardo Maraschino", "Maraska Maraschino", "Bols Maraschino"] },
+    { name: "Guignolet", description: "Traditional French cherry liqueur from the Loire Valley. Made from wild cherries macerated in eau-de-vie. Dry, fruity, and aromatic with bright cherry and almond notes. Traditionally used in Guinguette parties and regional French cocktails.", related: ["Luxardo Maraschino", "Maraska Maraschino", "Bols Maraschino"] }
   ]
 },
   { name: "Orange curaçao", category: "Liqueurs", description: "Orange-flavored liqueur made from dried curaçao orange peels (from Caribbean island). Dry, bitter-orange, 40% ABV.", brands: ["Pierre Ferrand Dry Curaçao", "Bols Orange Curaçao", "Marie Brizard"], notes: "Margarita (when not using triple sec), Sidecar.",
