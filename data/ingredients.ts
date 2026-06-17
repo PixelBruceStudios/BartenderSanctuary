@@ -807,6 +807,8 @@ export const ingredients: Ingredient[] = [
     { name: "Fresh Egg White", description: "Fresh egg white for foaming cocktails. Dry shake (no ice) to emulsify, then add ice and shake again.", related: ["Aquafaba (vegan alternative)", "Pasteurized egg whites"] }
   ,
     { name: "Aquafaba", description: "Chickpea brine. Vegan alternative to egg white for foaming cocktails. 3 tbsp aquafaba ≈ 1 egg white.", related: ["Fresh Egg White", "Pasteurized egg whites"] }
+  ,
+    { name: "Pasteurized Egg Whites", description: "Pasteurized liquid egg whites. Safe for cocktails without salmonella risk. Available in cartons. Same foaming properties as fresh egg white.", related: ["Fresh Egg White", "Aquafaba"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Pasteurized_egg_white.jpg" }
   ] },
   { name: "Fresh blackberries", category: "Fresh & Garnish", description: "Fresh blackberries for muddling, garnish, or as a flavor component.", brands: ["Fresh seasonal"], notes: "Bramble garnish, muddled in Berry Sours.",
   bottles: [
