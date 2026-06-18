@@ -465,6 +465,10 @@ export const ingredients: Ingredient[] = [
     { name: "St. George Absinthe Verte", description: "California-made absinthe from St. George Spirits. Wormwood, anise, fennel, hyssop. Complex herbal profile with bright anise and citrus. 60% ABV.", related: ["Pernod Absinthe", "Lucid Absinthe Supérieure", "La Fee Absinthe Supérieure"], image: "https://upload.wikimedia.org/wikipedia/commons/6/65/St._George_Absinthe_Verte.jpg" },
     { name: "Kubler Absinthe", description: "Swiss absinthe from the Val-de-Travers region. Traditional 19th-century recipe with grande wormwood, anise, and fennel. Clean, herbaceous, with balanced anise. 53% ABV.", related: ["Pernod Absinthe", "La Fee Absinthe Supérieure", "Lucid Absinthe Supérieure"] },
     { name: "Absinthe Original", description: "Swiss-style absinthe with classic grande wormwood, anise, and fennel. Smooth, herbal, with moderate anise intensity. Versatile for rinses and Corpse Reviver #2. 55% ABV.", related: ["Pernod Absinthe", "Kubler Absinthe", "La Fee Absinthe Supérieure"] }
+  ,
+    { name: "Duplais Swiss Absinthe", description: "Swiss absinthe based on the original 19th-century Duplais recipe. Grande wormwood, anise, and fennel. Balanced, herbal, with moderate anise intensity. 54% ABV. A faithful recreation of pre-ban Swiss absinthe.", related: ["Pernod Absinthe", "Kubler Absinthe", "La Fee Absinthe Supérieure"] }
+  ,
+    { name: "Tiny Foot Absinthe", description: "American absinthe produced in the historic tradition. Wormwood, anise, fennel. Bright herbal profile with citrus undertones. 60% ABV. A quality domestic option for Sazerac rinse and Corpse Reviver #2.", related: ["St. George Absinthe Verte", "Pernod Absinthe", "La Fee Absinthe Supérieure"] }
   ]
 },
   { name: "Angostura bitters", category: "Bitters & Aperitifs", description: "The iconic dash of bitters. Concentrated herbal extract with gentian root, spices, and herbs. Over 150 years old. 44.7% ABV.", brands: ["Angostura (the standard — no alternatives needed)"], notes: "In virtually every stirred cocktail. Old Fashioned, Manhattan, Martini garnish.",
