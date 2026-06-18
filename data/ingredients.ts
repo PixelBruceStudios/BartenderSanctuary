@@ -687,6 +687,12 @@ export const ingredients: Ingredient[] = [
     { name: "Fresh Persian Lime Juice", description: "Freshly squeezed lime juice. The standard for Tiki and tropical drinks.", related: ["Key lime juice", "Bottled lime juice"] }
   ,
     { name: "Bottled Lime Juice", description: "Bottled lime juice. Use only when fresh is unavailable.", related: ["Fresh Persian Lime Juice", "Lime concentrate"] }
+  ,
+    { name: "Santa Cruz Organic Lime Juice", description: "Organic bottled lime juice from Santa Cruz. Tart and bright, made from organic Persian limes. A convenient, consistent alternative to hand-squeezing for Margarita and Daiquiri.", related: ["Fresh Persian Lime Juice", "Bottled Lime Juice", "Lime Juice Concentrate"] }
+  ,
+    { name: "ReaLime Lime Juice", description: "Bottled lime juice from ReaLime. Made from real lime juice concentrate, consistent acidity for cocktails. A widely available backup for Margarita and Mojito when fresh limes are out of season.", related: ["Fresh Persian Lime Juice", "Bottled Lime Juice", "Santa Cruz Organic Lime Juice"] }
+  ,
+    { name: "Rose's Lime Juice", description: "Sweetened lime juice cordial from Rose's. A historic mixer from 1868, known for Gimlet and Daiquiri. Use in smaller quantities due to added sugar compared to plain lime juice.", related: ["Fresh Persian Lime Juice", "Bottled Lime Juice", "ReaLime Lime Juice"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Rose%27s_Lime_Juice.JPG" }
   ] },
   { name: "Orange juice", category: "Juices & Mixers", description: "Fresh orange juice for cocktails. Sweet, fruity, bright.", brands: ["Fresh oranges"], notes: "Screwdriver, Mimosa, Brass Monkey.",
   bottles: [
