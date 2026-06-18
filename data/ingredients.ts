@@ -651,6 +651,12 @@ export const ingredients: Ingredient[] = [
     { name: "Fresh Lemon Juice", description: "Fresh-squeezed lemon juice. Essential for 90% of sour cocktails.", related: ["Bottled Lemon Juice", "Lemon concentrate"] }
   ,
     { name: "Bottled Lemon Juice", description: "Bottled lemon juice (not recommended). Use only as emergency backup when fresh is unavailable.", related: ["Fresh Lemon Juice", "Lemon concentrate"] }
+  ,
+    { name: "Santa Cruz Organic Lemon Juice", description: "Organic bottled lemon juice from Santa Cruz. Made from 100% organic lemons with no added sugar or preservatives. A cleaner alternative to ReaLemon.", related: ["Fresh Lemon Juice", "ReaLemon 100% Lemon Juice", "Sicilian Lemon Juice"] }
+  ,
+    { name: "ReaLemon 100% Lemon Juice", description: "America's most recognizable bottled lemon juice brand. Made from concentrated lemon juice with added water. Consistent acidity for cocktails when fresh is unavailable.", related: ["Fresh Lemon Juice", "Lemon Concentrate", "Sicilian Lemon Juice"] }
+  ,
+    { name: "Sicilian Lemon Juice", description: "Premium bottled lemon juice from Sicily's Femminello lemons. Bright, aromatic, and closer to fresh-squeezed flavor. Widely used in Italian cocktails and cooking.", related: ["Fresh Lemon Juice", "ReaLemon 100% Lemon Juice", "Santa Cruz Organic Lemon Juice"] }
   ] },
   { name: "Lime juice", category: "Juices & Mixers", description: "Persian lime juice, fresh-squeezed. Bright, sharp acidity. Key for Tiki and tropical drinks.", brands: ["Fresh limes"], notes: "Daiquiri, Mojito, Margarita, Gimlet (traditional).",
   bottles: [
