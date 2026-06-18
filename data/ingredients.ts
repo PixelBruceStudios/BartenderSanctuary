@@ -709,6 +709,12 @@ export const ingredients: Ingredient[] = [
     { name: "Fresh Orange Juice", description: "Fresh-squeezed orange juice. The preferred version for Mimosa and Screwdriver.", related: ["Bottled orange juice", "NFC orange juice"] }
   ,
     { name: "NFC Orange Juice", description: "Not-from-concentrate orange juice. Fresher than reconstituted carton. Good for Mimosa.", related: ["Fresh Orange Juice", "Bottled orange juice"] }
+  ,
+    { name: "Simply Orange Juice", description: "Not-from-concentrate orange juice from Simply Beverages. Smooth, sweet, with no added sugar or preservatives. Widely available in distinctive clear bottles. A reliable alternative when fresh isn't possible.", related: ["Fresh Orange Juice", "NFC Orange Juice", "Tropicana Pure Premium Orange Juice"] }
+  ,
+    { name: "Tropicana Pure Premium Orange Juice", description: "Premium not-from-concentrate orange juice from Tropicana. Pure squeezed taste with no added sugar or preservatives. A staple for Mimosa and other brunch cocktails.", related: ["Fresh Orange Juice", "Simply Orange Juice", "NFC Orange Juice"] }
+  ,
+    { name: "Bottled Orange Juice", description: "Commercially bottled orange juice. Convenient for bars and home use but less vibrant than fresh-squeezed. Fine for high-volume cocktails where convenience matters.", related: ["Fresh Orange Juice", "NFC Orange Juice", "Simply Orange Juice"] }
   ] },
   { name: "Papaya juice", category: "Juices & Mixers", description: "Tropical juice from papaya. Sweet, mild, creamy texture. Rare in classic cocktails.", brands: ["Fresh or canned"], notes: "Tiki drinks, tropical variations.",
   bottles: [
