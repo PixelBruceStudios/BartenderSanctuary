@@ -721,6 +721,8 @@ export const ingredients: Ingredient[] = [
     { name: "Fresh Papaya Juice", description: "Fresh papaya juice. Sweet, mild, creamy tropical flavor. Best fresh or frozen.", related: ["Canned papaya nectar", "Papaya puree"] }
   ,
     { name: "Canned Papaya Nectar", description: "Canned papaya nectar. Sweet, mild, creamy tropical. Convenient when fresh papaya isn't available.", related: ["Fresh Papaya Juice", "Papaya puree"] }
+  ,
+    { name: "Tropicana Papaya Nectar", description: "Papaya nectar from Tropicana. Sweet, mild, tropical flavor with a smooth, creamy texture. Available in cans — a convenient option for Tiki drinks and tropical cocktail variations.", related: ["Fresh Papaya Juice", "Canned Papaya Nectar"] }
   ] },
   { name: "Passion fruit juice", category: "Juices & Mixers", description: "Tart, aromatic juice from passion fruit pulp. Intensely tropical.", brands: ["Fresh or frozen puree"], notes: "Passion fruit Daiquiri, certain Tiki drinks.",
   bottles: [
