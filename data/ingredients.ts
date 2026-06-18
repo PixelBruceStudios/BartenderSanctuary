@@ -675,6 +675,12 @@ export const ingredients: Ingredient[] = [
     { name: "Fresh Persian Limes", description: "Whole fresh limes, juiced as needed. Bright, sharp citrus.", related: ["Key limes", "Bottled lime juice"] }
   ,
     { name: "Key Limes", description: "Smaller, more acidic key limes. Intense citrus flavor. Traditional for Key Lime Pie variations.", related: ["Fresh Persian Limes", "Bottled lime juice"] }
+  ,
+    { name: "Santa Cruz Organic Lime Juice", description: "Organic bottled lime juice from Santa Cruz. Made from 100% organic limes with no added sugar or preservatives. A cleaner alternative to standard bottled lime juice for Margaritas and Daiquiris.", related: ["Fresh Persian Lime Juice", "Bottled Lime Juice", "Nellie & Joe's Key West Lime Juice"] }
+  ,
+    { name: "Nellie & Joe's Key West Lime Juice", description: "Bottled lime juice from Nellie & Joe's. Made from key limes grown in Florida. Tart, bright, with authentic key lime flavor. The go-to bottled option for Key Lime Pie variations and tropical drinks.", related: ["Fresh Persian Lime Juice", "Bottled Lime Juice", "Santa Cruz Organic Lime Juice"] }
+  ,
+    { name: "Lime Juice Concentrate", description: "Frozen lime juice concentrate. Tart, acidic, shelf-stable until opened. Emergency backup when fresh limes aren't available for Daiquiri and Margarita.", related: ["Fresh Persian Lime Juice", "Bottled Lime Juice", "Nellie & Joe's Key West Lime Juice"] }
   ] },
   { name: "Fresh lime juice", category: "Juices & Mixers", description: "Freshly squeezed lime juice. The standard for all Tiki and tropical drinks.", brands: ["Fresh limes"], notes: "Deduplicated with Lime juice.",
   bottles: [
