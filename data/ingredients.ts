@@ -613,6 +613,12 @@ export const ingredients: Ingredient[] = [
     { name: "Fresh Ruby Red Grapefruit Juice", description: "Fresh-squeezed ruby red grapefruit juice. Bitter-sweet, bright. Perfect for Greyhound and Paloma.", related: ["Fresh White Grapefruit Juice", "Bottled Grapefruit Juice"] }
   ,
     { name: "Bottled Grapefruit Juice", description: "Bottled grapefruit juice. Convenient for mixing when fresh isn't available.", related: ["Fresh Ruby Red Grapefruit Juice", "Fresh White Grapefruit Juice"] }
+  ,
+    { name: "Ocean Spray Grapefruit Juice", description: "Ruby red grapefruit juice from Ocean Spray. Tart-sweet, consistent flavor. A widely available option for Palomas and Greyhounds when fresh is impractical.", related: ["Fresh Ruby Red Grapefruit Juice", "Tropicana Pure Premium Grapefruit Juice"] }
+  ,
+    { name: "Tropicana Pure Premium Grapefruit Juice", description: "Pasteurized grapefruit juice from Tropicana. Sweet-tart, consistent quality. Widely available in grocery stores as a fresh-juice alternative.", related: ["Ocean Spray Grapefruit Juice", "Fresh Ruby Red Grapefruit Juice"] }
+  ,
+    { name: "Simply Beverages Grapefruit Juice", description: "Not-from-concentrate grapefruit juice from Simply Beverages. Bright, minimally processed. A mid-tier option between fresh-squeezed and standard bottled juice.", related: ["Ocean Spray Grapefruit Juice", "Tropicana Pure Premium Grapefruit Juice"] }
   ] },
   { name: "Fresh grapefruit juice", category: "Juices & Mixers", description: "Same as grapefruit juice — fresh-squeezed for better flavor and no added sugar.", brands: ["Fresh"], notes: "Deduplicated with Grapefruit juice; fresh preferred.",
   bottles: [
