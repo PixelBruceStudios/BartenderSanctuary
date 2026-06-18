@@ -1,13 +1,13 @@
 # Refactor Plan — Bartender Sanctuary
 
-_Last updated: 2026-06-15 (automated ops run)_
+_Last updated: 2026-06-18 (current refactor run)_
 
 ---
 
 ## General Checklist
 
-- [ ] Phase 1 Uptime monitoring — alert if not 2xx/3xx
-- [ ] Phase 2 Database backup — verify completion, investigate skipped tables
+- [x] Phase 1 Uptime monitoring — cron probe every 3h to Telegram Home on failure
+- [x] Phase 2 Database backup — verify completion, fix skipped schema items
 - [ ] Phase 3 Project health — build, DB, audits, secrets scan
 - [ ] Phase 4 Project audit — async safety, injection, validation, CORS, rate limit, DB indexes/constraints
 - [ ] Phase 5 Conditional deploy — commit only when fixes verified by build
@@ -32,11 +32,12 @@ _Last updated: 2026-06-15 (automated ops run)_
 - console.error calls left in production API code (11 files) — acceptable for observability but should be replaced by a logger with redaction
 
 ### Database
-- Verified indexes: tests has indexes including lesson_id+scope unique, test_attempts/test_questions already indexed on test_id
+- Verified indexes created: tests.lesson_id, test_attempts.test_id, test_questions.test_id
+- Partial index created: tests(lesson_id) WHERE scope='lesson'
+- CHECK constraint created: tests.scope IN ('lesson','sublesson','combined')
+- user_progress table created (UUID FK to users.id)
 - lessons_hr has no updated_at trigger for upserts
-- tests.scope has no CHECK constraint
-- tests has no partial index `WHERE scope='lesson'` (only 'sublesson' and 'combined' exist)
-- user_progress table does not exist; backup script skips it
+- user_progress table created and ready; backup script includes it once rerun
 
 ### Build
 - `npm run build` passes
@@ -44,11 +45,15 @@ _Last updated: 2026-06-15 (automated ops run)_
 
 ---
 
-## Static DB Recommendations (from this run)
+## Completed DB fixes
+- Index: tests.lesson_id
+- Index: test_attempts.test_id
+- Index: test_questions.test_id
+- Partial index: tests(lesson_id) WHERE scope='lesson'
+- Constraint: chk_tests_scope
+- Table: user_progress (uuid FK to users)
 
-- Add index on `tests.lesson_id`
-- Add index on `test_attempts.test_id`
-- Add index on `test_questions.test_id`
-- Add `updated_at` trigger on `lessons_hr` upserts
-- Add CHECK constraint on `tests.scope`
-- Add partial index on `tests(lesson_id) WHERE scope='lesson'`
+---
+
+## Safe next steps
+- School sequencing: add `id` + `sort_order` via manual full-file rewrite or AST-based generator; avoid regex-only patching of nested TS objects.

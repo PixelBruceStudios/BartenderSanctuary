@@ -62,8 +62,7 @@ export default function CocktailPage() {
       />
 
       <div className="container" style={{ padding: '2rem 1.5rem' }}>
-        <div className="container">
-          <div style={{ marginBottom: '2rem' }}>
+        <div style={{ marginBottom: '2rem' }}>
             <h1
               style={{
                 fontFamily: "'Playfair Display', Georgia, serif",
