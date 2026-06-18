@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import { signIn } from "next-auth/react";
 
 export default function SignIn() {
@@ -56,7 +57,7 @@ export default function SignIn() {
           </button>
         </form>
         <p style={styles.footer}>
-          Don't have an account? <a href="/auth/signup" style={styles.link}>Sign up</a>
+          Don't have an account? <Link href="/auth/signup" style={styles.link}>Sign up</Link>
         </p>
       </div>
     </div>

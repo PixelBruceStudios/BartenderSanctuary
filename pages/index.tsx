@@ -209,7 +209,7 @@ export default function Home() {
               alignItems: 'center'
             }}
           >
-            <a
+            <Link
               href="/school"
               style={{
                 fontSize: '0.9rem',
@@ -219,8 +219,8 @@ export default function Home() {
               }}
             >
               {t('tabSchoolLink')}
-            </a>
-            <a
+            </Link>
+            <Link
               href="/ingredients"
               style={{
                 fontSize: '0.9rem',
@@ -230,8 +230,8 @@ export default function Home() {
               }}
             >
               Ingredient Library
-            </a>
-            <a
+            </Link>
+            <Link
               href="/games"
               style={{
                 fontSize: '0.9rem',
@@ -241,8 +241,8 @@ export default function Home() {
               }}
             >
               {t('tabGamesLink')}
-            </a>
-            <a
+            </Link>
+            <Link
               href="/blog"
               style={{
                 fontSize: '0.9rem',
@@ -252,8 +252,8 @@ export default function Home() {
               }}
             >
               Blog
-            </a>
-            <a
+            </Link>
+            <Link
               href="/forum"
               style={{
                 fontSize: '0.9rem',
@@ -263,7 +263,7 @@ export default function Home() {
               }}
             >
               Forum
-            </a>
+            </Link>
             <Link
               href="/search"
               style={{

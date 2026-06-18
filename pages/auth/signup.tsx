@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import bcrypt from "bcryptjs";
 
@@ -79,7 +80,7 @@ export default function SignUp() {
           </button>
         </form>
         <p style={styles.footer}>
-          Already have an account? <a href="/auth/signin" style={styles.link}>Sign in</a>
+          Already have an account? <Link href="/auth/signin" style={styles.link}>Sign in</Link>
         </p>
       </div>
     </div>

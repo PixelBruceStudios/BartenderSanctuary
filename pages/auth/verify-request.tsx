@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 export default function VerifyRequest() {
@@ -54,7 +55,7 @@ export default function VerifyRequest() {
           </button>
         </form>
         <p style={styles.footer}>
-          <a href="/auth/signin" style={styles.link}>Back to sign in</a>
+          <Link href="/auth/signin" style={styles.link}>Back to sign in</Link>
         </p>
       </div>
     </div>
