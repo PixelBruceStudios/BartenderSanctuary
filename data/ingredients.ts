@@ -919,6 +919,12 @@ export const ingredients: Ingredient[] = [
     { name: "Freshly Brewed Espresso", description: "Fresh espresso shot. Concentrated coffee flavor for Espresso Martini.", related: ["Cold brew concentrate", "Strong coffee"] }
   ,
     { name: "Cold Brew Concentrate", description: "Cold-brewed coffee concentrate. Smooth, less acidic than hot brew. Fine for Espresso Martini.", related: ["Freshly Brewed Espresso", "Strong brewed coffee"] }
+  ,
+    { name: "Stumptown Cold Brew Espresso", description: "Cold-brewed espresso from Stumptown Coffee. Concentrated, smooth, with deep chocolate and caramel notes. Dilute to taste for Espresso Martini.", related: ["Freshly Brewed Espresso", "Cold Brew Concentrate"] }
+  ,
+    { name: "Blue Bottle Espresso", description: "Small-batch espresso from Blue Bottle Coffee. Bright, clean, with floral and citrus notes. Excellent for Espresso Martini.", related: ["Freshly Brewed Espresso", "Stumptown Cold Brew Espresso"] }
+  ,
+    { name: "La Colombe Draft Espresso", description: "Draft espresso from La Colombe. Silky, rich, with notes of dark chocolate and hazelnut. Convenient for espresso cocktails.", related: ["Freshly Brewed Espresso", "Blue Bottle Espresso"] }
   ] },
   { name: "Fresh mint", category: "Fresh & Garnish", description: "Fresh mint sprigs. Muddled gently for flavor or used as a garnish slap.", brands: ["Fresh spearmint"], notes: "Mojito, Mint Julep, Southside.",
   bottles: [
