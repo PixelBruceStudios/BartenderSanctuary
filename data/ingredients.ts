@@ -931,6 +931,12 @@ export const ingredients: Ingredient[] = [
     { name: "Fresh Spearmint", description: "Fresh mint sprigs. Gently muddled for Mojito and Mint Julep, or slapped for garnish.", related: ["Peppermint", "Chocolate mint"] }
   ,
     { name: "Peppermint", description: "Peppermint sprigs. Stronger, more menthol than spearmint. Good for Stinger and after-dinner drinks.", related: ["Fresh Spearmint", "Chocolate mint"] }
+  ,
+    { name: "Chocolate mint", description: "Chocolate-flavored mint sprigs. Sweet, fragrant, with subtle cocoa notes. Decorative and aromatic for after-dinner cocktails.", related: ["Fresh Spearmint", "Peppermint"] }
+  ,
+    { name: "Apple mint", description: "Apple-scented mint sprigs. Softer, fruitier flavor than spearmint. Adds a gentle fruit note to Mint Julep variations.", related: ["Fresh Spearmint", "Peppermint"] }
+  ,
+    { name: "Pineapple mint", description: "Pineapple-scented mint variety. Tropical, fruity aroma with classic mint freshness. Fun twist for Mojito and Tiki-style drinks.", related: ["Fresh Spearmint", "Apple mint"] }
   ] },
   { name: "Fresh mint leaves", category: "Fresh & Garnish", description: "Same as Fresh mint — individual leaves for muddling or garnish.", brands: ["Fresh spearmint"], notes: "Deduplicated with Fresh mint.",
   bottles: [
