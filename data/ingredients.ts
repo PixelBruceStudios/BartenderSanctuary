@@ -341,6 +341,10 @@ export const ingredients: Ingredient[] = [
   ,
     { name: "Glayva", description: "Scottish honey-herbal liqueur. Similar to Drambuie but with more citrus and spice notes. Made with Scotch whisky and heather honey.", related: ["Drambuie", "Bénédictine", "Liqueur 44"] }
   , { name: "Liqueur 44", description: "Swiss herbal liqueur with a honey-herbal profile similar to Drambuie. Made with 44 herbs and botanicals. Complex, bittersweet, with orange and spice notes. The Swiss cousin to Drambuie, used in Rusty Nail and Godfather variations.", related: ["Drambuie", "Glayva", "Bénédictine D.O.M."] }
+  ,
+    { name: "Drambuie Royal Legacy of 1745", description: "Upscale Drambuie expression launched in 2009. Made with malt whisky base and heather honey. Complex, rich honey-herbal character with malt depth. 40% ABV. Won the Drinks International Travel Retail Award for Best Travel Retail Drinks Launch in 2009. The premium Drambuie for sipping or luxury Rusty Nail.", related: ["Drambuie", "Glayva", "Liqueur 44"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/New_drambuie_bottle.jpg" }
+  ,
+    { name: "Liqueur 44 Espresso", description: "Coffee variant of Liqueur 44. The honey-herbal Swiss liqueur combined with coffee notes. Complex, bittersweet, with orange, spice, and roasted coffee. 30% ABV. Used in coffee cocktails and after-dinner drinks.", related: ["Liqueur 44", "Drambuie", "Glayva"] }
   ] },
   { name: "Elderflower liqueur", category: "Liqueurs", description: "Fragrant elderflower blossom liqueur. Floral, sweet, honeyed, with pear and lychee undertones. 20% ABV.", brands: ["St-Germain"], notes: "St-Germain Spritz, Elderflower Collins, Hugo.", bottles: [
     { name: "St-Germain", description: "French elderflower liqueur. Each bottle contains up to 1,000 elderflower blossoms hand-harvested in the French Alps. Floral, sweet, honeyed, with lychee undertones. 20% ABV.", related: ["Elderflower cordials", "Monin Elderflower Syrup"], }
