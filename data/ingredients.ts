@@ -791,12 +791,18 @@ export const ingredients: Ingredient[] = [
   bottles: [
     { name: "Tabasco Original Red Sauce", description: "The classic Louisiana hot sauce. Vinegar-forward, spicy. 2–3 dashes for Bloody Mary.", related: ["Cholula", "Sriracha", "Valentina"] },
     { name: "Cholula Hot Sauce", description: "Mexican hot sauce with peppers and spices. Medium heat, rich flavor.", related: ["Tabasco", "Sriracha", "Valentina"] }
+  ,
+    { name: "Flying Goose Sriracha Hot Sauce", description: "Thai-style sriracha sauce with garlic and chili. Medium heat, smooth texture. The classic rooster-brand sriracha for Bloody Mary variations and Asian-inspired cocktails.", related: ["Tabasco Original Red Sauce", "Cholula Hot Sauce"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Flying_goose_sriracha_th.jpg" }
   ] },
   { name: "Worcestershire sauce", category: "Juices & Mixers", description: "Fermented savory condiment. Umami, vinegar, anchovy. Used in Bloody Mary-style drinks.", brands: ["Lea & Perrins"], notes: "Bloody Mary, Bloody Caesar — 2–3 dashes.",
   bottles: [
     { name: "Lea & Perrins Worcestershire Sauce", description: "The original Worcestershire sauce. Umami, vinegar, anchovy, tamarind. Essential for Bloody Mary — 2–3 dashes.", related: ["Wizard Worcestershire", "Annie's Naturals"] }
   ,
     { name: "Wizard Worcestershire Sauce", description: "Worcestershire sauce alternative from Wizard. Umami, vinegar, anchovy. Fine for Bloody Mary when Lea & Perrins is unavailable.", related: ["Lea & Perrins Worcestershire Sauce", "Annie's Naturals"] }
+  ,
+    { name: "Annie's Naturals Worcestershire Sauce", description: "Organic Worcestershire sauce from Annie's Naturals. Milder, less anchovy-forward than Lea & Perrins. Made with organic vinegar and spices. A gentler Bloody Mary option.", related: ["Lea & Perrins Worcestershire Sauce", "Wizard Worcestershire Sauce"] }
+  ,
+    { name: "Heinz Worcestershire Sauce", description: "American Worcestershire sauce from Heinz. Tangy, umami-rich, with vinegar, molasses, and anchovy. A widely available alternative for Bloody Mary.", related: ["Lea & Perrins Worcestershire Sauce", "Annie's Naturals Worcestershire Sauce"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Lea_%26_Perrins_worcestershire_sauce_150ml.jpg" }
   ] },
 
   // SYRUPS & SWEETENERS
