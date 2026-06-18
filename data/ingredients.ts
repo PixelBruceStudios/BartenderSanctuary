@@ -641,6 +641,10 @@ export const ingredients: Ingredient[] = [
     { name: "Fresh Lemon Juice", description: "Always use fresh-squeezed lemon juice for cocktails. Bottled lacks brightness and acidity.", related: ["Bottled Lemon Juice", "Lemon concentrate"] }
   ,
     { name: "Lemon Concentrate", description: "Frozen lemon juice concentrate. Tart, acidic. Emergency backup when fresh lemons aren't available.", related: ["Fresh Lemon Juice", "Bottled Lemon Juice"] }
+  ,
+    { name: "ReaLemon 100% Lemon Juice", description: "America's best-known bottled lemon juice brand. Made from concentrate with added citric acid for consistent tartness. 100% juice. The standard backup when fresh lemons aren't available for Whiskey Sour and Tom Collins.", related: ["Fresh Lemon Juice", "Bottled Lemon Juice", "Lemon Concentrate"] }
+  ,
+    { name: "Sicilian Lemon Juice", description: "Fresh-squeezed lemon juice from Italian Femminello di Siracusa lemons grown in Sicily. Brighter, more aromatic, with a distinctive floral sweetness compared to standard Eureka lemons. The premium choice for Italian-inspired cocktails.", related: ["Fresh Lemon Juice", "Lemon Concentrate", "Bottled Lemon Juice"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Lemon_juice.jpg" }
   ] },
   { name: "Fresh lemon juice", category: "Juices & Mixers", description: "Same as lemon juice — specifying fresh-squeezed as the standard.", brands: ["Fresh lemons"], notes: "Deduplicated with Lemon juice.",
   bottles: [
