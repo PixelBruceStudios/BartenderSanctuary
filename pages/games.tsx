@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Head from 'next/head';
 import SEO from '@/components/SEO';
 
 export default function GamesPage() {
@@ -13,8 +12,7 @@ export default function GamesPage() {
         description="Pass-the-phone party drinking games. Spin the wheel, Never Have I Ever, Most Likely To, Drinkopoly, and more."
         path="/games"
       />
-      <Head>
-        <style>{`
+      <style>{`
           html, body, #__next { margin: 0; padding: 0; }
           .games-iframe-wrap {
             position: fixed;
@@ -30,7 +28,6 @@ export default function GamesPage() {
             display: block;
           }
         `}</style>
-      </Head>
 
       <div className="games-iframe-wrap">
         {!loaded && !error && (

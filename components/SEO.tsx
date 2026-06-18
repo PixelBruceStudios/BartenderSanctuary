@@ -6,12 +6,13 @@ interface SEOProps {
   path?: string;
   image?: string;
   type?: 'website' | 'article';
+  jsonLd?: Record<string, any> | null;
 }
 
 const BASE_URL = 'https://bartender-sanctuary-app.vercel.app';
 const DEFAULT_IMAGE = `${BASE_URL}/og-image.png`;
 
-export default function SEO({ title, description, path = '', image = DEFAULT_IMAGE, type = 'website' }: SEOProps) {
+export default function SEO({ title, description, path = '', image = DEFAULT_IMAGE, type = 'website', jsonLd }: SEOProps) {
   const url = `${BASE_URL}${path}`;
   const fullTitle = title.includes('Bartender Sanctuary') ? title : `${title} | Bartender Sanctuary`;
 
@@ -38,13 +39,15 @@ export default function SEO({ title, description, path = '', image = DEFAULT_IMA
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'WebSite',
-            name: 'Bartender Sanctuary',
-            url: BASE_URL,
-            description: 'Cocktail chemistry, technique, and the stories behind the pour.',
-          }),
+          __html: JSON.stringify(
+            jsonLd ?? {
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'Bartender Sanctuary',
+              url: BASE_URL,
+              description: 'Cocktail chemistry, technique, and the stories behind the pour.',
+            }
+          ),
         }}
       />
     </Head>

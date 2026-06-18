@@ -81,9 +81,6 @@ export default function SearchPage() {
   return (
     <>
       <SEO title="Search" description="Search blog posts, forum threads, cocktails, and ingredients." path="/search" />
-      <Head>
-        <title>Search — Bartender Sanctuary</title>
-      </Head>
       <div className="container" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
         <h1 style={{ marginBottom: '1rem' }}>Search</h1>
         <input
