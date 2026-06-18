@@ -7,20 +7,25 @@ export interface Lesson {
   content: string;
   sources?: string[];
   completed?: boolean;
+  sort_order?: number;
 }
 
 export interface Technique {
+  id?: string;
   slug: string;
   title: string;
   description: string;
+  sort_order?: number;
   lessons: Lesson[];
 }
 
 export interface Category {
+  id?: string;
   slug: string;
   title: string;
   description: string;
   icon: string;
+  sort_order?: number;
   techniques: Technique[];
 }
 
