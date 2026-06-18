@@ -625,6 +625,12 @@ export const ingredients: Ingredient[] = [
     { name: "Fresh Ruby Red Grapefruit Juice", description: "Fresh-squeezed ruby red grapefruit juice. Bitter-sweet, bright. No added sugar — the preferred version.", related: ["Fresh White Grapefruit Juice", "Bottled Grapefruit Juice"] }
   ,
     { name: "Bottled Grapefruit Juice", description: "Bottled grapefruit juice. Convenient but less bright than fresh-squeezed.", related: ["Fresh Ruby Red Grapefruit Juice", "Fresh White Grapefruit Juice"] }
+  ,
+    { name: "Florida's Natural Ruby Red Grapefruit Juice", description: "Ruby red grapefruit juice from Florida's Natural. Sweet-tart, bright flavor from Florida-grown ruby red grapefruit. Not from concentrate. A widely available premium carton option.", related: ["Fresh Ruby Red Grapefruit Juice", "Tropicana Pure Premium Grapefruit Juice", "Ocean Spray Grapefruit Juice"] }
+  ,
+    { name: "Tropicana Pure Premium Grapefruit Juice", description: "Premium grapefruit juice from Tropicana. Made from ruby red grapefruit. Sweet-tart, consistent quality. Not from concentrate. The premium carton choice for Palomas and Greyhounds.", related: ["Fresh Ruby Red Grapefruit Juice", "Florida's Natural Ruby Red Grapefruit Juice", "Ocean Spray Grapefruit Juice"] }
+  ,
+    { name: "Ocean Spray Ruby Red Grapefruit Juice", description: "Ruby red grapefruit juice from Ocean Spray. Tart-sweet, consistent flavor from a trusted juice brand. Widely available in cartons. A reliable backup for Palomas and Greyhounds.", related: ["Fresh Ruby Red Grapefruit Juice", "Tropicana Pure Premium Grapefruit Juice", "Florida's Natural Ruby Red Grapefruit Juice"] }
   ] },
   { name: "Lemon juice", category: "Juices & Mixers", description: "Fresh lemon juice is essential for cocktails. Bottled lacks brightness. Always use fresh.", brands: ["Fresh lemons"], notes: "Whiskey Sour, Tom Collins, Gimlet, 90% of sour cocktails.",
   bottles: [
