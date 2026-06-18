@@ -767,6 +767,10 @@ export const ingredients: Ingredient[] = [
     { name: "Campbell's Tomato Juice", description: "Classic tomato juice. Savory, smooth. The standard base for Bloody Mary.", related: ["Fresh tomato juice", "Low-sodium tomato juice"] }
   ,
     { name: "V8 Vegetable Juice", description: "V8 vegetable juice. Tomato-based with other vegetables. Savory alternative for Bloody Mary.", related: ["Campbell's Tomato Juice", "Fresh tomato juice"] }
+  ,
+    { name: "Hunt's Tomato Juice", description: "Classic California tomato juice from Hunt's. Smooth, savory, with bright tomato flavor. A reliable Bloody Mary base widely available in the US.", related: ["Campbell's Tomato Juice", "V8 Vegetable Juice", "Fresh tomato juice"] }
+  ,
+    { name: "Muir Glen Tomato Juice", description: "Organic tomato juice from Muir Glen, grown in California. Clean, fresh tomato taste with no added sugar. A premium option for Bloody Mary and Virgin Mary.", related: ["Campbell's Tomato Juice", "Hunt's Tomato Juice", "Fresh tomato juice"] }
   ] },
   { name: "Cola", category: "Juices & Mixers", description: "Carbonated cola drink. Used as a mixer in highball-style cocktails.", brands: ["Coca-Cola", "Pepsi", "Mexican Coke (real sugar)"], notes: "Cuba Libre, Long Island Iced Tea.",
   bottles: [
