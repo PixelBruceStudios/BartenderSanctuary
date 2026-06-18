@@ -741,6 +741,12 @@ export const ingredients: Ingredient[] = [
     { name: "Dole Pineapple Juice", description: "Classic canned pineapple juice. Sweet, tropical, widely available. Good for mixing.", related: ["Fresh pineapple juice", "Pineapple nectar"] }
   ,
     { name: "Fresh Pineapple Juice", description: "Fresh-squeezed pineapple juice. Bright, tropical, superior to canned for Piña Colada.", related: ["Dole Pineapple Juice", "Pineapple nectar"] }
+  ,
+    { name: "Looza Pineapple Juice", description: "Belgian canned pineapple juice from Looza. Sweet, tropical, with a distinctive can design. Widely available in Europe; a reliable mixing juice for Pi\u00f1a Colada and tropical cocktails.", related: ["Dole Pineapple Juice", "Fresh Pineapple Juice", "Pineapple nectar"] }
+  ,
+    { name: "Libby's Pineapple Juice", description: "American canned pineapple juice from Libby's. Sweet, consistent quality, widely available in North America. A reliable mixer for tropical cocktails and Pi\u00f1a Colada.", related: ["Dole Pineapple Juice", "Fresh Pineapple Juice", "Pineapple nectar"] }
+  ,
+    { name: "Tropicana Pineapple Juice", description: "Premium not-from-concentrate pineapple juice from Tropicana. Bright tropical flavor. A step up from standard canned juice for premium tropical drinks.", related: ["Dole Pineapple Juice", "Fresh Pineapple Juice", "Pineapple nectar"] }
   ] },
   { name: "Clamato juice", category: "Juices & Mixers", description: "Tomato juice + clam broth blend. Savory, briny. Used in savory cocktails.", brands: ["Clamato ( Mott's )"], notes: "Michelada, Caesar (Canadian Bloody Mary).",
   bottles: [
