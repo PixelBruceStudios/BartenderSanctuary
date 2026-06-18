@@ -476,6 +476,12 @@ export const ingredients: Ingredient[] = [
         { name: "Angostura Aromatic Bitters", description: "The iconic dash of bitters. Concentrated herbal extract with gentian root, spices, and herbs. Over 150 years old. 44.7% ABV.", related: ["Fee Brothers Aromatic Bitters", "Bitter Truth Aromatic"] },
     { name: "Fee Brothers Aromatic Bitters", description: "American aromatic bitters from Fee Brothers. Concentrated herbal extract with gentian root, spices, and herbs. A classic alternative to Angostura.", related: ["Angostura Aromatic Bitters", "Bitter Truth Aromatic"] },
     { name: "Bitter Truth Aromatic Bitters", description: "German-made aromatic bitters. Similar herbal profile to Angostura with gentian root, spices, and herbs. 39% ABV. A quality alternative for Old Fashioneds and Manhattans.", related: ["Angostura Aromatic Bitters", "Fee Brothers Aromatic Bitters"] }
+  ,
+    { name: "Regans' Orange Bitters No. 6", description: "Iconic orange bitters created by bartender Gary Regan. Bright orange peel, warm baking spices, and subtle floral notes. The gold standard for Orange Sours and Mai Tais. 45% ABV.", related: ["Angostura Aromatic Bitters", "Fee Brothers Aromatic Bitters", "Fee Brothers Old Fashioned Bitters"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Angostura_bottle.jpg" }
+  ,
+    { name: "Fee Brothers Old Fashioned Bitters", description: "American aromatic bitters from Fee Brothers with notes of allspice, clove, and citrus peel. A classic aromatic bitters for Old Fashioneds and Manhattan variations.", related: ["Angostura Aromatic Bitters", "Bitter Truth Aromatic Bitters", "Regans' Orange Bitters No. 6"] }
+  ,
+    { name: "Peychaud's Bitters", description: "The iconic aromatic bitters from New Orleans. Bright red liquid with notes of cherry, gentian, and spices. Essential for Sazeracs and New Orleans-style cocktails. 35% ABV.", related: ["Angostura Aromatic Bitters", "Fee Brothers Aromatic Bitters", "Bitter Truth Aromatic Bitters"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Peychauds.jpg" }
   ]
 },
   { name: "Fernet-Branca", category: "Bitters & Aperitifs", description: "Italian amaro bitter digestif. Intensely bitter, minty, menthol, eucalyptus, and herbaceous. 39% ABV.", brands: ["Fernet-Branca"], notes: "Toronto, Hanky Panky, Fernet & Coke (Argentina).",
