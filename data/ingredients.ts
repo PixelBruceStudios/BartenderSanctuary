@@ -869,6 +869,12 @@ export const ingredients: Ingredient[] = [
     { name: "Fresh Blackberries", description: "Fresh blackberries for muddling or garnish in Bramble and berry sours.", related: ["Frozen blackberries", "Blackberry puree"] }
   ,
     { name: "Frozen Blackberries", description: "Frozen blackberries. Available year-round. Good for muddling in Bramble when fresh are out of season.", related: ["Fresh Blackberries", "Blackberry puree"] }
+  ,
+    { name: "Blackberry Puree", description: "Smooth blackberry purée from Monin. Rich, sweet-tart blackberry flavor. The standard purée for Bramble and berry sours in cocktail bars.", related: ["Fresh Blackberries", "Frozen Blackberries"] }
+  ,
+    { name: "Dole Blackberry Juice", description: "Ready-to-drink blackberry juice from Dole. 100% blackberry juice, no added sugar. Used as a mixer for berry-forward cocktails.", related: ["Fresh Blackberries", "Frozen Blackberries", "Blackberry Puree"] }
+  ,
+    { name: "Knudsen Blackberry Juice", description: "Cold-pressed blackberry juice from Knudsen. Rich, concentrated blackberry flavor. Great for Bramble variations and berry sours.", related: ["Fresh Blackberries", "Frozen Blackberries", "Blackberry Puree"] }
   ] },
   { name: "Fresh espresso", category: "Fresh & Garnish", description: "Freshly brewed espresso shot. Concentrated coffee flavor for coffee cocktails.", brands: ["Fresh brew"], notes: "Espresso Martini.",
   bottles: [
