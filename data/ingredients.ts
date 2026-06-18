@@ -728,7 +728,13 @@ export const ingredients: Ingredient[] = [
   bottles: [
     { name: "Fresh Passion Fruit Purée", description: "Fresh passion fruit pulp. Tart, aromatic, intensely tropical. Use frozen purée when fresh is unavailable.", related: ["Frozen passion fruit puree", "Passion fruit juice"] }
   ,
-    { name: "Frozen Passion Fruit Puree", description: "Frozen passion fruit puree. Tart, aromatic, intensely tropical. Use when fresh pulp is unavailable.", related: ["Fresh Passion Fruit Pur\u00e9e", "Passion fruit juice"] }
+    { name: "Frozen Passion Fruit Puree", description: "Frozen passion fruit puree. Tart, aromatic, intensely tropical. Use when fresh pulp is unavailable.", related: ["Fresh Passion Fruit Purée", "Passion fruit juice"] }
+  ,
+    { name: "Passoã Passion Fruit Liqueur", description: "French passion fruit liqueur (15% ABV). Smooth, sweet-tart tropical fruit character with a clean finish. Essential in a Porn Star Martini or mixed with prosecco.", image: "https://commons.wikimedia.org/wiki/Special:FilePath/Passo%C3%A3_bottle.jpg", related: ["Fresh Passion Fruit Purée", "Frozen Passion Fruit Puree"] }
+  ,
+    { name: "Fresh Passion Fruit Juice", description: "Freshly pressed or cold-pressed passion fruit juice. Bright, tart, intensely aromatic. Use for premium Daiquiris and tropical Collins-style drinks.", image: "https://commons.wikimedia.org/wiki/Special:FilePath/Passion_Fruit_juice.jpg", related: ["Fresh Passion Fruit Purée", "Frozen Passion Fruit Puree"] }
+  ,
+    { name: "Passion Fruit Nectar", description: "Sweetened passion fruit nectar blend (often 30% juice). Milder and more consistent than pure juice; works well in punches and non-alcoholic tropical mixes.", related: ["Fresh Passion Fruit Purée", "Frozen Passion Fruit Puree"] }
   ] },
   { name: "Pineapple juice", category: "Juices & Mixers", description: "Sweet, tropical juice. Best when fresh, acceptable from can for mixing.", brands: ["Dole, fresh"], notes: "Piña Colada, Jungle Bird, Hawaii Five-O.",
   bottles: [
