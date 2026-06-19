@@ -872,6 +872,10 @@ export const ingredients: Ingredient[] = [
   bottles: [
     { name: "Monin Orgeat Syrup", description: "Premium almond-orange blossom syrup. Nutty, floral. Essential for Mai Tai and Scorpion.", related: ["Fee Brothers Orgeat", "Small Hand Foods Orgeat"] },
     { name: "Small Hand Foods Orgeat", description: "Craft orgeat syrup. Made with California almonds and orange blossom water.", related: ["Monin Orgeat", "Fee Brothers"] }
+  ,
+    { name: "Fee Brothers Orgeat Syrup", description: "American orgeat syrup from Fee Brothers. Almond-orange blossom profile. Nutty, floral, reliable for Mai Tai and Tiki drinks.", related: ["Monin Orgeat Syrup", "Small Hand Foods Orgeat"] }
+  ,
+    { name: "St-Germain Orgeat Alternative", description: "Premium French orgeat-style syrup from St-Germain. Almond-forward with subtle orange blossom. A craft alternative for Mai Tai and Scorpion.", related: ["Monin Orgeat Syrup", "Small Hand Foods Orgeat"] }
   ] },
   { name: "Raspberry syrup", category: "Syrups & Sweeteners", description: "Syrup made from raspberries. Tart-sweet, deep pink-red.", brands: ["Monin", "Fee Brothers", "Homemade"], notes: "Raspberry Collins, certain Sours.",
   bottles: [
