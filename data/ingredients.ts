@@ -392,6 +392,10 @@ export const ingredients: Ingredient[] = [
     { name: "Baileys Irish Cream", description: "The original Irish cream liqueur. Irish whiskey, cream, and chocolate. 17% ABV.", related: ["Ryan's Irish Cream", "Saint Brendan's"] },
     { name: "Saint Brendan's Irish Cream", description: "Irish cream liqueur from Ireland. Smooth, rich, with Irish whiskey and cream.", related: ["Baileys Irish Cream", "Ryan's Irish Cream"] },
     { name: "Ryan's Irish Cream", description: "Irish cream liqueur with Irish whiskey and cream. Smooth, sweet, more affordable alternative to Baileys.", related: ["Baileys Irish Cream", "Saint Brendan's Irish Cream"] }
+  ,
+    { name: "Merrys Irish Cream", description: "Irish cream liqueur. Rich, creamy, with whiskey and chocolate notes. 17% ABV. A more affordable alternative to Baileys.", related: ["Baileys Irish Cream", "Saint Brendan's Irish Cream", "Ryan's Irish Cream"] }
+  ,
+    { name: "Saint Brendan's Reserve Irish Cream", description: "Premium Irish cream liqueur. Richer, smoother blend of Irish whiskey and fresh dairy cream with elevated chocolate and vanilla notes. 17% ABV. The upscale alternative to standard Irish cream for after-dinner cocktails.", related: ["Baileys Irish Cream", "Saint Brendan's Irish Cream", "Merrys Irish Cream"] }
   ]
 },
   { name: "Maraschino liqueur", category: "Liqueurs", description: "Luxardo-style cherry liqueur from Marasca cherry pits. Complex: cherry, almond, spice. 32% ABV.", brands: ["Luxardo Maraschino", "Maraska"], notes: "Aviation, Hemingway Daiquiri, Martinez.",
