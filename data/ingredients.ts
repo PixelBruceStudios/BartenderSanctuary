@@ -947,6 +947,12 @@ export const ingredients: Ingredient[] = [
     { name: "Fresh Spearmint Leaves", description: "Fresh mint leaves for muddling or garnish.", related: ["Fresh mint sprigs", "Peppermint leaves"] }
   ,
     { name: "Peppermint Leaves", description: "Peppermint leaves. Strong minty flavor. Alternative to spearmint for Mojito when available.", related: ["Fresh Spearmint Leaves", "Fresh mint sprigs"] }
+  ,
+    { name: "Corn Mint Leaves", description: "Corn mint (Mentha arvensis) leaves. High menthol content, bright and sharp. Common in Asian cuisine and herbal teas.", related: ["Fresh Spearmint Leaves", "Peppermint Leaves"] }
+  ,
+    { name: "Water Mint Leaves", description: "Water mint (Mentha aquatica) leaves. Grows near water sources. Mild, aromatic, slightly sweet. Excellent for cooling summer drinks.", related: ["Fresh Spearmint Leaves", "Peppermint Leaves"] }
+  ,
+    { name: "Chocolate Mint Leaves", description: "Chocolate mint (Mentha × piperita 'Chocolate') leaves. Mint with subtle cocoa undertones. Fragrant garnish for dessert cocktails.", related: ["Fresh Spearmint Leaves", "Peppermint Leaves"] }
   ] },
   { name: "Nutmeg", category: "Fresh & Garnish", description: "Freshly grated nutmeg. Warm, nutty, aromatic spice for garnish.", brands: ["Whole nutmeg + grater"], notes: "Brandy Alexander garnish, Eggnog, certain punches.",
   bottles: [
