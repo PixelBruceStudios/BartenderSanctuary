@@ -823,6 +823,12 @@ export const ingredients: Ingredient[] = [
     { name: "Freshly Brewed Espresso", description: "Fresh espresso shot. Concentrated coffee flavor for Espresso Martini and Irish Coffee.", related: ["Cold brew concentrate", "Strong brewed coffee"] }
   ,
     { name: "Cold Brew Concentrate", description: "Cold-brewed coffee concentrate. Smooth, less acidic than hot brew. Great for Espresso Martini variations.", related: ["Freshly Brewed Espresso", "Strong brewed coffee"] }
+  ,
+    { name: "Lavazza Super Crema Espresso", description: "Italian medium-roast espresso from Lavazza. Balanced, smooth, with notes of hazelnut and brown sugar. A crowd-pleasing all-purpose espresso for Espresso Martini and Irish Coffee.", related: ["Freshly Brewed Espresso", "Cold Brew Concentrate"] }
+  ,
+    { name: "Starbucks Pike Place Roast", description: "American medium-roast coffee from Starbucks. Smooth, well-balanced, with subtle notes of cocoa and toasted nut. A reliable hot coffee base for Irish Coffee.", related: ["Freshly Brewed Espresso", "Cold Brew Concentrate"] }
+  ,
+    { name: "illy Classico Espresso", description: "Italian medium-roast espresso from illy. Arabica-only, balanced, with notes of chocolate and caramel. Premium choice for espresso-forward cocktails.", related: ["Freshly Brewed Espresso", "Lavazza Super Crema Espresso"] }
   ] },
   { name: "Hot sauce", category: "Juices & Mixers", description: "Spicy condiment sauce. Used in small quantities for heat in savory cocktails.", brands: ["Tabasco", "Cholula", "Sriracha", "Valentina"], notes: "Michelada, Bloody Maria, Bloody Caesar.",
   bottles: [
