@@ -1007,7 +1007,14 @@ export const ingredients: Ingredient[] = [
     { name: "Heavy Cream (36-40% fat)", description: "High-fat dairy cream. Used for body in Brandy Alexander, White Russian, Ramos Gin Fizz.", related: ["Half-and-half", "Heavy whipping cream"] }
   ,
     { name: "Horizon Organic Heavy Cream", description: "Organic heavy cream (36% fat). Rich, creamy, widely available. The standard for Brandy Alexander and White Russian.", related: ["Dairy heavy cream", "Half-and-half"] }
-  ] },
+  ,
+    { name: "Land O'Lakes Heavy Cream", description: "Pasteurized heavy cream (36% fat). Rich, stable, and widely available across the US. The reliable everyday choice for shaken custard cocktails.", related: ["Heavy Cream (36-40% fat)", "Horizon Organic Heavy Cream"] }
+  ,
+    { name: "Organic Valley Heavy Cream", description: "Organic heavy cream (36% fat). From pasture-raised cows. Creamy and consistent; a common organic alternative in classic cream-based cocktails.", related: ["Horizon Organic Heavy Cream", "Heavy Cream (36-40% fat)"] }
+  ,
+    { name: "Darigold Heavy Cream", description: "Pacific Northwest heavy cream (36% fat). Rich mouthfeel and good whipping stability. Used interchangeably in bar recipes that call for heavy cream.", related: ["Heavy Cream (36-40% fat)", "Horizon Organic Heavy Cream"] }
+  ]
+},
 
   // OTHER SPIRITS & INGREDIENTS
   { name: "Falernum", category: "Other Spirits", description: "Caribbean syrup-spice liqueur. Almond, ginger, clove, allspice. Sweet, warm, 11% ABV.", brands: ["Fee Brothers Falernum", "Old Professor Falernum", "Romilly's"], notes: "Tiki Punch, Scorpion, certain Mai Tai recipes.", bottles: [
