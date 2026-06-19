@@ -1014,6 +1014,10 @@ export const ingredients: Ingredient[] = [
     { name: "Cortas Orange Blossom Water", description: "Distilled water with orange blossom essence. Highly concentrated — use drops. Floral, perfumed.", related: ["Moussel Orange Blossom Water", "Food-grade orange blossom water"] }
   ,
     { name: "Moussel Orange Blossom Water", description: "Orange blossom water from Moussel. Distilled water with orange blossom essence. Floral, perfumed.", related: ["Cortas Orange Blossom Water", "Food-grade orange blossom water"] }
+  ,
+    { name: "Sadoff Orange Blossom Water", description: "Orange blossom water from Sadoff. Distilled water with orange blossom essence. Floral, perfumed. Used in Middle Eastern and Mediterranean cocktails.", related: ["Cortas Orange Blossom Water", "Moussel Orange Blossom Water"] }
+  ,
+    { name: "Odysea Orange Blossom Water", description: "Orange blossom water from Odysea. Distilled water with orange blossom essence. Floral, perfumed. Greek brand used in cocktails and pastries.", related: ["Cortas Orange Blossom Water", "Moussel Orange Blossom Water"] }
   ] },
 
   // DAIRY & CREAM
