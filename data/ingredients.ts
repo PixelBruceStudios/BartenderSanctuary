@@ -873,6 +873,8 @@ export const ingredients: Ingredient[] = [
     { name: "Homemade Honey-Ginger Syrup", description: "Honey syrup infused with fresh ginger. Spicy, warming sweetener for Penicillin.", related: ["Honey syrup", "Ginger syrup"] }
   ,
     { name: "Monin Honey-Ginger Syrup", description: "Honey syrup infused with ginger from Monin. Spicy, warming sweetener for Penicillin variations.", related: ["Homemade Honey-Ginger Syrup", "Ginger syrup"] }
+  ,
+    { name: "Liber Honey-Ginger Syrup", description: "Honey-ginger cocktail syrup from Liber. Sweet honey balanced with fresh ginger heat. Designed for Penicillin and ginger-forward cocktails.", related: ["Homemade Honey-Ginger Syrup", "Monin Honey-Ginger Syrup"] }
   ] },
   { name: "Orgeat syrup", category: "Syrups & Sweeteners", description: "Almond-orange blossom water syrup. Nutty, floral, essential in Tiki drinks.", brands: ["Monin Orgeat", "Fee Brothers", "Small Hand Foods"], notes: "Maï Taï, Scorpion, Saturn.",
   bottles: [
