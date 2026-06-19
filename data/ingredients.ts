@@ -906,6 +906,10 @@ export const ingredients: Ingredient[] = [
     { name: "White Granulated Sugar", description: "Standard white sugar. Used for Old Fashioned muddling and simple syrup.", related: ["Demerara sugar", "Raw sugar"] }
   ,
     { name: "Demerara Sugar", description: "Raw cane sugar with large amber crystals. Rich molasses flavor. Perfect for Old Fashioned muddling.", related: ["White Granulated Sugar", "Raw sugar"] }
+  ,
+    { name: "Turbinado Sugar", description: "Partially refined raw cane sugar with large golden crystals. Light caramel notes. Used for Old Fashioned muddling and specialty rims.", image: "https://commons.wikimedia.org/wiki/Special:FilePath/Turbinado_sugar.jpg", related: ["White Granulated Sugar", "Demerara Sugar"] }
+  ,
+    { name: "Brown Sugar", description: "Refined white sugar with added molasses. Soft, moist texture with caramel flavor. Used in shaken cocktails and syrups.", image: "https://commons.wikimedia.org/wiki/Special:FilePath/Brown_sugar.jpg", related: ["White Granulated Sugar", "Demerara Sugar"] }
   ] },
   { name: "Sugar cube", category: "Syrups & Sweeteners", description: "Compressed sugar cubes. Traditional for Old Fashioned — muddled with bitters.", brands: ["Any sugar cube brand"], notes: "Old Fashioned — standard presentation.",
   bottles: [
