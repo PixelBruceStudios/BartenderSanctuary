@@ -782,6 +782,12 @@ export const ingredients: Ingredient[] = [
   bottles: [
     { name: "Topo Chico Sparkling Water", description: "Mexican mineral water. Naturally sparkling, clean, crisp. Perfect for highballs and Palomas.", related: ["Perrier", "Pellegrino", "Schweppes Soda Water"] },
     { name: "Schweppes Soda Water", description: "Classic soda water. Carbonated, neutral. Essential for Tom Collins and Americano.", related: ["Topo Chico", "Pellegrino", "Club Soda"] }
+  ,
+    { name: "Perrier Sparkling Water", description: "French natural mineral sparkling water. Lightly carbonated with crisp mineral notes. A premium mixer for highballs and Tom Collins.", related: ["S.Pellegrino Sparkling Water", "Topo Chico Sparkling Water", "Club Soda"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/San_Pellegrino_bottle_for_sparkling_water_.jpg" }
+  ,
+    { name: "S.Pellegrino Sparkling Water", description: "Italian sparkling mineral water from San Pellegrino Terme. Bright, clean bubbles with balanced mineral content. Classic Italian mixer for Americano and Spritz.", related: ["Perrier Sparkling Water", "Topo Chico Sparkling Water", "Schweppes Soda Water"] }
+  ,
+    { name: "Club Soda", description: "Carbonated water with added sodium bicarbonate. Neutral, slightly alkaline. A reliable soda water for highballs and long drinks.", related: ["Schweppes Soda Water", "Perrier Sparkling Water", "S.Pellegrino Sparkling Water"] }
   ] },
   { name: "Sparkling water", category: "Juices & Mixers", description: "Same as soda water — may include mineral/sparkling waters like Topo Chico or Perrier.", brands: ["Topo Chico", "Perrier", "Pellegrino", "Schweppes"], notes: "Deduplicated with Soda water.",
   bottles: [
