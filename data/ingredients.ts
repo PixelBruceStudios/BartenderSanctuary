@@ -792,6 +792,7 @@ export const ingredients: Ingredient[] = [
   { name: "Sparkling water", category: "Juices & Mixers", description: "Same as soda water — may include mineral/sparkling waters like Topo Chico or Perrier.", brands: ["Topo Chico", "Perrier", "Pellegrino", "Schweppes"], notes: "Deduplicated with Soda water.",
   bottles: [
     { name: "Perrier Sparkling Water", description: "French natural mineral water. Lightly carbonated, crisp, with mineral notes.", related: ["Pellegrino", "Topo Chico", "LaCroix"] },
+    { name: "Schweppes Soda Water", description: "Classic carbonated soda water. Neutral, slightly alkaline. The reliable workhorse for highballs and long drinks since 1783.", related: ["Perrier Sparkling Water", "Club Soda", "Topo Chico Sparkling Water"] },
     { name: "Topo Chico Sparkling Water", description: "Mexican mineral water. Strong bubbles, clean taste. Great for Palomas.", related: ["Perrier", "Pellegrino", "Schweppes"] }
   ] },
   { name: "Ginger beer", category: "Juices & Mixers", description: "Spicy, sweet ginger-flavored carbonated drink. Non-alcoholic (unlike ginger ale). Stronger ginger kick.", brands: ["Fever-Tree Ginger Beer", "Bundaberg", "Gosling's Stormy", "Q Tonic Ginger Beer"], notes: "Dark 'n' Stormy, Moscow Mule.",
