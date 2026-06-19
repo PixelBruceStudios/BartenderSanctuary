@@ -1,5 +1,4 @@
 import { useState, useMemo } from 'react';
-import Head from 'next/head';
 import { useTranslation } from '@/lib/contexts';
 import SEO from '@/components/SEO';
 import { ingredients, getCategories, getIngredientByName } from '@/data/ingredients';

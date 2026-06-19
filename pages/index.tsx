@@ -1,5 +1,4 @@
 import { useState, useEffect, useMemo } from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
 import { useTranslation } from '@/lib/contexts';
 import { matchCocktails, getMissingIngredients, getMissingIngredientGroups } from '@/lib/matching';

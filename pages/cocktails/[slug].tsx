@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { cocktails } from '@/data/cocktails';
@@ -57,15 +56,8 @@ export default function CocktailPage() {
         title={cocktail.name}
         description={cocktail.description}
         path={`/cocktails/${cocktail.slug}`}
+        jsonLd={jsonLd}
       />
-      {jsonLd && (
-        <Head>
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-          />
-        </Head>
-      )}
 
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1.5rem' }}>
         <div style={{ marginBottom: '2rem' }}>

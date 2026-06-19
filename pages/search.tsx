@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
 import SEO from '@/components/SEO';
 import { blogPosts, forumThreads } from '@/data/blog.generated';

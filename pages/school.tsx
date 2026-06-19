@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Head from "next/head";
 import Link from "next/link";
 import { useTranslation } from "@/lib/contexts";
 import SEO from "@/components/SEO";
