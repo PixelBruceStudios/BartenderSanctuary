@@ -1059,6 +1059,10 @@ export const ingredients: Ingredient[] = [
     { name: "Laird's 100 Proof Applejack", description: "100-proof applejack from Laird's. Higher ABV version of America's oldest apple brandy. Bold apple character for Jack Rose.", related: ["Laird's Applejack", "Clear Creek Apple Brandy"] }
   ,
     { name: "Clear Creek Apple Brandy", description: "Oregon-made apple brandy from Clear Creek Distillery. Crafted from local Pacific Northwest apples. Clean, fruity, spirit-driven. A top-tier cocktail apple brandy.", related: ["Laird's Applejack", "Laird's 100 Proof Applejack"] }
+  ,
+    { name: "Laird's Applejack (80 Proof)", description: "Standard 80-proof applejack from Laird's. Milder than the 100-proof expression. Apple-forward, warm, and versatile for Jack Rose and Applejack Rabbit.", related: ["Laird's Applejack", "Laird's 100 Proof Applejack", "Clear Creek Apple Brandy"] }
+  ,
+    { name: "Etter Kirsch", description: "Swiss kirschwasser from Etter Distillery. Made from distilled sour cherries. Dry, clean, and aromatic. A premium eau-de-vie for White Lady and related cocktails.", related: ["Clear Creek Apple Brandy", "G.E. Massenez Kirsch", "Laird's Applejack"] }
   ] },
   { name: "Cachaça", category: "Other Spirits", description: "Brazilian spirit from fermented sugarcane juice. Funky, grassy, herbaceous. Unlike rum (molasses).", brands: ["Leblon", "Avuá", "Novo Fogo", "Ypióca"], notes: "Caipirinha, Caipiroska, Batida.",
   bottles: [
