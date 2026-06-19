@@ -994,6 +994,12 @@ export const ingredients: Ingredient[] = [
     { name: "Whole Nutmeg", description: "Whole nutmeg freshly grated. Warm, nutty, aromatic garnish for Brandy Alexander and Eggnog.", related: ["Ground nutmeg", "Nutmeg grater"] }
   ,
     { name: "Ground Nutmeg", description: "Pre-ground nutmeg. Convenient for garnish when fresh grating isn't practical. Less aromatic than fresh.", related: ["Whole Nutmeg", "Nutmeg grater"] }
+  ,
+    { name: "McCormick Ground Nutmeg", description: "Ground nutmeg from McCormick. Widely available supermarket brand, consistent quality for cocktail garnish.", related: ["Whole Nutmeg", "Ground Nutmeg"] }
+  ,
+    { name: "Nutmeg Grater", description: "Small handheld grater designed specifically for nutmeg. Essential tool for fresh cocktail garnish.", related: ["Whole Nutmeg", "Ground Nutmeg"] }
+  ,
+    { name: "Indian Whole Nutmeg", description: "Whole nutmeg from Indian origin. Warm, nutty, aromatic profile suitable for cocktails and baking.", related: ["Whole Nutmeg", "Ground Nutmeg"] }
   ] },
   { name: "Orange blossom water", category: "Fresh & Garnish", description: "Distilled water with orange blossom essence. Highly concentrated — use drops. Floral, perfumed.", brands: ["Cortas", "Moussel", "Food-grade"], notes: "Bee's Knees, certain Ramos Fizz, Arabic cocktails.",
   bottles: [
