@@ -916,6 +916,10 @@ export const ingredients: Ingredient[] = [
     { name: "Classic Sugar Cubes", description: "Compressed white sugar cubes. Traditional for Old Fashioned — muddled with bitters.", related: ["Demerara sugar cubes", "Large sugar cubes"] }
   ,
     { name: "Demerara Sugar Cubes", description: "Large demerara sugar cubes. Rich molasses flavor. The premium choice for Old Fashioned.", related: ["Classic Sugar Cubes", "Large sugar cubes"] }
+  ,
+    { name: "Tate & Lyle Sugar Cubes", description: "Classic British sugar cubes from Tate & Lyle. White refined sugar, compressed into cubes. The original sugar cube brand, widely available in the UK and internationally.", related: ["Classic Sugar Cubes", "Demerara Sugar Cubes"] }
+  ,
+    { name: "Rohm Sugar Cubes", description: "German-produced sugar cubes from Rohm. Refined white sugar compressed into uniform cubes. A reliable, widely distributed option for Old Fashioned preparation.", related: ["Classic Sugar Cubes", "Demerara Sugar Cubes"] }
   ] },
 
   // FRESH & GARNISH
