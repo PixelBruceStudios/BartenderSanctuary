@@ -867,6 +867,12 @@ export const ingredients: Ingredient[] = [
   ,
     { name: "Monin Cinnamon Syrup", description: "Premium cinnamon syrup from Monin. Warm, spicy sweetener for Hot Toddies and Fall cocktails.", related: ["Homemade Cinnamon Syrup", "Fee Brothers Cinnamon"] }
   , { name: "Fee Brothers Cinnamon Syrup", description: "American cinnamon syrup from Fee Brothers. Warm, spicy cinnamon sweetener. A classic alternative to Monin for Hot Toddies and Fall cocktails.", related: ["Homemade Cinnamon Syrup", "Monin Cinnamon Syrup"] }
+  ,
+    { name: "DaVinci Gourmet Cinnamon Syrup", description: "Cinnamon syrup from DaVinci Gourmet. Warm, spicy sweetener for Hot Toddies, lattes, and Fall cocktails. Widely used in coffee shops.", related: ["Monin Cinnamon Syrup", "Fee Brothers Cinnamon Syrup"] }
+  ,
+    { name: "Torani Cinnamon Syrup", description: "Cinnamon syrup from Torani. Warm, spicy sweetener for Hot Toddies, chai lattes, and seasonal cocktails. Popular in cafes.", related: ["Monin Cinnamon Syrup", "Fee Brothers Cinnamon Syrup"] }
+  ,
+    { name: "1883 Cinnamon Syrup", description: "Cinnamon syrup from 1883 (Maison Routin). Warm, spicy sweetener for Hot Toddies and Fall cocktails. French-made.", related: ["Monin Cinnamon Syrup", "Fee Brothers Cinnamon Syrup"] }
   ] },
   { name: "Honey syrup", category: "Syrups & Sweeteners", description: "Honey thinned with hot water (usually 2:1 honey:water) for pourability. Floral, rich sweetness.", brands: ["Homemade"], notes: "Bee's Knees, Gold Rush, Penicillin.",
   bottles: [
