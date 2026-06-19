@@ -888,6 +888,10 @@ export const ingredients: Ingredient[] = [
     { name: "Monin Raspberry Syrup", description: "French raspberry syrup. Tart-sweet, deep pink. Great for Raspberry Collins.", related: ["Fee Brothers Raspberry", "Homemade raspberry syrup"] }
   ,
     { name: "Fee Brothers Raspberry Syrup", description: "American raspberry syrup from Fee Brothers. Tart-sweet, deep pink. Great for Raspberry Collins.", related: ["Monin Raspberry Syrup", "Homemade raspberry syrup"] }
+  ,
+    { name: "Kittl Raspberry Syrup with Pulp", description: "Czech raspberry syrup with real fruit pulp from Kitl. Rich, tart-sweet, deep red color. Great for Collins and Sours.", image: "https://commons.wikimedia.org/wiki/Special:FilePath/Kittl_Syrob_Malinovy_S_Duzninou.jpg", related: ["Monin Raspberry Syrup", "Fee Brothers Raspberry Syrup"] }
+  ,
+    { name: "Teisseire Raspberry Syrup", description: "French raspberry syrup from Teisseire. Natural fruit flavor, balanced sweet-tart profile. Mixes clear in cold drinks.", related: ["Monin Raspberry Syrup", "Fee Brothers Raspberry Syrup"] }
   ] },
   { name: "Simple syrup", category: "Syrups & Sweeteners", description: "Equal parts sugar and water, dissolved. The standard neutral sweetener for cocktails. 1:1 ratio.", brands: ["Homemade", "Monin Simple Syrup"], notes: "Almost every cocktail that needs sweetness. ¾ oz per sour cocktail.",
   bottles: [
