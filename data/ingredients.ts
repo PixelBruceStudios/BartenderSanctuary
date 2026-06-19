@@ -1071,8 +1071,14 @@ export const ingredients: Ingredient[] = [
     { name: "Bardezzo White Peach Purée", description: "Smooth white peach purée. Sweet, floral, velvety. Ideal for Bellini and Peach Sour.", related: ["Boiron White Peach Puree", "Fresh white peach puree"] }
   ,
     { name: "Boiron White Peach Puree", description: "French white peach puree from Boiron. Smooth, floral, velvety. Professional-grade for Bellini.", related: ["Bardezzo White Peach Pur\u00e9e", "Fresh white peach puree"] }
-  ] },
-];
+  ,
+    { name: "Fabbri White Peach Pur\u00e9e", description: "Italian white peach pur\u00e9e from Fabbri. Sweet, aromatic, with a smooth velvety texture. Bartender favorite for Bellini and peach cocktails.", related: ["Bardezzo White Peach Pur\u00e9e", "Boiron White Peach Puree", "Fresh white peach puree"] }
+  ,
+    { name: "Monin White Peach Puree", description: "French white peach puree from Monin. Consistent quality, bright peach flavor. Great for Bellini, Peach Sour, and mixed drinks.", related: ["Bardezzo White Peach Pur\u00e9e", "Boiron White Peach Puree", "Fabbri White Peach Pur\u00e9e"] }
+  ,
+    { name: "Borange White Peach Nectar", description: "White peach nectar from Borange. Sweet, fruity, with authentic peach flavor. Works as a Bellini base or peach cocktail modifier.", related: ["Bardezzo White Peach Pur\u00e9e", "Boiron White Peach Puree", "Fabbri White Peach Pur\u00e9e"] }
+  ]
+}];
 
 export function getIngredientByName(name: string): Ingredient | undefined {
   return ingredients.find(i => i.name.toLowerCase() === name.toLowerCase());
