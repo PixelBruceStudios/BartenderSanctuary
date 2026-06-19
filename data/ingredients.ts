@@ -536,7 +536,9 @@ export const ingredients: Ingredient[] = [
   bottles: [
     { name: "Amaro Nonino Quintessentia", description: "Premium Italian amaro from Nonino. Bitter-sweet, 35% ABV.", related: ["Amaro Averna", "Amaro Montenegro", "Aperol"] },
     { name: "Amaro Averna", description: "Sicilian amaro from Averna. Bitter-sweet. 29% ABV.", related: ["Amaro Nonino", "Amaro Montenegro", "Fernet-Branca"] },
-    { name: "Amaro Montenegro", description: "Italian amaro from Montenegro. Bitter-sweet with notes of orange, eucalyptus, and herbs. 23% ABV.", related: ["Amaro Nonino", "Amaro Averna", "Aperol"] }
+    { name: "Amaro Montenegro", description: "Italian amaro from Montenegro. Bitter-sweet with notes of orange, eucalyptus, and herbs. 23% ABV.", related: ["Amaro Nonino", "Amaro Averna", "Aperol"] },
+    { name: "Amaro Nonino Ciociara", description: "Bitterer, more herbal amaro from Nonino with additional roots and botanicals from the Ciociara region. 30% ABV. A bolder, darker alternative to Quintessentia for stirred cocktails.", related: ["Amaro Nonino Quintessentia", "Amaro Averna", "Fernet-Branca"] },
+    { name: "Amaro Nonino Antica Ricetta", description: "The original recipe amaro from Nonino. Lighter, more citrus-forward than Quintessentia with orange zest and subtle spice. 35% ABV. Ideal for spritzes and lighter aperitivo builds.", related: ["Amaro Nonino Quintessentia", "Amaro Montenegro", "Aperol"] }
   ]
 },
 
