@@ -811,6 +811,12 @@ export const ingredients: Ingredient[] = [
     { name: "Fresh Lemonade", description: "Fresh-squeezed lemonade. Sweet, bright, tart. Mix with gin or sparkling water.", related: ["Store-bought lemonade", "Frozen lemonade concentrate"] }
   ,
     { name: "Store-bought Lemonade", description: "Commercial lemonade. Sweetened, ready to drink. Convenient for Lemonade & Gin when fresh isn't available.", related: ["Fresh Lemonade", "Frozen lemonade concentrate"] }
+  ,
+    { name: "Frozen Lemonade Concentrate", description: "Concentrated frozen lemonade. Thaw and dilute for convenient, consistent lemonade. Common brands: Minute Maid, McCain.", related: ["Fresh Lemonade", "Store-bought lemonade"] }
+  ,
+    { name: "Pellegrino Limonata", description: "Italian sparkling lemon soda from Pellegrino. Bright, crisp lemon flavor with bubbles. Used in spritzes and Italian-inspired cocktails.", related: ["Store-bought Lemonade", "Schweppes Lemonade"] }
+  ,
+    { name: "Schweppes Lemonade", description: "British-style lemonade from Schweppes. Sweet, fizzy lemon drink. Classic mixer for Pimm's Cup and Collins variations.", related: ["Store-bought Lemonade", "Pellegrino Limonata"] }
   ] },
   { name: "Hot coffee", category: "Juices & Mixers", description: "Freshly brewed hot coffee. Used as a base or addition in coffee cocktails.", brands: ["Fresh brew"], notes: "Irish Coffee, Espresso Martini.",
   bottles: [
