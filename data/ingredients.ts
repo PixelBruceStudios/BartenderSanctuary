@@ -855,6 +855,12 @@ export const ingredients: Ingredient[] = [
     { name: "Homemade Honey Syrup", description: "Honey thinned with hot water (usually 2:1 honey:water). Floral, rich sweetness for Bee's Knees and Penicillin.", related: ["Monin Honey Syrup", "Small Hand Foods Honey Syrup"] }
   ,
     { name: "Monin Honey Syrup", description: "Honey syrup from Monin. Ready-to-use floral sweetener for Bee's Knees and Gold Rush.", related: ["Homemade Honey Syrup", "Small Hand Foods Honey Syrup"] }
+  ,
+    { name: "Small Hand Foods Honey Syrup", description: "Craft honey syrup from Small Hand Foods. Floral sweetener for Bee's Knees and Gold Rush.", related: ["Homemade Honey Syrup", "Monin Honey Syrup"] }
+  ,
+    { name: "Fee Brothers Honey Syrup", description: "American honey syrup from Fee Brothers. Floral sweetener for cocktails.", related: ["Homemade Honey Syrup", "Monin Honey Syrup"] }
+  ,
+    { name: "Monin Organic Honey Syrup", description: "Organic honey syrup from Monin. Certified organic floral sweetener.", related: ["Homemade Honey Syrup", "Monin Honey Syrup"] }
   ] },
   { name: "Honey-ginger syrup", category: "Syrups & Sweeteners", description: "Honey syrup infused with fresh ginger. Spicy, warming sweetener.", brands: ["Homemade"], notes: "Penicillin, Dark 'n' Stormy variation.",
   bottles: [
