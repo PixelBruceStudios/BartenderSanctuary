@@ -480,6 +480,8 @@ export const ingredients: Ingredient[] = [
     { name: "Combier Triple Sec", description: "French triple sec from Combier, made since 1834. 40% ABV.", related: ["Cointreau", "Marie Brizard Triple Sec", "Bols Triple Sec"] },
     { name: "Marie Brizard Triple Sec", description: "French triple sec from Marie Brizard. Clean, bright orange flavor with balanced sweetness. 40% ABV. A workhorse mixer for Margarita and Sidecar when Cointreau is not specified.", related: ["Cointreau", "Combier Triple Sec", "Bols Triple Sec"] },
     { name: "Bols Triple Sec", description: "Dutch triple sec from Bols. Bright orange flavor with medium sweetness. 38% ABV. A reliable everyday orange liqueur for high-volume cocktails.", related: ["Cointreau", "Combier Triple Sec", "Marie Brizard Triple Sec"] }
+  ,
+    { name: "DeKuyper Triple Sec", description: "American triple sec from DeKuyper. Bright, clean orange flavor with medium sweetness. 30% ABV. A widely available and affordable mixer for high-volume cocktails like Cosmopolitan and Long Island Iced Tea.", related: ["Cointreau", "Combier Triple Sec", "Marie Brizard Triple Sec", "Bols Triple Sec"] }
   ]
 },
   { name: "Triple sec or Cointreau", category: "Liqueurs", description: "Same as Triple sec — just specifying Cointreau as the premium option.", brands: ["Cointreau"], notes: "Deduplicated with Triple sec.",
