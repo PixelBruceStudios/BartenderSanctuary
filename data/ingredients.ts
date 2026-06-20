@@ -803,7 +803,10 @@ export const ingredients: Ingredient[] = [
   bottles: [
     { name: "Mexican Coca-Cola", description: "Coca-Cola made with real sugar (sucrose). Richer, more complex than HFCS versions. Essential for authentic Cuba Libre.", related: ["Coca-Cola", "Pepsi", "Coca-Cola Zero Sugar"] },
     { name: "Coca-Cola", description: "The world's most popular cola. Classic caramel, vanilla, and spice notes.", related: ["Mexican Coca-Cola", "Pepsi", "Diet Coke"] },
-    { name: "Pepsi", description: "Classic cola. Slightly sweeter than Coca-Cola. Fine for Long Island Iced Tea.", related: ["Coca-Cola", "Diet Pepsi"] }
+    { name: "Pepsi", description: "Classic cola. Slightly sweeter than Coca-Cola. Fine for Long Island Iced Tea.", related: ["Coca-Cola", "Diet Pepsi"] },
+    { name: "Coca-Cola Zero Sugar", description: "Zero-sugar cola from Coca-Cola. Same classic taste without calories. A popular mixer for Long Island Iced Tea and spirit-forward highballs.", related: ["Coca-Cola", "Diet Coke", "Pepsi"] },
+    { name: "Diet Coke", description: "Sugar-free cola from Coca-Cola. Lighter, crisper profile than Coke Zero. A reliable mixer for highballs where fewer calories are desired.", related: ["Coca-Cola", "Coca-Cola Zero Sugar", "Pepsi"] },
+    { name: "Diet Pepsi", description: "Sugar-free version of Pepsi. Slightly sweeter aftertaste than Diet Coke. Works well in Long Island Iced Tea and mixed drinks.", related: ["Pepsi", "Coca-Cola", "Diet Coke"] }
   ] },
   { name: "Soda water", category: "Juices & Mixers", description: "Carbonated water with no added flavor. Essential for highballs, Tom Collins, Tom Collins.", brands: ["Schweppes, Pellegrino, Topo Chico"], notes: "Tom Collins, Mojito top-up, Americano top-up, Rickey.",
   bottles: [
