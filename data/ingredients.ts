@@ -1018,6 +1018,10 @@ export const ingredients: Ingredient[] = [
     { name: "Fresh Cucumber", description: "Fresh cucumber, thinly sliced. Cool, watery, mild. Classic Hendrick's and Pimm's garnish.", related: ["English cucumber", "Persian cucumber"] }
   ,
     { name: "English Cucumber", description: "English cucumber. Thin-skinned, seedless, mild. The premium choice for Hendrick's garnish.", related: ["Fresh Cucumber", "Persian cucumber"] }
+  ,
+    { name: "Japanese Cucumber", description: "Japanese cucumber (kyuri). Crisp, mild, thin-skinned. Popular in East Asian cuisine and cocktails. Refreshing garnish with minimal seeds.", related: ["English Cucumber", "Persian cucumber"] }
+  ,
+    { name: "Armenian Cucumber", description: "Armenian cucumber (yard-long cucumber). Crisp, sweet, burpless variety with thin skin. Excellent for muddling and garnish in refreshing cocktails.", related: ["English Cucumber", "Persian cucumber"] }
   ] },
   { name: "Egg white", category: "Fresh & Garnish", description: "Fresh egg white for foaming cocktails. Dry shake (no ice) to emulsify, then add ice and shake again.", brands: ["Fresh eggs"], notes: "Whiskey Sour, Gin Sour, Clover Club — ¾–1 egg white per cocktail.",
   bottles: [
