@@ -530,6 +530,10 @@ export const ingredients: Ingredient[] = [
     { name: "Green Chartreuse V.P.", description: "French herbal liqueur made by Carthusian monks since 1605. 130+ botanicals. 55% ABV.", related: ["Green Chartreuse (41%)", "Yellow Chartreuse", "Bénédictine"] },
     { name: "Green Chartreuse (41%)", description: "Lower-ABV version of Green Chartreuse. 41% ABV.", related: ["Green Chartreuse V.P.", "Yellow Chartreuse"] },
     { name: "Yellow Chartreuse", description: "Milder, sweeter sibling of Green Chartreuse. 40% ABV. Vanilla, honey, and herbal notes. Used in Last Word and Chartreuse Swizzle variations.", related: ["Green Chartreuse V.P.", "Green Chartreuse (41%)"], image: "https://upload.wikimedia.org/wikipedia/commons/b/b7/Chartreuse_jaune.JPG" }
+  ,
+    { name: "Green Chartreuse VEP (55%)", description: "Modern V.P. (Voie Verte Ecologique) expression of Green Chartreuse. 55% ABV, the classic high-proof green herbal liqueur. Bright green color with intense mint, anise, and botanical complexity. The standard for Last Word and Chartreuse Swizzle.", related: ["Green Chartreuse V.P.", "Green Chartreuse (41%)", "Yellow Chartreuse"] }
+  ,
+    { name: "Green Chartreuse 41% Alpine Strength", description: "Green Chartreuse Alpine Strength expression at 41% ABV. Smoother and more approachable than the 55% V.P. while maintaining the signature 130-botanical herbal profile. Great for long drinks and cocktails where lower proof is preferred.", related: ["Green Chartreuse V.P.", "Green Chartreuse (41%)", "Yellow Chartreuse"] }
   ]
 },
   { name: "Lillet Blanc", category: "Bitters & Aperitifs", description: "French aromatised wine. Citrus, honey, and quinine. 17% ABV. Similar to dry vermouth but with more citrus.", brands: ["Lillet Blanc"], notes: "Vesper, 20th Century, Corpse Reviver #2.",
