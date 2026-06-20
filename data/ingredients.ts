@@ -332,6 +332,10 @@ export const ingredients: Ingredient[] = [
     { name: "Joseph Cartron Crème de Cassis", description: "French blackcurrant crème liqueur. Deep purple, tart-sweet, 15% ABV.", related: ["Giffard Crème de Cassis", "Briottet Crème de Cassis"] },
     { name: "Giffard Crème de Cassis", description: "Premium French blackcurrant crème liqueur. Rich, dark, balanced sweet-tart.", related: ["Joseph Cartron", "Briottet"] },
     { name: "Briottet Crème de Cassis", description: "Savoyard blackcurrant crème liqueur. Intense, authentic Burgundian cassis character. 15% ABV.", related: ["Joseph Cartron Crème de Cassis", "Giffard Crème de Cassis"], image: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Creme_de_Cassis.jpg" }
+  ,
+    { name: "Marie Brizard Crème de Cassis", description: "Classic French blackcurrant crème liqueur from Marie Brizard. Deep purple, sweet-tart, balanced cassis flavor. 20% ABV. A long-standing staple for Kir and Kir Royal.", related: ["Joseph Cartron Crème de Cassis", "Giffard Crème de Cassis", "Briottet Crème de Cassis"] }
+  ,
+    { name: "Lejay Crème de Cassis", description: "Iconic blackcurrant crème liqueur from Dijon, France. Made with Noir de Bourgogne berries. Deep purple, intense cassis character, 20% ABV. The benchmark for traditional crème de cassis.", related: ["Joseph Cartron Crème de Cassis", "Marie Brizard Crème de Cassis", "Briottet Crème de Cassis"] }
   ]
 },
   { name: "Crème de mûre", category: "Liqueurs", description: "Blackberry crème liqueur. Rich, dark, sweet-tart blackberry flavor.", brands: ["Joseph Cartron", "Giffard", "Briottet", "Bols"], notes: "Bramble, French 75 variation.",
@@ -339,6 +343,10 @@ export const ingredients: Ingredient[] = [
     { name: "Giffard Crème de Mûre", description: "French blackberry crème liqueur. Rich, dark, sweet-tart blackberry flavor.", related: ["Joseph Cartron Crème de Mûre", "Briottet"] },
     { name: "Briottet Crème de Mûre", description: "Savoyard blackberry crème liqueur. Deep purple, intense blackberry character.", related: ["Giffard Crème de Mûre", "Bols Blackberry"] },
     { name: "Bols Blackberry Crème de Mûre", description: "Dutch blackberry crème liqueur. Sweet, dark, versatile cocktail ingredient. 17% ABV.", related: ["Giffard Crème de Mûre", "Briottet Crème de Mûre"] }
+  ,
+    { name: "Joseph Cartron Crème de Mûre", description: "French blackberry crème liqueur from Joseph Cartron in Burgundy. Made with wild blackberries. Rich, dark, with authentic sweet-tart blackberry character. A classic choice for Bramble and Kir variations.", related: ["Giffard Crème de Mûre", "Briottet Crème de Mûre", "Bols Blackberry Crème de Mûre"] }
+  ,
+    { name: "Maison Bartolomei Crème de Mûre", description: "Premium French blackberry crème liqueur from Maison Bartolomei in Provence. Crafted from wild Mediterranean blackberries. Intense, dark, with complex sweet-tart fruit and subtle earthy notes. A boutique expression for craft cocktails.", related: ["Giffard Crème de Mûre", "Briottet Crème de Mûre", "Joseph Cartron Crème de Mûre"] }
   ]
 },
   { name: "Crème de violette", category: "Liqueurs", description: "Violet flower crème liqueur. Floral, sweet, perfumed. 20–25% ABV. Rare and expensive.", brands: ["Giffard Crème de Violette", "Briottet", "Rothman & Winter"], notes: "Aviation — ¼ oz is enough. Violet Fizz.",
