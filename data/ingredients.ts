@@ -458,6 +458,12 @@ export const ingredients: Ingredient[] = [
     { name: "DeKuyper Peach Schnapps", description: "American peach schnapps from DeKuyper. Sweet, peach-forward, 15% ABV.", related: ["Archers Peach Schnapps", "Hiram Walker Peach Schnapps"] },
     { name: "Archers Peach Schnapps", description: "UK peach schnapps. Sweet, smooth, with ripe peach flavor.", related: ["DeKuyper Peach Schnapps", "Hiram Walker Peach Schnapps"] },
     { name: "Hiram Walker Peach Schnapps", description: "Canadian peach schnapps from Hiram Walker & Sons. Sweet, smooth peach flavor. 20% ABV. Widely available in North America for shots and mixed drinks.", related: ["DeKuyper Peach Schnapps", "Archers Peach Schnapps"] }
+  ,
+    { name: "Mr. Boston Peach Schnapps", description: "American peach schnapps from Mr. Boston. Sweet, peach-forward, 30% ABV. A higher-proof option for peach-forward cocktails and shooters.", related: ["DeKuyper Peach Schnapps", "Archers Peach Schnapps"] }
+  ,
+    { name: "Bols Peach Schnapps", description: "Dutch peach schnapps from Bols. Sweet, bright peach flavor. 24% ABV. A European alternative for peach-forward cocktails.", related: ["DeKuyper Peach Schnapps", "Archers Peach Schnapps"] }
+  ,
+    { name: "Rothman & Winter Peach Schnapps", description: "Austrian peach schnapps from Rothman & Winter. Made with real peach distillate. Smooth, authentic peach character, 20% ABV. A premium European alternative for craft cocktails.", related: ["DeKuyper Peach Schnapps", "Archers Peach Schnapps"] }
   ]
 },
   { name: "St-Germain elderflower liqueur", category: "Liqueurs", description: "Premium elderflower liqueur. Each bottle contains up to 1,000 elderflower blossoms hand-harvested in France.", brands: ["St-Germain"], notes: "St-Germain Spritz, Elderflower Collins, Hugo.", bottles: [
