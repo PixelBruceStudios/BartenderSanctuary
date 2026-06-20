@@ -376,7 +376,14 @@ export const ingredients: Ingredient[] = [
     { name: "Monin Elderflower Liqueur", description: "Elderflower liqueur from Monin. Floral, sweet, honeyed. 20% ABV. A more affordable alternative to St-Germain.", related: ["St-Germain", "Elderflower cordials", "Monin Elderflower Syrup"] }
   ,
     { name: "Giffard Crème de Sureau", description: "French elderflower liqueur from Giffard. Made from wild elderflower blossoms. Floral, sweet, with honey and lychee notes. 20% ABV. A premium alternative to St-Germain.", related: ["St-Germain", "Monin Elderflower Liqueur", "Rothman & Winter Elderflower Liqueur"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/St_Germain_Elderflower_Liqueur_01.jpg" }
-  ] },
+  ,
+    { name: "Rothman & Winter Elderflower Liqueur", description: "Austrian elderflower liqueur from Rothman & Winter. Crafted from wild alpine elderflowers. Floral, sweet, with honey and citrus blossom notes. 20% ABV. Popular in European cocktail bars.", related: ["St-Germain", "Giffard Crème de Sureau", "Monin Elderflower Liqueur"] }
+  ,
+    { name: "Chareau Elderflower Liqueur", description: "American elderflower liqueur distilled in Sonoma, California. Floral, bright, with pear and white tea undertones. 24% ABV. Made with locally sourced elderflowers.", related: ["St-Germain", "Giffard Crème de Sureau", "Rothman & Winter Elderflower Liqueur"] }
+  ,
+    { name: "Briottet Crème de Sureau", description: "French elderflower liqueur from Maison Briottet. Made from wild elderflowers in Burgundy. Floral, sweet, with subtle honey and white peach notes. 20% ABV. A craft alternative to St-Germain.", related: ["St-Germain", "Giffard Crème de Sureau", "Rothman & Winter Elderflower Liqueur"] }
+  ],
+},
   { name: "Galliano", category: "Liqueurs", description: "Italian vanilla-herbal liqueur. Bright yellow, complex with vanilla, anise, and 30+ botanicals. 42.3% ABV.", brands: ["Galliano L'Autentico", "Galliano Vanilla"], notes: "Harvey Wallbanger, Yellow Bird.",
   bottles: [
     { name: "Galliano L'Autentico", description: "Iconic Italian vanilla-herbal liqueur. Bright yellow, complex. 42.3% ABV.", related: ["Galliano Vanilla", "Galliano Ristretto"] },
