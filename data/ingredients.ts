@@ -251,7 +251,12 @@ export const ingredients: Ingredient[] = [
     { name: "Ketel One Vodka", description: "Dutch vodka from the Nolet Family distillery, founded 1691. Distilled in copper pot stills from 100% wheat. Smooth, crisp, with subtle citrus and pepper. 40% ABV.", related: ["Grey Goose", "Belvedere Vodka", "Absolut Vodka"] },
     { name: "Stolichnaya Vodka", description: "Russian vodka from the Stolichnaya brand. Triple distilled from winter wheat and rye grains. Clean, smooth, with a hint of pepper and sweetness. 40% ABV.", related: ["Absolut Vodka", "Grey Goose", "Ketel One"] },
     { name: "Cîroc Vodka", description: "French vodka from the Cognac region, made from cold-pressed grapes. Smooth, fresh, with distinctive fruity and floral notes. 40% ABV.", related: ["Grey Goose", "Belvedere Vodka", "Absolut Vodka"] },
-  ] },
+    { name: "Russian Standard Vodka", description: "Russian vodka distilled from winter wheat and purified water. Clean, crisp, with a smooth finish. 40% ABV. One of Russia's most popular premium vodkas.", related: ["Stolichnaya Vodka", "Grey Goose", "Absolut Vodka"] },
+    { name: "Svedka Vodka", description: "Swedish vodka distilled from Swedish winter wheat. Smooth, clean, with a hint of vanilla. 40% ABV. An affordable, widely available option for cocktails.", related: ["Absolut Vodka", "Grey Goose", "Ketel One Vodka"] },
+    { name: "Reyka Vodka", description: "Icelandic vodka distilled from wheat and spring water. Smooth, crisp, with a touch of minerality from glacial water. 40% ABV. A small-batch premium option.", related: ["Belvedere Vodka", "Grey Goose", "Ketel One Vodka"] },
+    { name: "Finlandia Vodka", description: "Finnish vodka distilled from pure Finnish spring water and barley. Smooth, clean, with a hint of citrus and pepper. 40% ABV. A classic Scandinavian vodka.", related: ["Absolut Vodka", "Grey Goose", "Ketel One Vodka"] }
+  ]
+},
 
   // LIQUEURS
   { name: "Amaretto", category: "Liqueurs", description: "Italian almond-flavored liqueur, sweet and nutty with notes of apricot kernel. ~28% ABV.", brands: ["Disaronno", "Lazzaroni", "DeKuyper", "Bardinet"], notes: "Amaretto Sour, Godmother, Nutcracker.",
