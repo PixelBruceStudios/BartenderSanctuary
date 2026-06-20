@@ -399,6 +399,9 @@ export const ingredients: Ingredient[] = [
         { name: "Marie Brizard Green Crème de Menthe", description: "Bright green mint crème liqueur. Sweet, minty, artificial-bright green color.", related: ["Bols Pepermunt", "DeKuyper Peppermint"] },
     { name: "Bols Pepermunt", description: "Dutch green crème de menthe from Bols. Bright green, sweet, minty. 24% ABV. The classic for Grasshopper and Stinger.", related: ["Marie Brizard Green Crème de Menthe", "DeKuyper Peppermint"] },
     { name: "DeKuyper Peppermint", description: "Dutch green crème de menthe from DeKuyper. Bright green, sweet, peppermint-forward. 24% ABV. Used in shooters and layered drinks.", related: ["Marie Brizard Green Crème de Menthe", "Bols Pepermunt"] }
+  ,
+    { name: "Hiram Walker Crème de Menthe", description: "Classic green mint crème liqueur from Hiram Walker. Bright green, sweet, minty. 24% ABV. A budget-friendly staple for Grasshopper and Stinger cocktails.", related: ["Marie Brizard Green Crème de Menthe", "Bols Pepermunt", "DeKuyper Peppermint"] },
+    { name: "Get 31 Crème de Menthe", description: "Dutch green crème de menthe from Get 31. Bright green, sweet, peppermint-forward. 25% ABV. Used in shooters and mint-forward cocktails.", related: ["Marie Brizard Green Crème de Menthe", "Bols Pepermunt", "DeKuyper Peppermint"] }
   ]
 },
   { name: "Grenadine", category: "Liqueurs", description: "Pomegranate syrup-liqueur. Deep red, sweet-tart. Modern grenadine is often just pomegranate juice + sugar; some have a hint of orange.", brands: ["Monin Grenadine", "Fee Brothers", "Roses", "Small Hand Foods Pomegranate Molasses (mix with water)"], notes: "Tequila Sunrise, Shirley Temple, Planter's Punch.",
