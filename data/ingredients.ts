@@ -258,6 +258,14 @@ export const ingredients: Ingredient[] = [
     { name: "Svedka Vodka", description: "Swedish vodka distilled from Swedish winter wheat. Smooth, clean, with a hint of vanilla. 40% ABV. An affordable, widely available option for cocktails.", related: ["Absolut Vodka", "Grey Goose", "Ketel One Vodka"] },
     { name: "Reyka Vodka", description: "Icelandic vodka distilled from wheat and spring water. Smooth, crisp, with a touch of minerality from glacial water. 40% ABV. A small-batch premium option.", related: ["Belvedere Vodka", "Grey Goose", "Ketel One Vodka"] },
     { name: "Finlandia Vodka", description: "Finnish vodka distilled from pure Finnish spring water and barley. Smooth, clean, with a hint of citrus and pepper. 40% ABV. A classic Scandinavian vodka.", related: ["Absolut Vodka", "Grey Goose", "Ketel One Vodka"] }
+  ,
+    { name: "Chopin Rye Vodka", description: "Polish rye vodka from the Chopin distillery. Quadruple distilled from Dankowskie rye. Smooth, creamy, with white pepper, vanilla, and almond notes. 40% ABV. A premium craft rye vodka.", related: ["Belvedere Vodka", "Grey Goose", "Ketel One Vodka"] }
+  ,
+    { name: "Belvedere 8", description: "Premium Polish rye vodka from Belvedere, aged 8 years in oak barrels. Extra smooth, rich, with honey, vanilla, and toasted oak notes. 40% ABV. A luxury sipping vodka.", related: ["Belvedere Vodka", "Grey Goose", "Ketel One Vodka"] }
+  ,
+    { name: "Grey Goose VX", description: "Ultra-premium French vodka from the Grey Goose cellar master. Blend of Grey Goose vodka and a touch of Cognac. Smooth, complex, with citrus, floral, and vanilla notes. 40% ABV.", related: ["Grey Goose", "Belvedere Vodka", "Ketel One Vodka"] }
+  ,
+    { name: "Absolut Elyx", description: "Premium single-estate Swedish vodka from Absolut. Distilled from winter wheat grown on the Råå valley estate. Silky, smooth, with vanilla, white pepper, and brioche notes. 42.3% ABV. A handcrafted luxury vodka.", related: ["Absolut Vodka", "Grey Goose", "Ketel One Vodka"] }
   ]
 },
 
