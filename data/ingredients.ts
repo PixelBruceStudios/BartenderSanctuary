@@ -438,6 +438,10 @@ export const ingredients: Ingredient[] = [
     { name: "Pierre Ferrand Dry Curaçao", description: "Premium dry orange curaçao from Pierre Ferrand. Made from dried curaçao orange peels. 40% ABV.", related: ["Bols Orange Curaçao", "Marie Brizard Orange Curaçao", "Cointreau"] },
     { name: "Marie Brizard Orange Curaçao", description: "French orange curaçao from Marie Brizard. Balanced dry-orange flavor from Caribbean curaçao peels. 40% ABV.", related: ["Pierre Ferrand Dry Curaçao", "Bols Orange Curaçao"] },
     { name: "Bols Orange Curaçao", description: "Dutch orange curaçao from Bols. Dry, bitter-orange flavor. 35% ABV.", related: ["Pierre Ferrand Dry Curaçao", "Marie Brizard"] }
+  ,
+    { name: "Cointreau", description: "Premium French triple sec / orange curaçao. Clean orange flavor with bitter orange peel, 40% ABV. The most widely used orange liqueur in classic cocktails like Margarita and Cosmopolitan.", related: ["Pierre Ferrand Dry Curaçao", "Marie Brizard Orange Curaçao", "Bols Orange Curaçao"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Cointreau.jpg" }
+  ,
+    { name: "Combier Triple Sec", description: "Historic French triple sec from the Combier distillery in the Loire Valley, founded in 1834. Bright, clean orange flavor with a hint of bitter orange peel. 40% ABV. One of the original triple sec brands.", related: ["Cointreau", "Pierre Ferrand Dry Curaçao", "Marie Brizard Orange Curaçao"] }
   ]
 },
   { name: "Orange liqueur", category: "Liqueurs", description: "General term for orange-flavored liqueurs including triple sec, curaçao, and Cointreau.", brands: ["Cointreau", "Pierre Ferrand Dry Curaçao", "Combier", "Marie Brizard"], notes: "Encompasses Triple sec, Cointreau, and Orange curaçao.",
