@@ -499,6 +499,8 @@ export const ingredients: Ingredient[] = [
     { name: "Marie Brizard White Crème de Menthe", description: "Clear white mint crème liqueur. Same mint flavor as green but without artificial coloring.", related: ["Bols White Pepermunt", "DeKuyper White Peppermint"] },
     { name: "Bols White Pepermunt", description: "Dutch white crème de menthe from Bols. Clear, minty, sweet. 24% ABV. The classic for Stinger.", related: ["Marie Brizard White Crème de Menthe", "DeKuyper White Peppermint"] },
     { name: "DeKuyper White Peppermint", description: "Dutch white crème de menthe from DeKuyper. Clear, minty, sweet, 24% ABV. A reliable alternative to Bols for Stinger and Grasshopper.", related: ["Marie Brizard White Crème de Menthe", "Bols White Pepermunt"] }
+  ,
+    { name: "Combier White Crème de Menthe", description: "French white crème de menthe from Combier. Clear, minty, and sweet. A premium alternative for Stinger and Grasshopper.", related: ["Marie Brizard White Crème de Menthe", "Bols White Pepermunt", "DeKuyper White Peppermint"] }
   ]
 },
 
