@@ -322,6 +322,10 @@ export const ingredients: Ingredient[] = [
     { name: "Bols Crème de Banane", description: "Dutch banana crème liqueur. Bright, sweet, tropical banana flavor. 25% ABV. Good for Flaming Dr. Pepper and Tiki drinks.", related: ["Marie Brizard Crème de Banane", "DeKuyper Banana"] }
   ,
     { name: "DeKuyper Banana Liqueur", description: "American banana liqueur from DeKuyper. Bright, sweet, with artificial banana flavor. 24% ABV. A reliable, widely available choice for Flaming Dr. Pepper and Tiki shooters.", related: ["Marie Brizard Crème de Banane", "Bols Crème de Banane"] }
+  ,
+    { name: "Giffard Crème de Banane", description: "French banana crème liqueur from Giffard. Rich, creamy banana flavor with vanilla notes. 25% ABV. A premium choice for tropical cocktails and dessert drinks.", related: ["Marie Brizard Crème de Banane", "Bols Crème de Banane"] }
+  ,
+    { name: "RumChata Banana Liqueur", description: "Creamy banana liqueur from RumChata. Sweet, smooth, with real banana and cream flavors. Lower ABV, perfect for dessert shooters and creamy cocktails.", related: ["Marie Brizard Crème de Banane", "DeKuyper Banana Liqueur"] }
   ] },
   { name: "Crème de cassis", category: "Liqueurs", description: "Blackcurrant crème liqueur from France. Deep purple, tart-sweet, 15–20% ABV.", brands: ["Joseph Cartron", "Briottet", "Giffard", "Marie Brizard"], notes: "Kir, Kir Royal, Cassis Spritz.",
   bottles: [
