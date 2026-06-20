@@ -1062,6 +1062,10 @@ export const ingredients: Ingredient[] = [
     { name: "Chaokoh Coconut Cream", description: "Thai coconut cream. Thick, rich, high-fat. Not coconut milk — separates when chilled.", related: ["Aroy-D Coconut Cream", "Savoy Coconut Cream"] },
     { name: "Aroy-D Coconut Cream", description: "Thai coconut cream from Aroy-D. Thick, rich, high-fat. Widely available and reliable for Piña Colada and Tiki drinks.", related: ["Chaokoh Coconut Cream", "Savoy Coconut Cream"] },
     { name: "Savoy Coconut Cream", description: "Thai coconut cream from Savoy. Thick, rich, high-fat. Another widely available option for Piña Colada.", related: ["Chaokoh Coconut Cream", "Aroy-D Coconut Cream"] }
+  ,
+    { name: "Goya Coconut Cream", description: "Coconut cream from Goya. Thick, rich coconut cream suitable for tropical cocktails and desserts. Widely available in US grocery stores.", related: ["Chaokoh Coconut Cream", "Aroy-D Coconut Cream", "Savoy Coconut Cream"] }
+  ,
+    { name: "Coco Lopez Cream of Coconut", description: "The original cream of coconut, specifically formulated for Piña Colada. Sweetened coconut cream with pineapple essence. Essential for authentic Piña Colada.", related: ["Chaokoh Coconut Cream", "Aroy-D Coconut Cream", "Savoy Coconut Cream"] }
   ] },
   { name: "Heavy cream", category: "Dairy & Cream", description: "High-fat dairy cream (36–40% fat). Used for body and richness in shaken cocktails.", brands: ["Any heavy cream brand"], notes: "Brandy Alexander, White Russian, Ramos Gin Fizz.",
   bottles: [
