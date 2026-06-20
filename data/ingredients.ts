@@ -661,6 +661,8 @@ export const ingredients: Ingredient[] = [
     { name: "Dry Pinot Grigio", description: "Light, dry Italian white wine. Clean, citrus, mineral.", related: ["Dry Sauvignon Blanc", "Pinot Gris"] }
   ,
     { name: "Pinot Grigio", description: "Italian dry white wine from the Pinot Grigio grape. Light, crisp, with citrus and mineral notes. A classic mixer for wine spritzes and light cocktails.", related: ["Dry Sauvignon Blanc", "Dry Chardonnay"] }
+  ,
+    { name: "Dry Chardonnay", description: "Rich, dry white wine from the Chardonnay grape. Buttery, oaky, with tropical fruit notes. The premium choice for creamy wine cocktails and spritzes.", related: ["Dry Sauvignon Blanc", "Dry Pinot Grigio", "Pinot Grigio"] }
   ]
 },
 
