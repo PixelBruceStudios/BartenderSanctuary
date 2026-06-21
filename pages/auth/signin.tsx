@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import SEO from "@/components/SEO";
 import { signIn } from "next-auth/react";
 
 export default function SignIn() {
@@ -28,7 +29,9 @@ export default function SignIn() {
   };
 
   return (
-    <div style={styles.page}>
+    <>
+      <SEO title="Sign In" description="Sign in to Bartender Sanctuary to track your progress and access your account." path="/auth/signin" noindex />
+      <div style={styles.page}>
       <div style={styles.card}>
         <h1 style={styles.title}>Bartender Sanctuary</h1>
         <p style={styles.subtitle}>Sign in to continue</p>
@@ -61,6 +64,7 @@ export default function SignIn() {
         </p>
       </div>
     </div>
+    </>
   );
 }
 

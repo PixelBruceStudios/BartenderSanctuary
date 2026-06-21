@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from "react";
-import Head from "next/head";
 import Link from "next/link";
 import { useTranslation } from "@/lib/contexts";
+import SEO from "@/components/SEO";
 import ChemistryBackground from "@/components/ChemistryBackground";
 
 interface Lesson {
@@ -24,6 +24,8 @@ interface LessonProps {
   categorySlug: string;
   techniqueSlug: string;
   lessonId: string;
+  lesson?: Lesson | null;
+  schoolData?: Category[];
 }
 
 type Category = {
@@ -520,15 +522,15 @@ function LessonTests({ lessonId }: { lessonId: string }) {
 }
 
 /* ── Lesson page shell ──────────────────────────────────────────── */
-function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
-  const [lesson, setLesson] = useState<Lesson | null>(null);
-  const [loading, setLoading] = useState(true);
+function LessonContent({ categorySlug, techniqueSlug, lessonId, lesson: initialLesson, schoolData: initialSchoolData }: LessonProps) {
+  const [lesson, setLesson] = useState<Lesson | null>(initialLesson ?? null);
+  const [loading, setLoading] = useState(!initialLesson);
   const [error, setError] = useState<string | null>(null);
   const [readProgress, setReadProgress] = useState(0);
   const [completed, setCompleted] = useState(false);
   const [completing, setCompleting] = useState(false);
   const [testPassed, setTestPassed] = useState(false);
-  const [schoolData, setSchoolData] = useState<Category[]>([]);
+  const [schoolData, setSchoolData] = useState<Category[]>(initialSchoolData ?? []);
   const { t, lang } = useTranslation();
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -551,6 +553,7 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
   }, [lessonId]);
 
   useEffect(() => {
+    if (initialLesson) return;
     let cancelled = false;
     setLoading(true);
     setError(null);
@@ -573,9 +576,10 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
         setLoading(false);
       });
     return () => { cancelled = true };
-  }, [lessonId, lang]);
+  }, [lessonId, lang, initialLesson]);
 
   useEffect(() => {
+    if (initialSchoolData && initialSchoolData.length > 0) return;
     let cancelled = false;
     fetch(`/api/school/full/?lang=${lang}`)
       .then((r) => r.json())
@@ -1012,34 +1016,34 @@ function LessonContent({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
   );
 }
 
-export default function LessonPage({ categorySlug, techniqueSlug, lessonId }: LessonProps) {
+export default function LessonPage({ categorySlug, techniqueSlug, lessonId, lesson, schoolData }: LessonProps) {
+  const lessonTitle = lesson?.title || 'Bartender Sanctuary — Lesson';
+  const lessonDescription = lesson?.description || '';
+  const lessonPath = `/school/lesson/${categorySlug}/${techniqueSlug}/${lessonId}`;
+
   return (
     <>
-      <LessonHead lessonId={lessonId} />
-      <LessonContent categorySlug={categorySlug} techniqueSlug={techniqueSlug} lessonId={lessonId} />
+      <SEO
+        title={lessonTitle}
+        description={lessonDescription}
+        path={lessonPath}
+        jsonLd={
+          lesson
+            ? {
+                '@context': 'https://schema.org',
+                '@type': 'Course',
+                name: lesson.title,
+                description: lesson.description,
+                provider: {
+                  '@type': 'Organization',
+                  name: 'Bartender Sanctuary',
+                  url: 'https://bartender-sanctuary-app.vercel.app',
+                },
+              }
+            : undefined
+        }
+      />
+      <LessonContent categorySlug={categorySlug} techniqueSlug={techniqueSlug} lessonId={lessonId} lesson={lesson} schoolData={schoolData} />
     </>
-  );
-}
-
-function LessonHead({ lessonId }: { lessonId: string }) {
-  const [title, setTitle] = useState('Bartender Sanctuary — Lesson');
-
-  useEffect(() => {
-    let cancelled = false;
-    fetch(`/api/lessons/${lessonId}`)
-      .then((r) => r.ok ? r.json() : null)
-      .then((data) => {
-        if (cancelled || !data?.title) return;
-        setTitle(`${data.title} | Bartender School`);
-      })
-      .catch(() => {});
-    return () => { cancelled = true; };
-  }, [lessonId]);
-
-  return (
-    <Head>
-      <title>{title}</title>
-      <meta name="robots" content="index, follow" />
-    </Head>
   );
 }

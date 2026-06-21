@@ -7,12 +7,13 @@ interface SEOProps {
   image?: string;
   type?: 'website' | 'article';
   jsonLd?: Record<string, any> | null;
+  noindex?: boolean;
 }
 
 const BASE_URL = 'https://bartender-sanctuary-app.vercel.app';
 const DEFAULT_IMAGE = `${BASE_URL}/og-image.png`;
 
-export default function SEO({ title, description, path = '', image = DEFAULT_IMAGE, type = 'website', jsonLd }: SEOProps) {
+export default function SEO({ title, description, path = '', image = DEFAULT_IMAGE, type = 'website', jsonLd, noindex = false }: SEOProps) {
   const url = `${BASE_URL}${path}`;
   const fullTitle = title.includes('Bartender Sanctuary') ? title : `${title} | Bartender Sanctuary`;
 
@@ -20,6 +21,7 @@ export default function SEO({ title, description, path = '', image = DEFAULT_IMA
     <Head>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      {noindex && <meta name="robots" content="noindex, nofollow" />}
       <link rel="canonical" href={url} />
 
       {/* Open Graph */}

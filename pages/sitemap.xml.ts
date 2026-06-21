@@ -1,6 +1,7 @@
 import { cocktails } from '@/data/cocktails';
 import { schoolCategories } from '@/data/school';
 import { getCategories } from '@/data/ingredients';
+import { blogPosts, blogCategories } from '@/data/blog';
 
 const BASE_URL = 'https://bartender-sanctuary-app.vercel.app';
 
@@ -31,15 +32,20 @@ export async function getServerSideProps({ res }: any) {
   const cocktailUrls = cocktails.map((c) => `${BASE_URL}/cocktails/${c.slug}`);
   const lessonUrls = buildLessonUrls();
   const ingredientUrls = buildIngredientUrls();
+  const blogPostUrls = blogPosts.map((p) => `${BASE_URL}/blog/${p.slug}`);
+  const blogCategoryUrls = blogCategories.map((c) => `${BASE_URL}/blog/category/${c.slug}`);
 
   const urls = [
     `${BASE_URL}/`,
     `${BASE_URL}/school`,
     `${BASE_URL}/ingredients`,
     `${BASE_URL}/games`,
+    `${BASE_URL}/blog`,
     ...cocktailUrls,
     ...lessonUrls,
     ...ingredientUrls,
+    ...blogPostUrls,
+    ...blogCategoryUrls,
   ];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

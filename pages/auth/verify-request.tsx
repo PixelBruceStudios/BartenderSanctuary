@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router';
+import SEO from '@/components/SEO';
 
 export default function VerifyRequest() {
   const router = useRouter();
@@ -32,8 +33,10 @@ export default function VerifyRequest() {
   };
 
   return (
-    <div style={styles.page}>
-      <div style={styles.card}>
+    <>
+      <SEO title="Verify Email" description="Verify your email address to activate your Bartender Sanctuary account." path="/auth/verify-request" noindex />
+      <div style={styles.page}>
+        <div style={styles.card}>
         <h1 style={styles.title}>Verify your email</h1>
         <p style={styles.subtitle}>
           We'll send a verification link to your email address.
@@ -59,6 +62,7 @@ export default function VerifyRequest() {
         </p>
       </div>
     </div>
+    </>
   );
 }
 

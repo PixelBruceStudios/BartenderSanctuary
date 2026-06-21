@@ -23,6 +23,26 @@ export default function BlogPostPage({ post }: { post: any }) {
         description={post.excerpt}
         path={`/blog/${post.slug}`}
         type="article"
+        jsonLd={
+          post.publishedAt
+            ? {
+                '@context': 'https://schema.org',
+                '@type': 'Article',
+                headline: post.title,
+                description: post.excerpt,
+                datePublished: post.publishedAt,
+                author: {
+                  '@type': 'Organization',
+                  name: post.authorName || 'Bartender Sanctuary',
+                },
+                publisher: {
+                  '@type': 'Organization',
+                  name: 'Bartender Sanctuary',
+                  url: 'https://bartender-sanctuary-app.vercel.app',
+                },
+              }
+            : undefined
+        }
       />
       <article className="container-narrow" style={{ padding: '2.5rem 1.5rem 4rem' }}>
         <div style={{ marginBottom: '1rem' }}>

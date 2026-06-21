@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import bcrypt from "bcryptjs";
+import { useRouter } from 'next/router';
+import SEO from '@/components/SEO';
+import bcrypt from 'bcryptjs';
 
 export default function SignUp() {
   const router = useRouter();
@@ -43,8 +44,10 @@ export default function SignUp() {
   };
 
   return (
-    <div style={styles.page}>
-      <div style={styles.card}>
+    <>
+      <SEO title="Sign Up" description="Create your Bartender Sanctuary account to track progress and access bartending courses." path="/auth/signup" noindex />
+      <div style={styles.page}>
+        <div style={styles.card}>
         <h1 style={styles.title}>Join the Sanctuary</h1>
         <p style={styles.subtitle}>Create your account to access Bartender School</p>
         <form onSubmit={handleSubmit} style={styles.form}>
@@ -84,6 +87,7 @@ export default function SignUp() {
         </p>
       </div>
     </div>
+    </>
   );
 }
 
