@@ -221,6 +221,14 @@ export const ingredients: Ingredient[] = [
     { name: "Flor de Caña 7", description: "Nicaraguan dark rum aged 7 years. Smooth, complex, with caramel, vanilla, and oak. Versatile for Dark 'n' Stormy, Mai Tai, and aged rum cocktails.", related: ["Flor de Caña 12", "Diplomático Reserva Exclusiva", "Mount Gay XO"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Flor_de_Cana_rum.JPG" },
     { name: "Mount Gay XO", description: "Barbadian dark rum from the world's oldest rum distillery (founded 1703). Blend of rums aged 8–15 years. Rich toffee, vanilla, spice, and banana. Complex for Dark 'n' Stormy variations.", related: ["Mount Gay Eclipse", "Diplomático Reserva Exclusiva", "Flor de Caña 7"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Mount_Gay_Distilleries_Origin_Series%2C_Black_Barrel_and_XO.JPG" },
     { name: "Plantation XO", description: "Barbadian dark rum from Plantation. Aged in ex-cognac barrels. Rich molasses, caramel, vanilla, and spice. A premium sipper and cocktail mixer for Mai Tai and Jungle Bird.", related: ["Gosling's Black Seal", "Myers's Original Dark", "Flor de Caña 7"] }
+  ,
+    { name: "Hampden The Maverick", description: "Jamaican single pot still dark rum from Hampden Estate. Funky, complex, with overproof intensity and notes of tropical fruit, molasses, and oak. A craft cocktail staple for Ti' Punch and Jungle Bird.", related: ["Appleton Estate Signature", "Worthy Park", "Gosling's Black Seal"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Hampden_The_Maverick.jpg" }
+  ,
+    { name: "Diageo Pusser's", description: "British West Indies dark rum from Diageo. Traditional Barbados-style blend with molasses, caramel, and spice. The standard for Pusser's Painkiller and Navy-style cocktails.", related: ["Gosling's Black Seal", "Myers's Original Dark", "Plantation XO"] }
+  ,
+    { name: "Foursquare", description: "Barbadian dark rum from Foursquare Distillery. Pot and column still blend, rich and full-bodied with molasses, vanilla, and spice. A craft cocktail favorite for Old Fashioned and Mai Tai variations.", related: ["Mount Gay XO", "Plantation XO", "Gosling's Black Seal"] }
+  ,
+    { name: "Doorly's", description: "Barbadian dark rum from Doorly's distillery. Smooth, approachable, with caramel, vanilla, and oak. A reliable mixer for Dark 'n' Stormy and aged rum cocktails.", related: ["Gosling's Black Seal", "Myers's Original Dark", "Flor de Caña 7"] }
   ] },
   { name: "Aged rum", category: "Rums", description: "Rum aged in oak barrels for 3+ years. Complex with vanilla, oak, dried fruit, and spice notes.", brands: ["Flor de Caña 7", "Diplomático Reserva", "Plantation 5 Year", "Mount Gay XO", "Zacapa 23"], notes: "Ti' Punch, Rum Old Fashioned.",
   bottles: [
