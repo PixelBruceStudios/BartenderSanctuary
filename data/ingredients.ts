@@ -333,6 +333,14 @@ export const ingredients: Ingredient[] = [
     { name: "Cynar", description: "Italian bitter aperitif made from artichokes. Bitter, herbal, complex. 16.5% ABV. Unique vegetal character for spritzes and Negroni variations.", related: ["Aperol", "Campari", "Select Aperitivo"], image: "https://upload.wikimedia.org/wikipedia/commons/5/55/Cynar_%280.7_l_bottle%29.jpg" }
   ,
     { name: "Aperol Amaro", description: "Orange-amaro variant from the Aperol family. Bitter-orange base enriched with additional herbal and amaro botanicals. 11% ABV. A complex spritz alternative bridging the Aperol and Campari profiles.", related: ["Aperol", "Select Aperitivo", "Cynar"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Aperol_001_2025_06_08.jpg" }
+  ,
+    { name: "Campari", description: "The iconic Italian bitter aperitif from the Campari Group. Bright red, intensely herbal and bitter with rhubarb, cherry, cinnamon, and citrus peel. 20.5% ABV. The essential bitter for Negroni, Americano, and Boulevardier.", related: ["Aperol", "Cynar", "Select Aperitivo"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Campari_Bitter_Aperitif_01.jpg" }
+  ,
+    { name: "Cocchi Americano", description: "Italian bitter aperitif wine from Piedmont. Infused with herbs, roots, and citrus. Bitter-sweet, aromatic, and complex. The classic choice for Cocchi Americano and soda or as a spritz modifier.", related: ["Aperol", "Campari", "Cynar"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Cocchi_Americano_Bianco.jpg" }
+  ,
+    { name: "Italicus Rosolio di Bergamotto", description: "Italian bergamot aperitif liqueur from Calabria. Bright citrus-forward profile with floral and herbal notes. 20% ABV. A refreshing alternative to Aperol for spritzes and citrus-forward cocktails.", related: ["Aperol", "Campari", "Cynar"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Italicus_Rosolio_di_Bergamotto.jpg" }
+  ,
+    { name: "Cappelletti Aperitivo", description: "Traditional Italian bitter aperitif from Trentino. Made with a secret blend of herbs and botanicals. Bright red-orange color, balanced bitter-sweet profile. The classic alpine spritz bitter.", related: ["Aperol", "Campari", "Select Aperitivo"] }
   ] },
   { name: "Bénédictine", category: "Liqueurs", description: "French herbal liqueur from Fécamp. Complex: honey, herbs, spices, citrus, stone fruit. 40% ABV.", brands: ["Bénédictine D.O.M.", "B&B (Bénédictine + Brandy)"], notes: "B&B, Vieux Carré, Jamaica Mule.", bottles: [
     { name: "Bénédictine D.O.M.", description: "French herbal liqueur produced by Benedictine monks since 1510. Complex layers of honey, herbs, spices, citrus, and stone fruit. 40% ABV. The base for B&B.", related: ["B&B (B&B Liqueur)", "Chartreuse Green", "Drambuie"] }
