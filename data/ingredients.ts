@@ -303,6 +303,16 @@ export const ingredients: Ingredient[] = [
     { name: "Lazzaroni Amaretto", description: "Italian amaretto made with drupe kernels from the Lazzaroni family recipe. Sweet, nutty, with almond and marzipan notes. 28% ABV.", related: ["Disaronno Amaretto", "DeKuyper Amaretto", "Bardinet Amaretto"] },
     { name: "DeKuyper Amaretto", description: "Dutch-made amaretto from DeKuyper. Smooth almond and apricot kernel character with sweet vanilla. A reliable mixer for Amaretto Sour and Godmother. 24% ABV.", related: ["Disaronno Amaretto", "Lazzaroni Amaretto", "Bardinet Amaretto"] },
     { name: "Bardinet Amaretto", description: "French amaretto liqueur from Bardinet. Sweet almond and marzipan notes with a hint of apricot. An affordable alternative to Disaronno for mixing. 25% ABV.", related: ["Disaronno Amaretto", "Lazzaroni Amaretto", "DeKuyper Amaretto"] }
+  ,
+    { name: "Luxardo Amaretto", description: "Italian amaretto liqueur from Luxardo. Sweet, rich almond character with marzipan and vanilla notes. 28% ABV. A premium Italian alternative to Disaronno for Amaretto Sour and mixing.", related: ["Disaronno Amaretto", "Lazzaroni Amaretto", "Bardinet Amaretto"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Luxardo_Amaretto_bottle%2C_750ml.jpg" }
+  ,
+    { name: "Marie Brizard Amaretto", description: "French amaretto liqueur from Marie Brizard. Sweet almond and marzipan notes with apricot kernel. 24% ABV. A reliable European mixer for cocktails.", related: ["Disaronno Amaretto", "Lazzaroni Amaretto", "DeKuyper Amaretto"] }
+  ,
+    { name: "Hiram Walker Amaretto", description: "American amaretto liqueur from Hiram Walker. Sweet almond flavor with vanilla notes. Widely available and affordable for mixing in Amaretto Sour and Godmother.", related: ["Disaronno Amaretto", "Lazzaroni Amaretto", "DeKuyper Amaretto"] }
+  ,
+    { name: "Tempus Fugit Amaretto", description: "Craft amaretto from Tempus Fugit. Made with real apricot kernels and almonds. Complex, authentic almond-marzipan character. 30% ABV. A boutique option for craft cocktails.", related: ["Disaronno Amaretto", "Lazzaroni Amaretto", "DeKuyper Amaretto"] }
+  ,
+    { name: "Mr Boston Amaretto", description: "American amaretto liqueur from Mr Boston. Sweet almond flavor with vanilla notes. 30% ABV. A higher-proof option for shots and mixed drinks.", related: ["Disaronno Amaretto", "Lazzaroni Amaretto", "DeKuyper Amaretto"] }
   ]
 },
   { name: "Aperol", category: "Liqueurs", description: "Italian bitter-orange aperitif. Bright orange, bittersweet, 11% ABV. Lighter than Campari.", brands: ["Aperol ( Campari Group )"], notes: "Aperol Spritz, Aperol Sour, Paper Plane.", bottles: [
