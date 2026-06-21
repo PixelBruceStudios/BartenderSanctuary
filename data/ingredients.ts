@@ -1237,6 +1237,16 @@ export const ingredients: Ingredient[] = [
     { name: "Novo Fogo Cachaça", description: "Brazilian cachaça from Espírito Santo. Made from organic sugarcane. Silky, tropical, with a smoky edge from eucalyptus wood-fired distillation. Premium choice for Caipirinha.", related: ["Leblon Cachaça", "Avuá Cachaça", "Ypióca"] }
   ,
     { name: "Ypióca Cachaça", description: "Classic Brazilian cachaça from Ceará. One of the oldest brands (founded 1846). Clean, bright sugarcane flavor. An everyday Caipirinha workhorse.", related: ["Leblon Cachaça", "Avuá Cachaça", "Novo Fogo"] }
+  ,
+    { name: "51 Cachaça", description: "Brazil's most popular cachaça brand. Clean, bright sugarcane spirit. The default choice for Caipirinha in Brazil — affordable and widely available.", related: ["Leblon Cachaça", "Avuá Cachaça", "Ypióca Cachaça"] }
+  ,
+    { name: "Sagatiba Cachaça", description: "Premium Brazilian cachaça with smooth, sweet sugarcane character. Well-suited for premium Caipirinha and batida cocktails.", related: ["Leblon Cachaça", "Novo Fogo Cachaça", "Ypióca Cachaça"] }
+  ,
+    { name: "Pitu Cachaça", description: "Classic Brazilian cachaça with a long history. Clean, slightly sweet sugarcane profile. A reliable mixer for Caipirinha and tropical drinks.", related: ["Leblon Cachaça", "51 Cachaça", "Ypióca Cachaça"] }
+  ,
+    { name: "Germana Cachaça", description: "Artisanal Brazilian cachaça from Minas Gerais. Made from fresh sugarcane juice with a smooth, grassy profile. Premium choice for craft Caipirinha.", related: ["Leblon Cachaça", "Avuá Cachaça", "Novo Fogo Cachaça"] }
+  ,
+    { name: "Velho Barreiro Cachaça", description: "Traditional Brazilian cachaça with a smooth, balanced sugarcane character. A popular everyday mixer for Caipirinha and batidas.", related: ["Leblon Cachaça", "51 Cachaça", "Ypióca Cachaça"] }
   ] },
   { name: "White peach purée", category: "Other Spirits", description: "Puréed white peach, strained. Sweet, floral, velvety.", brands: ["Bardezzo, Boiron, or fresh purée"], notes: "Bellini (with Prosecco), Peach Sour.",
   bottles: [
