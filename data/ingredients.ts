@@ -186,6 +186,16 @@ export const ingredients: Ingredient[] = [
   , { name: "Don Q Cristal", description: "Puerto Rican light rum from Destilería Serrallés. Smooth, clean, with mild sweetness and vanilla. The standard rum for Piña Colada and Cuba Libre in Puerto Rico.", related: ["Bacardi Superior", "Plantation 3 Stars", "Don Q Gold"] }
   , { name: "Cruzan Aged Light Rum", description: "Light rum from Cruzan Distillery in St. Croix, US Virgin Islands. Aged in American oak barrels then filtered for clarity. Smooth, with vanilla, coconut, and mild spice. 40% ABV. A versatile mixer for Daiquiri and tropical drinks.", related: ["Bacardi Superior", "Plantation 3 Stars", "Don Q Cristal"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Cruzan_Rum.jpg" },
     { name: "Havana Club 3", description: "Cuban white rum aged 3 years. Smooth, sweet, with vanilla, caramel, and subtle spice. The standard for Mojito and Cuba Libre in Cuba.", related: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Havana_Club_(_RUM_)_Cuba.jpg" }
+  ,
+    { name: "Captain Morgan White Rum", description: "Popular Caribbean white rum from Diageo. Light, smooth, with mild sweetness and vanilla. The standard for Captain Morgan-based cocktails and mixed drinks.", related: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Captain_Morgan_White_Rum_Bottles.jpg" }
+  ,
+    { name: "Ron Cartavio", description: "Peruvian white rum from Cartavio Distillery. Smooth, clean, with mild sweetness, vanilla, and subtle tropical notes. A versatile mixer for Pisco Sour variants and Latin cocktails.", related: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Ron_Cartavio.jpg" }
+  ,
+    { name: "Rhum La Favorite blanc", description: "Martinique rhum agricole blanc from La Favorite distillery. Pure cane juice rum, unaged or lightly aged. Fresh, grassy, with vibrant tropical fruit and pepper notes. Essential for Ti' Punch.", related: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Rhum_La_Favorite_blanc.jpg" }
+  ,
+    { name: "Rhum Neisson blanc", description: "Martinique rhum agricole blanc from Neisson distillery. Pure cane juice rum, crisp and vibrant with grassy, herbal, and tropical fruit notes. The benchmark for agricole blanc in Ti' Punch and Caipirinha.", related: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Rhum_Neisson.jpg" }
+  ,
+    { name: "Rhum agricole Montebello", description: "Guadeloupe rhum agricole blanc from Montebello distillery. Pure cane juice rum, fresh and grassy with pepper and citrus notes. A classic French Caribbean white rum for Ti' Punch and mixers.", related: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Rhum_agricole_Montebello.jpg" }
  ] },
   { name: "Light rum", category: "Rums", description: "Same as white rum — light-bodied, clear or pale gold, mild flavor.", brands: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars"], notes: "Deduplicated with White rum.",
   bottles: [
