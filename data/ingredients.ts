@@ -95,6 +95,14 @@ export const ingredients: Ingredient[] = [
     { name: "High West Rye", description: "American rye whiskey from High West Distillery in Utah. Blended and aged in the American West. Bold, spicy, with pepper, vanilla, and oak. A craft favorite for sipping and cocktails.", related: ["Rittenhouse Rye", "Bulleit Rye", "Templeton Rye"] }
   ,
     { name: "Jim Beam Rye", description: "American rye whiskey from Jim Beam. Spicy, bold, with pepper, clove, and caramel. 90 proof. A widely available, affordable rye for Manhattan and Boulevardier.", related: ["Rittenhouse Rye", "Wild Turkey Rye", "Old Overholt Rye"] }
+  ,
+    { name: "WhistlePig 12 Year", description: "Premium 100% rye whiskey from WhistlePig Distillery in Vermont. Aged 12 years in new American oak. Bold, spicy, with pepper, cinnamon, and a long warming finish. A step up from the 10 Year with deeper oak character.", related: ["WhistlePig 10 Year", "Rittenhouse Rye", "Bulleit Rye"] }
+  ,
+    { name: "Michter's US*1 Rye", description: "Premium straight rye whiskey from Michter's Distillery in Kentucky. Spicy, bold, with pepper, clove, and vanilla. A sought-after craft cocktail rye for Manhattan and Sazerac.", related: ["Rittenhouse Rye", "Bulleit Rye", "Wild Turkey Rye"] }
+  ,
+    { name: "Pikesville Rye", description: "110-proof straight rye whiskey from Heaven Hill. Bold, spicy, with pepper, clove, and caramel. The higher proof makes it stand up well in stirred cocktails like Manhattan and Sazerac.", related: ["Rittenhouse Rye", "Wild Turkey Rye", "Bulleit Rye"] }
+  ,
+    { name: "Russell's Reserve Rye", description: "Rye whiskey from Wild Turkey Distillery in Kentucky. Spicy, bold, with pepper, clove, and caramel. A distinct expression from the standard Wild Turkey Rye, aged for a smoother cocktail profile.", related: ["Wild Turkey Rye", "Rittenhouse Rye", "Bulleit Rye"] }
   ] },
   { name: "Bourbon", category: "Whiskies", description: "American whiskey made with at least 51% corn, aged in new charred American oak. Sweet vanilla, caramel, and oak notes.", brands: ["Buffalo Trace", "Maker's Mark", "Woodford Reserve", "Bulleit Bourbon", "Wild Turkey 101", "Four Roses Small Batch"], notes: "Versatile: Mint Julep, Old Fashioned, Whiskey Sour, Boulevardier.", bottles: [
     { name: "Buffalo Trace", description: "Kentucky straight bourbon from Buffalo Trace Distillery. Rich vanilla, caramel, and mint with a smooth finish. The benchmark affordable bourbon.", related: ["Buffalo Trace Eagle Rare", "Wild Turkey 101", "Maker's Mark"] },
