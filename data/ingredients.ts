@@ -218,6 +218,14 @@ export const ingredients: Ingredient[] = [
     { name: "Mount Gay Eclipse", description: "Barbadian white rum from the world's oldest rum distillery (founded 1703). Light, clean, with vanilla and tropical fruit notes. 40% ABV.", related: ["Mount Gay XO", "Bacardi Superior", "Don Q Cristal"], },
     { name: "Havana Club Añejo Especial", description: "Cuban light rum aged in oak barrels. Smooth, sweet, with vanilla, caramel, and subtle spice. 40% ABV. Essential for Mojito and Cuba Libre.", related: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars"], image: "https://upload.wikimedia.org/wikipedia/commons/2/22/2023_Havana_Club_A%C3%B1ejo_Especial_%283%29.jpg" },
     { name: "Appleton Estate Signature", description: "Jamaican white rum. Light, smooth, with tropical fruit and vanilla notes. 40% ABV. A cornerstone of Jamaican rum production.", related: ["Appleton Estate rums", "Mount Gay Eclipse", "Bacardi Superior"] }
+  ,
+    { name: "Bacardi Gold", description: "Puerto Rican gold rum from Bacardi. Smooth, light, with mild sweetness and vanilla notes from brief oak aging. A step up from Bacardi Superior with richer character for Cuba Libre and rum-based cocktails.", related: ["Bacardi Superior", "Bacardi Black", "Don Q Cristal"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/2023_Rum_Bacardi_Carta_Oro_(3).jpg" }
+  ,
+    { name: "Brugal Blanco", description: "Dominican white rum from Brugal. Light, smooth, with subtle sweetness and vanilla. A widely available Dominican rum for mixing in tropical cocktails and rum punches.", related: ["Brugal 1888", "Brugal Añejo", "Bacardi Superior"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Flickr_-_ronsaunders47_-_BRUGAL_WHITE_RUM_.DOMINICAN_REPUBLIC.jpg" }
+  ,
+    { name: "Cruzan Aged Light Rum", description: "Light rum from Cruzan Distillery in St. Croix, US Virgin Islands. Aged in American oak barrels then filtered for clarity. Smooth, with vanilla, coconut, and mild spice. 40% ABV. A versatile mixer for Daiquiri and tropical drinks.", related: ["Bacardi Superior", "Don Q Cristal", "Mount Gay Eclipse"] }
+  ,
+    { name: "Diplomatico Planas", description: "Venezuelan white rum from Diplomático. Light, smooth, with mild sweetness, vanilla, and subtle tropical fruit. A clean mixer for Daiquiri and rum Collins.", related: ["Diplomatico Reserva Exclusiva", "Diplomatico Mantuano", "Ron Zacapa 23"] }
   ]
 },
   { name: "Dark rum", category: "Rums", description: "Rich, full-bodied rum aged longer in heavily charred barrels. Notes of molasses, caramel, toffee, and spice.", brands: ["Gosling's Black Seal", "Myers's Original Dark", "Plantation XO", "Flor de Caña 7", "Diplomático Reserva"], notes: "Dark 'n' Stormy, Mai Tai, Jungle Bird.", bottles: [
