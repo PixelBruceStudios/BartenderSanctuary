@@ -186,6 +186,16 @@ export const ingredients: Ingredient[] = [
     { name: "Martell VSOP", description: "Classic VSOP cognac from the world's oldest cognac house. Smooth, elegant, with vanilla, dried fruit, and toasted oak. 4-year minimum aging.", related: ["Remy Martin VSOP", "Hennessy VSOP", "Martell XO"], },
     { name: "Remy Martin VS", description: "Entry-level VS cognac from Remy Martin. Young, vibrant, with fresh fruit and floral notes. The most accessible Remy Martin for mixed drinks.", related: ["Remy Martin VSOP", "Remy Martin XO", "Hennessy VS"], },
     { name: "Hennessy VS", description: "The world's best-selling VS cognac. Bold, warm, with vanilla, spice, and toasted oak. Aged minimum 2 years. The standard for Sidecars and Brandy Alexander when VSOP is not specified.", related: ["Hennessy VSOP", "Hennessy XO", "Remy Martin VS"], }
+  ,
+    { name: "Courvoisier VSOP", description: "Elegant VSOP cognac from the Jarnac region. Smooth with vanilla, toasted oak, and dried fruit. A versatile mixer for Sidecars and Brandy Alexander.", related: ["Courvoisier VS", "Courvoisier XO", "Remy Martin VSOP"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Courvoisier_VSOP.jpg" }
+  ,
+    { name: "Meukow VS", description: "Classic VS cognac from Maison Meukow. Crisp, fruity, with fresh grape, vanilla, and floral notes. A reliable, well-priced option for mixed drinks.", related: ["Meukow VSOP", "Meukow XO", "Camus VSOP"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Meukow_VS.jpg" }
+  ,
+    { name: "Camus VSOP", description: "VSOP cognac from Camus, one of the largest family-owned cognac houses. Elegant, fruity, with floral aromas, vanilla, and smooth spice. Consistent and reliable for cocktails.", related: ["Camus VS", "Camus XO", "Remy Martin VSOP"] }
+  ,
+    { name: "Pierre Ferrand Ambre", description: "Amber VSOP-grade cognac from Pierre Ferrand in the Borderies region. Rich, complex, with dried fruit, spice, and toasted oak. A connoisseur's choice for Sidecars and sipping.", related: ["Pierre Ferrand Réserve", "Pierre Ferrand XO", "Remy Martin VSOP"] }
+  ,
+    { name: "Frapin VS", description: "Entry-level cognac from Maison Frapin, a family-owned estate in Grande Champagne. Fruity, floral, with fresh grape, vanilla, and subtle oak. A terroir-driven VS for cocktails.", related: ["Frapin VSOP", "Frapin XO", "Remy Martin VS"] }
   ]
 },
   { name: "Apple brandy", category: "Brandy & Cognac", description: "Brandy distilled from apples, also called applejack when American. Clear or lightly aged. Apple-forward with warm spice.", brands: ["Calvados Boulard", "Laird's Applejack", "Clear Creek Apple Brandy", "St-Germain (not apple — Calvados)"], notes: "Jack Rose, Applejack Rabbit.", bottles: [
