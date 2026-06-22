@@ -417,6 +417,16 @@ export const ingredients: Ingredient[] = [
     { name: "Luksusowa Vodka", description: "Polish potato vodka from Luksusowa. Smooth, creamy, with a distinctive rich texture from potato distillation. 40% ABV. A premium Polish vodka for sipping or mixing in vodka-forward cocktails.", related: ["Belvedere Vodka", "Chopin Rye Vodka", "Finlandia Vodka"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Luksusowa_Vodka_1.75mL_bottle.jpg" }
   ,
     { name: "42 Below Vodka", description: "New Zealand vodka from 42 Below. Pure, clean, with a smooth mouthfeel from volcanic spring water. 40% ABV. A boutique Southern Hemisphere vodka for premium cocktails.", related: ["Absolut Vodka", "Grey Goose", "Ketel One Vodka"] }
+  ,
+    { name: "Smirnoff Vodka", description: "The world's best-selling vodka, triple-distilled and charcoal-filtered for a clean, crisp profile. 40% ABV. A versatile mixer and cocktail staple.", related: ["Absolut Vodka", "Grey Goose", "Ketel One Vodka"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Smirnoff_Vodka_bottle_front.jpg" }
+  ,
+    { name: "SKYY Vodka", description: "American vodka distilled from imported grain and filtered through four times, including a state-of-the-art process. 40% ABV. Known for its smooth, clean taste.", related: ["Absolut Vodka", "Grey Goose", "Ketel One Vodka"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Skyy_Bottle.png" }
+  ,
+    { name: "Crystal Head Vodka", description: "Premium Canadian vodka distilled seven times and filtered through Herkimer diamonds, packaged in a distinctive crystal skull bottle. 40% ABV.", related: ["Belvedere Vodka", "Grey Goose", "Absolut Vodka"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Crystal_Head_Vodka_-_Onyx_Bottle.png" }
+  ,
+    { name: "Fair Quinoa Vodka", description: "French vodka made from organically grown fair-trade quinoa, distilled in the Cognac region. 40% ABV. Smooth, creamy texture with subtle grain notes.", related: ["Absolut Vodka", "Grey Goose", "Ketel One Vodka"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Fair_Quinoa_Vodka_bottle.jpg" }
+  ,
+    { name: "Rock'n Vodka", description: "American vodka with a distinctive smooth, full-bodied character, crafted for premium cocktails. 40% ABV.", related: ["Absolut Vodka", "Grey Goose", "Ketel One Vodka"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Rock%27n_Vodka_Bottle_.jpg" }
   ]
 },
 
