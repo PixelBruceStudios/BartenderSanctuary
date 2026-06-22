@@ -13,7 +13,7 @@ out/
 .env.production
 .env.vercel
 .env.vercel.*
-scripts/__pycache__/\
+scripts/__pycache__/
 scripts/backfill_bottle_images.py
 ingredients-cron-processed.txt
 tsconfig.tsbuildinfo
