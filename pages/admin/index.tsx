@@ -28,6 +28,7 @@ export default function AdminPage() {
         title="Admin CMS"
         description="Admin CMS for managing Bartender Sanctuary blog and forum content."
         path="/admin"
+        noindex
       />
       <div className="container" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '0.75rem' }}>

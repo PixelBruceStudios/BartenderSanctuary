@@ -53,6 +53,7 @@ export default function AdminBlogEdit({ slug }: { slug: string }) {
         title="Edit blog post"
         description="Edit blog post content in the Bartender Sanctuary admin CMS."
         path={`/admin/blog/${slug}`}
+        noindex
       />
       <div className="container" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
         <div style={{ marginBottom: '1rem' }}>

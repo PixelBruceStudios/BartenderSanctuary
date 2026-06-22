@@ -53,6 +53,7 @@ export default function AdminForumEdit({ id }: { id: string }) {
         title="Edit thread"
         description="Edit forum thread content in the Bartender Sanctuary admin CMS."
         path={`/admin/forum/${id}`}
+        noindex
       />
       <div className="container" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
         <div style={{ marginBottom: '1rem' }}>
