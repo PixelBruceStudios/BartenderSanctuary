@@ -121,6 +121,16 @@ export const ingredients: Ingredient[] = [
     { name: "Torres 10 Year Brandy", description: "Spanish brandy from Torres in Catalonia. Aged 10 years in oak. Rich, smooth, with vanilla, caramel, and dried fruit. The benchmark Spanish brandy for Sidecar.", related: ["E&J VSOP Brandy", "Hennessy VS", "Asbach Uralt Brandy"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Torres_10_Brandy.jpg" }
   ,
     { name: "Asbach Uralt Brandy", description: "German brandy from Asbach. Aged in small oak barrels. Smooth, warm, with vanilla, spice, and stone fruit. The classic German brandy for mixed drinks.", related: ["E&J VSOP Brandy", "Hennessy VS", "Torres 10 Year Brandy"] }
+  ,
+    { name: "Martell VSOP", description: "Classic VSOP cognac from the world's oldest cognac house (founded 1715). Smooth, elegant, with vanilla, dried fruit, and toasted oak. 4-year minimum aging. A cornerstone for Sidecar and Brandy Alexander.", related: ["Remy Martin VSOP", "Hennessy VSOP", "Martell XO"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Martell_Vsop.jpg" }
+  ,
+    { name: "Courvoisier VS", description: "French cognac from the Cognac region. Youngest in the Courvoisier lineup. Bright, clean, with fresh fruit and light oak. The entry point to the Courvoisier range.", related: ["Courvoisier VSOP", "Remy Martin VS", "Hennessy VS"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Courvoisier_VS.jpg" }
+  ,
+    { name: "Fundador - Brandy de Jerez", description: "Spanish brandy de Jerez from Fundador. Aged in American oak solera barrels. Rich, warm, with vanilla, caramel, dried fruit, and nutty sherry influence. The benchmark brandy de Jerez for Brandy Alexander and Sidecar.", related: ["Torres 10 Year Brandy", "E&J VSOP Brandy", "Asbach Uralt Brandy"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Fundador_-_Brandy_de_Jerez.JPG" }
+  ,
+    { name: "Larsen VS cognac", description: "French cognac from Larsen. Young VS expression. Bright, clean, with fresh fruit and light oak. An accessible entry-level cognac for mixing.", related: ["Remy Martin VSOP", "Hennessy VS", "Courvoisier VS"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Larsen_VS.jpg" }
+  ,
+    { name: "Meukow VS", description: "French cognac from Meukow. VS grade. Smooth, approachable, with vanilla and fresh fruit notes. A reliable mixing cognac for Sidecar and Brandy Alexander.", related: ["Remy Martin VSOP", "Hennessy VS", "Martell VSOP"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Meukow_VS_bottle.jpg" }
   ] },
   { name: "Brandy or Cognac", category: "Brandy & Cognac", description: "Cognac is a specific type of brandy from the Cognac region of France, always double-distilled in copper pot stills.", brands: ["Remy Martin VSOP", "Hennessy VS", "Martell Cordon Bleu", "Courvoisier VS"], notes: "Cognac gives richer fruit notes in Brandy Alexander, Sazerac variation.", bottles: [
     { name: "Remy Martin VSOP", description: "Premium VSOP cognac. Rich, smooth, with vanilla, dried fruit, and cocoa.", related: ["Remy Martin VS", "Remy Martin XO", "Martell VSOP"], },
