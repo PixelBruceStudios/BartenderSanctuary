@@ -394,6 +394,14 @@ export const ingredients: Ingredient[] = [
     { name: "Grey Goose VX", description: "Ultra-premium French vodka from the Grey Goose cellar master. Blend of Grey Goose vodka and a touch of Cognac. Smooth, complex, with citrus, floral, and vanilla notes. 40% ABV.", related: ["Grey Goose", "Belvedere Vodka", "Ketel One Vodka"] }
   ,
     { name: "Absolut Elyx", description: "Premium single-estate Swedish vodka from Absolut. Distilled from winter wheat grown on the Råå valley estate. Silky, smooth, with vanilla, white pepper, and brioche notes. 42.3% ABV. A handcrafted luxury vodka.", related: ["Absolut Vodka", "Grey Goose", "Ketel One Vodka"] }
+  ,
+    { name: "Wyborowa Vodka", description: "Polish vodka from Wyborowa, one of Poland's most recognized vodka brands. Smooth, clean, with mild grain sweetness and a crisp finish. 40% ABV. A classic Eastern European mixer for vodka-based cocktails.", related: ["Belvedere Vodka", "Absolut Vodka", "Finlandia Vodka"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Vodka_Wyborowa_Bottle.png" }
+  ,
+    { name: "New Amsterdam Vodka", description: "American vodka from New Amsterdam. Smooth, clean, with a hint of sweetness and vanilla. 40% ABV. A widely available, affordable vodka for mixed drinks and shots.", related: ["Absolut Vodka", "Grey Goose", "Stolichnaya Vodka"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/New_Amsterdam_Vodka_Bottle.png" }
+  ,
+    { name: "Luksusowa Vodka", description: "Polish potato vodka from Luksusowa. Smooth, creamy, with a distinctive rich texture from potato distillation. 40% ABV. A premium Polish vodka for sipping or mixing in vodka-forward cocktails.", related: ["Belvedere Vodka", "Chopin Rye Vodka", "Finlandia Vodka"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Luksusowa_Vodka_1.75mL_bottle.jpg" }
+  ,
+    { name: "42 Below Vodka", description: "New Zealand vodka from 42 Below. Pure, clean, with a smooth mouthfeel from volcanic spring water. 40% ABV. A boutique Southern Hemisphere vodka for premium cocktails.", related: ["Absolut Vodka", "Grey Goose", "Ketel One Vodka"] }
   ]
 },
 
