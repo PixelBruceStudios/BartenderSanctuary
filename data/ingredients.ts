@@ -455,7 +455,37 @@ export const ingredients: Ingredient[] = [
   ,
     { name: "Fair Quinoa Vodka", description: "French vodka made from organically grown fair-trade quinoa, distilled in the Cognac region. 40% ABV. Smooth, creamy texture with subtle grain notes.", related: ["Absolut Vodka", "Grey Goose", "Ketel One Vodka"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Fair_Quinoa_Vodka_bottle.jpg" }
   ,
-    { name: "Rock'n Vodka", description: "American vodka with a distinctive smooth, full-bodied character, crafted for premium cocktails. 40% ABV.", related: ["Absolut Vodka", "Grey Goose", "Ketel One Vodka"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Rock%27n_Vodka_Bottle_.jpg" }
+    { name: "Rock'n Vodka", description: "American vodka with a distinctive smooth, full-bodied character, crafted for premium cocktails. 40% ABV.", related: ["Absolut Vodka", "Grey Goose", "Ketel One Vodka"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Rock%27n_Vodka_Bottle_.jpg" },
+    {
+      name: "Beluga Vodka",
+      description: "Russian premium vodka from the Beluga brand. Filtered through natural birch charcoal and aged. Smooth, silky texture with subtle notes of vanilla and cream. 40% ABV.",
+      related: ["Grey Goose", "Belvedere Vodka", "Russian Standard Vodka"],
+      image: ""
+    },
+    {
+      name: "Hangar 1 Vodka",
+      description: "American craft vodka from Hangar 1 Distillers in California. Made from a blend of American wheat and French grapes. Distinctive character with notes of citrus and spice. 40% ABV.",
+      related: ["Grey Goose", "Ketel One Vodka", "Cîroc Vodka"],
+      image: ""
+    },
+    {
+      name: "Moskovskaya Vodka",
+      description: "Traditional Russian vodka from the Moskovskaya brand. Triple distilled from select grains. Clean, smooth, with a hint of pepper and sweetness. 40% ABV.",
+      related: ["Stolichnaya Vodka", "Russian Standard Vodka", "Smirnoff Vodka"],
+      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Moskovskaya_vodka.jpg"
+    },
+    {
+      name: "Polar Ice Vodka",
+      description: "Canadian vodka from the Polar Ice brand. Made from Canadian grains and pure water. Filtered through ice for extra smoothness. Clean, crisp, with a hint of sweetness. 40% ABV.",
+      related: ["42 Below Vodka", "Wyborowa Vodka", "Luksusowa Vodka"],
+      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Polar_Ice_Vodka_Bottle.jpg"
+    },
+    {
+      name: "Effen Vodka",
+      description: "Dutch vodka from the Effen brand. Distilled from 100% wheat using a continuous distillation process. Smooth, clean, with a subtle creaminess. 40% ABV.",
+      related: ["Ketel One Vodka", "Grey Goose", "Belvedere Vodka"],
+      image: "https://commons.wikimedia.org/wiki/Special:FilePath/Effen.jpg"
+    }
   ]
 },
 
