@@ -582,6 +582,12 @@ export const ingredients: Ingredient[] = [
     { name: "Marie Brizard Triple Sec", description: "French triple sec from Marie Brizard. Clean, bright orange flavor with balanced sweetness. 40% ABV. A reliable everyday mixer for Margarita and Sidecar.", related: ["Cointreau", "Combier Triple Sec", "Bols Triple Sec"] }
   ,
     { name: "Bols Triple Sec", description: "Dutch triple sec from Bols. Bright orange flavor with medium sweetness. 38% ABV. A versatile high-volume mixer for Cosmopolitan and Long Island Iced Tea.", related: ["Cointreau", "Combier Triple Sec", "Marie Brizard Triple Sec"] }
+  ,
+    { name: "Grand Marnier", description: "Premium French orange liqueur from the Grand Marnier house. Cognac-based with rich orange, vanilla, and spice notes. 40% ABV. The benchmark for premium orange liqueur in cocktails like Margarita and Sidecar.", related: ["Cointreau", "Pierre Ferrand Dry Curaçao", "Patrón Citronge"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Grand_Marnier_Bottle.jpg" }
+  ,
+    { name: "Grand Marnier Cuvée Louis-Alexandre", description: "Premium VSOP-grade orange liqueur from Grand Marnier. Aged in oak barrels for richer vanilla, toast, and dried orange notes. 40% ABV. A luxurious sipper or cocktail modifier for sophisticated drinks.", related: ["Grand Marnier", "Cointreau", "Pierre Ferrand Dry Curaçao"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Grand_Marnier_Cuv%C3%A9e_Louis-Alexandre.jpg" }
+  ,
+    { name: "Patrón Citronge", description: "Premium orange liqueur from Patrón, made with Patrón tequila. Bright, clean orange flavor with a hint of agave. 35% ABV. A modern twist on orange liqueur for Margarita variation.", related: ["Cointreau", "Grand Marnier", "Pierre Ferrand Dry Curaçao"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Patron_citronge.jpg" }
   ] },
   { name: "Coffee liqueur", category: "Liqueurs", description: "Coffee-flavored liqueur, typically 20–25% ABV. Sweet, dark, with strong coffee notes.", brands: ["Kahlúa", "Tia Maria", "Mr Black", "St- Brendan's", "Licor 43 (not coffee)"], notes: "Espresso Martini, White Russian, Black Russian.", bottles: [
     { name: "Kahlúa", description: "The world's most popular coffee liqueur from Mexico. Made from Arabica coffee, sugarcane spirit, and vanilla. Sweet, rich, dark. Essential for Espresso Martini and White Russian.", related: ["Tia Maria", "Mr Black Cold Brew", "St Brendan's Irish Coffee Liqueur"] },
