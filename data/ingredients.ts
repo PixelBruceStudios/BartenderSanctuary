@@ -665,6 +665,12 @@ export const ingredients: Ingredient[] = [
     { name: "Marie Brizard Crème de Cassis", description: "Classic French blackcurrant crème liqueur from Marie Brizard. Deep purple, sweet-tart, balanced cassis flavor. 20% ABV. A long-standing staple for Kir and Kir Royal.", related: ["Joseph Cartron Crème de Cassis", "Giffard Crème de Cassis", "Briottet Crème de Cassis"] }
   ,
     { name: "Lejay Crème de Cassis", description: "Iconic blackcurrant crème liqueur from Dijon, France. Made with Noir de Bourgogne berries. Deep purple, intense cassis character, 20% ABV. The benchmark for traditional crème de cassis.", related: ["Joseph Cartron Crème de Cassis", "Marie Brizard Crème de Cassis", "Briottet Crème de Cassis"] }
+  ,
+    { name: "Maison Salignac Crème de Cassis", description: "Artisanal French blackcurrant crème liqueur from Gascony. Rich, intense cassis character with authentic Noir de Bourgogne berries. 15–18% ABV.", related: ["Joseph Cartron Crème de Cassis", "Giffard Crème de Cassis", "Lejay Crème de Cassis"] }
+  ,
+    { name: "Château de Bel Crème de Cassis", description: "Premium Burgundian blackcurrant crème liqueur from Château de Bel. Deep purple, balanced sweet-tart cassis profile. 15% ABV.", related: ["Joseph Cartron Crème de Cassis", "Briottet Crème de Cassis", "Lejay Crème de Cassis"] }
+  ,
+    { name: "Vedrenne Crème de Cassis", description: "Traditional blackcurrant crème liqueur from Vedrenne distillery in Beaune, Burgundy. Rich, fruity, authentic cassis character. 15–20% ABV.", related: ["Joseph Cartron Crème de Cassis", "Giffard Crème de Cassis", "Lejay Crème de Cassis"] }
   ]
 },
   { name: "Crème de mûre", category: "Liqueurs", description: "Blackberry crème liqueur. Rich, dark, sweet-tart blackberry flavor.", brands: ["Joseph Cartron", "Giffard", "Briottet", "Bols"], notes: "Bramble, French 75 variation.",
