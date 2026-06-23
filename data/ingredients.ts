@@ -818,7 +818,12 @@ export const ingredients: Ingredient[] = [
     { name: "Bols White Pepermunt", description: "Dutch white crème de menthe from Bols. Clear, minty, sweet. 24% ABV. The classic for Stinger.", related: ["Marie Brizard White Crème de Menthe", "DeKuyper White Peppermint"] },
     { name: "DeKuyper White Peppermint", description: "Dutch white crème de menthe from DeKuyper. Clear, minty, sweet, 24% ABV. A reliable alternative to Bols for Stinger and Grasshopper.", related: ["Marie Brizard White Crème de Menthe", "Bols White Pepermunt"] }
   ,
-    { name: "Combier White Crème de Menthe", description: "French white crème de menthe from Combier. Clear, minty, and sweet. A premium alternative for Stinger and Grasshopper.", related: ["Marie Brizard White Crème de Menthe", "Bols White Pepermunt", "DeKuyper White Peppermint"] }
+    { name: "Combier White Crème de Menthe", description: "French white crème de menthe from Combier. Clear, minty, and sweet. A premium alternative for Stinger and Grasshopper.", related: ["Marie Brizard White Crème de Menthe", "Bols White Pepermunt", "DeKuyper White Peppermint"] },
+    { name: "Get 31 White Crème de Menthe", description: "French white crème de menthe. Clear, minty, and sweet. An accessible alternative for Stinger and Grasshopper cocktails.", related: ["Marie Brizard White Crème de Menthe", "Bols White Pepermunt", "DeKuyper White Peppermint"] },
+    { name: "Hiram Walker White Crème de Menthe", description: "American white crème de menthe from Hiram Walker. Clear, minty, and sweet. A widely available mixing liqueur for Stinger and Grasshopper.", related: ["Marie Brizard White Crème de Menthe", "Bols White Pepermunt", "DeKuyper White Peppermint"] },
+    { name: "Bardinet White Crème de Menthe", description: "French white crème de menthe from Bardinet. Clear, minty, and sweet. A reliable mixing liqueur for mint-forward cocktails.", related: ["Marie Brizard White Crème de Menthe", "Bols White Pepermunt", "DeKuyper White Peppermint"] },
+    { name: "Mr Boston White Crème de Menthe", description: "American white crème de menthe from Mr Boston. Clear, minty, and sweet. An affordable option for Stinger and Grasshopper.", related: ["Marie Brizard White Crème de Menthe", "Bols White Pepermunt", "DeKuyper White Peppermint"] },
+    { name: "Arrow White Crème de Menthe", description: "American white crème de menthe from Arrow. Clear, minty, and sweet. A standard-issue mixing liqueur for bars and home bartenders.", related: ["Marie Brizard White Crème de Menthe", "Bols White Pepermunt", "DeKuyper White Peppermint"] }
   ]
 },
 
