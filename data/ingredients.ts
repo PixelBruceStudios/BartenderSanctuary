@@ -587,8 +587,16 @@ export const ingredients: Ingredient[] = [
     { name: "Peter Heering Cherry Heering", description: "Danish cherry liqueur from Copenhagen, produced since 1818. Made from cherries, spices, and alcohol. Rich, deep cherry with warm spice notes. 24% ABV. Classic for Singapore Sling and Blood and Sand.", related: ["Luxardo Maraschino", "Maraska Maraschino", "Bols Cherry Liqueur"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Cherry_Heering5.jpg" }
   ,
     { name: "Giffard Guignolet", description: "French cherry liqueur from Maison Giffard. Made from wild cherry and griotte cherry varieties. Bright, fruity cherry character with balanced sweetness and a hint of almond. 20% ABV. Used in sour cocktails and as a cherry liqueur substitute.", related: ["Luxardo Maraschino", "Maraska Maraschino", "Bols Cherry Liqueur"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Guignolet.jpg" }
-  ] },
-  { name: "Cointreau", category: "Liqueurs", description: "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish. The standard for classic cocktails.", brands: ["Cointreau"], notes: "Margarita, Cosmopolitan, Sidecar, White Lady.", bottles: [
+  ,
+    { name: "Hiram Walker Cherry Brandy", description: "American cherry brandy from Hiram Walker. Sweet, rich cherry flavor with brandy warmth. Widely available in North America. A reliable budget option for cherry brandy cocktails.", related: ["Luxardo Maraschino", "Maraska Maraschino", "Bols Cherry Liqueur"] }
+  ,
+    { name: "DeKuyper Cherry Liqueur", description: "American cherry liqueur from DeKuyper. Sweet, bright cherry flavor. 30% ABV. An affordable, widely available mixer for cherry-forward cocktails.", related: ["Luxardo Maraschino", "Bols Cherry Liqueur", "Maraska Maraschino"] }
+  ,
+    { name: "99 Brand Cherry Liqueur", description: "American cherry liqueur from 99 Brand. Sweet, cherry-forward, 30% ABV. Popular for shots and cherry-flavored mixed drinks.", related: ["DeKuyper Cherry Liqueur", "Bols Cherry Liqueur", "Hiram Walker Cherry Brandy"] }
+  ,
+    { name: "Mr. Boston Cherry Brandy", description: "American cherry brandy from Mr. Boston. Sweet, rich cherry flavor with brandy depth. A classic budget option for cocktails calling for cherry brandy.", related: ["Hiram Walker Cherry Brandy", "DeKuyper Cherry Liqueur", "Bols Cherry Brandy"] }
+  ]
+},  { name: "Cointreau", category: "Liqueurs", description: "Premium French triple sec. Clean orange flavor, 40% ABV, dry finish. The standard for classic cocktails.", brands: ["Cointreau"], notes: "Margarita, Cosmopolitan, Sidecar, White Lady.", bottles: [
     { name: "Cointreau", description: "Premium French triple sec from the Cointreau family. Distilled from sweet and bitter orange peels. Crisp, clean, dry orange flavor at 40% ABV. The gold standard for Margarita and Sidecar.", related: ["Pierre Ferrand Dry Curaçao", "Combier", "Marie Brizard Triple Sec"], }
   ,
     { name: "Pierre Ferrand Dry Curaçao", description: "Dry orange curaçao from Pierre Ferrand. Made from dried curaçao orange peels. 40% ABV. The premium orange liqueur for Margarita.", related: ["Cointreau", "Combier", "Marie Brizard Orange Curaçao"] }
