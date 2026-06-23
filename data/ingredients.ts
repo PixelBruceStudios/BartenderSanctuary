@@ -205,6 +205,14 @@ export const ingredients: Ingredient[] = [
     { name: "Laird's 100 Proof Applejack", description: "Higher-proof version of Laird's Applejack at 50% ABV. Bolder apple character and more spirit-forward than the 80-proof expression. The traditional pick for Jersey Lightning and stronger apple-forward cocktails.", related: ["Laird's Applejack", "Clear Creek Apple Brandy", "Calvados Boulard"] },
     { name: "Château Breuil VSOP Calvados", description: "Premium Calvados from the Pays d'Auge region in Normandy. Aged a minimum of 4 years in oak barrels. Smooth apple and pear character with vanilla, spice, and toasted oak. The benchmark for sipping and premium cocktails.", related: ["Château Breuil VS", "Calvados Boulard", "Laird's 100 Proof Applejack"] },
     { name: "Château Breuil VS Calvados", description: "Younger Calvados from Château Breuil in Normandy. Bright apple fruit with soft oak and spice. A more approachable everyday apple brandy for mixing and casual sipping. Minimum 2 years aging.", related: ["Château Breuil VSOP Calvados", "Calvados Boulard", "Laird's Applejack"] }
+  ,
+    { name: "Daron Calvados XO", description: "Premium aged Calvados from Daron in Normandy. Aged in oak barrels for a rich, complex profile with deep apple, caramel, and toasted oak notes. 40% ABV. A sipping and cocktail-ready expression.", related: ["Christian Drouin Calvados", "Pierre Huet Calvados", "Clos du Bourg Calvados"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Daron_Calvados_XO.JPG" }
+  ,
+    { name: "Christian Drouin Calvados", description: "Norman Calvados from Christian Drouin. Made from carefully selected apples, aged in oak barrels. Balanced apple fruit with vanilla, spice, and warm oak character. 40% ABV. A classic French apple brandy for cocktails and sipping.", related: ["Daron Calvados XO", "Pierre Huet Calvados", "Château Breuil VSOP Calvados"] }
+  ,
+    { name: "Pierre Huet Calvados", description: "Premium Calvados from Pierre Huet in Normandy. Distilled from selected apples and aged in oak barrels. Smooth, elegant apple character with honey, vanilla, and toasted oak. 40% ABV. A refined choice for fine cocktails and after-dinner sipping.", related: ["Daron Calvados XO", "Christian Drouin Calvados", "Calvados Boulard"] }
+  ,
+    { name: "Clos du Bourg Calvados", description: "Estate Calvados from Clos du Bourg in the Pays d'Auge region of Normandy. Made from apples grown on the estate, aged in oak barrels. Rich, concentrated apple flavor with deep spice, vanilla, and oak. 40% ABV. A terroir-driven expression for craft cocktails.", related: ["Daron Calvados XO", "Pierre Huet Calvados", "Christian Drouin Calvados"] }
   ] },
   { name: "Apricot brandy", category: "Brandy & Cognac", description: "Brandy infused with or distilled from apricots. Sweet, fruity, golden-amber.", brands: ["Marie Brizard Apricot Brandy", "Bols Apricot Brandy", "Rothman & Winter"], notes: "B&B, Apricot Sour.",
   bottles: [
