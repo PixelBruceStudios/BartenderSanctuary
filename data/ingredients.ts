@@ -823,6 +823,14 @@ export const ingredients: Ingredient[] = [
     { name: "Duplais Swiss Absinthe", description: "Swiss absinthe based on the original 19th-century Duplais recipe. Grande wormwood, anise, and fennel. Balanced, herbal, with moderate anise intensity. 54% ABV. A faithful recreation of pre-ban Swiss absinthe.", related: ["Pernod Absinthe", "Kubler Absinthe", "La Fee Absinthe Supérieure"] }
   ,
     { name: "Tiny Foot Absinthe", description: "American absinthe produced in the historic tradition. Wormwood, anise, fennel. Bright herbal profile with citrus undertones. 60% ABV. A quality domestic option for Sazerac rinse and Corpse Reviver #2.", related: ["St. George Absinthe Verte", "Pernod Absinthe", "La Fee Absinthe Supérieure"] }
+  ,
+    { name: "Mari Mayans Absinthe Supérieure", description: "Spanish absinthe from Mari Mayans. Traditional wormwood, anise, and fennel profile. Clear, herbal, with balanced anise intensity. A classic European absinthe from the Balearic Islands.", related: ["La Fee Absinthe Supérieure", "Pernod Absinthe", "Kubler Absinthe"] }
+  ,
+    { name: "La Clandestine Absinthe", description: "Swiss absinthe from the Val-de-Travers region. Made with grande wormwood, anise, and fennel. Clean, herbaceous, with moderate anise intensity. A respected Swiss brand with a loyal following.", related: ["Kubler Absinthe", "Duplais Swiss Absinthe", "Lucid Absinthe Supérieure"] }
+  ,
+    { name: "Versinthe Absinthe Supérieure", description: "Swiss absinthe with a traditional recipe. Grande wormwood, anise, fennel. Smooth, herbal, with balanced complexity. A quality Swiss option for classic absinthe cocktails.", related: ["La Clandestine Absinthe", "Kubler Absinthe", "Lucid Absinthe Supérieure"] }
+  ,
+    { name: "Bosquet Absinthe", description: "French absinthe with classic wormwood, anise, and fennel. Traditional herbal profile with bright anise notes. A French expression of the green fairy.", related: ["Pernod Absinthe", "La Fee Absinthe Supérieure", "Absinthe Original"] }
   ]
 },
   { name: "Angostura bitters", category: "Bitters & Aperitifs", description: "The iconic dash of bitters. Concentrated herbal extract with gentian root, spices, and herbs. Over 150 years old. 44.7% ABV.", brands: ["Angostura (the standard — no alternatives needed)"], notes: "In virtually every stirred cocktail. Old Fashioned, Manhattan, Martini garnish.",
