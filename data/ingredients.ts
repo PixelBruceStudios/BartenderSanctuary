@@ -579,9 +579,21 @@ export const ingredients: Ingredient[] = [
     { name: "Kahlúa", description: "The world's most popular coffee liqueur from Mexico. Made from Arabica coffee, sugarcane spirit, and vanilla. Sweet, rich, dark. Essential for Espresso Martini and White Russian.", related: ["Tia Maria", "Mr Black Cold Brew", "St Brendan's Irish Coffee Liqueur"] },
     { name: "Tia Maria", description: "Jamaican coffee liqueur. Made from Arabica coffee, Jamaican rum, and vanilla. Smooth, dark, with balanced sweetness. The classic alternative to Kahlúa.", related: ["Kahlúa", "Mr Black Cold Brew", "St Brendan's Irish Coffee Liqueur"] },
     { name: "Mr Black Cold Brew Coffee Liqueur", description: "Australian cold brew coffee liqueur. Made with cold-pressed coffee, cane spirit, and chocolate. Bold, clean coffee flavor with minimal sweetness. 20% ABV. The craft cocktail bar standard for Espresso Martinis.", related: ["Kahlúa", "Tia Maria", "St Brendan's Irish Coffee Liqueur"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Tia_Maria_%287._november_2018%29.jpg" },
-    { name: "St Brendan's Irish Coffee Liqueur", description: "Irish coffee liqueur with Irish whiskey, cream, and coffee. Smooth, rich, with whiskey depth. The Irish alternative to Kahlúa for Irish Coffee or White Russian.", related: ["Kahlúa", "Tia Maria", "Mr Black Cold Brew Coffee Liqueur"] },
+    { name: "St Brendan's Irish Coffee Liqueur", description: "Irish coffee liqueur with Irish whiskey, cream, and coffee. Smooth, rich, with whiskey depth. The Irish alternative to Kahlúa for Irish Coffee or White Russian.", related: ["Kahlúa", "Tia Maria", "Mr Black Cold Brew Coffee Liqueur"] }
+  ,
     { name: "Kahlúa Coffee Liqueur", description: "The world's most popular coffee liqueur from Mexico. Made from Arabica coffee, sugarcane spirit, and vanilla. Sweet, rich, dark. Essential for Espresso Martini and White Russian.", related: ["Tia Maria", "Mr Black Cold Brew Coffee Liqueur", "St Brendan's Irish Coffee Liqueur"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Kahl%C3%BAa_Mexican_Coffee_Liquor_02.jpg" }
-  ] },
+  ,
+    { name: "Sheridan's Coffee Layered Liqueur", description: "Irish coffee liqueur with a unique dual-chamber bottle — coffee liqueur and Irish cream in one. Rich coffee flavor with creamy finish. Perfect for layered shots and coffee-forward cocktails.", related: ["Kahlúa", "Tia Maria", "Mr Black Cold Brew Coffee Liqueur"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Sheridan%27s_Coffee_Layered_Liqueur.jpg" }
+  ,
+    { name: "Bols Coffee Liqueur", description: "Dutch coffee liqueur from Bols. Rich coffee flavor with smooth sweetness. A reliable, widely available alternative to Kahlúa for Espresso Martini and coffee cocktails.", related: ["Kahlúa", "Tia Maria", "DeKuyper Coffee Liqueur"] }
+  ,
+    { name: "DeKuyper Coffee Liqueur", description: "American coffee liqueur from DeKuyper. Bold coffee flavor with balanced sweetness. A budget-friendly option for Espresso Martini and White Russian.", related: ["Kahlúa", "Tia Maria", "Bols Coffee Liqueur"] }
+  ,
+    { name: "Koskenkorva Choco Coffee", description: "Finnish coffee-chocolate liqueur from Koskenkorva. Combines coffee and chocolate flavors in a smooth spirit. A unique Nordic twist on coffee liqueur.", related: ["Kahlúa", "Mr Black Cold Brew Coffee Liqueur", "St Brendan's Irish Coffee Liqueur"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Koskenkorva_Choco_Coffee.jpg" }
+  ,
+    { name: "Patrón XO Café", description: "Premium Mexican coffee liqueur from Patrón. Made with Patrón tequila and fine Arabica coffee. Rich, smooth, with chocolate and vanilla undertones. A luxury coffee liqueur for upscale cocktails.", related: ["Kahlúa", "Mr Black Cold Brew Coffee Liqueur", "Sheridan's Coffee Layered Liqueur"] }
+  ]
+},
   { name: "Crème de banane", category: "Liqueurs", description: "Banana-flavored crème liqueur. Bright, artificial-yet-fun banana flavor. 25% ABV.", brands: ["Marie Brizard", "Bols", "DeKuyper"], notes: "Flaming Dr. Pepper, certain Tiki drinks.", bottles: [
     { name: "Marie Brizard Crème de Banane", description: "Bright banana-flavored crème liqueur. Sweet, fun, tropical banana character. 25% ABV. The classic choice for Flaming Dr. Pepper.", related: ["Bols Crème de Banane", "DeKuyper Banana"] }
   ,
