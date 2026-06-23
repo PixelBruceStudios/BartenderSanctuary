@@ -212,7 +212,10 @@ export const ingredients: Ingredient[] = [
     { name: "Bols Apricot Brandy", description: "Dutch apricot brandy. Sweet, smooth, with natural apricot flavor.", related: ["Marie Brizard Apricot Brandy", "Rothman & Winter"] },
     { name: "Rothman & Winter Apricot Brandy", description: "Austrian apricot brandy from Rothman & Winter. Made from ripe apricots. Sweet, rich, with authentic stone-fruit character.", related: ["Marie Brizard Apricot Brandy", "Bols Apricot Brandy"] },
     { name: "DeKuyper Apricot Brandy", description: "American apricot brandy from DeKuyper. Sweet, smooth, with natural apricot flavor. Widely available.", related: ["Marie Brizard Apricot Brandy", "Bols Apricot Brandy"] },
-    { name: "Bardinet Apricot Brandy", description: "French apricot brandy from Bardinet. Sweet, fruity, with warm stone-fruit notes. Versatile for cocktails.", related: ["Marie Brizard Apricot Brandy", "Bols Apricot Brandy"] }
+    { name: "Bardinet Apricot Brandy", description: "French apricot brandy from Bardinet. Sweet, fruity, with warm stone-fruit notes. Versatile for cocktails.", related: ["Marie Brizard Apricot Brandy", "Bols Apricot Brandy"] },
+    { name: "Hiram Walker Apricot Brandy", description: "American apricot brandy from Hiram Walker. Sweet, smooth, with natural apricot flavor. A widely available mixer for cocktails and highballs.", related: ["Marie Brizard Apricot Brandy", "Bols Apricot Brandy", "DeKuyper Apricot Brandy"] },
+    { name: "Giffard Apricot Brandy", description: "French apricot brandy from Giffard. Rich, fruity, with authentic apricot character. A premium choice for cocktails and sipping.", related: ["Marie Brizard Apricot Brandy", "Bols Apricot Brandy", "Rothman & Winter Apricot Brandy"] },
+    { name: "Mr Boston Apricot Brandy", description: "American apricot brandy from Mr Boston. Sweet, smooth, with natural apricot flavor. An affordable mixing brandy for cocktails.", related: ["Marie Brizard Apricot Brandy", "Bols Apricot Brandy", "DeKuyper Apricot Brandy"] }
   ]
 },
   { name: "Cherry brandy", category: "Brandy & Cognac", description: "Fruit brandy made from cherries, distinct from cherry liqueur which is sweeter and red. More spirit-forward.", brands: ["Clear Creek Kirschwasser", "Luxardo Maraschino (semi-related)", "G.E. Massenez Kirsch"], notes: "Japanese Cocktail, certain Boulevardier variations.",
