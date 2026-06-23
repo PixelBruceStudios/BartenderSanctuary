@@ -704,6 +704,12 @@ export const ingredients: Ingredient[] = [
     { name: "Drambuie Royal Legacy of 1745", description: "Upscale Drambuie expression launched in 2009. Made with malt whisky base and heather honey. Complex, rich honey-herbal character with malt depth. 40% ABV. Won the Drinks International Travel Retail Award for Best Travel Retail Drinks Launch in 2009. The premium Drambuie for sipping or luxury Rusty Nail.", related: ["Drambuie", "Glayva", "Liqueur 44"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/New_drambuie_bottle.jpg" }
   ,
     { name: "Liqueur 44 Espresso", description: "Coffee variant of Liqueur 44. The honey-herbal Swiss liqueur combined with coffee notes. Complex, bittersweet, with orange, spice, and roasted coffee. 30% ABV. Used in coffee cocktails and after-dinner drinks.", related: ["Liqueur 44", "Drambuie", "Glayva"] }
+  ,
+    { name: "Drambuie 15 Year Old", description: "Aged Drambuie expression matured for 15 years. Richer, more complex honey-herbal character with deep malt, oak, and spice notes from extended aging. 40% ABV. The sipping expression for Drambuie enthusiasts.", related: ["Drambuie", "Glayva", "Bénédictine D.O.M."], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Drambuie_-_Bottle_(Scotland,_2009).png" }
+  ,
+    { name: "Drambuie Drum", description: "Travel retail exclusive Drambuie expression. Named after the traditional drum cask used in Scotch whisky maturation. Rich honey-herbal profile with Scotch whisky depth. 40% ABV. Created for duty-free shops.", related: ["Drambuie", "Glayva", "Liqueur 44"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Drambuie_-_Bottle_(Scotland,_2009).png" }
+  ,
+    { name: "Glayva 15 Year Old", description: "Aged Glayva expression matured for 15 years. Similar honey-herbal profile to Drambuie but with extended aging adding oak, vanilla, and deeper spice complexity. 40% ABV. Premium Scottish honey liqueur for sipping.", related: ["Glayva", "Drambuie", "Bénédictine"] }
   ] },
   { name: "Elderflower liqueur", category: "Liqueurs", description: "Fragrant elderflower blossom liqueur. Floral, sweet, honeyed, with pear and lychee undertones. 20% ABV.", brands: ["St-Germain"], notes: "St-Germain Spritz, Elderflower Collins, Hugo.", bottles: [
     { name: "St-Germain", description: "French elderflower liqueur. Each bottle contains up to 1,000 elderflower blossoms hand-harvested in the French Alps. Floral, sweet, honeyed, with lychee undertones. 20% ABV.", related: ["Elderflower cordials", "Monin Elderflower Syrup"], }
