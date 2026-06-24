@@ -329,7 +329,11 @@ export const ingredients: Ingredient[] = [
   ,
     { name: "Cruzan Aged Light Rum", description: "Light rum from Cruzan Distillery in St. Croix, US Virgin Islands. Aged in American oak barrels then filtered for clarity. Smooth, with vanilla, coconut, and mild spice. 40% ABV. A versatile mixer for Daiquiri and tropical drinks.", related: ["Bacardi Superior", "Don Q Cristal", "Mount Gay Eclipse"] }
   ,
-    { name: "Diplomatico Planas", description: "Venezuelan white rum from Diplomático. Light, smooth, with mild sweetness, vanilla, and subtle tropical fruit. A clean mixer for Daiquiri and rum Collins.", related: ["Diplomatico Reserva Exclusiva", "Diplomatico Mantuano", "Ron Zacapa 23"] }
+    { name: "Diplomatico Planas", description: "Venezuelan white rum from Diplomático. Light, smooth, with mild sweetness, vanilla, and subtle tropical fruit. A clean mixer for Daiquiri and rum Collins.", related: ["Diplomatico Reserva Exclusiva", "Diplomatico Mantuano", "Ron Zacapa 23"] },
+    { name: "Havana Club 3", description: "Cuban white rum aged 3 years. Smooth, sweet, with vanilla, caramel, and subtle spice. The standard for Mojito and Cuba Libre in Cuba.", related: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars"] },
+    { name: "Plantation 3 Stars", description: "Premium Trinidadian white rum. Smooth, soft, with notes of vanilla, citrus, and tropical fruit. Ideal for Ti' Punch and mixed drinks.", related: ["Bacardi Superior", "Don Q Cristal", "Plantation 5 Year"] },
+    { name: "Cacique Blanco", description: "Venezuelan white rum from Cacique. Light, smooth, with mild sweetness and vanilla. A widely available Venezuelan mixer for cocktails and highballs.", related: ["Bacardi Superior", "Don Q Cristal", "Diplomatico Planas"] },
+    { name: "Flor de Caña 4", description: "Nicaraguan light rum from Flor de Caña distillery. Aged 4 years. Smooth, balanced, with vanilla, caramel, and subtle spice. A versatile mixer for Daiquiri and tropical cocktails.", related: ["Bacardi Superior", "Don Q Cristal", "Mount Gay Eclipse"] }
   ]
 },
   { name: "Dark rum", category: "Rums", description: "Rich, full-bodied rum aged longer in heavily charred barrels. Notes of molasses, caramel, toffee, and spice.", brands: ["Gosling's Black Seal", "Myers's Original Dark", "Plantation XO", "Flor de Caña 7", "Diplomático Reserva"], notes: "Dark 'n' Stormy, Mai Tai, Jungle Bird.", bottles: [
