@@ -1402,6 +1402,16 @@ export const ingredients: Ingredient[] = [
     { name: "Kittl Raspberry Syrup with Pulp", description: "Czech raspberry syrup with real fruit pulp from Kitl. Rich, tart-sweet, deep red color. Great for Collins and Sours.", image: "https://commons.wikimedia.org/wiki/Special:FilePath/Kittl_Syrob_Malinovy_S_Duzninou.jpg", related: ["Monin Raspberry Syrup", "Fee Brothers Raspberry Syrup"] }
   ,
     { name: "Teisseire Raspberry Syrup", description: "French raspberry syrup from Teisseire. Natural fruit flavor, balanced sweet-tart profile. Mixes clear in cold drinks.", related: ["Monin Raspberry Syrup", "Fee Brothers Raspberry Syrup"] }
+  ,
+    { name: "DaVinci Gourmet Raspberry Syrup", description: "Raspberry syrup from DaVinci Gourmet. Tart-sweet, vibrant red. Popular in coffee shops and cocktail bars for Collins, Sours, and lemonade variations.", related: ["Monin Raspberry Syrup", "Torani Raspberry Syrup"] }
+  ,
+    { name: "Torani Raspberry Syrup", description: "Raspberry syrup from Torani. Bold, tart-sweet raspberry flavor. A staple in American coffee shops and bars for sodas, cocktails, and lemonades.", related: ["Monin Raspberry Syrup", "DaVinci Gourmet Raspberry Syrup"] }
+  ,
+    { name: "1883 Maison Routin Raspberry Syrup", description: "French raspberry syrup from 1883 Maison Routin. Natural fruit flavor, balanced sweet-tart profile. Mixes clear in cold drinks and cocktails.", related: ["Monin Raspberry Syrup", "Teisseire Raspberry Syrup"] }
+  ,
+    { name: "Small Hand Foods Raspberry Syrup", description: "Craft raspberry syrup from Small Hand Foods. Made with real fruit. Tart-sweet depth for craft cocktails.", related: ["Monin Raspberry Syrup", "Fee Brothers Raspberry Syrup"] }
+  ,
+    { name: "Monin Organic Raspberry Syrup", description: "Organic raspberry syrup from Monin. Certified organic tart-sweet raspberry flavor. Great for organic cocktail programs.", related: ["Monin Raspberry Syrup", "DaVinci Gourmet Raspberry Syrup"] }
   ] },
   { name: "Simple syrup", category: "Syrups & Sweeteners", description: "Equal parts sugar and water, dissolved. The standard neutral sweetener for cocktails. 1:1 ratio.", brands: ["Homemade", "Monin Simple Syrup"], notes: "Almost every cocktail that needs sweetness. ¾ oz per sour cocktail.",
   bottles: [
