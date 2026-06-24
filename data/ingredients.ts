@@ -777,6 +777,14 @@ export const ingredients: Ingredient[] = [
     { name: "Fee Brothers Grenadine", description: "Classic American grenadine from Fee Brothers. Bright red pomegranate syrup, the original mixer for the Tequila Sunrise. ~3% ABV.", image: "https://upload.wikimedia.org/wikipedia/commons/2/29/Grenadinesyrup.jpg", related: ["Monin Grenadine", "Roses Grenadine", "Small Hand Foods"] },
     { name: "Small Hand Foods Pomegranate Grenadine", description: "Premium pomegranate grenadine from Small Hand Foods. Made with real pomegranate juice, no artificial colors. Used in craft cocktail bars.", related: ["Monin Grenadine", "Roses Grenadine", "Fee Brothers Grenadine"] },
     { name: "B.G. Reynolds Grenadine", description: "Hawaiian grenadine from B.G. Reynolds. Rich red pomegranate syrup with a touch of vanilla. Popular in tiki cocktails.", related: ["Monin Grenadine", "Roses Grenadine", "Fee Brothers Grenadine"] }
+  ,
+    { name: "Torani Grenadine", description: "American grenadine from Torani. Deep red pomegranate syrup, commonly used in cocktails and soda fountains. A widely available mixer for Tequila Sunrise and Shirley Temple.", related: ["Monin Grenadine", "Roses Grenadine", "Fee Brothers Grenadine"] }
+  ,
+    { name: "1883 Grenadine", description: "French grenadine from 1883. Rich pomegranate syrup with balanced sweet-tart profile. A premium cocktail mixer used in bars worldwide.", related: ["Monin Grenadine", "Roses Grenadine", "Fee Brothers Grenadine"] }
+  ,
+    { name: "DaVinci Gourmet Grenadine", description: "American grenadine from DaVinci Gourmet. Vibrant red pomegranate syrup for cocktails and mocktails. A staple in coffeehouse and bar syrup lines.", related: ["Monin Grenadine", "Roses Grenadine", "Fee Brothers Grenadine"] }
+  ,
+    { name: "Stirrings Grenadine", description: "American grenadine from Stirrings. Authentic pomegranate syrup with no artificial colors. A craft cocktail mixer favored by bartenders.", related: ["Monin Grenadine", "Roses Grenadine", "Fee Brothers Grenadine"] }
   ]
 },
   { name: "Irish cream", category: "Liqueurs", description: "Cream liqueur with Irish whiskey, cream, and chocolate/coffee. Smooth, sweet, 17% ABV.", brands: ["Baileys Irish Cream", "Ryan's", "Saint Brendan's"], notes: "B-52, Irish Car Bomb, White Russian variation.",
