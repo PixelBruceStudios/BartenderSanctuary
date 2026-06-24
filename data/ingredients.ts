@@ -1561,6 +1561,16 @@ export const ingredients: Ingredient[] = [
     { name: "Laird's Applejack (80 Proof)", description: "Standard 80-proof applejack from Laird's. Milder than the 100-proof expression. Apple-forward, warm, and versatile for Jack Rose and Applejack Rabbit.", related: ["Laird's Applejack", "Laird's 100 Proof Applejack", "Clear Creek Apple Brandy"] }
   ,
     { name: "Etter Kirsch", description: "Swiss kirschwasser from Etter Distillery. Made from distilled sour cherries. Dry, clean, and aromatic. A premium eau-de-vie for White Lady and related cocktails.", related: ["Clear Creek Apple Brandy", "G.E. Massenez Kirsch", "Laird's Applejack"] }
+  ,
+    { name: "Calvados Domfrontais", description: "Reserve quality Calvados from the Domfrontais AOC. French apple brandy with rich, fruity character and subtle oak influence. A sophisticated cocktail apple brandy.", related: ["Calvados Pomme d'Eve", "Daron Calvados XO", "St. George Spirits Apple Brandy"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Calvados_Domfrontais.jpg" }
+  ,
+    { name: "Daron Calvados XO", description: "Premium XO-aged Calvados from Daron. Extended oak aging creates deep complexity with notes of baked apple, caramel, and spice. A luxury apple brandy for refined cocktails.", related: ["Calvados Domfrontais", "Calvados Pomme d'Eve", "Germain-Robin Apple Brandy"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Daron_Calvados_XO.JPG" }
+  ,
+    { name: "Calvados Pomme d'Eve", description: "Unique Calvados Pomme d'Eve featuring an apple inside the bottle. Distinctive visual and flavor profile. A conversation-starter apple brandy for craft cocktails.", related: ["Calvados Domfrontais", "Daron Calvados XO", "St. George Spirits Apple Brandy"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Calvados_Pomme_d%27Eve.jpg" }
+  ,
+    { name: "St. George Spirits Apple Brandy", description: "California-made apple brandy from St. George Spirits. Crafted from a blend of apple varieties. Clean, fruity, and spirit-driven. A top-tier American craft apple brandy.", related: ["Clear Creek Apple Brandy", "Germain-Robin Apple Brandy", "Laird's Applejack"] }
+  ,
+    { name: "Germain-Robin Apple Brandy", description: "Alameda County, California apple brandy from Germain-Robin. Made from locally grown apples with careful distillation. Elegant, apple-forward, and versatile for cocktails.", related: ["St. George Spirits Apple Brandy", "Clear Creek Apple Brandy", "Laird's Applejack"] }
   ] },
   { name: "Cachaça", category: "Other Spirits", description: "Brazilian spirit from fermented sugarcane juice. Funky, grassy, herbaceous. Unlike rum (molasses).", brands: ["Leblon", "Avuá", "Novo Fogo", "Ypióca"], notes: "Caipirinha, Caipiroska, Batida.",
   bottles: [
