@@ -540,7 +540,12 @@ export const ingredients: Ingredient[] = [
       description: "Dutch vodka from the Effen brand. Distilled from 100% wheat using a continuous distillation process. Smooth, clean, with a subtle creaminess. 40% ABV.",
       related: ["Ketel One Vodka", "Grey Goose", "Belvedere Vodka"],
       image: "https://commons.wikimedia.org/wiki/Special:FilePath/Effen.jpg"
-    }
+    }  ,
+    { name: "Chopin Vodka", description: "Polish vodka from the Chopin distillery, made from potatoes (not rye). Quadruple distilled for exceptional smoothness. Rich, creamy texture with notes of vanilla, almond, and subtle pepper. 40% ABV. A premium potato vodka distinct from Chopin Rye.", related: ["Chopin Rye Vodka", "Belvedere Vodka", "Luksusowa Vodka"], image: "https://upload.wikimedia.org/wikipedia/commons/e/e2/Chopamerd.jpg" }
+  ,
+    { name: "Sobieski Vodka", description: "Polish vodka from the Sobieski brand, made from pure rye grain. Smooth, clean, with a hint of pepper and vanilla. 40% ABV. One of Poland's most exported vodka brands, named after King Jan III Sobieski.", related: ["Chopin Vodka", "Wyborowa Vodka", "Luksusowa Vodka"], image: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Vodka_Sobieski.jpg" }
+  ,
+    { name: "Ursus Vodka", description: "Polish vodka from the Ursus brand, produced from quality grain. Clean, smooth, with mild sweetness and a crisp finish. 40% ABV. Named after the Latin word for bear, a classic Eastern European vodka.", related: ["Chopin Vodka", "Sobieski Vodka", "Wyborowa Vodka"], image: "https://upload.wikimedia.org/wikipedia/commons/a/ac/Ursus_Vodka.png" }
   ]
 },
 
