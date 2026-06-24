@@ -407,6 +407,16 @@ export const ingredients: Ingredient[] = [
         { name: "Monkey 47", description: "German dry gin from the Black Forest (Schwarzwald). 47 botanicals including juniper, citrus, and spice. Complex, aromatic, with a distinctive malty backbone from the traditional genever influence. 47% ABV. One of the world's most awarded craft gins for martinis and Negronis.", related: ["Hendrick's Gin", "The Botanist", "Plymouth Gin"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Monkey_47_-_Schwarzwald_Dry_Gin_-_Packshot.jpg" }
   ,
         { name: "Citadelle Gin", description: "French gin from the Cognac region. Distilled with 19 botanicals including juniper, citrus, and spice. Smooth, elegant, with a clean, crisp profile. 44% ABV. A classic French gin for martinis and G&Ts with a distinctive Continental character.", related: ["Hendrick's Gin", "The Botanist", "Bombay Sapphire"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Citadelle_Bottle_%281%29.jpg" }
+  ,
+        { name: "Ford's Gin", description: "American craft gin from the Pacific Northwest. Botanically driven with notes of citrus, pine, and spice. 45% ABV. A modern craft gin for martinis and Negronis.", related: ["Beefeater London Dry", "Tanqueray London Dry", "Bombay Sapphire"] }
+  ,
+        { name: "Aviation American Gin", description: "American craft gin from Portland, Oregon. Rye-based spirit with a smooth, approachable profile featuring lavender and bitter orange. 42% ABV. A pioneer of the American craft gin movement.", related: ["Beefeater London Dry", "Tanqueray London Dry", "Bombay Sapphire"] }
+  ,
+        { name: "St. George Spirit Dry Gin", description: "California craft gin from St. George Spirits. Distinctive mature botanicals basket with notes of pine, pepper, and citrus. 45% ABV. A bold, complex craft gin for martinis and Negronis.", related: ["Beefeater London Dry", "Tanqueray London Dry", "The Botanist"] }
+  ,
+        { name: "Broker's Gin", description: "English London dry gin with a distinctive blue bottle and wax seal. Classic juniper-forward profile with citrus and spice. 40% ABV. A reliable choice for Martinis and G&Ts with British flair.", related: ["Tanqueray London Dry", "Beefeater London Dry", "Bombay Sapphire"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Broker%27s_Gin_bottle.JPG" }
+  ,
+        { name: "Nolet's Reserve Gin", description: "Premium Dutch gin from the Nolet family distillery. Five-time distilled with juniper, coriander, and angelica, finished with silver leaf. 47.6% ABV. A luxury gin for sipping and premium cocktails.", related: ["Tanqueray No. Ten", "Hendrick's Gin", "Monkey 47"] }
   ]},
   { name: "London dry gin", category: "Gins", description: "The strictest gin style. Juniper-forward with citrus peel and coriander. No added flavoring after distillation.", brands: ["Beefeater", "Tanqueray", "Bombay Sapphire", "Plymouth (also qualifies)", "Sipsmith VJS"], notes: "Martini, Negroni, Gin & Tonic, Tom Collins.",
   bottles: [
