@@ -949,7 +949,10 @@ export const ingredients: Ingredient[] = [
   bottles: [
     { name: "Regans' Orange Bitters No. 6", description: "Citrusy bitters from dried orange peel by Gary Regan.", related: ["Fee Brothers Orange Bitters", "Bitter Truth Orange"] },
     { name: "Fee Brothers Orange Bitters", description: "American orange bitters. Bright orange peel flavor.", related: ["Regans' Orange Bitters No. 6", "Bitter Truth Orange"] },
-    { name: "Bitter Truth Orange Bitters", description: "Premium German orange bitters. Made from sun-dried Valencia orange peel. Bright, aromatic, with floral citrus notes. 39% ABV.", related: ["Regans' Orange Bitters No. 6", "Fee Brothers Orange Bitters"] }
+    { name: "Bitter Truth Orange Bitters", description: "Premium German orange bitters. Made from sun-dried Valencia orange peel. Bright, aromatic, with floral citrus notes. 39% ABV.", related: ["Regans' Orange Bitters No. 6", "Fee Brothers Orange Bitters"] },
+    { name: "Bittermans Orange Bitters", description: "American orange bitters with bold citrus and spice notes.", related: ["Regans' Orange Bitters No. 6", "Fee Brothers Orange Bitters"] },
+    { name: "Scrappy's Orange Bitters", description: "Small-batch orange bitters with bright, floral citrus character.", related: ["Regans' Orange Bitters No. 6", "Bitter Truth Orange Bitters"] },
+    { name: "Angostura Orange Bitters", description: "Orange bitters from the makers of Angostura Aromatic Bitters.", related: ["Regans' Orange Bitters No. 6", "Fee Brothers Orange Bitters"] }
   ]
 },
   { name: "Peychaud's bitters", category: "Bitters & Aperitifs", description: "Aromatic bitters from New Orleans. Anise, gentian, cherry. Distinctive red color. 35% ABV.", brands: ["Peychaud's Bitters"], notes: "Sazerac — essential. Manhattan variation.",
