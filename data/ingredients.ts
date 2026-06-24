@@ -1408,6 +1408,11 @@ export const ingredients: Ingredient[] = [
     { name: "Monin Simple Syrup", description: "Neutral 1:1 sugar syrup. Standard sweetener for cocktails.", related: ["Homemade simple syrup", "Rich simple syrup"] },
     { name: "Fee Brothers Simple Syrup", description: "American 1:1 simple syrup from Fee Brothers. Neutral sugar syrup for cocktails. A reliable alternative to Monin for high-volume bars.", related: ["Monin Simple Syrup", "Homemade Simple Syrup"] },
     { name: "Monin Rich Simple Syrup", description: "Rich 2:1 sugar-to-water syrup from Monin. Sweeter, more viscous than standard simple syrup. Used in spirit-forward cocktails that need extra sweetness.", related: ["Monin Simple Syrup", "Homemade Simple Syrup", "Demerara Syrup"] },
+    { name: "Torani Simple Syrup", description: "Clear 1:1 sugar syrup from Torani. Neutral sweetener for cocktails, sodas, and lemonades. A reliable bar staple.", related: ["Monin Simple Syrup", "DaVinci Gourmet Simple Syrup"] },
+    { name: "DaVinci Gourmet Simple Syrup", description: "Clear 1:1 sugar syrup from DaVinci Gourmet. Neutral sweetener widely used in coffee shops and cocktail bars.", related: ["Monin Simple Syrup", "Torani Simple Syrup"] },
+    { name: "1883 Maison Routin Simple Syrup", description: "Clear 1:1 sugar syrup from 1883 Maison Routin. Neutral sweetener for cocktails and beverages. French-made.", related: ["Monin Simple Syrup", "Torani Simple Syrup"] },
+    { name: "Small Hand Foods Simple Syrup", description: "Craft 1:1 sugar syrup from Small Hand Foods. Neutral sweetener for craft cocktails.", related: ["Monin Simple Syrup", "Fee Brothers Simple Syrup"] },
+    { name: "Monin Organic Simple Syrup", description: "Organic 1:1 sugar syrup from Monin. Certified organic neutral sweetener for cocktails.", related: ["Monin Simple Syrup", "Torani Simple Syrup"] }
   ] },
   { name: "Sugar", category: "Syrups & Sweeteners", description: "Granulated white sugar. Used for Old Fashioned muddling, sugar rims, or making simple syrup.", brands: ["Any white granulated sugar"], notes: "Old Fashioned (muddled with bitters), rimming glasses.",
   bottles: [
