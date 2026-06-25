@@ -779,6 +779,12 @@ export const ingredients: Ingredient[] = [
     { name: "Joseph Cartron Crème de Mûre", description: "French blackberry crème liqueur from Joseph Cartron in Burgundy. Made with wild blackberries. Rich, dark, with authentic sweet-tart blackberry character. A classic choice for Bramble and Kir variations.", related: ["Giffard Crème de Mûre", "Briottet Crème de Mûre", "Bols Blackberry Crème de Mûre"] }
   ,
     { name: "Maison Bartolomei Crème de Mûre", description: "Premium French blackberry crème liqueur from Maison Bartolomei in Provence. Crafted from wild Mediterranean blackberries. Intense, dark, with complex sweet-tart fruit and subtle earthy notes. A boutique expression for craft cocktails.", related: ["Giffard Crème de Mûre", "Briottet Crème de Mûre", "Joseph Cartron Crème de Mûre"] }
+  ,
+    { name: "Giffard Crème de Mûre Noir", description: "Rich French blackberry crème liqueur from Giffard. Intense dark fruit character with deeper berry notes and subtle earthy complexity. 20% ABV. A premium expression for Bramble and dessert cocktails.", related: ["Giffard Crème de Mûre", "Briottet Crème de Mûre", "Joseph Cartron Crème de Mûre"] }
+  ,
+    { name: "Joseph Cartron Crème de Mûre Sauvage", description: "Wild blackberry crème liqueur from Joseph Cartron in Burgundy. Made with foraged wild blackberries for more intense, forest-berry character. 20% ABV. A boutique alternative for craft cocktail programs.", related: ["Joseph Cartron Crème de Mûre", "Giffard Crème de Mûre", "Briottet Crème de Mûre"] }
+  ,
+    { name: "Briottet Crème de Mûre Sauvage", description: "Wild blackberry crème liqueur from Maison Briottet in Dijon. Crafted from wild Burgundian blackberries with authentic sweet-tart intensity. 20% ABV. A traditional expression for classic cocktails.", related: ["Briottet Crème de Mûre", "Giffard Crème de Mûre", "Joseph Cartron Crème de Mûre"] }
   ]
 },
   { name: "Crème de violette", category: "Liqueurs", description: "Violet flower crème liqueur. Floral, sweet, perfumed. 20–25% ABV. Rare and expensive.", brands: ["Giffard Crème de Violette", "Briottet", "Rothman & Winter"], notes: "Aviation — ¼ oz is enough. Violet Fizz.",
