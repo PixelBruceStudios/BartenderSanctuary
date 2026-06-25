@@ -186,6 +186,16 @@ export const ingredients: Ingredient[] = [
     { name: "Larsen VS cognac", description: "French cognac from Larsen. Young VS expression. Bright, clean, with fresh fruit and light oak. An accessible entry-level cognac for mixing.", related: ["Remy Martin VSOP", "Hennessy VS", "Courvoisier VS"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Larsen_VS.jpg" }
   ,
     { name: "Meukow VS", description: "French cognac from Meukow. VS grade. Smooth, approachable, with vanilla and fresh fruit notes. A reliable mixing cognac for Sidecar and Brandy Alexander.", related: ["Remy Martin VSOP", "Hennessy VS", "Martell VSOP"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Meukow_VS_bottle.jpg" }
+  ,
+    { name: "Christian Brothers Brandy", description: "California brandy from Christian Brothers. Smooth, sweet, with vanilla, caramel, and dried fruit. A widely available, affordable mixing brandy for Sidecar and Brandy Alexander.", related: ["E&J VSOP Brandy", "Korbel Brandy", "Torres 10 Year Brandy"] }
+  ,
+    { name: "Korbel Brandy", description: "California brandy from Korbel. Smooth, approachable, with vanilla, caramel, and light fruit notes. A popular, widely available mixing brandy for cocktails and highballs.", related: ["Christian Brothers Brandy", "E&J VSOP Brandy", "Torres 10 Year Brandy"] }
+  ,
+    { name: "St-Rémy VSOP Brandy", description: "French VSOP brandy from St-Rémy. Smooth, balanced, with vanilla, dried fruit, and toasted oak. A reliable mixing brandy for Sidecar, Brandy Alexander, and other classic cocktails.", related: ["Remy Martin VSOP", "Martell VSOP", "Hennessy VSOP"] }
+  ,
+    { name: "Germain-Robin Brandy", description: "California craft brandy from Germain-Robin Distillery. Made with Alembic stills and French techniques. Rich, complex, with vanilla, dried fruit, and toasted oak. A premium American brandy for sipping and cocktails.", related: ["Remy Martin VSOP", "E&J VSOP Brandy", "Torres 10 Year Brandy"] }
+  ,
+    { name: "Hine VSOP", description: "VSOP cognac from Hine. Smooth, elegant, with vanilla, dried fruit, and floral notes. A lesser-known but excellent cognac for Sidecar and sipping.", related: ["Remy Martin VSOP", "Martell VSOP", "Courvoisier VSOP"] }
   ] },
   { name: "Brandy or Cognac", category: "Brandy & Cognac", description: "Cognac is a specific type of brandy from the Cognac region of France, always double-distilled in copper pot stills.", brands: ["Remy Martin VSOP", "Hennessy VS", "Martell Cordon Bleu", "Courvoisier VS"], notes: "Cognac gives richer fruit notes in Brandy Alexander, Sazerac variation.", bottles: [
     { name: "Remy Martin VSOP", description: "Premium VSOP cognac. Rich, smooth, with vanilla, dried fruit, and cocoa.", related: ["Remy Martin VS", "Remy Martin XO", "Martell VSOP"], },
