@@ -337,6 +337,16 @@ export const ingredients: Ingredient[] = [
     { name: "Rhum Neisson blanc", description: "Martinique rhum agricole blanc from Neisson distillery. Pure cane juice rum, crisp and vibrant with grassy, herbal, and tropical fruit notes. The benchmark for agricole blanc in Ti' Punch and Caipirinha.", related: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Rhum_Neisson.jpg" }
   ,
     { name: "Rhum agricole Montebello", description: "Guadeloupe rhum agricole blanc from Montebello distillery. Pure cane juice rum, fresh and grassy with pepper and citrus notes. A classic French Caribbean white rum for Ti' Punch and mixers.", related: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Rhum_agricole_Montebello.jpg" }
+  ,
+    { name: "Cockspur Premium White Rum", description: "Barbadian white rum from Cockspur distillery. Light, smooth, with notes of vanilla, tropical fruit, and subtle spice. A classic Caribbean mixer for Mojitos and Daiquiris.", related: ["Bacardi Superior", "Captain Morgan White Rum", "Plantation 3 Stars"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Cockspur_Rum.jpg" }
+  ,
+    { name: "Chairman's Reserve White Rum", description: "St. Lucian white rum from the Chairman's Reserve distillery. Light, smooth, with vanilla, citrus, and gentle tropical notes. A versatile mixer for Caribbean cocktails.", related: ["Bacardi Superior", "Plantation 3 Stars", "Don Q Cristal"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Chairman%27s_Reserve.jpg" }
+  ,
+    { name: "Hamilton Jamaican White Rum", description: "Jamaican white rum from Hamilton rum distillery. Light, smooth, with tropical fruit, vanilla, and subtle spice. A premium Jamaican white rum for cocktails.", related: ["Bacardi Superior", "Mount Gay Eclipse", "Havana Club 3"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Hamilton_Jamaican_White_Rum.jpg" }
+  ,
+    { name: "Flor de Caña Blanco", description: "Nicaraguan white rum from Flor de Caña distillery. Light, crisp, with vanilla, citrus, and subtle spice. A premium Central American white rum for cocktails.", related: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Flor_de_Ca%C3%B1a_Blanco.jpg" }
+  ,
+    { name: "Brugal Blanco", description: "Dominican white rum from Brugal distillery. Light, smooth, with vanilla, citrus, and subtle oak notes. The standard white rum for Caribbean cocktails in the Dominican Republic.", related: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars"], image: "https://commons.wikimedia.org/wiki/Special:FilePath/Brugal_Blanco.jpg" }
  ] },
   { name: "Light rum", category: "Rums", description: "Same as white rum — light-bodied, clear or pale gold, mild flavor.", brands: ["Bacardi Superior", "Don Q Cristal", "Plantation 3 Stars"], notes: "Deduplicated with White rum.",
   bottles: [
